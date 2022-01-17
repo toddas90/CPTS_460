@@ -42,7 +42,7 @@ main() {
     // get root inode
     prints("read inodes begin block to get root inode" RET);
     
-    getblk(iblk, buf1);
+    getblk((u16)iblk, buf1);
     ip = (INODE *)buf1 + 1;
 
     // step through the data block of root inode
@@ -60,7 +60,7 @@ main() {
     }
 
     if (ip->i_block[12]) { // indirect blocks
-        getblk(ip->i_block[12], buf2);
+        getblk((u16)ip->i_block[12], buf2);
         up = (u32 *)buf2;
         while (*up) {
             getblk((u16)*up, 0);
