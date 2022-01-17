@@ -1,0 +1,16 @@
+rm a.out mtximage
+
+as86 -o bs.o bs.s
+
+bcc -c -ansi t.c
+
+ld86 -d bs.o t.o /usr/lib64/bcc/libc.a
+echo "Finished Compiling"
+
+ls -l a.out | cut -f5 -d' '
+echo "Size"
+
+dd if=a.out of=mtximage bs=1024 count=1 conv=notrunc
+
+rm *.o
+echo done
