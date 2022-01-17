@@ -26,6 +26,7 @@ u8 ino;
 
 main() { 
     u16    i, iblk;
+    u32    *up;
     char   c, temp[64];
     char   *cp;
 
@@ -51,15 +52,16 @@ main() {
     setes(0x1000); // Set es register
 
     for (i = 0; i < 12; i++) { // Direct blocks
+        if (ip->i_block[i] == 0)
+            break;
         getblk((u16)ip->i_block[i], 0); // Load to es
         putc("#");
         inces(); // increment es register
     }
 
-    getblk(ip->i_block[12], buf2);
     if (ip->i_block[12]) { // indirect blocks
-        //getblk(ip->i_block[12], buf2);
-        u32 *up = (u32 *)buf2;
+        getblk(ip->i_block[12], buf2);
+        up = (u32 *)buf2;
         while (*up) {
             getblk((u16)*up, 0);
             putc("*");
@@ -70,6 +72,7 @@ main() {
 
     prints("Blocks loaded" RET);
     getc();
+    return 1;
 
     /*for (i = 0; i < 12; i++) { // Direct blocks
         if ((u16)ip->i_block[i] == 0)
@@ -103,6 +106,6 @@ int gets(char *s) {
 }
 
 int getblk(u16 blk, char *buf) {
-    readfd( (2*blk)/CYL, ( (2*blk)%CYL)/TRK, ((2*blk)%CYL)%TRK, buf);
-    //readfd( blk/18, ((blk)%18)/9, ( ((blk)%18)%9)<<1, buf);
+    //readfd( (2*blk)/CYL, ( (2*blk)%CYL)/TRK, ((2*blk)%CYL)%TRK, buf);
+    readfd( blk/18, ((blk)%18)/9, ( ((blk)%18)%9)<<1, buf);
 }
