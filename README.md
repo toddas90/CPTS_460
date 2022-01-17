@@ -1,2 +1,2 @@
 # CPTS 460
-## Spring 2022
+Semester Taken: Spring 2022
