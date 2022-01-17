@@ -22,13 +22,11 @@ DIR   *dp;
 
 char buf1[BLK], buf2[BLK];
 int color = 0x0A;
-//u8 ino;
 
 main() { 
     u16    i = 0, iblk = 0;
     u32    *up;
-    char   c, temp[64];
-    char   *cp;
+    char   c, temp[64], *cp;
 
     prints("read block# 2 (GD)" RET);
     getblk((u16)2, buf1);
@@ -47,13 +45,13 @@ main() {
 
     // step through the data block of root inode
     // print out file names in root DIR
-    prints("read data block of root DIR\n\r");
+    prints("read data block of root DIR" RET);
     
     setes(0x1000); // Set es register
 
     for (i = 0; i < 12; i++) { // Direct blocks
         getblk((u16)ip->i_block[i], 0); // Load to es
-        prints("#");
+        prints("*");
         inces(); // increment es register
     }
     prints(RET);
@@ -63,23 +61,25 @@ main() {
         up = (u32 *)buf2;
         while (*up) {
             getblk((u16)*up, 0);
-            putc("*");
+            putc(".");
             inces(); // increment es reg
             up++;
         }
         prints(RET);
     }
     prints("Blocks loaded" RET);
-    
+   
+    // Printing dir names (NOT WORKING, JUST LOOPS WITHOUT PRINTING NAMES)
     for (i = 0; i < 12; i++) { // Direct blocks
         getblk((u16)ip->i_block[i], buf2);
         dp = (DIR *)buf2;
         cp = buf2;
         while (cp < buf2 + BLK) { // print out names in DIR
-            prints(dp->name); prints(RET);
+            prints("Name: "); prints(dp->name);
             cp += dp->rec_len;
             dp = (DIR *)cp;
         }
+        prints(RET);
     }
 
     prints("Done." RET);
