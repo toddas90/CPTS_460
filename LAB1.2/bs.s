@@ -23,7 +23,7 @@ start:
         mov     sp,#8192                ! SP = 8KB above SS=0x9000
 
         mov     ax,#0x0012              ! 640x480 color     
-	int     0x10 
+	    int     0x10 
 	
         call _main                      ! call main() in C
   
@@ -37,7 +37,7 @@ start:
        !---------------------------------------
 _readfd:                             
         push  bp
-	mov   bp,sp            ! bp = stack frame pointer
+	    mov   bp,sp            ! bp = stack frame pointer
 
         movb  dl, #0x00        ! drive 0=FD0
         movb  dh, 6[bp]        ! head
@@ -51,7 +51,7 @@ _readfd:
         jb   _error            ! to error if CarryBit is on [read failed]
 
         pop  bp                
-	ret
+	    ret
 		
         !---------------------------------------------
         !  char getc()   function: returns a char
@@ -66,16 +66,16 @@ _getc:
         !----------------------------------------------
 _putc:           
         push   bp
-	mov    bp,sp
+	    mov    bp,sp
 	
         movb   al,4[bp]        ! get the char into aL
         movb   ah,#14          ! aH = 14
-!        movb   bl,#0x0D        ! bL = cyan color 
+        !movb   bl,#0x0D        ! bL = cyan color 
         movb   bl, _color
         int    0x10            ! call BIOS to display the char
 
         pop    bp
-	ret
+	    ret
 
 
         !--------------------------------------------
@@ -102,6 +102,7 @@ _inces:
 _error:
         mov  bx, #bad
         push bx
+        !movb _color, #0x0C
         call _prints
         
         int  0x19                       ! reboot

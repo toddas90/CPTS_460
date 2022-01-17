@@ -18,17 +18,17 @@ typedef struct ext2_dir_entry_2 DIR;
 
 GD    *gp;
 INODE *ip;
-DIR   *dp;
+//DIR   *dp;
 
 char buf1[BLK], buf2[BLK];
 int color = 0x0A;
-u8 ino;
+//u8 ino;
 
 main() { 
     u16    i, iblk;
     u32    *up;
-    char   c, temp[64];
-    char   *cp;
+    char   c;//, temp[64];
+    //char   *cp;
 
     prints("read block# 2 (GD)" RET);
     getblk(2, buf1);
@@ -106,6 +106,6 @@ int gets(char *s) {
 }
 
 int getblk(u16 blk, char *buf) {
-    //readfd( (2*blk)/CYL, ( (2*blk)%CYL)/TRK, ((2*blk)%CYL)%TRK, buf);
-    readfd( blk/18, ((blk)%18)/9, ( ((blk)%18)%9)<<1, buf);
+    readfd( (2*blk)/CYL, ( (2*blk)%CYL)/TRK, ((2*blk)%CYL)%TRK, buf);
+    //readfd( blk/18, ((blk)%18)/9, ( ((blk)%18)%9)<<1, buf);
 }
