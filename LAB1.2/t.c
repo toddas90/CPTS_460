@@ -18,20 +18,20 @@ typedef struct ext2_dir_entry_2 DIR;
 
 GD    *gp;
 INODE *ip;
-//DIR   *dp;
+DIR   *dp;
 
 char buf1[BLK], buf2[BLK];
 int color = 0x0A;
 //u8 ino;
 
 main() { 
-    u16    i, iblk;
+    u16    i = 0, iblk = 0;
     u32    *up;
-    char   c;//, temp[64];
-    //char   *cp;
+    char   c, temp[64];
+    char   *cp;
 
     prints("read block# 2 (GD)" RET);
-    getblk(2, buf1);
+    getblk((u16)2, buf1);
 
     // get bg_inode_table block number
     gp = (GD *)buf1;
@@ -52,12 +52,11 @@ main() {
     setes(0x1000); // Set es register
 
     for (i = 0; i < 12; i++) { // Direct blocks
-        if (ip->i_block[i] == 0)
-            break;
         getblk((u16)ip->i_block[i], 0); // Load to es
-        putc("#");
+        prints("#");
         inces(); // increment es register
     }
+    prints(RET);
 
     if (ip->i_block[12]) { // indirect blocks
         getblk((u16)ip->i_block[12], buf2);
@@ -68,16 +67,12 @@ main() {
             inces(); // increment es reg
             up++;
         }
+        prints(RET);
     }
-
     prints("Blocks loaded" RET);
-    getc();
-    return 1;
-
-    /*for (i = 0; i < 12; i++) { // Direct blocks
-        if ((u16)ip->i_block[i] == 0)
-            break; // break if empty
-        getblk(ip->i_block[i], buf2);
+    
+    for (i = 0; i < 12; i++) { // Direct blocks
+        getblk((u16)ip->i_block[i], buf2);
         dp = (DIR *)buf2;
         cp = buf2;
         while (cp < buf2 + BLK) { // print out names in DIR
@@ -85,7 +80,11 @@ main() {
             cp += dp->rec_len;
             dp = (DIR *)cp;
         }
-    }*/
+    }
+
+    prints("Done." RET);
+    getc();
+    return 1;
 }  
 
 int prints(char *s) {
