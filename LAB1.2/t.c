@@ -22,9 +22,11 @@ DIR   *dp;
 
 char buf1[BLK], buf2[BLK];
 int color = 0x0A;
+u8 ino;
+char *msg = "Data Block =   \n\r";
 
 main() { 
-    u16    i = 0, iblk = 0;
+    u16    i, iblk, blk0, lo, hi;
     u32    *up;
     char   c, temp[64], *cp;
 
@@ -47,43 +49,26 @@ main() {
     // print out file names in root DIR
     prints("read data block of root DIR" RET);
     
-    setes(0x1000); // Set es register
+    blk0 = (u16)ip->i_block[0];
 
-    for (i = 0; i < 12; i++) { // Direct blocks
-        getblk((u16)ip->i_block[i], 0); // Load to es
-        prints("*");
-        inces(); // increment es register
+    lo = blk0 % 10; // little trick to print numbers
+    hi = blk0 / 10;
+    msg[13] = hi+'0'; msg[14] = lo+'0';
+    prints(msg);
+
+    getblk(blk0, buf2);
+    dp = (DIR *)buf2;
+    cp = buf2;
+    while (cp < buf2 + BLK) { // print out names in DIR
+        strncpy(temp, dp->name, dp->name_len);
+        temp[dp->name_len] = 0;
+        prints(temp); putc(' ');
+        cp += dp->rec_len;
+        dp = (DIR *)cp;
     }
     prints(RET);
 
-    if (ip->i_block[12]) { // indirect blocks
-        getblk((u16)ip->i_block[12], buf2);
-        up = (u32 *)buf2;
-        while (*up) {
-            getblk((u16)*up, 0);
-            putc(".");
-            inces(); // increment es reg
-            up++;
-        }
-        prints(RET);
-    }
-    prints("Blocks loaded" RET);
-   
-    // Printing dir names (NOT WORKING, JUST LOOPS WITHOUT PRINTING NAMES)
-    for (i = 0; i < 12; i++) { // Direct blocks
-        getblk((u16)ip->i_block[i], buf2);
-        dp = (DIR *)buf2;
-        cp = buf2;
-        while (cp < buf2 + BLK) { // print out names in DIR
-            prints("Name: "); prints(dp->name);
-            cp += dp->rec_len;
-            dp = (DIR *)cp;
-        }
-        prints(RET);
-    }
-
     prints("Done." RET);
-    getc();
     return 1;
 }  
 
