@@ -1,0 +1,9 @@
+leave out gets() if code is too big.
+
+Find inode of /boot/mtx
+
+Load direct and indirect blocks using code from previous commit (lab1.2)
+
+https://eecs.wsu.edu/~cs460/b.html for instructions
+
+int buf3[256] easier than char buf3[]
