@@ -18,12 +18,11 @@ typedef struct ext2_dir_entry_2 DIR;
 
 u16 NSEC = 2;
 char buf1[BLK], buf2[BLK];
-int buf3[BLK];
 INODE *ip;
 GD *gp;
 DIR *dp;
 
-int strcmp(const char *s1, const char *s2) {
+u16 strc(char *s1, char *s2) {
     while(*s1 && (*s1 == *s2)) {
         s1++; 
         s2++;
@@ -43,10 +42,8 @@ u16 getblk(u16 blk, char *buf) {
 }
 
 // For now I am going to make this always search for "mtx", but it can be easily changed.
-//u16 search(INODE *ip, char *name) {
-u16 search(INODE *ip) {
+u16 search(INODE *ip, char *name) {
     char *cp, temp[64];
-    char *name = "mtx"; // remove this if switching to searching for specific name.
 
     u16 blk0 = ip->i_block[0];
     getblk((u16)blk0, buf2);
@@ -57,7 +54,8 @@ u16 search(INODE *ip) {
     while(cp < buf2 + BLK) {
         strncpy(temp, dp->name, dp->name_len);
         temp[dp->name_len] = 0;
-        if(strcmp(temp, name) == 0) {
+        prints(temp); putc(' '); prints(name); prints("\n\r");
+        if(strc(temp, name) == 0) {
             return dp->inode;
         }
         cp += dp->rec_len;
@@ -80,7 +78,7 @@ main() {
     getblk((u16)iblk, buf1); // Get root into buf
     ip = (INODE *)buf1 + 1;
 
-    ip = (INODE *)search(ip);
+    ip = (INODE *)search(ip, "mtx");
 
     setes(0x1000);
 
