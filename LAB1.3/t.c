@@ -73,9 +73,10 @@ main() {
 
     getblk((u16)iblk, buf1); // Get root into buf
     ip = (INODE *)buf1 + 1;
-    
-    ip = (INODE *)search(ip, "boot");
-    ip = (INODE *)search(ip, "mtx");
+   
+    // Where the problem occurs.
+    ip = (INODE *)search(ip, "boot"); // finds boot DIR.
+    ip = (INODE *)search(ip, "mtx"); // Finds garbage.
 
     setes(0x1000);
 
