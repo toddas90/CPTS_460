@@ -11,60 +11,92 @@ typedef unsigned long  u32;
 #define BLK 1024
 
 #include "ext2.h"
+
 typedef struct ext2_group_desc  GD;
 typedef struct ext2_inode       INODE;
 typedef struct ext2_dir_entry_2 DIR;
 
-int prints(char *s)
-{
-}
-
-int gets(char *s)
-{ 
-}
-
-
 u16 NSEC = 2;
 char buf1[BLK], buf2[BLK];
+int buf3[BLK];
+INODE *ip;
+GD *gp;
+DIR *dp;
 
-u16 getblk(u16 blk, char *buf)
-{
+int strcmp(const char *s1, const char *s2) {
+    while(*s1 && (*s1 == *s2)) {
+        s1++; 
+        s2++;
+    }
+    return *(u8*)s1 - *(u8*)s2;
+}
+
+int prints(char *s){
+    while(*s) {
+        putc(*s);
+        s++;
+    }
+}
+
+u16 getblk(u16 blk, char *buf) {
     readfd( (2*blk)/CYL, ( (2*blk)%CYL)/TRK, ((2*blk)%CYL)%TRK, buf);
 }
 
-u16 search(INODE *ip, char *name)
-{
-  search for name in the data block of INODE; 
-  return its inumber if found
-  else error();
+// For now I am going to make this always search for "mtx", but it can be easily changed.
+//u16 search(INODE *ip, char *name) {
+u16 search(INODE *ip) {
+    char *cp, temp[64];
+    char *name = "mtx"; // remove this if switching to searching for specific name.
+
+    u16 blk0 = ip->i_block[0];
+    getblk((u16)blk0, buf2);
+    
+    dp = (DIR *)buf2;
+    cp = buf2;
+
+    while(cp < buf2 + BLK) {
+        strncpy(temp, dp->name, dp->name_len);
+        temp[dp->name_len] = 0;
+        if(strcmp(temp, name) == 0) {
+            return dp->inode;
+        }
+        cp += dp->rec_len;
+        dp = (DIR *)cp;
+    }
+    error();
+  //search for name in the data block of INODE; 
+  //return its inumber if found
+  //else error();
 }
 
-main()
-{ 
+main() {
+    u16 i, iblk;
+    u32 *up;
 
-//1. Write YOUR C code to get the INODE of /boot/mtx
-//   INODE *ip --> INODE
+    getblk(2, buf1); // Get block into buf
+    gp = (GD *)buf1;
+    iblk = (u16)gp->bg_inode_table;
 
-//   if INODE has indirect blocks: get i_block[12] int buf2[  ]
+    getblk((u16)iblk, buf1); // Get root into buf
+    ip = (INODE *)buf1 + 1;
 
+    ip = (INODE *)search(ip);
 
-//2. setes(0x1000);  // MTX loading segment = 0x1000
+    setes(0x1000);
 
-//3. load 12 DIRECT blocks of INODE into memory
-   for (i=0; i<12; i++){
-      getblk((u16)ip->i_block[i], 0);
-      putc('*');
-      inces();
-   }
-
-//4. load INDIRECT blocks, if any, into memory
-   if (ip->i_block[12]){
-     up = (u32 *)buf2;      
-     while(*up){
-        getblk((u16)*up, 0); putc('.');
+    // load direct blocks
+    for (i=0; i<12; i++){
+        getblk((u16)ip->i_block[i], 0);
         inces();
-        up++;
      }
-  }
-  prints("go?"); getc();
+
+    // load indirect blocks
+    if (ip->i_block[12]){
+        up = (u32 *)buf2;      
+        while(*up){
+            getblk((u16)*up, 0);
+            inces();
+            up++;
+        }
+    }
 }  
