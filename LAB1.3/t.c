@@ -22,7 +22,7 @@ INODE *ip;
 GD *gp;
 DIR *dp;
 
-u16 strc(char *s1, char *s2) {
+u16 strcmpr(char *s1, char *s2) {
     while(*s1 && (*s1 == *s2)) {
         s1++; 
         s2++;
@@ -41,7 +41,6 @@ u16 getblk(u16 blk, char *buf) {
     readfd( (2*blk)/CYL, ( (2*blk)%CYL)/TRK, ((2*blk)%CYL)%TRK, buf);
 }
 
-// For now I am going to make this always search for "mtx", but it can be easily changed.
 u16 search(INODE *ip, char *name) {
     char *cp, temp[64];
 
@@ -55,16 +54,13 @@ u16 search(INODE *ip, char *name) {
         strncpy(temp, dp->name, dp->name_len);
         temp[dp->name_len] = 0;
         prints(temp); putc(' '); prints(name); prints("\n\r");
-        if(strc(temp, name) == 0) {
+        if(strcmpr(temp, name) == 0) {
             return dp->inode;
         }
         cp += dp->rec_len;
         dp = (DIR *)cp;
     }
     error();
-  //search for name in the data block of INODE; 
-  //return its inumber if found
-  //else error();
 }
 
 main() {
@@ -77,7 +73,8 @@ main() {
 
     getblk((u16)iblk, buf1); // Get root into buf
     ip = (INODE *)buf1 + 1;
-
+    
+    ip = (INODE *)search(ip, "boot");
     ip = (INODE *)search(ip, "mtx");
 
     setes(0x1000);
