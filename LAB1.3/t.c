@@ -16,20 +16,12 @@ typedef struct ext2_group_desc  GD;
 typedef struct ext2_inode       INODE;
 typedef struct ext2_dir_entry_2 DIR;
 
-u16 NSEC = 2;
+//u16 NSEC = 2;
 char buf1[BLK], buf2[BLK];
 INODE *ip;
 GD *gp;
 DIR *dp;
 u16 iblk;
-
-u16 strcmpr(char *s1, char *s2) {
-    while(*s1 && (*s1 == *s2)) {
-        s1++; 
-        s2++;
-    }
-    return *(u8*)s1 - *(u8*)s2;
-}
 
 int prints(char *s){
     while(*s) {
@@ -55,7 +47,7 @@ u16 search(INODE *ip, char *name) {
         strncpy(temp, dp->name, dp->name_len);
         temp[dp->name_len] = 0;
         //prints(temp); putc(' ');
-        if(strcmpr(temp, name) == 0) {
+        if(strcmp(temp, name) == 0) {
             //prints("\n\r");
             return dp->inode;
         }
@@ -95,26 +87,30 @@ main() {
     
     //prints("Loading mtx...\n\r");
 
+    getblk((u16)ip->i_block[12], buf2);
+
+
     setes(0x1000);
 
     // load direct blocks
     for (i = 0; i < 12; i++){
         getblk((u16)ip->i_block[i], 0);
-        putc('*');
+        //putc('*');
         inces();
      }
 
     // load indirect blocks
     if (ip->i_block[12]){
-        getblk(ip->i_block[12], buf2);
         up = (u32 *)buf2;      
         while(*up){
             getblk((u16)*up, 0);
-            putc('.');
+            //putc('.');
             inces();
             up++;
         }
     }
     
-    // All done, go back and execute kernel <3
+    //prints("Kernel Loaded\n\r");
+    return 1;
+    // All done, go and execute kernel <3
 }  
