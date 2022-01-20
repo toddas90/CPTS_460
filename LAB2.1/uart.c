@@ -1,3 +1,7 @@
+#include <stdarg.h>
+
+typedef unsigned int u32;
+
 char *tab = "0123456789ABCDEF";
 #define DR 0x00
 #define FR 0x18
@@ -10,6 +14,7 @@ typedef struct uart{
 UART uart[4];          // 4 UART structs
 
 // For versatile_epb : uarts are at 0x101F1000, 2000, 3000; 10009000 
+int uputc(UART *up, char c);
 
 int uart_init()
 {
@@ -21,6 +26,79 @@ int uart_init()
     up->n = i;
   }
   uart[3].base = (char *)(0x10009000);
+}
+
+void uprintf(UART *up, char *fmt, ...) {
+    va_list valist;
+    char *it = fmt;
+    char *strval;
+
+    va_start(valist, fmt);
+
+    while(*it) {
+        if(*it != '%') {
+            uputc(up, *it);
+            it++;
+            continue;
+        }
+        switch(*++it) {
+            case 'c':
+                uputc(up, va_arg(valist, int));
+                break;
+            case 'd':
+                uputc(up, va_arg(valist, int));
+                break;
+            case 'u':
+                uputc(up, va_arg(valist, u32));
+                break;
+            case 'x':
+                uputc(up, va_arg(valist, u32));
+            case 'o':
+                uputc(up, va_arg(valist, u32));
+            case 's':
+                strval = va_arg(valist, char *);
+                while(*strval) {
+                    uputc(up, *strval);
+                    strval++;
+                }
+                break;
+        }
+        it++;
+    }
+    va_end(valist);
+}
+
+void uprintu(UART *up, u32 x) {
+    int b = 10;
+    (x==0) ? uputc(up, '0') : urpu(up, x, b);
+}
+
+void uprintd(UART *up, int x) {
+    int b = 10;
+    if(x < 0) {
+        x = x * -1;
+        uputc(up, '-');
+    }
+    (x == 0) ? uputc(up, '0') : urpu(up, x, b);
+}
+
+void uprintx(UART *up, u32 x) {
+    int b = 16;
+    (x == 0) ? uputc(up, '0') : urpu(up, x, b);
+}
+
+void uprinto(UART *up, u32 x) {
+    int b = 8;
+    (x == 0) ? uputc(up, '0') : urpu(up, x, b);
+}
+
+int urpu(UART *up, u32 x, int base) {
+    char c;
+    if (x) {
+        c = tab[x % base];
+        urpu(up, x / base, base);
+        uputc(up, c);
+    }
 }
 
 int ugetc(UART *up)
@@ -42,6 +120,7 @@ int ugets(UART *up, char *s)
     s++;
   }
  *s = 0;
+ uprints(up, "\n\r");
 }
 
 int uprints(UART *up, char *s)
