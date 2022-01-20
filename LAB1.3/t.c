@@ -68,16 +68,15 @@ u16 search(INODE *ip, char *name) {
 void getinode(u8 ino) {
     u8 blk, offset;
     
-    blk = (ino-1)/8 + iblk;
-    offset = (ino-1)%8;
-    getblk(blk, buf2);
-    ip = (INODE *)buf2 + offset; 
+    blk = (ino - 1) / 8 + iblk;
+    offset = (ino - 1) % 8;
+    getblk(blk, buf1);
+    ip = (INODE *)buf1 + offset; 
 }
 
 main() {
-    u16 i;
     u32 *up;
-    u8 ino;
+    u8 i, ino;
 
     getblk(2, buf1); // Get block into buf
     gp = (GD *)buf1;
@@ -90,6 +89,7 @@ main() {
     ino = search(ip, "boot");
     getinode(ino);
 
+    // get mtx into buf
     ino = search(ip, "mtx");
     getinode(ino);
     
@@ -98,7 +98,7 @@ main() {
     setes(0x1000);
 
     // load direct blocks
-    for (i=0; i<12; i++){
+    for (i = 0; i < 12; i++){
         getblk((u16)ip->i_block[i], 0);
         putc('*');
         inces();
@@ -115,5 +115,6 @@ main() {
             up++;
         }
     }
+    
     // All done, go back and execute kernel <3
 }  
