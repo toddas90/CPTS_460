@@ -21,6 +21,7 @@ char buf1[BLK], buf2[BLK];
 INODE *ip;
 GD *gp;
 DIR *dp;
+u16 iblk;
 
 u16 strcmpr(char *s1, char *s2) {
     while(*s1 && (*s1 == *s2)) {
@@ -53,8 +54,9 @@ u16 search(INODE *ip, char *name) {
     while(cp < buf2 + BLK) {
         strncpy(temp, dp->name, dp->name_len);
         temp[dp->name_len] = 0;
-        prints(temp); putc(' '); prints(name); prints("\n\r");
+        //prints(temp); putc(' ');
         if(strcmpr(temp, name) == 0) {
+            //prints("\n\r");
             return dp->inode;
         }
         cp += dp->rec_len;
@@ -63,9 +65,19 @@ u16 search(INODE *ip, char *name) {
     error();
 }
 
+void getinode(u8 ino) {
+    u8 blk, offset;
+    
+    blk = (ino-1)/8 + iblk;
+    offset = (ino-1)%8;
+    getblk(blk, buf2);
+    ip = (INODE *)buf2 + offset; 
+}
+
 main() {
-    u16 i, iblk;
+    u16 i;
     u32 *up;
+    u8 ino;
 
     getblk(2, buf1); // Get block into buf
     gp = (GD *)buf1;
@@ -74,25 +86,34 @@ main() {
     getblk((u16)iblk, buf1); // Get root into buf
     ip = (INODE *)buf1 + 1;
    
-    // Where the problem occurs.
-    ip = (INODE *)search(ip, "boot"); // finds boot DIR.
-    ip = (INODE *)search(ip, "mtx"); // Finds garbage.
+    // Get /boot inode into buf
+    ino = search(ip, "boot");
+    getinode(ino);
+
+    ino = search(ip, "mtx");
+    getinode(ino);
+    
+    //prints("Loading mtx...\n\r");
 
     setes(0x1000);
 
     // load direct blocks
     for (i=0; i<12; i++){
         getblk((u16)ip->i_block[i], 0);
+        putc('*');
         inces();
      }
 
     // load indirect blocks
     if (ip->i_block[12]){
+        getblk(ip->i_block[12], buf2);
         up = (u32 *)buf2;      
         while(*up){
             getblk((u16)*up, 0);
+            putc('.');
             inces();
             up++;
         }
     }
+    // All done, go back and execute kernel <3
 }  
