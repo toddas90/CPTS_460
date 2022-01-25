@@ -45,15 +45,15 @@ void uprintf(UART *up, char *fmt, ...) {
                 uputc(up, va_arg(valist, int));
                 break;
             case 'd':
-                uputc(up, va_arg(valist, int));
+                uprintd(up, va_arg(valist, int));
                 break;
             case 'u':
-                uputc(up, va_arg(valist, u32));
+                uprintu(up, va_arg(valist, u32));
                 break;
             case 'x':
-                uputc(up, va_arg(valist, u32));
+                uprintx(up, va_arg(valist, u32));
             case 'o':
-                uputc(up, va_arg(valist, u32));
+                uprinto(up, va_arg(valist, u32));
             case 's':
                 strval = va_arg(valist, char *);
                 while(*strval) {
