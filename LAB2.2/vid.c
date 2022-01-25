@@ -1,6 +1,8 @@
 /****************** vid.c file *******************/
 int volatile *fb;  // display buffer
 
+extern void uprintf(char *fmt, ...);
+
 int fbuf_init()
 {
   int i;
@@ -48,7 +50,7 @@ int show_bmp(char *p, int startRow, int startCol)
      }
      p -= r2;
    }
-   // REQUIRED: use YOUR uprintf() of Part 1 to print h,w to UART0
+   
    uprintf("\nBMP image height=%d width=%d\n", h, w);
 
 }
