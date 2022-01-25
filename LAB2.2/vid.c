@@ -39,18 +39,19 @@ int show_bmp(char *p, int startRow, int startCol)
    r2 = 4*((3*w+3)/4);     // row size is a multiple of 4 bytes  
    p += (h-1)*r2;
 
-   for (i=startRow; i<h+startRow; i++){
+   for (i=startRow; i<(h+startRow) / 2; i++){ // Do half height
      pp = p;
      
-     for (j=startCol; j<startCol+w; j++){
+     for (j=startCol; j<(startCol+w) / 2; j++){ // Do half width
          b = *pp; g = *(pp+1); r = *(pp+2);
          pixel = (b<<16) + (g<<8) + r;
          fb[i*640 + j] = pixel;
          pp += 3;    // back pp by 3 bytes
      }
-     p -= r2;
+     p -= r2 * 2; // Skipping every other pixel to make 1/2 size
    }
    
    uprintf("\nBMP image height=%d width=%d\n", h, w);
+   uprintf("Actual height = %d width = %d", h/2, w/2);
 
 }
