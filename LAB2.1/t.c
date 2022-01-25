@@ -15,7 +15,7 @@ int main()
   N = 10;
 
   uart_init();
-  up = &uart[0];
+  up = &uart[0]; // default was 0
 
   uprintf(up, "Enter lines from UART terminal, enter \"quit\" to exit\n\r");
   //uprints(up, "Enter lines from UART terminal, enter quit to exit\n\r");

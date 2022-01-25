@@ -8,8 +8,8 @@ arm-none-eabi-objcopy -O binary t.elf t.bin
 
 rm *.o *.elf
  
-qemu-system-arm -M realview-pbx-a9 -m 128M -kernel t.bin -serial mon:stdio
-#qemu-system-arm -M versatilepb -m 128M -kernel t.bin -serial mon:stdio -enable-kvm
+#qemu-system-arm -M realview-pbx-a9 -m 128M -kernel t.bin -serial mon:stdio
+qemu-system-arm -M versatilepb -m 128M -kernel t.bin -serial mon:stdio
  
 
 
