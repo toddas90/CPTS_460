@@ -50,8 +50,9 @@ int show_bmp(char *p, int startRow, int startCol)
      }
      p -= r2 * 2; // Skipping every other pixel to make 1/2 size
    }
-   
-   uprintf("\nBMP image height=%d width=%d\n", h, w);
+  
+   // I changed lines 42, 45, and 51 to make it half size
+   uprintf("\nBMP image height = %d width = %d\n", h, w);
    uprintf("Actual height = %d width = %d", h/2, w/2);
 
 }
