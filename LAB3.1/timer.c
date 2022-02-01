@@ -59,7 +59,10 @@ void timer_init()
     *(tp->base+TRIS)  = 0x0;
     *(tp->base+TMIS)  = 0x0;
     *(tp->base+TCNTL) = 0x62; //011-0000=|En|Pe|IntE|-|scal=00|32-bit|0=wrap|
-    *(tp->base+TBGLOAD) = 0xE0000/60;
+    //*(tp->base+TBGLOAD) = 0xE0000/60; Original from KC
+    *(tp->base+TBGLOAD) = 0xE0000; // Assuming 0xE0000 is 1 second
+    // You can make this line ^ more accurate by dividing the counter
+    // aka if you divide it by 60, it will count every 1/60 of a second
 
     tp->tick = tp->hh = tp->mm = tp->ss = 0;
     strcpy((char *)tp->clock, "00:00:00");
@@ -67,14 +70,18 @@ void timer_init()
 }
 
 void timer_handler(int n){
-  
+ 
+    // Originally KC was running the timer at 1/60 of a second, so
+    // you had to count 60 ticks for 1 second, then he was using it to print
+    // a message every second. I decreased the speed of the timer so it
+    // triggers every second, s I commented the tick count part out.
     TIMER *t = &timer[n];
 
-    t->tick++;
-    if (t->tick == 60){
-      t->tick = 0;
+    //t->tick++;
+    //if (t->tick == 60){ // Original from KC
+      //t->tick = 0; // Assuming the 0xE0000 is already 1 second
       kputs("timer interrupt\n");
-    }
+    //}
     
     timer_clearInterrupt(n);
 }
