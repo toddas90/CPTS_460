@@ -40,6 +40,7 @@ extern int unkpchar(char, int, int);
 extern int kputc(char);
 
 int k;
+int cur = 1;
 
 void timer_init()
 {
@@ -60,7 +61,7 @@ void timer_init()
     *(tp->base+TMIS)  = 0x0;
     *(tp->base+TCNTL) = 0x62; //011-0000=|En|Pe|IntE|-|scal=00|32-bit|0=wrap|
     //*(tp->base+TBGLOAD) = 0xE0000/60; Original from KC
-    *(tp->base+TBGLOAD) = 0xE0000; // Assuming 0xE0000 is 1 second
+    *(tp->base+TBGLOAD) = 0x1C00; // Assuming 0xE0000 is 1 second
     // You can make this line ^ more accurate by dividing the counter
     // aka if you divide it by 60, it will count every 1/60 of a second
 
@@ -69,27 +70,44 @@ void timer_init()
   }
 }
 
-void timer_handler(int n){
- 
-    // Originally KC was running the timer at 1/60 of a second, so
-    // you had to count 60 ticks for 1 second, then he was using it to print
-    // a message every second. I decreased the speed of the timer so it
-    // triggers every second, s I commented the tick count part out.
+void timer_handler(int n) {
+    int i;
     TIMER *t = &timer[n];
+    t->tick++; // Assume 120 ticks per second
+    color = YELLOW; 
+    if (t->tick == 120 && cur == 1) {
+        clrcursor();
+        cur = 0;
+    } else if (t->tick == 120 && cur == 0) {
+        putcursor();
+        cur = 1;
+    }
 
-    //t->tick++;
-    //if (t->tick == 60){ // Original from KC
-      //t->tick = 0; // Assuming the 0xE0000 is already 1 second
-      kputs("timer interrupt\n");
-    //}
-    
-    timer_clearInterrupt(n);
+    if (t->tick==120){
+        t->tick = 0; t->ss++;
+        if (t->ss == 60){
+            t->ss = 0; t->mm++;
+            if (t->mm == 60){
+                t->mm = 0; t->hh++; // no 24 hour roll around
+            }
+        }
+    t->clock[7]='0'+(t->ss%10); t->clock[6]='0'+(t->ss/10);
+    t->clock[4]='0'+(t->mm%10); t->clock[3]='0'+(t->mm/10);
+    t->clock[1]='0'+(t->hh%10); t->clock[0]='0'+(t->hh/10);
+    }
+    color = n; // display in different color
+    for (i=0; i<8; i++){
+        for (int j = 0; j < 10; j++) {
+            unkpchar(j+'0', n, 70+i);
+        }
+        kpchar(t->clock[i], n, 70+i); // to line n of LCD
+    }
+    timer_clearInterrupt(n); // clear timer interrupt
 }
 
 void timer_start(int n) // timer_start(0), 1, etc.
 {
   TIMER *tp = &timer[n];
-
   *(tp->base+TCNTL) |= 0x80;    // set enable bit 7
 }
 

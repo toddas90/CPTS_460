@@ -27,7 +27,7 @@ void IRQ_chandler()
     sicstatus = *(SIC_BASE + SIC_STATUS);
 
     if (vicstatus & 0x0010){   // timer0,1=bit4
-            timer_handler(0);
+        timer_handler(0);
     }
 }
 
