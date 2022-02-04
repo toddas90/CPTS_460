@@ -61,13 +61,13 @@ int dchar(unsigned char c, int x, int y)
   unsigned char *caddress, byte;
 
   caddress = font + c*16;       // 16-bytes per ASCII in font[ ]
-  
   for (r=0; r<16; r++){         // each ASCII char is a 16row x 8col bitmap
     byte = *(caddress + r);     // get each byte of a row
 
     for (bit=0; bit<8; bit++){  // for each bit in this byte 
-      if (byte & (1<<bit))      // set pixel by 1 bits in this byte
-	 setpix(x+bit, y+r);    // x inc, but same y+r
+      if (byte & (1<<bit)) {      // set pixel by 1 bits in this byte
+	    setpix(x+bit, y+r);    // x inc, but same y+r
+      }
     }
   }
 }
