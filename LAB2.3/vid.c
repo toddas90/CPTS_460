@@ -11,6 +11,7 @@ int volatile *fb;
 int row, col;
 unsigned char *font;  // cfont file : char cfonts[] = ASCI bitmaps 
 int WIDTH = 640;
+int SIZE = 2;
 
 int fbuf_init()
 {
@@ -61,13 +62,12 @@ int dchar(unsigned char c, int x, int y)
   unsigned char *caddress, byte;
 
   caddress = font + c*16;       // 16-bytes per ASCII in font[ ]
-  for (r=0; r<16; r++){         // each ASCII char is a 16row x 8col bitmap
-    byte = *(caddress + r);     // get each byte of a row
+  for (r=0; r<16 * SIZE; r++){         // each ASCII char is a 16row x 8col bitmap
+    byte = *(caddress + r/SIZE);     // get each byte of a row
 
-    for (bit=0; bit<8; bit++){  // for each bit in this byte 
-      if (byte & (1<<bit)) {      // set pixel by 1 bits in this byte
-	    setpix(x+bit, y+r);    // x inc, but same y+r
-      }
+    for (bit=0; bit<8 * SIZE; bit++){  // for each bit in this byte 
+      if (byte & (1<<(bit/SIZE)))    // set pixel by 1 bits in this byte
+	    setpix(x+bit, y+r);     // x inc, but same y+r
     }
   }
 }
@@ -79,11 +79,11 @@ int undchar(unsigned char c, int x, int y)
 
   caddress = font + c*16;
 
-  for (r=0; r<16; r++){
-    byte = *(caddress + row);
+  for (r=0; r<16*SIZE; r++){
+    byte = *(caddress + row/SIZE);
 
-    for (bit=0; bit<8; bit++){
-        if (byte & (1<<bit))    // OR simply clr all pixels in this row
+    for (bit=0; bit<8*SIZE; bit++){
+        if (byte & (1<<(bit/SIZE)))    // OR simply clr all pixels in this row
 	   clrpix(x+bit, y+r);
     }
   }
@@ -100,16 +100,16 @@ int scroll()
 int kpchar(char c, int ro, int co) // show c at (row=ro, col=co)
 {
    int x, y;
-   x = co*8;           // pixel location (x,y) in 480x640 matrix
-   y = ro*16;
+   x = co*8*SIZE;           // pixel location (x,y) in 480x640 matrix
+   y = ro*16*SIZE;
    dchar(c, x, y); 
 }
 
 int unkpchar(char c, int ro, int co)
 {
    int x, y;
-   x = co*8;
-   y = ro*16;
+   x = co*8*SIZE;
+   y = ro*16*SIZE;
    undchar(c, x, y);
 }
 
