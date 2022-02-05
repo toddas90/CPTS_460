@@ -1,0 +1,29 @@
+Where and how were timers enabled to generate interrupts?
+    in timer_init() the addresses and bitfields are set to enable
+    the interrupts.
+
+Where and how were timer interrupts routed to the CPU?
+   in main(), bit 4 is set in the vic allowing interrupts
+   from the timer.
+
+Where and how was timer 0 enabled?
+    timer_start() bit 7 was set for the timer.
+
+What happens if we don't enable timer 0?
+    The timer doesn't generate interrupts.
+
+Where and how did we unmask the IRQ system?
+    in reset_handler, when changing back to SVC mode, the I-bit
+    is set to 0 (0x13).
+
+What happens if we MSR cspr #0x93?
+    interrupts are masked and not allowed to get to the CPU.
+
+What does copy_vectors() do?
+    it copies the vector table that stores the interrupts stuff
+    into memory for accessing.
+
+Show the control flow from the while loop.
+    while(1) -> irq_handler -> IRQ_chandler() -> timer_handler() ->
+        timer_clearInterrupt() -> the irq_handler sets back to
+        SVC mode and it waits for another interrupt.

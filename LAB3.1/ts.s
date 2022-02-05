@@ -10,7 +10,7 @@ reset_handler:
   BL copy_vectors        // copy vector table to 0 
   MSR cpsr, #0x12        // to IRQ mode
   LDR sp, =irq_stack     // set IRQ stack
-  MSR cpsr, #0x13        // back to SVC mode with I-bit=0: unmask IRQ
+  MSR cpsr, #0x13        // back to SVC mode with I-bit=0: unmask IRQ 0x13
   BL main                // call main
   B .
 
