@@ -15,6 +15,8 @@ typedef volatile struct kbd{
 volatile KBD kbd;
 
 int release;       // key release flag
+int shift;         // Shift release flag
+int ctrl;          // Control release flag
 
 int kbd_init()
 {
@@ -44,15 +46,43 @@ void kbd_handler()
      return;
   }
 
+  if (scode == 0x12) // Set shift flag
+      shift = 1;
+
+  if (scode == 0x14) // Set control flag
+      ctrl = 1;
+
   if (release == 1){   // scan code after 0xF0
+      if (scode == 0x12) // Detect when shift is released
+          shift = 0;
+      if (scode == 0x14) // Detect when ctrl is released
+          ctrl = 0;
      release = 0;      // reset release flag
      return;
   }
 
-  // map scode to ASCII in lowercase 
-  c = ltab[scode];
+  if (ctrl && scode == 0x21) { // If ctrl is set and scode is 'c'
+      color = GREEN;
+      kputs("Control-C key pressed!\n");
+      color = YELLOW;
+  } else if (ctrl && scode == 0x23) { // If ctrl is set and scode is 'd'
+        color = GREEN;
+        kputs("Control-D key pressed!\n");
+        c = ltab[0x04];
+        color = YELLOW;
+  } else if (shift) { // If shift is set
+      c = utab[scode];
+  } else { // lowercase
+      c = ltab[scode];
+  }
 
-  kputs("kbd interrupt : "); kputc(c); kputs("\n");
+  if (c) { // This if just makes the output easier to read.
+    color = BLUE;
+    kputs("kbd interrupt : "); kputc(c); kputs("\n");
+    color = YELLOW;
+  } else {
+      kputs("kbd interrupt : "); kputc(c); kputs("\n");
+  }
 
   kp->buf[kp->head++] = c;
   kp->head %= 128;
