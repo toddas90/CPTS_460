@@ -75,7 +75,10 @@ int init()
   p->status = READY;
   p->priority = 0;
   p->ppid = 0;             // P0 is its own parent
-  
+  p->sibling = 0; // No siblings
+  p->parent = 0; // No parent
+  p->child = 0; // No children yet
+
   printList("freeList", freeList);
   printf("init complete: P0 running\n"); 
 }
@@ -104,6 +107,16 @@ int do_ps()
       printf("%s\n", status[p->status]);
   }
 }
+
+int printChildList() {
+  PROC *test = running->child;
+  printf("[");
+  while(test){
+    printf(" %d ->", test->pid);
+    test = test->sibling;
+  }
+  printf(" NULL]\n");
+}
     
 int body()   // process body function
 {
@@ -114,6 +127,8 @@ int body()   // process body function
   while(1){
     printf("***************************************\n");
     printf("proc %d running: parent=%d\n", running->pid,running->ppid);
+    printf("childlist = ");
+    printChildList();
     printList("readyQueue", readyQueue);
     printSleepList(sleepList);
     menu();
@@ -139,6 +154,7 @@ int body()   // process body function
 int kfork()  // kfork a child process to execute body() function
 {
   int i;
+  PROC *tester;
   PROC *p = dequeue(&freeList);
   if (p==0){
     kprintf("kfork failed\n");
@@ -148,7 +164,20 @@ int kfork()  // kfork a child process to execute body() function
   p->parent = running;          // set parent PROC pointer
   p->status = READY;
   p->priority = 1;
+
+  tester = running->child; // Pointer to check if child/siblings exist
   
+  if (tester == 0) { // If no child in parent
+    running->child = p; // Child is now p
+  } else {
+    while (tester->sibling) { // While there are siblings
+      tester = tester->sibling; // Move down sibling chain
+    }
+    tester->sibling = p; // The new sibling is p
+  }
+
+  p->sibling = 0; // p has no sibling yet
+  p->child = 0; // p has no child yet
 // set kstack to resume to body
 //  HIGH    -1  -2  -3  -4  -5 -6 -7 -8 -9 -10 -11 -12 -13 -14
 //        ------------------------------------------------------
