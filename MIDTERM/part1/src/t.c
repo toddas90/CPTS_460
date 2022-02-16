@@ -110,12 +110,11 @@ int do_ps()
 
 int printChildList() {
   PROC *test = running->child;
-  printf("[");
   while(test){
-    printf(" %d ->", test->pid);
+    printf("%d->", test->pid);
     test = test->sibling;
   }
-  printf(" NULL]\n");
+  printf("NULL\n");
 }
     
 int body()   // process body function
@@ -202,6 +201,7 @@ int do_kfork()
    else{
       printf("proc %d kforked a child = %d\n", running->pid, child); 
       printList("readyQueue", readyQueue);
+      kwait(0);
    }
    return child;
 }
