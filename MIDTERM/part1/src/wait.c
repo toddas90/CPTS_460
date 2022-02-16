@@ -19,9 +19,10 @@ int kwait(int *status) {
       int child_pid = p->pid;
       *status = p->exitCode;
       p->status = FREE;
-      if (running->child == running) {
-        running->child = running->sibling;
-      }
+      //if (running->child == running) {
+        //running->child = running->sibling;
+      //}
+      p->priority = 0;
       enqueue(&freeList, p);
       return child_pid;
     }
@@ -93,7 +94,6 @@ int kexit(int exitValue) {
       insert->sibling = p;
     }
   }
-  
   running->exitCode = exitValue;
   running->status = ZOMBIE;
   kwakeup(running->parent);
