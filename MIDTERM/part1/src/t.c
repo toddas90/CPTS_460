@@ -9,6 +9,7 @@ PROC *running;         // current running proc pointer
 PROC *sleepList;       // list of SLEEP procs
 int procsize = sizeof(PROC);
 
+#define NULL 0
 #define printf kprintf
 #define gets kgets
 
@@ -63,6 +64,9 @@ int init()
     p->status = FREE;
     p->priority = 0;      
     p->next = p+1;
+    p->child = NULL;
+    p->sibling = NULL;
+    p->parent = NULL;
   }
   proc[NPROC-1].next = 0;  
   freeList = &proc[0];     // all PROCs in freeList     
@@ -75,9 +79,9 @@ int init()
   p->status = READY;
   p->priority = 0;
   p->ppid = 0;             // P0 is its own parent
-  p->sibling = 0; // No siblings
-  p->parent = 0; // No parent
-  p->child = 0; // No children yet
+  p->sibling = NULL; // No siblings
+  p->parent = p; // No parent
+  p->child = NULL; // No children yet
 
   printList("freeList", freeList);
   printf("init complete: P0 running\n"); 
@@ -157,25 +161,18 @@ int kfork()  // kfork a child process to execute body() function
   p->status = READY;
   p->priority = 1;
 
-  tester = running->child; // Pointer to check if child/siblings exist
+  tester = running; // Pointer to check if child/siblings exist
   
-  if (tester == 0) { // If no child in parent
-    running->child = p; // Child is now p
+  if (tester->child == 0) { // If no child in parent
+    tester->child = p; // Child is now p
   } else {
+    tester = tester->child;
     while (tester->sibling) { // While there are siblings
       tester = tester->sibling; // Move down sibling chain
     }
     tester->sibling = p; // The new sibling is p
   }
 
-  p->sibling = 0; // p has no sibling yet
-  p->child = 0; // p has no child yet
-// set kstack to resume to body
-//  HIGH    -1  -2  -3  -4  -5 -6 -7 -8 -9 -10 -11 -12 -13 -14
-//        ------------------------------------------------------
-// kstack=| lr,r12,r11,r10,r9,r8,r7,r6,r5, r4, r3, r2, r1, r0
-//        -------------------------------------------------|----
-//	                                              proc.ksp
   for (i=1; i<15; i++)
     p->kstack[SSIZE-i] = 0;        // zero out kstack
 

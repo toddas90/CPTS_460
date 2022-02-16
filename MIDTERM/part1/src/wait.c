@@ -19,10 +19,9 @@ int kwait(int *status) {
       int child_pid = p->pid;
       *status = p->exitCode;
       p->status = FREE;
-      //if (running->child == running) {
-        //running->child = running->sibling;
-      //}
       p->priority = 0;
+      //p->sibling = NULL;
+      //p->child = NULL;
       enqueue(&freeList, p);
       return child_pid;
     }
@@ -58,11 +57,6 @@ int kwakeup(int event) {
 }
 
 int kexit(int exitValue) {
-  // Dispose of children, if any.
-  // record exit value in proc.
-  // become a ZOMBIE but don't free it yet,
-  // wake up the parent, and p1 if necessary.
-  // switch.
   if (running->pid == 1) {
     printf("Sorry, I can't let you do that.\n");
     return -1;
@@ -80,8 +74,6 @@ int kexit(int exitValue) {
       q = q->sibling;
     }
 
-
-    // I THINK THE CHILDLIST BUG IS IN THE FOLLOWING CODE
     PROC *insert = &proc[1];
     insert = insert->child;
      
@@ -96,6 +88,8 @@ int kexit(int exitValue) {
   }
   running->exitCode = exitValue;
   running->status = ZOMBIE;
+  //running->sibling = NULL;
+  //running->child = NULL;
   kwakeup(running->parent);
   tswitch();
 }
