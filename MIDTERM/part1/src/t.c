@@ -24,7 +24,7 @@ int procsize = sizeof(PROC);
   When scheduled to run, child PROC resumes to body();
 ********************************************************/
 int body(), tswitch(), do_sleep(), do_wakeup(), do_exit(), do_switch();
-int do_kfork();
+int do_kfork(), do_wait();
 int scheduler();
 
 int kprintf(char *fmt, ...);
@@ -85,9 +85,9 @@ int init()
 
 int menu()
 {
-  printf("**********************************\n");
-  printf(" ps fork switch exit sleep wakeup \n");
-  printf("**********************************\n");
+  printf("***************************************\n");
+  printf(" ps fork switch exit sleep wakeup wait \n");
+  printf("***************************************\n");
 }
 
 char *status[ ] = {"FREE", "READY", "SLEEP", "ZOMBIE"};
@@ -107,15 +107,6 @@ int do_ps()
       printf("%s\n", status[p->status]);
   }
 }
-
-int printChildList() {
-  PROC *test = running->child;
-  while(test){
-    printf("%d->", test->pid);
-    test = test->sibling;
-  }
-  printf("NULL\n");
-}
     
 int body()   // process body function
 {
@@ -126,8 +117,8 @@ int body()   // process body function
   while(1){
     printf("***************************************\n");
     printf("proc %d running: parent=%d\n", running->pid,running->ppid);
-    printf("childlist = ");
-    printChildList();
+    printChildList(running);
+    printList("freeList", freeList);
     printList("readyQueue", readyQueue);
     printSleepList(sleepList);
     menu();
@@ -147,6 +138,8 @@ int body()   // process body function
       do_sleep();
    if (strcmp(cmd, "wakeup")==0)
       do_wakeup();
+   if (strcmp(cmd, "wait")==0)
+      do_wait();
   }
 }
 
@@ -193,6 +186,10 @@ int kfork()  // kfork a child process to execute body() function
   return p->pid;
 }
 
+int do_wait() {
+  return kwait(0);
+}
+
 int do_kfork()
 {
    int child = kfork();
@@ -201,7 +198,6 @@ int do_kfork()
    else{
       printf("proc %d kforked a child = %d\n", running->pid, child); 
       printList("readyQueue", readyQueue);
-      kwait(0);
    }
    return child;
 }

@@ -20,7 +20,7 @@ int kwait(int *status) {
       *status = p->exitCode;
       p->status = FREE;
       if (running->child == running) {
-        running->child = 0;
+        running->child = running->sibling;
       }
       enqueue(&freeList, p);
       return child_pid;
@@ -79,9 +79,11 @@ int kexit(int exitValue) {
       q = q->sibling;
     }
 
+
+    // I THINK THE CHILDLIST BUG IS IN THE FOLLOWING CODE
     PROC *insert = &proc[1];
     insert = insert->child;
-    
+     
     if (insert == 0) { // Find where to insert children into 1's tree.
       insert = p;
     } else {
@@ -91,7 +93,7 @@ int kexit(int exitValue) {
       insert->sibling = p;
     }
   }
-
+  
   running->exitCode = exitValue;
   running->status = ZOMBIE;
   kwakeup(running->parent);

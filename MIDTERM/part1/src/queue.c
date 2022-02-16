@@ -58,3 +58,15 @@ int printList(char *name, PROC *p)
   kprintf("NULL\n"); 
 }
 
+int printChildList(PROC *p) {
+  kprintf("childlist = ");
+  p = p->child;
+  while(p) {
+    if (p->status != ZOMBIE && p->status != FREE) {
+      kprintf("[%d%d]->", p->pid, p->priority);
+    }
+    p = p->sibling;
+  }
+  kprintf("NULL\n");
+}
+
