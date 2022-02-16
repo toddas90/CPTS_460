@@ -160,13 +160,14 @@ int kfork()  // kfork a child process to execute body() function
   p->parent = running;          // set parent PROC pointer
   p->status = READY;
   p->priority = 1;
+  //p->child = NULL;
+  //p->sibling = NULL;
 
-  tester = running; // Pointer to check if child/siblings exist
+  tester = running->child; // Pointer to check if child/siblings exist
   
-  if (tester->child == 0) { // If no child in parent
-    tester->child = p; // Child is now p
+  if (tester == NULL) { // If no child in parent
+    running->child = p; // Child is now p
   } else {
-    tester = tester->child;
     while (tester->sibling) { // While there are siblings
       tester = tester->sibling; // Move down sibling chain
     }

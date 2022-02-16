@@ -1,5 +1,30 @@
 int tswitch();
 
+int delete(PROC *p) {
+    if (p->parent->child == p) {
+        if (p->sibling == NULL) {
+            p->parent->child = NULL;
+        } else {
+            p->parent->child = p->sibling;
+            p->sibling = NULL;
+        }
+        return 0;
+    }
+
+    if (p->parent->child != p) {
+        PROC *j = p->parent->child;
+        while (j->sibling != p)
+            j = j->sibling;
+        if (p->sibling != NULL) {
+            j->sibling = p->sibling;
+            p->sibling = NULL;
+        } else {
+            j->sibling = NULL;
+        }
+        return 0;
+    }
+}
+
 int kwait(int *status) {
   if (running->child == 0) {
     return -1; // Error
@@ -20,6 +45,7 @@ int kwait(int *status) {
       *status = p->exitCode;
       p->status = FREE;
       p->priority = 0;
+      delete(p);
       //p->sibling = NULL;
       //p->child = NULL;
       enqueue(&freeList, p);
@@ -88,8 +114,6 @@ int kexit(int exitValue) {
   }
   running->exitCode = exitValue;
   running->status = ZOMBIE;
-  //running->sibling = NULL;
-  //running->child = NULL;
   kwakeup(running->parent);
   tswitch();
 }
