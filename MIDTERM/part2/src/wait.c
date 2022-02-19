@@ -63,7 +63,7 @@ int ksleep(int event) {
   int SR = int_off();
   running->event = event;
   running->status = SLEEP;
-  //enqueue(&sleepList, running);
+  enqueue(&sleepList, running);
   tswitch();
   int_on(SR);
 }
@@ -77,8 +77,9 @@ int kwakeup(int event) {
     p = &proc[i];
     if (p->status == SLEEP && p->event == event) {
       p->status = READY;
-      //dequeue(&sleepList);
+      dequeue(&sleepList);
       enqueue(&readyQueue, p);
+      do_ps();
     }
   }
   int_on(SR);

@@ -90,9 +90,10 @@ int init()
   p->parent = p; // No parent
   p->child = NULL; // No children yet
 
-  do_kfork();
-  do_kfork();
-  do_kfork();
+//   do_kfork();
+//   do_kfork();
+//   do_kfork();
+//   do_kfork();
 
   printList("freeList", freeList);
   printf("init complete: P0 running\n"); 
@@ -132,7 +133,7 @@ int body()   // process body function
   while(1){
     printf("***************************************\n");
     printf("proc %d running: parent=%d\n", running->pid,running->ppid);
-    printChildList(running);
+    //printChildList(running);
     printList("freeList", freeList);
     printList("readyQueue", readyQueue);
     printSleepList(sleepList);
@@ -268,7 +269,11 @@ int main()
    init();
 
    printQ(readyQueue);
-   kfork();   // kfork P1 into readyQueue  
+   kfork();   // kfork P1 into readyQueue
+    kfork();
+  kfork();
+  kfork();
+  kfork();
 
    unlock();
    while(1){
