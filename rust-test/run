@@ -1,1 +1,0 @@
-qemu-system-arm -M versatilepb -m 128M -kernel example.bin -serial mon:stdio
