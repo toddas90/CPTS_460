@@ -1,4 +1,4 @@
-LIB=/usr/lib/gcc/arm-none-eabi/11.2.0
+LIB=/usr/lib/gcc/arm-none-eabi/*
 
 arm-none-eabi-as -mcpu=arm926ej-s ts.s -o ts.o
 arm-none-eabi-gcc -c -mcpu=arm926ej-s -fno-stack-protector t.c -o t.o
