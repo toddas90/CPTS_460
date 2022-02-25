@@ -58,6 +58,9 @@ int read_pipe(PIPE *p, char *buf, int n)
     }
 
     while (n) {
+        if (p->data == 0 && p->nwriter == 0) {
+            return 0;
+        }
         while (p->data) {
             *buf++ = p->buf[p->tail++]; // Read byte into buf
             p->tail %= PSIZE;
@@ -68,10 +71,6 @@ int read_pipe(PIPE *p, char *buf, int n)
             }
         }
         kwakeup(&p->room); // Wake up writers
-
-        if (p->data = 0 && p->nwriter == 0) {
-            return 0;
-        }
         
         if (r) {
             return r;

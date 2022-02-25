@@ -48,7 +48,8 @@ int pipe_writer()
     kprintf("Enter a line for task%d to get : ", running->pid);
     kgets(line);
 
-    if (strcmp(line, "exit")==0){
+    //if (strcmp(line, "exit")==0){
+    if (strlen(line) == 0) {
       kexit(2);
     }
 

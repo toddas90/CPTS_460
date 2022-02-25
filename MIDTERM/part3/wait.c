@@ -39,10 +39,6 @@ int ksleep(int event) {
 }
 
 int kexit(int exitValue) {
-  if (running->pid == 1) {
-    //printf("Sorry, I can't let you do that.\n");
-    return -1;
-  }
   printf("proc %d in kexit(), value=%d\n", running->pid, exitValue);
 
   running->exitCode = exitValue;
