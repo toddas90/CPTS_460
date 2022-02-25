@@ -1,3 +1,6 @@
+#ifndef TYPE_H
+#define TYPE_H
+
 typedef unsigned char  u8;
 typedef unsigned short u16;
 typedef unsigned int   u32;
@@ -41,6 +44,7 @@ typedef unsigned int   u32;
 
 #define NPROC     9 
 #define SSIZE 1024
+#define NMBUF 10
 
 #define FREE   0
 #define READY  1
@@ -57,7 +61,7 @@ struct semaphore{
 
 typedef struct mbuf{
   struct mbuf *next;
-  int pri;
+  int priority;
   int pid;
   char contents[64];
 }MBUF;
@@ -83,3 +87,5 @@ typedef struct proc{
 
   int    kstack[SSIZE];
 }PROC;
+
+#endif

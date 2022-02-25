@@ -43,28 +43,28 @@ void IRQ_handler()
   
 int sender()
 {
-  char line[128];
+    char line[128];
 
-  while(1){
-    printf("Enter a line for task%d to get : \n", running->pid);
-    kgets(line);
-    kprints("\r\n");
-    printf("task%d got a line=[%s]\n", running->pid, line);
-    send(line, 2);
-    printf("task%d send [%s] to pid=2\n", running->pid,line);
-  }
+    while(1) {
+        printf("Enter a line for task%d to get : \n", running->pid);
+        kgets(line);
+        kprints("\r\n");
+        printf("task%d got a line=[%s]\n", running->pid, line);
+        send(line, 2);
+        printf("task%d send [%s] to pid=2\n", running->pid,line);
+    }
 }
 
 int receiver()
 {
-  char c, *cp; 
-  char line[128];
-  int pid;
-  while(1){
-    printf("proc%d try to receive\n", running->pid);
-    pid = recv(line);
-    printf("proc%d received: [%s] from task%d\n", running->pid, line, pid);
-  }
+    char c, *cp; 
+    char line[128];
+    int pid;
+    while(1) {
+        printf("proc%d try to receive\n", running->pid);
+        pid = recv(line);
+        printf("proc%d received: [%s] from task%d\n", running->pid, line, pid);
+    }
 }
   
 int main()

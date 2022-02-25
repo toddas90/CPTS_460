@@ -1,7 +1,7 @@
-LIB=/usr/lib/gcc/arm-none-eabi/9.2.1
+LIB=/usr/lib/gcc/arm-none-eabi/11.2.0
 
 arm-none-eabi-as -mcpu=arm926ej-s ts.s -o ts.o
-arm-none-eabi-gcc -c -mcpu=arm926ej-s t.c -o t.o
+arm-none-eabi-gcc -c -mcpu=arm926ej-s -fno-stack-protector t.c -o t.o
 arm-none-eabi-ld -T t.ld ts.o t.o -o t.elf -L $LIB -lgcc
 arm-none-eabi-objcopy -O binary t.elf t.bin
 
