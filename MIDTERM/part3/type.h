@@ -1,3 +1,6 @@
+#ifndef TYPE_H
+#define TYPE_H
+
 typedef unsigned char  u8;
 typedef unsigned short u16;
 typedef unsigned int   u32;
@@ -39,6 +42,7 @@ typedef unsigned int   u32;
 #define PURPLE 5
 #define WHITE  6
 
+#define NPROC 9
 #define  SSIZE 1024
 
 #define  FREE   0
@@ -49,18 +53,32 @@ typedef unsigned int   u32;
 #define  PAUSE  5
 #define  printf  kprintf
 
+#define NULL 0
+
+#define PSIZE 8
+
+typedef struct pipe{
+  char buf[PSIZE];
+  int head, tail, data, room;
+  int status;
+  int nreader, nwriter;
+}PIPE;
+
 typedef struct proc{
-  struct proc *next;
-  int    *ksp;
+    struct proc *next;      // next proc pointer       
+    int  *ksp;              // saved sp: at byte offset 4 
 
-  int    pid;
-  int    ppid;
-  int    priority;
-  int    status; 
-  struct proc *parent;
+    int   pid;              // process ID
+    int   ppid;             // parent process pid 
+    int   status;           // PROC status=FREE|READY, etc. 
+    int   priority;         // scheduling priority 
 
-  int    event;
-  int    exitCode;
+    int   event;            // event value to sleep on
+    int   exitCode;         // exit value
 
-  int    kstack[SSIZE];
+    struct proc *parent;    // parent PROC pointer       
+
+    int   kstack[SSIZE];     // process stack                 
 }PROC;
+
+#endif /* TYPE_H */

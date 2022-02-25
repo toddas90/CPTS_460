@@ -1,4 +1,5 @@
-#define NPROC 9
+#include "type.h"
+
 PROC proc[NPROC], *running, *freeList, *readyQueue, *sleepList;
 int procsize = sizeof(PROC);
 int body();
