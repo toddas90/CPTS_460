@@ -1,0 +1,93 @@
+               CS460 LAB Assignment 5
+                 DUE & DEMO 3-11-2022
+
+1. Download files from samples/LAB5, which will be explained in class 
+	    zcat LAB5.tgz | tar xvf -
+	       
+/*********** u1.c contents ******************/
+int main()
+{
+  int pid, ppid; 
+  char line[64];
+
+  while(1){
+    printf("This is proc %d in Umode at %x parent=%d entry=%x\n",
+	                getpid(), getPA(), getppid(), get_entry());
+    umenu();
+    printf("input a command : ");
+    ugets(line); 
+  
+    if (strcmp(line, "getpid")==0)
+       ugetpid();
+    if (strcmp(line, "getppid")==0)
+       ugetppid();
+    if (strcmp(line, "ps")==0)
+       ups();
+    if (strcmp(line, "chname")==0)
+       uchname();
+    if (strcmp(line, "switch")==0)
+       uswitch();
+
+// ADD these Umode commands and syscalls to kernel
+
+    if (strcmp(line, "kfork")==0)
+       ukfork();
+    if (strcmp(line, "wait")==0)
+       uwait();
+    if (strcmp(line, "exit")==0)
+       uexit();
+
+   }
+}
+
+int umenu()
+{
+  uprintf("---------------------------------------------\n");
+  uprintf("ps chname switch sleep wakeup kfork wait exit\n");
+  uprintf("---------------------------------------------\n");
+}
+
+
+int ukfork()
+{
+    int pid;
+    char filename[64];
+    // ask for a filenanme, e.g. u2
+    // pid=sysccall(5, filename, 0, 0);
+    // print results of ukfork()	       
+}
+
+int uwait()
+{
+  int pid, status;
+  pid = syscall(6, &status, 0, 0);
+  printf("pid = %d ", pid);
+  if (pid > 0)
+    printf("status = %x",status);
+  printf("\n");
+}
+
+int uexit()
+{
+  int value;
+  printf("enter an exit value : ");
+  value = geti();
+  syscall(7, value, 0, 0);
+}
+
+2. kfork() in fork.c assumes each process P1 to P8 has a 1MB Umode space at
+	      8MB + (pid-1)*1MB
+   e.g. P1 at 8MB, P2 at 9MB, ..., P8 at 15MB.
+
+2-1. Now assume each proc has 2MB Umode space at
+	       
+     First 1MB at 8MB + (pid-1)*1MB; Second 1MB at 16MB + (pid-1)*1MB
+
+Modify fork() to suit the new Umode image
+	       
+2-2. When a proc enters main(char *s) in Umode, s -> a string of your name,
+     e.g. "my name is K.C. Wang"
+
+print the string in Umode main()
+HINT: ARM passing parameter in r0 to r3
+	       
