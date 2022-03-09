@@ -1,0 +1,108 @@
+               CS460 LAB5 Check List
+                DUE&DEMO: 3/11/2022
+
+Test sequence: Download lab5.bin, q from samples/LAB5.
+               Run q
+               Your work should have the same results as lab5.bin
+
+1. Start up:
+(1). P0 should kfork() P1 with u1 as its Umode image.
+(2). P1's Umode image should have TWO 1MB areas at PA=8MB, 16MB.
+
+2. P0 switch to P1: 
+(1). P1 should go Umode. Must show P1 has TWO 1MB areas at PA=8MB, 16MB
+(2). P1 executes u1 at main(char *): MUST show 
+                                     VA of s:        0x801FFFE0
+				     Contents of s:  My name is YOURNAME  
+(3). P1 in Umode at PA=8MB, entry VA=0x80000000 (2GB)
+
+3. kfork: (enter u2)
+   MUST show P1 kfork P2 in Kernel with u2 as its Umode image
+   P1 return to Umode with child pid = 2
+
+4. switch: Must switch to P2:
+5. P2 in Umode: MUST show it has TWO 1MB areas as PA=9MB, 17MB
+                P2 at PA=9MB, entry VA=2GB (0x80000000)
+		P2 must show VA of s  and *s = "my name is YOURNAME"
+		
+6. P2 wait: should show pid=wait(&status) retun -1 for no child error
+
+7. P2 exit: (enter exit value 123): P2 should become ZOMBIE, switch to P1
+
+8. P1 running: ps ==> show see P2 is a ZOMBIE
+   wait: MUST show P1 waited a ZOMBIE P2, exit status = 123
+======================================================================   
+
+QUESTIONS: (submit a text-edited file with your name, ID BEFORE DEMO)
+
+Q1: trace syscall control flow:
+    Assume Process P1 executed    int pid = ukfork();
+----------------------------------------------------------
+Draw a diagram to show the execution sequence using the following components:
+
+1. int ukfork()
+   {
+     return syscall(5,0,0,0);
+   }
+
+2. syscall:
+       stmfd sp!, {lr}
+       swi #0
+       ldmfd sp!, {pc}
+
+3. vector_table:
+   0C: LDR PC svc_handler_addr
+
+   svc_handler_addr .word  svc_entry
+
+4. svc_entry:
+      stmfd sp!, {r0-r12, lr} 
+      save Umode usp, upc,cpsr in PROC
+
+   bl svc_handler ==> where did CPU go? Name the function and what does it do? 
+
+5. goUmode:
+      restore saved usp, cpsr from PROC
+      ensure r = kfork() as return value pid = ukfork() in Umode;
+      ldmfd sp!, {r0-r12, pc}^
+------------------------------------------------------------
+Q2:
+At 4: WHY do we have to save Umode usp, upc, cpsr in PROC?
+      HINT: What if P1 executed int r = uswitch() to switch process?
+
+At 5: How did the value r = kfork() in Kmode returned to Umode?
+
+2. int kfork()
+{
+   PROC *p = newProc;
+   
+2-1. To make P first resume from Kmode, then immediately goUmode to its VA(0),
+     p's kstack MUST contain 2 frames:
+
+High: 
+   syscall frame: what's the return address to Umode?
+                  what will be the parameter(s) to Umode code?
+   		  
+   tswitch frame: what's the resume address?
+                  Where is the Kmode return value when p resumes running?
+LOW
+   
+   saved ksp of p = ?
+ 
+2-2. After resuming from Kmode, p executes goUmode() to return to Umode.
+     In order for p to execute from beginning of its Umode image, with a
+     proper Umode stack,
+     
+     p's proc.usp = ?
+     p's proc.upc = ?
+     p's proc.cpsr= ?
+}
+
+Q3:
+All process VA in Kmode are the SAME (0 to 258MB):
+(1). WHY?
+(2). How is this done?
+(3). VA 0-258MB can only be RW by process in Kmode, HOW?
+
+Each process can RW its own VA=2GB to 2G+Uimage_size, HOW?
+	       
