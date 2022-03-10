@@ -71,6 +71,11 @@ High:
 LOW
    
    saved ksp of p = ?
+
+-----
+ANSWER A2.3:
+    
+-----
  
 2-2. After resuming from Kmode, p executes goUmode() to return to Umode.
      In order for p to execute from beginning of its Umode image, with a
