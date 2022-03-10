@@ -20,6 +20,8 @@ int main(char *s)
   ppid = getppid();
   
   while(1){
+    printf("VA: %x ", &s);
+    printf("My name is %s\n", s);
     printf("This is process %d in Umode at %x parent=%d entry=%x\n",
 	   pid, getPA(), ppid, get_entry() );
     umenu();

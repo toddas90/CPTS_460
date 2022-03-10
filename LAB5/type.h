@@ -16,6 +16,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 // type.h file
 
+#ifndef TYPE_H
+#define TYPE_H
+
 typedef unsigned char  u8;
 typedef unsigned short u16;
 typedef unsigned int   u32;
@@ -205,3 +208,6 @@ typedef struct ext2_dir_entry_2 {
 	u8	file_type;
 	char	name[255];      	/* File name */
 }DIR;
+
+
+#endif

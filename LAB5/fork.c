@@ -44,6 +44,7 @@ int kfork(char *filename)
       p->pgdir[i] = 0;
   // Assume 1MB Umode area at VA=2GB => only need one 2048_th entry
   p->pgdir[2048] = (int)(0x800000 + (p->pid-1)*0x100000 | 0xC3E);
+  p->pgdir[2049] = (int)(0x1600000 + (p->pid-1)*0x100000 | 0xC3E); // 2nd page file at 16mb
   //                                              0xC3E=|11|0|0001|1|1110|
   //                                                     AP   DOM1   CB10
   //                                                          AP=01 for checking
@@ -77,9 +78,16 @@ int kfork(char *filename)
     enqueue(&freeList, p);
     return -1;
   }
+
+    int upa = p->pgdir[2048] & 0xFFFF0000;
+    usp = upa + 0x100000 - 128;
+    strcpy((char*)usp, "Andrew Todd");
+    printf("usp: %x\n", usp);
+    p->usp = (int *)VA(0x100000 - 128);
+    p->kstack[SSIZE-1] = VA(0);
+
+    p->kstack[SSIZE - 28] = p->usp;
   
-  p->usp = (int *)VA(0x100000); // p->usp = (int *)(0x80100000);
-  p->kstack[SSIZE-1] = VA(0);   // p->kstack[SSIZE-1] = (int)0x80000000;
   
   enqueue(&readyQueue, p);
 

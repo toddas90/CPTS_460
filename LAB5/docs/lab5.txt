@@ -54,7 +54,7 @@ int ukfork()
     char filename[64];
     // ask for a filenanme, e.g. u2
     // pid=sysccall(5, filename, 0, 0);
-    // print results of ukfork()	       
+    // print results of ukfork() 
 }
 
 int uwait()

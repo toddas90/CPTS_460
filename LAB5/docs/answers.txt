@@ -1,0 +1,90 @@
+Q1: trace syscall control flow:
+    Assume Process P1 executed    int pid = ukfork();
+----------------------------------------------------------
+Draw a diagram to show the execution sequence using the following components:
+
+1. int ukfork()
+   {
+     return syscall(5,0,0,0);
+   }
+
+2. syscall:
+       stmfd sp!, {lr}
+       swi #0
+       ldmfd sp!, {pc}
+
+3. vector_table:
+   0C: LDR PC svc_handler_addr
+
+   svc_handler_addr .word  svc_entry
+
+4. svc_entry:
+      stmfd sp!, {r0-r12, lr} 
+      save Umode usp, upc,cpsr in PROC
+
+   bl svc_handler ==> where did CPU go? Name the function and what does it do? 
+
+5. goUmode:
+      restore saved usp, cpsr from PROC
+      ensure r = kfork() as return value pid = ukfork() in Umode;
+      ldmfd sp!, {r0-r12, pc}^
+-----------------------------------------------------------
+
+-----
+ANSWER: A1:
+    ukfork() => syscall => vector_table => svc_entry => svc_handler => kfork() => goUmode => ukfork()
+-----
+
+------------------------------------------------------------
+Q2:
+At 4: WHY do we have to save Umode usp, upc, cpsr in PROC?
+      HINT: What if P1 executed int r = uswitch() to switch process?
+
+-----
+ANSWER: A2.1:
+    We save the information inside the PROC so that if we have to leave and come back,
+    we still have all of the necessary information to continue execution.
+-----
+
+At 5: How did the value r = kfork() in Kmode returned to Umode?
+
+-----
+ANSWER: A2.2:
+    // replace saved r0 on stack with the return value r from svc_handler()
+    add sp, sp, #4     // pop saved r0 off stack
+    stmfd sp!,{r0}     // push r as the saved r0 to Umode
+-----
+
+2. int kfork()
+{
+   PROC *p = newProc;
+   
+2-1. To make P first resume from Kmode, then immediately goUmode to its VA(0),
+     p's kstack MUST contain 2 frames:
+
+High: 
+   syscall frame: what's the return address to Umode?
+                  what will be the parameter(s) to Umode code?
+   		  
+   tswitch frame: what's the resume address?
+                  Where is the Kmode return value when p resumes running?
+LOW
+   
+   saved ksp of p = ?
+ 
+2-2. After resuming from Kmode, p executes goUmode() to return to Umode.
+     In order for p to execute from beginning of its Umode image, with a
+     proper Umode stack,
+     
+     p's proc.usp = ?
+     p's proc.upc = ?
+     p's proc.cpsr= ?
+}
+
+Q3:
+All process VA in Kmode are the SAME (0 to 258MB):
+(1). WHY?
+(2). How is this done?
+(3). VA 0-258MB can only be RW by process in Kmode, HOW?
+
+Each process can RW its own VA=2GB to 2G+Uimage_size, HOW?

@@ -14,37 +14,8 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ********************************************************************/
 
-/********************
-#define  SSIZE 1024
-#define  NPROC  9
-#define  FREE   0
-#define  READY  1
-#define  SLEEP  2
-#define  BLOCK  3
-#define  ZOMBIE 4
-#define  printf  kprintf
- 
-typedef struct proc{
-  struct proc *next;
-  int    *ksp;       // offset=4
+#include "type.h"
 
-  int    *usp;       // offset=8
-  int    *cpsr;      // offset=12
-  int    *upc;       // offset=16
-
-  int    *pgdir;     // level-1 pagetable    
-
-  int    status;
-  int    priority;
-  int    pid;
-  int    ppid;
-  struct proc *parent;
-  int    event;
-  int    exitCode;
-  char   name[32];
-  int    kstack[SSIZE];
-}PROC;
-***************************/
 extern int kfork();
 PROC proc[NPROC], *freeList, *readyQueue, *sleepList, *running;
 
@@ -112,8 +83,9 @@ int scheduler()
   
   // must switch to new running's pgdir; possibly need also flush TLB
   if (running != old){
-    printf("switch to proc %d pgdir at %x ", running->pid, running->pgdir);
-    printf("pgdir[2048] = %x\n", running->pgdir[2048]);
+    printf("switch to proc %d pgdir at %x\n", running->pid, running->pgdir);
+    printf("pgdir[2048] = %x ", running->pgdir[2048]);
+    printf("pgdir[2049] = %x\n", running->pgdir[2049]); // 2nd page file at 16mb
     switchPgdir((u32)running->pgdir);
   }
 }  
