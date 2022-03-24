@@ -99,11 +99,61 @@ PROC *kfork(char *filename)
 
 int fork()
 {
-  printf("fork(): under construction\n");
-  return -1;
-  
-  // 1. p = getproc(&freeList);
-  // 2. write code to build pgidr and pgtable for p as in kfork()
-  // 3. fork code as in Chapter 7.7.6
+    kprintf("I am inside fork!\n");
+    int i;
+    int *ptable, pentry; 
+    char *PA, *CA;
+    PROC *p = getproc(&freeList);
 
+    if (p == 0) {
+        kprintf("fork failed\n");
+        return -1;
+    }
+    kprintf("Proc is good!\n");
+
+    p->ppid = running->pid;
+    p->parent = running;
+    p->status = READY;
+    p->priority = 1;
+    kprintf("proc info set!\n");
+
+        // 1-level paging by 1MB sections
+    // build level-1 pgtable for p at 6MB + (pid-1)*16KB
+    p->pgdir = (int *)(0x600000 + (p->pid-1)*0x4000); // must be on 16KB boundary 
+
+    ptable = p->pgdir;
+    for (i=0; i<4096; i++)  // clear ptable entries
+        ptable[i] = 0;
+    
+    // Kmode: ptable[0-257] ID map to 258 PA, Kmode RW but no Umode RW
+    pentry = 0x412;   // 0x412 = |AP|0|DOMA|1|CB10|=|01|0|0000|1|0010| 
+    for (i=0; i<258; i++){
+        ptable[i] = pentry;
+        pentry += 0x100000;
+    }
+    
+    // Umode: ptable[2048] map to 1MB PA of proc at 8MB, 9MB, etc by pid
+    //|     addr     | |       |AP|0|DOM1|1|CB|10|
+    // 0xC12 = 1100 0001 0010 =|11|0|0001|1|00|10|       // AP=11 for Umode RW
+    ptable[2048]=(0x800000 + (p->pid-1)*0x100000)|0xC32; // entry 2048 | 0xC32
+
+    PA = (char *)(running->pgdir[2048] & 0xFFFF0000); // Parent umode PA
+    CA = (char *)(p->pgdir[2048] & 0xFFFF0000);        // Child umode PA
+    kprintf("PA=%x, CA=%x\n", PA, CA);
+
+    memcpy(CA, PA, 0x100000); // 1mb umode image
+    kprintf("Copied umode image!\n");
+
+    for (i = 1; i <= 14; i++) {
+        p->kstack[SSIZE - i] = running->kstack[SSIZE - i];
+    }
+
+    p->kstack[SSIZE - 14] = 0; // return child pid = 0
+    p->kstack[SSIZE - 15] = (int)goUmode;
+    p->ksp = &(p->kstack[SSIZE - 28]);
+    p->usp = (int *)running->usp;
+    p->cpsr = (int *)running->cpsr;
+    enqueue(&readyQueue, p);
+    kprintf("proc in readyQueue!\n");
+    return p->pid;
 }

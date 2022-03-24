@@ -74,7 +74,7 @@ LOW
 
 -----
 ANSWER A2.3:
-    
+    Don't really understand the question.
 -----
  
 2-2. After resuming from Kmode, p executes goUmode() to return to Umode.
@@ -86,6 +86,13 @@ ANSWER A2.3:
      p's proc.cpsr= ?
 }
 
+-----
+ANSWER A2.4:
+    User mode sp r14=user mode lr.
+    the pc saved when syscall is used.
+    umode cpsr.
+-----
+
 Q3:
 All process VA in Kmode are the SAME (0 to 258MB):
 (1). WHY?
@@ -93,3 +100,15 @@ All process VA in Kmode are the SAME (0 to 258MB):
 (3). VA 0-258MB can only be RW by process in Kmode, HOW?
 
 Each process can RW its own VA=2GB to 2G+Uimage_size, HOW?
+
+-----
+ANSWER A3:
+    1. So the software has a consistent starting point.
+    2. Through the memory mapping we set up in ts.s.
+    3. Permission bits.
+-----
+
+-----
+ANSWER A3.1:
+    Again, it's permission bits that are set when we create the user mode procs.
+-----
