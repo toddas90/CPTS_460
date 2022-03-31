@@ -32,7 +32,7 @@ int exec(char *cmdline) // cmdline=VA in Uspace
     //     strcpy(file, "/bin/");
     kstrcat(file, filename);
 
-    upa = p->pgdir[2048] & 0xFFFFF0000; // get PA of Umode image
+    upa = p->pgdir[2048] & 0xFFFF0000; // get PA of Umode image
 
     if (!load(file, p))
         return -1;
