@@ -114,7 +114,8 @@ data_handler:
   sub	lr, lr, #4
   stmfd	sp!, {r0-r12, lr}
 
-  bl	DATA_handler  
+    @ bl	DATA_handler 
+    HLT
 
   ldmfd	sp!, {r0-r12, pc}^
 

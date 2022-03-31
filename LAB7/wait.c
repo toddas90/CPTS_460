@@ -14,6 +14,9 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ********************************************************************/
 
+#include "type.h"
+
+extern PROC proc[NPROC], *freeList, *readyQueue, *sleepList, *running;
 
 int ksleep(int event)
 {
@@ -80,22 +83,28 @@ int kexit(int value)
    printf("%d in kwait() : ", running->pid);
    for (i=1; i<NPROC; i++){
      p = &proc[i];
-     if (p->status != FREE && p->ppid == running->pid){
+    //  printf("pid %d\n", p->pid);
+    //  printf("ppid %d\n", p->ppid);
+    //  printf("status %d\n", p->status);
+    //  if (p->status != FREE && p->ppid == running->pid){
+    //    child++;
+    //  }
+    if (p->ppid == running->pid){
        child++;
      }
    }
    if (child==0){
-     printf("no child\n");
+     //printf("no child\n");
      return -1;
    }
    
    while(1){
       for (i=1; i<NPROC; i++){
-	p = &proc[i];
+	    p = &proc[i];
         if ((p->status==ZOMBIE) && (p->ppid == running->pid)){
 	  kprintf("proc %d found a ZOMBIE child %d\n", running->pid,p->pid);
-           *status = p->exitCode;
-	   p->status = FREE;
+        *status = p->exitCode;
+	    p->status = FREE;
            putproc(p);
            return p->pid;
         }

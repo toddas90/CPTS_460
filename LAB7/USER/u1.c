@@ -13,6 +13,8 @@ main(int argc, char *argv[])
   for (i=0; i<argc; i++){
     printf("argv[%d] = %s\n", i, argv[i]);
   }
+
+    //exec("init");
   
   while(1){
     pid  = getpid();
@@ -43,6 +45,5 @@ main(int argc, char *argv[])
        ufork();
     if (strcmp(line, "exec")==0)
        uexec();
-
   }
 }

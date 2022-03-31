@@ -137,7 +137,7 @@ int main()
    
    init();
 
-   kfork("u1");  // kfork P1 with /bin/u1 as Umode image
+   kfork("init");  // kfork P1 with /bin/u1 as Umode image
 
    kprintf("P0 switch to P1 : enter a line : ");
    kgetline(line);

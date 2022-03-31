@@ -10,6 +10,8 @@ main(int argc, char *argv[ ])
   for (i=0; i<argc; i++)
     printf("argv[%d]=%s\n", i, argv[i]);
    
+
+//    uexec("sh");
   while(1){
     pid = getpid();
     ppid = getppid();
