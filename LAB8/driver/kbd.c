@@ -92,7 +92,7 @@ int kbd_init()
 
 #define KBN       128
 
-int color;
+extern int color;
 int alt;		/* alt key state */
 int capslock;		/* caps lock key state */
 int esc;		/* escape scan code detected? */

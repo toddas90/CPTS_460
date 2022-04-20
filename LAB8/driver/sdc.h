@@ -1,4 +1,8 @@
 // sdc.h file
+
+#ifndef SDC_H
+#define SDC_H
+
 #define COMMAND_REG_DELAY	300
 #define DATA_REG_DELAY		1000
 #define CLK_CHANGE_DELAY	2000
@@ -209,3 +213,4 @@
 #define	pcell_id3     0xFFC
 **************************/
 
+#endif

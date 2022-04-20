@@ -211,6 +211,10 @@ int kgettty(char *y)
   put_ubyte(0, y);
 }
 
+int fe(char *cmdline) {
+    kfe(cmdline);
+}
+
 int prtable()
 {
   u32 *up;

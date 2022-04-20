@@ -409,6 +409,11 @@ int texit(int v)
   syscall(57,v,0);
 }
 
+int fe(char *cmdline)
+{
+    return syscall(68, cmdline, 0);
+}
+
 /************************************************
 int ps(char *y)
 {

@@ -16,7 +16,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "../type.h"
 
-u8 btime[8];
+extern u8 btime[8];
 int ktouch(char *y)
 { 
   int  dev, ino;

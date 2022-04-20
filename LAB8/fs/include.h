@@ -1,6 +1,9 @@
 /************************************************************
   Backup Copy of ../include.h in case it's trashed or missing 
 *************************************************************/
+#ifndef INCLUDE_H
+#define INCLUDE_H
+
 #include "type.h"
 
 typedef unsigned int uint;
@@ -84,3 +87,5 @@ extern int   putc();
 
 extern struct semaphore loadsem;
 extern struct semaphore kbData;
+
+#endif

@@ -53,7 +53,8 @@ int unkpchar(char, int, int);
 int srow, scol;
 char clock[16]; 
 char *blanks = "  :  :  ";        
-int hh, mm, ss;
+extern int hh;
+int mm, ss;
 u32 tick=0;
 int oldcolor;
 

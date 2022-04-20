@@ -20,7 +20,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 extern OFT oft[ ];
 
 /* here we only need to define the pipe[ ] structures */
-PIPE pipe[NPIPE];
+extern PIPE pipe[NPIPE];
 
 /* pipe_init() is called in init() of t.c */
 

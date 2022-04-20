@@ -19,7 +19,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 extern struct buf *bread();
 extern struct buf *getblk();
 
-int bmap, imap, iblk;
+extern int bmap, imap, iblk;
 int boot_dev;
 char mtbuf[1024];
 

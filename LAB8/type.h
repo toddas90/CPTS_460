@@ -16,6 +16,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 // type.h file
 
+#ifndef _TYPE_H
+#define _TYPE_H
+
 typedef unsigned char  u8;
 typedef unsigned short u16;
 typedef unsigned int   u32;
@@ -520,3 +523,5 @@ extern MINODE *iget();
 
 extern PROC *running;
 #define HD     3
+
+#endif

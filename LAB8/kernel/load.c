@@ -3,7 +3,8 @@
 extern int bmap, imap, iblk; // in fs/mount_root
 int blk, offset;
 int bootino, mtxino;
-char buf[1024], buf1[1024], buf2[1024], line[32];
+char buf[1024], buf1[1024], buf2[1024];
+extern char line[32];
 
 int bsector;
 

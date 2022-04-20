@@ -5,6 +5,9 @@
  * Based (loosely) on the Linux code
  */
 
+#ifndef __MMC_H__
+#define __MMC_H__
+
 typedef unsigned char uchar;
 typedef unsigned int uint;
 typedef unsigned short ushort;
@@ -308,3 +311,4 @@ struct mmc *mmc_spi_init(uint bus, uint cs, uint speed, uint mode);
 int mmc_legacy_init(int verbose);
 #endif
 
+#endif

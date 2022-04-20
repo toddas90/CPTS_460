@@ -1,3 +1,6 @@
+#ifndef REGS_H
+#define REGS_H
+
 #define power         0x00
 #define	clock         0x04
 #define	argument      0x08
@@ -29,3 +32,4 @@
 #define	pcell_id2     0xFF8
 #define	pcell_id3     0xFFC
 
+#endif

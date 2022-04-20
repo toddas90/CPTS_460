@@ -39,7 +39,7 @@ kopen(), kclose(), klseek(), kread(), kwrite(), kpipe(), kchmod(), kchown(),
 ktouch(), ksettty(), kgettty(), kdup(), kdup2(), kps(), kmount(), kumount(), 
 kcdSector(), do_cmd(), kkill(), ksignal(), kpause(), kitimer(), ksend(), 
 krecv(), ktjoin(), ktexit(), khits(), kcolor(), ksync(), khits(), kexit(),
-kgetPaddress(), thinit(), sbrk(), page_out(), ptable();
+kgetPaddress(), thinit(), sbrk(), page_out(), ptable(), fe();
 int getphypage(int *y, int *z){ }
 
 extern int nocall();
@@ -64,7 +64,7 @@ int (*f[ ])() = {
   krecv,    ktjoin,    ktexit,    khits,    kcolor,   
 
   ksync,    kps,       thinit,    sbrk,     page_out,
-  getphypage,ptable,   kgetPaddress
+  getphypage,ptable,   kgetPaddress, fe
 }; 
 
 /***************************************************************************
@@ -98,7 +98,7 @@ int svc_handler(volatile int a, int b, int c, int d)
 
   unlock();
  
-  if (a > 67){ // number of syscalls
+  if (a > 68){ // number of syscalls
     printf("invlaid syscall no=%d\n", a);
     return -1;
   }

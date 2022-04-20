@@ -1,9 +1,9 @@
 
 echo compile drivers
-(cd ../driver; mk)
+(cd ../driver; ./mk)
 
 echo compile fs
-(cd ../fs; mk 2> /dev/null)
+(cd ../fs; ./mk 2> /dev/null)
 #(cd ../USER; mk 2> /dev/null)
 
 echo assemble ts.s
@@ -13,7 +13,7 @@ for NAME in exec fork except kernel load mes pipe queue signal string \
 syscall svc t thread wait 
 do
    echo compile $NAME.c
-   arm-none-eabi-gcc -c -mcpu=arm926ej-s $NAME.c -o $NAME.o  #2> /dev/null 
+   arm-none-eabi-gcc -c -mcpu=arm926ej-s -fno-stack-protector $NAME.c -o $NAME.o  #2> /dev/null 
 done
 
 echo linking 

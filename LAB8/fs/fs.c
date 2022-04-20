@@ -29,12 +29,13 @@ DIR    *dp;
 
 MINODE minode[NMINODES];
 MOUNT  mounttab[NMOUNT];
-OFT    oft[NOFT];
+extern OFT    oft[NOFT];
 
 char parent[64], child[64], saveParent[64], temp[64],temp2[64];
 char cwdname[64];
 
-char buf[1024], sbuf[1024];
+extern char buf[1024];
+char sbuf[1024];
 char dblk;
 char rwbuf[1024];
 

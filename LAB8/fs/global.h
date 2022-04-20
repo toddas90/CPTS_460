@@ -1,3 +1,6 @@
+#ifndef GLOBAL_H
+#define GLOBAL_H
+
 #define rwbuf sbuf
 #define BLOCK_SIZE 1024
 extern PROC   *running;
@@ -46,3 +49,5 @@ extern struct buf *bread();
 
 extern u8   btime[8];
 extern char cwdname[ ];
+
+#endif
