@@ -212,9 +212,7 @@ int kgettty(char *y)
 }
 
 int fe(char *cmdline) {
-    int i = kfe(cmdline);
-    kprintf("kfe returns %d\n", i);
-    return i;
+    return kfe(cmdline);
 }
 
 int prtable()
