@@ -6,7 +6,7 @@ int main(int argc, char *argv[ ]) {
     char cmdline[64];
     int i;
     strcpy(cmdline, argv[0]);
-    for (i=1; i<argc; i++) {
+    for (i=2; i<argc; i++) {
         strcat(cmdline, " ");
         strcat(cmdline, argv[i]);
     }
@@ -19,3 +19,5 @@ int main(int argc, char *argv[ ]) {
 
     exit(0);
 }
+
+// NEED TO RECOMPILE FE TO TEST NEW KFE CODE!!!!!!!!!!!!!!1

@@ -523,5 +523,6 @@ extern MINODE *iget();
 
 extern PROC *running;
 #define HD     3
+#define NULL 0
 
 #endif
