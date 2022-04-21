@@ -13,7 +13,7 @@ for NAME in exec fork except kernel load mes pipe queue signal string \
 syscall svc t thread wait 
 do
    echo compile $NAME.c
-   arm-none-eabi-gcc -c -mcpu=arm926ej-s -fno-stack-protector $NAME.c -o $NAME.o  #2> /dev/null 
+   arm-none-eabi-gcc -g -c -mcpu=arm926ej-s -fno-stack-protector $NAME.c -o $NAME.o  #2> /dev/null 
 done
 
 echo linking 

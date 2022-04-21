@@ -5,11 +5,15 @@
 int main(int argc, char *argv[ ]) {
     char cmdline[64];
     int i;
-    strcpy(cmdline, argv[0]);
+
+    // Copy argv to cmdline, ignoring the first arg (the name of the program)
+    strcpy(cmdline, argv[1]);
     for (i=2; i<argc; i++) {
         strcat(cmdline, " ");
         strcat(cmdline, argv[i]);
     }
+
+    printf("cmdline=%s\n", cmdline);
 
     int status;
     int pid = fe(cmdline);
@@ -19,5 +23,3 @@ int main(int argc, char *argv[ ]) {
 
     exit(0);
 }
-
-// NEED TO RECOMPILE FE TO TEST NEW KFE CODE!!!!!!!!!!!!!!1

@@ -84,12 +84,6 @@ int exec(char *uline)
 }
 
 int kfe(char *cmdline) {
-    // Fork without copying the parent process to the child process.
-
-    // Execute the command line in the child process.
-
-    // Use bits of code from fork and exec.
-
     kprintf("Beginning Fork process\n");
     int i = 0;
     int *ptable = NULL;
@@ -102,11 +96,40 @@ int kfe(char *cmdline) {
         kprintf("Fork: no more PROCs\n");
         return -1;
     }
+    kprintf("New PROC %d\n", p->pid);
 
     p->status = READY;
-    p->priority = 1;
     p->ppid = running->pid;
     p->parent = running;
+    p->priority = 1;
+    p->inkmode = 1;
+    p->time = 0;
+    p->cpu = 0;
+    p->type = PROCESS;
+    p->cpsr = 0x10;
+    
+    p->res->size = running->res->size;
+    p->res->uid = running->res->uid;
+    p->res->gid = running->res->gid;
+    p->res->cwd = running->res->cwd;
+    p->tcount = 1;
+    p->res->cwd->refCount++;
+    strcpy(p->res->tty, running->res->tty);
+    
+    // p->res->signal, p->res->sig[] are cleared in kexit()
+    p->res->signal = 0;
+    for (i=0; i<NSIG; i++)
+        p->res->sig[i] = 0;
+    /***** clear message queue ******/
+    p->res->mqueue = 0; 
+    p->res->mlock.value = 1; p->res->mlock.queue = 0;
+    p->res->message.value = 0; p->res->message.queue = 0;
+    
+    // p->status = READY;
+    // p->priority = 1;
+    // p->ppid = running->pid;
+    // p->parent = running;
+    kprintf("PROC values set\n");
 
     p->res->pgdir = (int *)(0x600000 + (p->pid-1)*0x4000);
 
@@ -122,13 +145,14 @@ int kfe(char *cmdline) {
     }
 
     ptable[2048] = (0x800000 + (p->pid-1)*0x100000) | 0xC32;
+    kprintf("Page table set\n");
 
     PA = (char *)(running->res->pgdir[2048] & 0xFFFF0000);
     CA = (char *)(p->res->pgdir[2048] & 0xFFFF0000);
     kprintf("PA=%x CA=%x\n", PA, CA);
 
-    // memcpy(CA, PA, 0x100000);
-    // kprintf("memcpy done\n");
+    //memcpy(CA, PA, 0x100000);
+    //kprintf("memcpy done\n");
 
     for (i = 1; i < 14; i++) {
         p->kstack[SSIZE - i] = running->kstack[SSIZE - i];
@@ -165,6 +189,7 @@ int kfe(char *cmdline) {
     file[0] = 0;
 
     kstrcat(file, filename);
+    kprintf("file found=%s\n", file);
 
     upa = p->res->pgdir[2048] & 0xFFFF0000;
 
@@ -172,17 +197,24 @@ int kfe(char *cmdline) {
         printf("exec loading error\n");
         return -1;
     }
+    kprintf("Loaded file %s to %x\n", file, upa);
 
     usp = upa + 0x100000 - 128;
+    kprintf("usp=%x\n", usp);
 
     strcpy((char *)usp, kline);
     p->usp = (int *)VA(0x100000 - 128);
+    kprintf("p->usp=%x\n", p->usp);
 
     for (i = 0; i < 14; i++) {
         p->kstack[SSIZE - i] = 0;
     }
+    kprintf("kstack set\n");
 
     p->kstack[SSIZE - 1] = (int)VA(0);
 
-    return p->usp;
+    kprintf("Returning from kfe\n");
+    
+    // return p->usp;
+    return p->pid;
 }
