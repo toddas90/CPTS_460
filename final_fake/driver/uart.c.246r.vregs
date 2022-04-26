@@ -1,0 +1,4314 @@
+
+;; Function uart_init (uart_init, funcdef_no=0, decl_uid=4478, cgraph_uid=1, symbol_order=2)
+
+(note 1 0 3 NOTE_INSN_DELETED)
+;; basic block 2, loop depth 0, maybe hot
+;;  prev block 0, next block 4, flags: (NEW, REACHABLE, RTL)
+;;  pred:       ENTRY (FALLTHRU)
+(note 3 1 2 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+(note 2 3 5 2 NOTE_INSN_FUNCTION_BEG)
+(insn 5 2 6 2 (set (reg:SI 0 r0)
+        (symbol_ref/f:SI ("*.LC0") [flags 0x2]  <var_decl 0x7f19cf0af2d0 *.LC0>)) "uart.c":82:3 253 {*arm_movsi_insn}
+     (nil))
+(call_insn 6 5 7 2 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("kprintf") [flags 0x41]  <function_decl 0x7f19cf067700 kprintf>) [0 kprintf S4 A32])
+                    (const_int 0 [0])))
+            (use (const_int 0 [0]))
+            (clobber (reg:SI 14 lr))
+        ]) "uart.c":82:3 291 {*call_value_symbol}
+     (nil)
+    (expr_list (clobber (reg:SI 12 ip))
+        (expr_list:SI (use (reg:SI 0 r0))
+            (nil))))
+(insn 7 6 8 2 (set (reg:SI 120)
+        (const_int 0 [0])) "uart.c":83:9 253 {*arm_movsi_insn}
+     (nil))
+(insn 8 7 9 2 (set (mem/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -8 [0xfffffffffffffff8])) [3 i+0 S4 A64])
+        (reg:SI 120)) "uart.c":83:9 253 {*arm_movsi_insn}
+     (nil))
+(jump_insn 9 8 10 2 (set (pc)
+        (label_ref 73)) "uart.c":83:3 284 {*arm_jump}
+     (nil)
+ -> 73)
+;;  succ:       7
+
+(barrier 10 9 75)
+;; basic block 4, loop depth 1, maybe hot
+;;  prev block 2, next block 5, flags: (NEW, REACHABLE, RTL)
+;;  pred:       7
+(code_label 75 10 11 4 4 (nil) [1 uses])
+(note 11 75 12 4 [bb 4] NOTE_INSN_BASIC_BLOCK)
+(insn 12 11 13 4 (set (reg:SI 121)
+        (mem/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -8 [0xfffffffffffffff8])) [3 i+0 S4 A64])) "uart.c":84:8 253 {*arm_movsi_insn}
+     (nil))
+(insn 13 12 14 4 (set (reg:SI 122)
+        (reg:SI 121)) "uart.c":84:8 253 {*arm_movsi_insn}
+     (nil))
+(insn 14 13 15 4 (set (reg:SI 122)
+        (ashift:SI (reg:SI 122)
+            (const_int 4 [0x4]))) "uart.c":84:8 147 {*arm_shiftsi3}
+     (nil))
+(insn 15 14 16 4 (set (reg:SI 122)
+        (minus:SI (reg:SI 122)
+            (reg:SI 121))) "uart.c":84:8 45 {*arm_subsi3_insn}
+     (expr_list:REG_EQUAL (mult:SI (reg:SI 121)
+            (const_int 15 [0xf]))
+        (nil)))
+(insn 16 15 17 4 (set (reg:SI 122)
+        (ashift:SI (reg:SI 122)
+            (const_int 2 [0x2]))) "uart.c":84:8 147 {*arm_shiftsi3}
+     (nil))
+(insn 17 16 18 4 (set (reg:SI 122)
+        (plus:SI (reg:SI 122)
+            (reg:SI 121))) "uart.c":84:8 7 {*arm_addsi3}
+     (expr_list:REG_EQUAL (mult:SI (reg:SI 121)
+            (const_int 61 [0x3d]))
+        (nil)))
+(insn 18 17 19 4 (set (reg:SI 123)
+        (ashift:SI (reg:SI 122)
+            (const_int 2 [0x2]))) "uart.c":84:8 147 {*arm_shiftsi3}
+     (nil))
+(insn 19 18 20 4 (set (reg:SI 122)
+        (reg:SI 123)) "uart.c":84:8 253 {*arm_movsi_insn}
+     (expr_list:REG_EQUAL (mult:SI (reg:SI 121)
+            (const_int 244 [0xf4]))
+        (nil)))
+(insn 20 19 21 4 (set (reg:SI 125)
+        (symbol_ref:SI ("uart") [flags 0x2]  <var_decl 0x7f19cfd52ab0 uart>)) "uart.c":84:8 253 {*arm_movsi_insn}
+     (nil))
+(insn 21 20 22 4 (set (reg:SI 124)
+        (plus:SI (reg:SI 122)
+            (reg:SI 125))) "uart.c":84:8 7 {*arm_addsi3}
+     (nil))
+(insn 22 21 23 4 (set (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -4 [0xfffffffffffffffc])) [6 up+0 S4 A32])
+        (reg:SI 124)) "uart.c":84:8 253 {*arm_movsi_insn}
+     (nil))
+(insn 23 22 24 4 (set (reg:SI 126)
+        (mem/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -8 [0xfffffffffffffff8])) [3 i+0 S4 A64])) "uart.c":85:36 253 {*arm_movsi_insn}
+     (nil))
+(insn 24 23 25 4 (set (reg:SI 113 [ _1 ])
+        (const_int 66033 [0x101f1])) "uart.c":85:36 253 {*arm_movsi_insn}
+     (nil))
+(insn 25 24 26 4 (set (reg:SI 113 [ _1 ])
+        (plus:SI (reg:SI 126)
+            (reg:SI 113 [ _1 ]))) "uart.c":85:36 7 {*arm_addsi3}
+     (expr_list:REG_EQUAL (plus:SI (reg:SI 126)
+            (const_int 66033 [0x101f1]))
+        (nil)))
+(insn 26 25 27 4 (set (reg:SI 114 [ _2 ])
+        (ashift:SI (reg:SI 113 [ _1 ])
+            (const_int 12 [0xc]))) "uart.c":85:36 147 {*arm_shiftsi3}
+     (nil))
+(insn 27 26 28 4 (set (reg/f:SI 115 [ _3 ])
+        (reg:SI 114 [ _2 ])) "uart.c":85:16 253 {*arm_movsi_insn}
+     (nil))
+(insn 28 27 29 4 (set (reg/f:SI 127)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -4 [0xfffffffffffffffc])) [6 up+0 S4 A32])) "uart.c":85:14 253 {*arm_movsi_insn}
+     (nil))
+(insn 29 28 30 4 (set (mem/v/f:SI (reg/f:SI 127) [2 up_15->base+0 S4 A32])
+        (reg/f:SI 115 [ _3 ])) "uart.c":85:14 253 {*arm_movsi_insn}
+     (nil))
+(insn 30 29 31 4 (set (reg:SI 128)
+        (mem/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -8 [0xfffffffffffffff8])) [3 i+0 S4 A64])) "uart.c":86:8 253 {*arm_movsi_insn}
+     (nil))
+(insn 31 30 32 4 (set (reg:CC 100 cc)
+        (compare:CC (reg:SI 128)
+            (const_int 3 [0x3]))) "uart.c":86:8 268 {*arm_cmpsi_insn}
+     (nil))
+(jump_insn 32 31 33 4 (set (pc)
+        (if_then_else (ne (reg:CC 100 cc)
+                (const_int 0 [0]))
+            (label_ref 37)
+            (pc))) "uart.c":86:8 273 {arm_cond_branch}
+     (nil)
+ -> 37)
+;;  succ:       5 (FALLTHRU)
+;;              6
+
+;; basic block 5, loop depth 1, maybe hot
+;;  prev block 4, next block 6, flags: (NEW, REACHABLE, RTL)
+;;  pred:       4 (FALLTHRU)
+(note 33 32 34 5 [bb 5] NOTE_INSN_BASIC_BLOCK)
+(insn 34 33 35 5 (set (reg/f:SI 129)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -4 [0xfffffffffffffffc])) [6 up+0 S4 A32])) "uart.c":87:17 253 {*arm_movsi_insn}
+     (nil))
+(insn 35 34 36 5 (set (reg:SI 130)
+        (const_int 268472320 [0x10009000])) "uart.c":87:17 253 {*arm_movsi_insn}
+     (nil))
+(insn 36 35 37 5 (set (mem/v/f:SI (reg/f:SI 129) [2 up_15->base+0 S4 A32])
+        (reg:SI 130)) "uart.c":87:17 253 {*arm_movsi_insn}
+     (nil))
+;;  succ:       6 (FALLTHRU)
+
+;; basic block 6, loop depth 1, maybe hot
+;;  prev block 5, next block 7, flags: (NEW, REACHABLE, RTL)
+;;  pred:       4
+;;              5 (FALLTHRU)
+(code_label 37 36 38 6 3 (nil) [1 uses])
+(note 38 37 39 6 [bb 6] NOTE_INSN_BASIC_BLOCK)
+(insn 39 38 40 6 (set (reg:SI 116 [ _4 ])
+        (const_int 0 [0])) "uart.c":89:29 253 {*arm_movsi_insn}
+     (nil))
+(insn 40 39 41 6 (set (reg/f:SI 131)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -4 [0xfffffffffffffffc])) [6 up+0 S4 A32])) "uart.c":89:29 253 {*arm_movsi_insn}
+     (nil))
+(insn 41 40 42 6 (set (mem/v:SI (plus:SI (reg/f:SI 131)
+                (const_int 72 [0x48])) [3 up_15->intail+0 S4 A32])
+        (reg:SI 116 [ _4 ])) "uart.c":89:29 253 {*arm_movsi_insn}
+     (nil))
+(insn 42 41 43 6 (set (reg/f:SI 132)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -4 [0xfffffffffffffffc])) [6 up+0 S4 A32])) "uart.c":89:16 253 {*arm_movsi_insn}
+     (nil))
+(insn 43 42 44 6 (set (mem/v:SI (plus:SI (reg/f:SI 132)
+                (const_int 68 [0x44])) [3 up_15->inhead+0 S4 A32])
+        (reg:SI 116 [ _4 ])) "uart.c":89:16 253 {*arm_movsi_insn}
+     (nil))
+(insn 44 43 45 6 (set (reg/f:SI 133)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -4 [0xfffffffffffffffc])) [6 up+0 S4 A32])) "uart.c":90:22 253 {*arm_movsi_insn}
+     (nil))
+(insn 45 44 46 6 (set (reg:SI 134)
+        (const_int 0 [0])) "uart.c":90:22 253 {*arm_movsi_insn}
+     (nil))
+(insn 46 45 47 6 (set (mem/v:SI (plus:SI (reg/f:SI 133)
+                (const_int 76 [0x4c])) [3 up_15->inchar.value+0 S4 A32])
+        (reg:SI 134)) "uart.c":90:22 253 {*arm_movsi_insn}
+     (nil))
+(insn 47 46 48 6 (set (reg/f:SI 135)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -4 [0xfffffffffffffffc])) [6 up+0 S4 A32])) "uart.c":90:44 253 {*arm_movsi_insn}
+     (nil))
+(insn 48 47 49 6 (set (reg:SI 136)
+        (const_int 0 [0])) "uart.c":90:44 253 {*arm_movsi_insn}
+     (nil))
+(insn 49 48 50 6 (set (mem/v/f:SI (plus:SI (reg/f:SI 135)
+                (const_int 80 [0x50])) [5 up_15->inchar.queue+0 S4 A32])
+        (reg:SI 136)) "uart.c":90:44 253 {*arm_movsi_insn}
+     (nil))
+(insn 50 49 51 6 (set (reg:SI 117 [ _5 ])
+        (const_int 0 [0])) "uart.c":92:43 253 {*arm_movsi_insn}
+     (nil))
+(insn 51 50 52 6 (set (reg/f:SI 137)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -4 [0xfffffffffffffffc])) [6 up+0 S4 A32])) "uart.c":92:43 253 {*arm_movsi_insn}
+     (nil))
+(insn 52 51 53 6 (set (mem/v:SI (plus:SI (reg/f:SI 137)
+                (const_int 164 [0xa4])) [3 up_15->tx_on+0 S4 A32])
+        (reg:SI 117 [ _5 ])) "uart.c":92:43 253 {*arm_movsi_insn}
+     (nil))
+(insn 53 52 54 6 (set (reg/f:SI 138)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -4 [0xfffffffffffffffc])) [6 up+0 S4 A32])) "uart.c":92:31 253 {*arm_movsi_insn}
+     (nil))
+(insn 54 53 55 6 (set (mem/v:SI (plus:SI (reg/f:SI 138)
+                (const_int 152 [0x98])) [3 up_15->outtail+0 S4 A32])
+        (reg:SI 117 [ _5 ])) "uart.c":92:31 253 {*arm_movsi_insn}
+     (nil))
+(insn 55 54 56 6 (set (reg/f:SI 139)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -4 [0xfffffffffffffffc])) [6 up+0 S4 A32])) "uart.c":92:17 253 {*arm_movsi_insn}
+     (nil))
+(insn 56 55 57 6 (set (mem/v:SI (plus:SI (reg/f:SI 139)
+                (const_int 148 [0x94])) [3 up_15->outhead+0 S4 A32])
+        (reg:SI 117 [ _5 ])) "uart.c":92:17 253 {*arm_movsi_insn}
+     (nil))
+(insn 57 56 58 6 (set (reg/f:SI 140)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -4 [0xfffffffffffffffc])) [6 up+0 S4 A32])) "uart.c":93:24 253 {*arm_movsi_insn}
+     (nil))
+(insn 58 57 59 6 (set (reg:SI 141)
+        (const_int 64 [0x40])) "uart.c":93:24 253 {*arm_movsi_insn}
+     (nil))
+(insn 59 58 60 6 (set (mem/v:SI (plus:SI (reg/f:SI 140)
+                (const_int 156 [0x9c])) [3 up_15->outspace.value+0 S4 A32])
+        (reg:SI 141)) "uart.c":93:24 253 {*arm_movsi_insn}
+     (nil))
+(insn 60 59 61 6 (set (reg/f:SI 142)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -4 [0xfffffffffffffffc])) [6 up+0 S4 A32])) "uart.c":93:53 253 {*arm_movsi_insn}
+     (nil))
+(insn 61 60 62 6 (set (reg:SI 143)
+        (const_int 0 [0])) "uart.c":93:53 253 {*arm_movsi_insn}
+     (nil))
+(insn 62 61 63 6 (set (mem/v/f:SI (plus:SI (reg/f:SI 142)
+                (const_int 160 [0xa0])) [5 up_15->outspace.queue+0 S4 A32])
+        (reg:SI 143)) "uart.c":93:53 253 {*arm_movsi_insn}
+     (nil))
+(insn 63 62 64 6 (set (reg:SI 118 [ _7 ])
+        (const_int 0 [0])) "uart.c":95:42 253 {*arm_movsi_insn}
+     (nil))
+(insn 64 63 65 6 (set (reg/f:SI 144)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -4 [0xfffffffffffffffc])) [6 up+0 S4 A32])) "uart.c":95:42 253 {*arm_movsi_insn}
+     (nil))
+(insn 65 64 66 6 (set (mem/v:SI (plus:SI (reg/f:SI 144)
+                (const_int 240 [0xf0])) [3 up_15->e_count+0 S4 A32])
+        (reg:SI 118 [ _7 ])) "uart.c":95:42 253 {*arm_movsi_insn}
+     (nil))
+(insn 66 65 67 6 (set (reg/f:SI 145)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -4 [0xfffffffffffffffc])) [6 up+0 S4 A32])) "uart.c":95:28 253 {*arm_movsi_insn}
+     (nil))
+(insn 67 66 68 6 (set (mem/v:SI (plus:SI (reg/f:SI 145)
+                (const_int 236 [0xec])) [3 up_15->etail+0 S4 A32])
+        (reg:SI 118 [ _7 ])) "uart.c":95:28 253 {*arm_movsi_insn}
+     (nil))
+(insn 68 67 69 6 (set (reg/f:SI 146)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -4 [0xfffffffffffffffc])) [6 up+0 S4 A32])) "uart.c":95:15 253 {*arm_movsi_insn}
+     (nil))
+(insn 69 68 70 6 (set (mem/v:SI (plus:SI (reg/f:SI 146)
+                (const_int 232 [0xe8])) [3 up_15->ehead+0 S4 A32])
+        (reg:SI 118 [ _7 ])) "uart.c":95:15 253 {*arm_movsi_insn}
+     (nil))
+(insn 70 69 71 6 (set (reg:SI 148)
+        (mem/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -8 [0xfffffffffffffff8])) [3 i+0 S4 A64])) "uart.c":83:19 253 {*arm_movsi_insn}
+     (nil))
+(insn 71 70 72 6 (set (reg:SI 147)
+        (plus:SI (reg:SI 148)
+            (const_int 1 [0x1]))) "uart.c":83:19 7 {*arm_addsi3}
+     (nil))
+(insn 72 71 73 6 (set (mem/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -8 [0xfffffffffffffff8])) [3 i+0 S4 A64])
+        (reg:SI 147)) "uart.c":83:19 253 {*arm_movsi_insn}
+     (nil))
+;;  succ:       7 (FALLTHRU,DFS_BACK)
+
+;; basic block 7, loop depth 1, maybe hot
+;;  prev block 6, next block 8, flags: (NEW, REACHABLE, RTL)
+;;  pred:       2
+;;              6 (FALLTHRU,DFS_BACK)
+(code_label 73 72 74 7 2 (nil) [1 uses])
+(note 74 73 78 7 [bb 7] NOTE_INSN_BASIC_BLOCK)
+(insn 78 74 79 7 (set (reg:SI 149)
+        (mem/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -8 [0xfffffffffffffff8])) [3 i+0 S4 A64])) "uart.c":83:14 253 {*arm_movsi_insn}
+     (nil))
+(insn 79 78 80 7 (set (reg:CC 100 cc)
+        (compare:CC (reg:SI 149)
+            (const_int 3 [0x3]))) "uart.c":83:14 268 {*arm_cmpsi_insn}
+     (nil))
+(jump_insn 80 79 81 7 (set (pc)
+        (if_then_else (le (reg:CC 100 cc)
+                (const_int 0 [0]))
+            (label_ref 75)
+            (pc))) "uart.c":83:14 273 {arm_cond_branch}
+     (nil)
+ -> 75)
+;;  succ:       4
+;;              8 (FALLTHRU)
+
+;; basic block 8, loop depth 0, maybe hot
+;;  prev block 7, next block 1, flags: (NEW, REACHABLE, RTL, MODIFIED)
+;;  pred:       7 (FALLTHRU)
+(note 81 80 84 8 [bb 8] NOTE_INSN_BASIC_BLOCK)
+(insn 84 81 85 8 (clobber (reg/i:SI 0 r0)) "uart.c":97:1 -1
+     (nil))
+(insn 85 84 88 8 (clobber (reg:SI 119 [ <retval> ])) "uart.c":97:1 -1
+     (nil))
+(insn 88 85 83 8 (const_int 0 [0]) "uart.c":97:1 311 {nop}
+     (nil))
+(insn 83 88 86 8 (set (reg/i:SI 0 r0)
+        (reg:SI 119 [ <retval> ])) "uart.c":97:1 253 {*arm_movsi_insn}
+     (nil))
+(insn 86 83 0 8 (use (reg/i:SI 0 r0)) "uart.c":97:1 -1
+     (nil))
+;;  succ:       EXIT [always]  (FALLTHRU)
+
+
+;; Function uart0_handler (uart0_handler, funcdef_no=1, decl_uid=4487, cgraph_uid=2, symbol_order=3)
+
+(note 1 0 3 NOTE_INSN_DELETED)
+;; basic block 2, loop depth 0, maybe hot
+;;  prev block 0, next block 6, flags: (NEW, REACHABLE, RTL)
+;;  pred:       ENTRY (FALLTHRU)
+(note 3 1 2 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+(note 2 3 5 2 NOTE_INSN_FUNCTION_BEG)
+(insn 5 2 6 2 (set (reg/f:SI 129)
+        (symbol_ref:SI ("color") [flags 0x40]  <var_decl 0x7f19cfd52480 color>)) "uart.c":107:9 253 {*arm_movsi_insn}
+     (nil))
+(insn 6 5 7 2 (set (reg:SI 130)
+        (const_int 1 [0x1])) "uart.c":107:9 253 {*arm_movsi_insn}
+     (nil))
+(insn 7 6 8 2 (set (mem/c:SI (reg/f:SI 129) [3 color+0 S4 A32])
+        (reg:SI 130)) "uart.c":107:9 253 {*arm_movsi_insn}
+     (nil))
+(insn 8 7 9 2 (set (reg/f:SI 131)
+        (symbol_ref:SI ("uart") [flags 0x2]  <var_decl 0x7f19cfd52ab0 uart>)) "uart.c":109:6 253 {*arm_movsi_insn}
+     (nil))
+(insn 9 8 147 2 (set (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -4 [0xfffffffffffffffc])) [6 up+0 S4 A32])
+        (reg/f:SI 131)) "uart.c":109:6 253 {*arm_movsi_insn}
+     (nil))
+(insn 147 9 11 2 (const_int 0 [0]) "uart.c":110:8 311 {nop}
+     (nil))
+(insn 11 147 12 2 (set (reg/f:SI 132)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -4 [0xfffffffffffffffc])) [6 up+0 S4 A32])) "uart.c":110:14 253 {*arm_movsi_insn}
+     (nil))
+(insn 12 11 13 2 (set (reg/f:SI 113 [ _1 ])
+        (mem/v/f:SI (reg/f:SI 132) [2 up_25->base+0 S4 A32])) "uart.c":110:14 253 {*arm_movsi_insn}
+     (nil))
+(insn 13 12 15 2 (set (reg/f:SI 114 [ _2 ])
+        (plus:SI (reg/f:SI 113 [ _1 ])
+            (const_int 24 [0x18]))) "uart.c":110:20 7 {*arm_addsi3}
+     (nil))
+(insn 15 13 16 2 (set (reg/f:SI 133)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -4 [0xfffffffffffffffc])) [6 up+0 S4 A32])) "uart.c":112:11 253 {*arm_movsi_insn}
+     (nil))
+(insn 16 15 17 2 (set (reg/f:SI 115 [ _3 ])
+        (mem/v/f:SI (reg/f:SI 133) [2 up_25->base+0 S4 A32])) "uart.c":112:11 253 {*arm_movsi_insn}
+     (nil))
+(insn 17 16 18 2 (set (reg:QI 134)
+        (mem:QI (reg/f:SI 115 [ _3 ]) [0 *_3+0 S1 A8])) "uart.c":112:5 263 {*arm_movqi_insn}
+     (nil))
+(insn 18 17 19 2 (set (mem/c:QI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -9 [0xfffffffffffffff7])) [0 c+0 S1 A8])
+        (reg:QI 134)) "uart.c":112:5 263 {*arm_movqi_insn}
+     (nil))
+(insn 19 18 20 2 (set (reg:SI 135)
+        (zero_extend:SI (mem/c:QI (plus:SI (reg/f:SI 102 sfp)
+                    (const_int -9 [0xfffffffffffffff7])) [0 c+0 S1 A8]))) "uart.c":115:6 175 {*arm_zero_extendqisi2}
+     (nil))
+(insn 20 19 21 2 (set (reg:CC 100 cc)
+        (compare:CC (reg:SI 135)
+            (const_int 3 [0x3]))) "uart.c":115:6 268 {*arm_cmpsi_insn}
+     (nil))
+(jump_insn 21 20 22 2 (set (pc)
+        (if_then_else (ne (reg:CC 100 cc)
+                (const_int 0 [0]))
+            (label_ref 119)
+            (pc))) "uart.c":115:6 273 {arm_cond_branch}
+     (nil)
+ -> 119)
+;;  succ:       6 (FALLTHRU)
+;;              13
+
+;; basic block 6, loop depth 0, maybe hot
+;;  prev block 2, next block 7, flags: (NEW, REACHABLE, RTL)
+;;  pred:       2 (FALLTHRU)
+(note 22 21 23 6 [bb 6] NOTE_INSN_BASIC_BLOCK)
+(insn 23 22 24 6 (set (reg:SI 0 r0)
+        (symbol_ref/f:SI ("*.LC1") [flags 0x2]  <var_decl 0x7f19cf0af360 *.LC1>)) "uart.c":116:5 253 {*arm_movsi_insn}
+     (nil))
+(call_insn 24 23 25 6 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("kprintf") [flags 0x41]  <function_decl 0x7f19cf067700 kprintf>) [0 kprintf S4 A32])
+                    (const_int 0 [0])))
+            (use (const_int 0 [0]))
+            (clobber (reg:SI 14 lr))
+        ]) "uart.c":116:5 291 {*call_value_symbol}
+     (nil)
+    (expr_list (clobber (reg:SI 12 ip))
+        (expr_list:SI (use (reg:SI 0 r0))
+            (nil))))
+(insn 25 24 26 6 (set (reg:SI 136)
+        (const_int 1 [0x1])) "uart.c":117:11 253 {*arm_movsi_insn}
+     (nil))
+(insn 26 25 27 6 (set (mem/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -8 [0xfffffffffffffff8])) [3 i+0 S4 A64])
+        (reg:SI 136)) "uart.c":117:11 253 {*arm_movsi_insn}
+     (nil))
+(jump_insn 27 26 28 6 (set (pc)
+        (label_ref 105)) "uart.c":117:5 284 {*arm_jump}
+     (nil)
+ -> 105)
+;;  succ:       11
+
+(barrier 28 27 107)
+;; basic block 7, loop depth 1, maybe hot
+;;  prev block 6, next block 8, flags: (NEW, REACHABLE, RTL)
+;;  pred:       11
+(code_label 107 28 29 7 11 (nil) [1 uses])
+(note 29 107 30 7 [bb 7] NOTE_INSN_BASIC_BLOCK)
+(insn 30 29 31 7 (set (reg/f:SI 137)
+        (symbol_ref:SI ("proc") [flags 0x40]  <var_decl 0x7f19cfd525a0 proc>)) "uart.c":118:18 253 {*arm_movsi_insn}
+     (nil))
+(insn 31 30 32 7 (set (reg:SI 138)
+        (mem/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -8 [0xfffffffffffffff8])) [3 i+0 S4 A64])) "uart.c":118:18 253 {*arm_movsi_insn}
+     (nil))
+(insn 32 31 33 7 (set (reg:SI 139)
+        (reg:SI 138)) "uart.c":118:18 253 {*arm_movsi_insn}
+     (nil))
+(insn 33 32 34 7 (set (reg:SI 139)
+        (ashift:SI (reg:SI 139)
+            (const_int 6 [0x6]))) "uart.c":118:18 147 {*arm_shiftsi3}
+     (nil))
+(insn 34 33 35 7 (set (reg:SI 139)
+        (plus:SI (reg:SI 139)
+            (reg:SI 138))) "uart.c":118:18 7 {*arm_addsi3}
+     (expr_list:REG_EQUAL (mult:SI (reg:SI 138)
+            (const_int 65 [0x41]))
+        (nil)))
+(insn 35 34 36 7 (set (reg:SI 139)
+        (ashift:SI (reg:SI 139)
+            (const_int 1 [0x1]))) "uart.c":118:18 147 {*arm_shiftsi3}
+     (nil))
+(insn 36 35 37 7 (set (reg:SI 139)
+        (plus:SI (reg:SI 139)
+            (reg:SI 138))) "uart.c":118:18 7 {*arm_addsi3}
+     (expr_list:REG_EQUAL (mult:SI (reg:SI 138)
+            (const_int 131 [0x83]))
+        (nil)))
+(insn 37 36 38 7 (set (reg:SI 139)
+        (ashift:SI (reg:SI 139)
+            (const_int 3 [0x3]))) "uart.c":118:18 147 {*arm_shiftsi3}
+     (nil))
+(insn 38 37 39 7 (set (reg:SI 139)
+        (minus:SI (reg:SI 139)
+            (reg:SI 138))) "uart.c":118:18 45 {*arm_subsi3_insn}
+     (expr_list:REG_EQUAL (mult:SI (reg:SI 138)
+            (const_int 1047 [0x417]))
+        (nil)))
+(insn 39 38 40 7 (set (reg:SI 140)
+        (ashift:SI (reg:SI 139)
+            (const_int 2 [0x2]))) "uart.c":118:18 147 {*arm_shiftsi3}
+     (nil))
+(insn 40 39 41 7 (set (reg:SI 139)
+        (reg:SI 140)) "uart.c":118:18 253 {*arm_movsi_insn}
+     (expr_list:REG_EQUAL (mult:SI (reg:SI 138)
+            (const_int 4188 [0x105c]))
+        (nil)))
+(insn 41 40 42 7 (set (reg:SI 141)
+        (plus:SI (reg/f:SI 137)
+            (reg:SI 139))) "uart.c":118:18 7 {*arm_addsi3}
+     (nil))
+(insn 42 41 43 7 (set (reg/f:SI 142)
+        (plus:SI (reg:SI 141)
+            (const_int 28 [0x1c]))) "uart.c":118:18 7 {*arm_addsi3}
+     (nil))
+(insn 43 42 44 7 (set (reg:SI 116 [ _4 ])
+        (mem:SI (reg/f:SI 142) [3 proc[i_19].status+0 S4 A32])) "uart.c":118:18 253 {*arm_movsi_insn}
+     (nil))
+(insn 44 43 45 7 (set (reg:CC 100 cc)
+        (compare:CC (reg:SI 116 [ _4 ])
+            (const_int 0 [0]))) "uart.c":118:10 268 {*arm_cmpsi_insn}
+     (nil))
+(jump_insn 45 44 46 7 (set (pc)
+        (if_then_else (eq (reg:CC 100 cc)
+                (const_int 0 [0]))
+            (label_ref 100)
+            (pc))) "uart.c":118:10 273 {arm_cond_branch}
+     (nil)
+ -> 100)
+;;  succ:       8 (FALLTHRU)
+;;              10
+
+;; basic block 8, loop depth 1, maybe hot
+;;  prev block 7, next block 9, flags: (NEW, REACHABLE, RTL)
+;;  pred:       7 (FALLTHRU)
+(note 46 45 47 8 [bb 8] NOTE_INSN_BASIC_BLOCK)
+(insn 47 46 48 8 (set (reg/f:SI 143)
+        (symbol_ref:SI ("proc") [flags 0x40]  <var_decl 0x7f19cfd525a0 proc>)) "uart.c":118:51 253 {*arm_movsi_insn}
+     (nil))
+(insn 48 47 49 8 (set (reg:SI 144)
+        (mem/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -8 [0xfffffffffffffff8])) [3 i+0 S4 A64])) "uart.c":118:51 253 {*arm_movsi_insn}
+     (nil))
+(insn 49 48 50 8 (set (reg:SI 145)
+        (reg:SI 144)) "uart.c":118:51 253 {*arm_movsi_insn}
+     (nil))
+(insn 50 49 51 8 (set (reg:SI 145)
+        (ashift:SI (reg:SI 145)
+            (const_int 6 [0x6]))) "uart.c":118:51 147 {*arm_shiftsi3}
+     (nil))
+(insn 51 50 52 8 (set (reg:SI 145)
+        (plus:SI (reg:SI 145)
+            (reg:SI 144))) "uart.c":118:51 7 {*arm_addsi3}
+     (expr_list:REG_EQUAL (mult:SI (reg:SI 144)
+            (const_int 65 [0x41]))
+        (nil)))
+(insn 52 51 53 8 (set (reg:SI 145)
+        (ashift:SI (reg:SI 145)
+            (const_int 1 [0x1]))) "uart.c":118:51 147 {*arm_shiftsi3}
+     (nil))
+(insn 53 52 54 8 (set (reg:SI 145)
+        (plus:SI (reg:SI 145)
+            (reg:SI 144))) "uart.c":118:51 7 {*arm_addsi3}
+     (expr_list:REG_EQUAL (mult:SI (reg:SI 144)
+            (const_int 131 [0x83]))
+        (nil)))
+(insn 54 53 55 8 (set (reg:SI 145)
+        (ashift:SI (reg:SI 145)
+            (const_int 3 [0x3]))) "uart.c":118:51 147 {*arm_shiftsi3}
+     (nil))
+(insn 55 54 56 8 (set (reg:SI 145)
+        (minus:SI (reg:SI 145)
+            (reg:SI 144))) "uart.c":118:51 45 {*arm_subsi3_insn}
+     (expr_list:REG_EQUAL (mult:SI (reg:SI 144)
+            (const_int 1047 [0x417]))
+        (nil)))
+(insn 56 55 57 8 (set (reg:SI 146)
+        (ashift:SI (reg:SI 145)
+            (const_int 2 [0x2]))) "uart.c":118:51 147 {*arm_shiftsi3}
+     (nil))
+(insn 57 56 58 8 (set (reg:SI 145)
+        (reg:SI 146)) "uart.c":118:51 253 {*arm_movsi_insn}
+     (expr_list:REG_EQUAL (mult:SI (reg:SI 144)
+            (const_int 4188 [0x105c]))
+        (nil)))
+(insn 58 57 59 8 (set (reg:SI 147)
+        (plus:SI (reg/f:SI 143)
+            (reg:SI 145))) "uart.c":118:51 7 {*arm_addsi3}
+     (nil))
+(insn 59 58 60 8 (set (reg/f:SI 148)
+        (plus:SI (reg:SI 147)
+            (const_int 84 [0x54]))) "uart.c":118:51 7 {*arm_addsi3}
+     (nil))
+(insn 60 59 61 8 (set (reg/f:SI 117 [ _5 ])
+        (mem/f:SI (reg/f:SI 148) [10 proc[i_19].res+0 S4 A32])) "uart.c":118:51 253 {*arm_movsi_insn}
+     (nil))
+(insn 61 60 62 8 (set (reg/f:SI 118 [ _6 ])
+        (plus:SI (reg/f:SI 117 [ _5 ])
+            (const_int 60 [0x3c]))) "uart.c":118:55 7 {*arm_addsi3}
+     (nil))
+(insn 62 61 63 8 (set (reg:SI 1 r1)
+        (symbol_ref/f:SI ("*.LC2") [flags 0x2]  <var_decl 0x7f19cf0af480 *.LC2>)) "uart.c":118:37 253 {*arm_movsi_insn}
+     (nil))
+(insn 63 62 64 8 (set (reg:SI 0 r0)
+        (reg/f:SI 118 [ _6 ])) "uart.c":118:37 253 {*arm_movsi_insn}
+     (nil))
+(call_insn/i 64 63 65 8 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("strcmp") [flags 0x41]  <function_decl 0x7f19cf2e7700 strcmp>) [0 __builtin_strcmp S4 A32])
+                    (const_int 0 [0])))
+            (use (const_int 0 [0]))
+            (clobber (reg:SI 14 lr))
+        ]) "uart.c":118:37 291 {*call_value_symbol}
+     (expr_list:REG_EH_REGION (const_int 0 [0])
+        (nil))
+    (expr_list (clobber (reg:SI 12 ip))
+        (expr_list:SI (use (reg:SI 0 r0))
+            (expr_list:SI (use (reg:SI 1 r1))
+                (nil)))))
+(insn 65 64 66 8 (set (reg:SI 119 [ _7 ])
+        (reg:SI 0 r0)) "uart.c":118:37 253 {*arm_movsi_insn}
+     (nil))
+(insn 66 65 67 8 (set (reg:CC 100 cc)
+        (compare:CC (reg:SI 119 [ _7 ])
+            (const_int 0 [0]))) "uart.c":118:34 268 {*arm_cmpsi_insn}
+     (nil))
+(jump_insn 67 66 68 8 (set (pc)
+        (if_then_else (ne (reg:CC 100 cc)
+                (const_int 0 [0]))
+            (label_ref 100)
+            (pc))) "uart.c":118:34 273 {arm_cond_branch}
+     (nil)
+ -> 100)
+;;  succ:       9 (FALLTHRU)
+;;              10
+
+;; basic block 9, loop depth 1, maybe hot
+;;  prev block 8, next block 10, flags: (NEW, REACHABLE, RTL)
+;;  pred:       8 (FALLTHRU)
+(note 68 67 69 9 [bb 9] NOTE_INSN_BASIC_BLOCK)
+(insn 69 68 70 9 (set (reg/f:SI 149)
+        (symbol_ref:SI ("proc") [flags 0x40]  <var_decl 0x7f19cfd525a0 proc>)) "uart.c":119:9 253 {*arm_movsi_insn}
+     (nil))
+(insn 70 69 71 9 (set (reg:SI 150)
+        (mem/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -8 [0xfffffffffffffff8])) [3 i+0 S4 A64])) "uart.c":119:9 253 {*arm_movsi_insn}
+     (nil))
+(insn 71 70 72 9 (set (reg:SI 151)
+        (reg:SI 150)) "uart.c":119:9 253 {*arm_movsi_insn}
+     (nil))
+(insn 72 71 73 9 (set (reg:SI 151)
+        (ashift:SI (reg:SI 151)
+            (const_int 6 [0x6]))) "uart.c":119:9 147 {*arm_shiftsi3}
+     (nil))
+(insn 73 72 74 9 (set (reg:SI 151)
+        (plus:SI (reg:SI 151)
+            (reg:SI 150))) "uart.c":119:9 7 {*arm_addsi3}
+     (expr_list:REG_EQUAL (mult:SI (reg:SI 150)
+            (const_int 65 [0x41]))
+        (nil)))
+(insn 74 73 75 9 (set (reg:SI 151)
+        (ashift:SI (reg:SI 151)
+            (const_int 1 [0x1]))) "uart.c":119:9 147 {*arm_shiftsi3}
+     (nil))
+(insn 75 74 76 9 (set (reg:SI 151)
+        (plus:SI (reg:SI 151)
+            (reg:SI 150))) "uart.c":119:9 7 {*arm_addsi3}
+     (expr_list:REG_EQUAL (mult:SI (reg:SI 150)
+            (const_int 131 [0x83]))
+        (nil)))
+(insn 76 75 77 9 (set (reg:SI 151)
+        (ashift:SI (reg:SI 151)
+            (const_int 3 [0x3]))) "uart.c":119:9 147 {*arm_shiftsi3}
+     (nil))
+(insn 77 76 78 9 (set (reg:SI 151)
+        (minus:SI (reg:SI 151)
+            (reg:SI 150))) "uart.c":119:9 45 {*arm_subsi3_insn}
+     (expr_list:REG_EQUAL (mult:SI (reg:SI 150)
+            (const_int 1047 [0x417]))
+        (nil)))
+(insn 78 77 79 9 (set (reg:SI 152)
+        (ashift:SI (reg:SI 151)
+            (const_int 2 [0x2]))) "uart.c":119:9 147 {*arm_shiftsi3}
+     (nil))
+(insn 79 78 80 9 (set (reg:SI 151)
+        (reg:SI 152)) "uart.c":119:9 253 {*arm_movsi_insn}
+     (expr_list:REG_EQUAL (mult:SI (reg:SI 150)
+            (const_int 4188 [0x105c]))
+        (nil)))
+(insn 80 79 81 9 (set (reg:SI 153)
+        (plus:SI (reg/f:SI 149)
+            (reg:SI 151))) "uart.c":119:9 7 {*arm_addsi3}
+     (nil))
+(insn 81 80 82 9 (set (reg/f:SI 154)
+        (plus:SI (reg:SI 153)
+            (const_int 84 [0x54]))) "uart.c":119:9 7 {*arm_addsi3}
+     (nil))
+(insn 82 81 83 9 (set (reg/f:SI 120 [ _8 ])
+        (mem/f:SI (reg/f:SI 154) [10 proc[i_19].res+0 S4 A32])) "uart.c":119:9 253 {*arm_movsi_insn}
+     (nil))
+(insn 83 82 84 9 (set (reg:SI 121 [ _9 ])
+        (mem:SI (plus:SI (reg/f:SI 120 [ _8 ])
+                (const_int 92 [0x5c])) [3 _8->signal+0 S4 A32])) "uart.c":119:22 253 {*arm_movsi_insn}
+     (nil))
+(insn 84 83 85 9 (set (reg/f:SI 155)
+        (symbol_ref:SI ("proc") [flags 0x40]  <var_decl 0x7f19cfd525a0 proc>)) "uart.c":119:9 253 {*arm_movsi_insn}
+     (nil))
+(insn 85 84 86 9 (set (reg:SI 156)
+        (mem/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -8 [0xfffffffffffffff8])) [3 i+0 S4 A64])) "uart.c":119:9 253 {*arm_movsi_insn}
+     (nil))
+(insn 86 85 87 9 (set (reg:SI 157)
+        (reg:SI 156)) "uart.c":119:9 253 {*arm_movsi_insn}
+     (nil))
+(insn 87 86 88 9 (set (reg:SI 157)
+        (ashift:SI (reg:SI 157)
+            (const_int 6 [0x6]))) "uart.c":119:9 147 {*arm_shiftsi3}
+     (nil))
+(insn 88 87 89 9 (set (reg:SI 157)
+        (plus:SI (reg:SI 157)
+            (reg:SI 156))) "uart.c":119:9 7 {*arm_addsi3}
+     (expr_list:REG_EQUAL (mult:SI (reg:SI 156)
+            (const_int 65 [0x41]))
+        (nil)))
+(insn 89 88 90 9 (set (reg:SI 157)
+        (ashift:SI (reg:SI 157)
+            (const_int 1 [0x1]))) "uart.c":119:9 147 {*arm_shiftsi3}
+     (nil))
+(insn 90 89 91 9 (set (reg:SI 157)
+        (plus:SI (reg:SI 157)
+            (reg:SI 156))) "uart.c":119:9 7 {*arm_addsi3}
+     (expr_list:REG_EQUAL (mult:SI (reg:SI 156)
+            (const_int 131 [0x83]))
+        (nil)))
+(insn 91 90 92 9 (set (reg:SI 157)
+        (ashift:SI (reg:SI 157)
+            (const_int 3 [0x3]))) "uart.c":119:9 147 {*arm_shiftsi3}
+     (nil))
+(insn 92 91 93 9 (set (reg:SI 157)
+        (minus:SI (reg:SI 157)
+            (reg:SI 156))) "uart.c":119:9 45 {*arm_subsi3_insn}
+     (expr_list:REG_EQUAL (mult:SI (reg:SI 156)
+            (const_int 1047 [0x417]))
+        (nil)))
+(insn 93 92 94 9 (set (reg:SI 158)
+        (ashift:SI (reg:SI 157)
+            (const_int 2 [0x2]))) "uart.c":119:9 147 {*arm_shiftsi3}
+     (nil))
+(insn 94 93 95 9 (set (reg:SI 157)
+        (reg:SI 158)) "uart.c":119:9 253 {*arm_movsi_insn}
+     (expr_list:REG_EQUAL (mult:SI (reg:SI 156)
+            (const_int 4188 [0x105c]))
+        (nil)))
+(insn 95 94 96 9 (set (reg:SI 159)
+        (plus:SI (reg/f:SI 155)
+            (reg:SI 157))) "uart.c":119:9 7 {*arm_addsi3}
+     (nil))
+(insn 96 95 97 9 (set (reg/f:SI 160)
+        (plus:SI (reg:SI 159)
+            (const_int 84 [0x54]))) "uart.c":119:9 7 {*arm_addsi3}
+     (nil))
+(insn 97 96 98 9 (set (reg/f:SI 122 [ _10 ])
+        (mem/f:SI (reg/f:SI 160) [10 proc[i_19].res+0 S4 A32])) "uart.c":119:9 253 {*arm_movsi_insn}
+     (nil))
+(insn 98 97 99 9 (set (reg:SI 123 [ _11 ])
+        (ior:SI (reg:SI 121 [ _9 ])
+            (const_int 4 [0x4]))) "uart.c":119:22 106 {*iorsi3_insn}
+     (nil))
+(insn 99 98 100 9 (set (mem:SI (plus:SI (reg/f:SI 122 [ _10 ])
+                (const_int 92 [0x5c])) [3 _10->signal+0 S4 A32])
+        (reg:SI 123 [ _11 ])) "uart.c":119:22 253 {*arm_movsi_insn}
+     (nil))
+;;  succ:       10 (FALLTHRU)
+
+;; basic block 10, loop depth 1, maybe hot
+;;  prev block 9, next block 11, flags: (NEW, REACHABLE, RTL)
+;;  pred:       7
+;;              8
+;;              9 (FALLTHRU)
+(code_label 100 99 101 10 10 (nil) [2 uses])
+(note 101 100 102 10 [bb 10] NOTE_INSN_BASIC_BLOCK)
+(insn 102 101 103 10 (set (reg:SI 162)
+        (mem/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -8 [0xfffffffffffffff8])) [3 i+0 S4 A64])) "uart.c":117:25 253 {*arm_movsi_insn}
+     (nil))
+(insn 103 102 104 10 (set (reg:SI 161)
+        (plus:SI (reg:SI 162)
+            (const_int 1 [0x1]))) "uart.c":117:25 7 {*arm_addsi3}
+     (nil))
+(insn 104 103 105 10 (set (mem/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -8 [0xfffffffffffffff8])) [3 i+0 S4 A64])
+        (reg:SI 161)) "uart.c":117:25 253 {*arm_movsi_insn}
+     (nil))
+;;  succ:       11 (FALLTHRU,DFS_BACK)
+
+;; basic block 11, loop depth 1, maybe hot
+;;  prev block 10, next block 12, flags: (NEW, REACHABLE, RTL)
+;;  pred:       6
+;;              10 (FALLTHRU,DFS_BACK)
+(code_label 105 104 106 11 9 (nil) [1 uses])
+(note 106 105 110 11 [bb 11] NOTE_INSN_BASIC_BLOCK)
+(insn 110 106 111 11 (set (reg:SI 163)
+        (mem/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -8 [0xfffffffffffffff8])) [3 i+0 S4 A64])) "uart.c":117:16 253 {*arm_movsi_insn}
+     (nil))
+(insn 111 110 112 11 (set (reg:CC 100 cc)
+        (compare:CC (reg:SI 163)
+            (const_int 63 [0x3f]))) "uart.c":117:16 268 {*arm_cmpsi_insn}
+     (nil))
+(jump_insn 112 111 113 11 (set (pc)
+        (if_then_else (le (reg:CC 100 cc)
+                (const_int 0 [0]))
+            (label_ref 107)
+            (pc))) "uart.c":117:16 273 {arm_cond_branch}
+     (nil)
+ -> 107)
+;;  succ:       7
+;;              12 (FALLTHRU)
+
+;; basic block 12, loop depth 0, maybe hot
+;;  prev block 11, next block 13, flags: (NEW, REACHABLE, RTL)
+;;  pred:       11 (FALLTHRU)
+(note 113 112 114 12 [bb 12] NOTE_INSN_BASIC_BLOCK)
+(insn 114 113 115 12 (set (reg:SI 0 r0)
+        (symbol_ref/f:SI ("*.LC3") [flags 0x2]  <var_decl 0x7f19cf0af510 *.LC3>)) "uart.c":122:5 253 {*arm_movsi_insn}
+     (nil))
+(call_insn 115 114 116 12 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("kprintf") [flags 0x41]  <function_decl 0x7f19cf067700 kprintf>) [0 kprintf S4 A32])
+                    (const_int 0 [0])))
+            (use (const_int 0 [0]))
+            (clobber (reg:SI 14 lr))
+        ]) "uart.c":122:5 291 {*call_value_symbol}
+     (nil)
+    (expr_list (clobber (reg:SI 12 ip))
+        (expr_list:SI (use (reg:SI 0 r0))
+            (nil))))
+(insn 116 115 117 12 (set (reg:SI 164)
+        (const_int 13 [0xd])) "uart.c":123:7 253 {*arm_movsi_insn}
+     (nil))
+(insn 117 116 118 12 (set (reg:QI 165)
+        (subreg:QI (reg:SI 164) 0)) "uart.c":123:7 263 {*arm_movqi_insn}
+     (nil))
+(insn 118 117 119 12 (set (mem/c:QI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -9 [0xfffffffffffffff7])) [0 c+0 S1 A8])
+        (reg:QI 165)) "uart.c":123:7 263 {*arm_movqi_insn}
+     (nil))
+;;  succ:       13 (FALLTHRU)
+
+;; basic block 13, loop depth 0, maybe hot
+;;  prev block 12, next block 1, flags: (NEW, REACHABLE, RTL)
+;;  pred:       2
+;;              12 (FALLTHRU)
+(code_label 119 118 120 13 8 (nil) [1 uses])
+(note 120 119 121 13 [bb 13] NOTE_INSN_BASIC_BLOCK)
+(insn 121 120 122 13 (set (reg/f:SI 166)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -4 [0xfffffffffffffffc])) [6 up+0 S4 A32])) "uart.c":126:15 253 {*arm_movsi_insn}
+     (nil))
+(insn 122 121 123 13 (set (reg:SI 124 [ _12 ])
+        (mem/v:SI (plus:SI (reg/f:SI 166)
+                (const_int 68 [0x44])) [3 up_25->inhead+0 S4 A32])) "uart.c":126:15 253 {*arm_movsi_insn}
+     (nil))
+(insn 123 122 124 13 (set (reg:SI 125 [ _14 ])
+        (plus:SI (reg:SI 124 [ _12 ])
+            (const_int 1 [0x1]))) "uart.c":126:23 7 {*arm_addsi3}
+     (nil))
+(insn 124 123 125 13 (set (reg/f:SI 167)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -4 [0xfffffffffffffffc])) [6 up+0 S4 A32])) "uart.c":126:23 253 {*arm_movsi_insn}
+     (nil))
+(insn 125 124 126 13 (set (mem/v:SI (plus:SI (reg/f:SI 167)
+                (const_int 68 [0x44])) [3 up_25->inhead+0 S4 A32])
+        (reg:SI 125 [ _14 ])) "uart.c":126:23 253 {*arm_movsi_insn}
+     (nil))
+(insn 126 125 127 13 (set (reg/f:SI 168)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -4 [0xfffffffffffffffc])) [6 up+0 S4 A32])) "uart.c":126:27 253 {*arm_movsi_insn}
+     (nil))
+(insn 127 126 128 13 (set (reg/f:SI 169)
+        (plus:SI (reg/f:SI 168)
+            (reg:SI 124 [ _12 ]))) "uart.c":126:27 7 {*arm_addsi3}
+     (nil))
+(insn 128 127 129 13 (set (reg:QI 170)
+        (mem/c:QI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -9 [0xfffffffffffffff7])) [0 c+0 S1 A8])) "uart.c":126:27 263 {*arm_movqi_insn}
+     (nil))
+(insn 129 128 130 13 (set (mem/v:QI (plus:SI (reg/f:SI 169)
+                (const_int 4 [0x4])) [0 up_25->inbuf[_13]+0 S1 A8])
+        (reg:QI 170)) "uart.c":126:27 263 {*arm_movqi_insn}
+     (nil))
+(insn 130 129 131 13 (set (reg/f:SI 171)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -4 [0xfffffffffffffffc])) [6 up+0 S4 A32])) "uart.c":127:14 253 {*arm_movsi_insn}
+     (nil))
+(insn 131 130 132 13 (set (reg:SI 126 [ _15 ])
+        (mem/v:SI (plus:SI (reg/f:SI 171)
+                (const_int 68 [0x44])) [3 up_25->inhead+0 S4 A32])) "uart.c":127:14 253 {*arm_movsi_insn}
+     (nil))
+(insn 132 131 133 13 (parallel [
+            (set (reg:CC_NZ 100 cc)
+                (compare:CC_NZ (minus:SI (const_int 0 [0])
+                        (reg:SI 126 [ _15 ]))
+                    (const_int 0 [0])))
+            (set (reg:SI 172)
+                (minus:SI (const_int 0 [0])
+                    (reg:SI 126 [ _15 ])))
+        ]) "uart.c":127:14 46 {subsi3_compare0}
+     (nil))
+(insn 133 132 134 13 (set (reg:SI 127 [ _16 ])
+        (and:SI (reg:SI 126 [ _15 ])
+            (const_int 63 [0x3f]))) "uart.c":127:14 90 {*arm_andsi3_insn}
+     (nil))
+(insn 134 133 135 13 (set (reg:SI 173)
+        (and:SI (reg:SI 172)
+            (const_int 63 [0x3f]))) "uart.c":127:14 90 {*arm_andsi3_insn}
+     (nil))
+(insn 135 134 136 13 (set (reg:SI 127 [ _16 ])
+        (if_then_else:SI (ge:SI (reg:CC_NZ 100 cc)
+                (const_int 0 [0]))
+            (neg:SI (reg:SI 173))
+            (reg:SI 127 [ _16 ]))) "uart.c":127:14 371 {*if_neg_move}
+     (expr_list:REG_EQUAL (mod:SI (reg:SI 126 [ _15 ])
+            (const_int 64 [0x40]))
+        (nil)))
+(insn 136 135 137 13 (set (reg/f:SI 174)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -4 [0xfffffffffffffffc])) [6 up+0 S4 A32])) "uart.c":127:14 253 {*arm_movsi_insn}
+     (nil))
+(insn 137 136 138 13 (set (mem/v:SI (plus:SI (reg/f:SI 174)
+                (const_int 68 [0x44])) [3 up_25->inhead+0 S4 A32])
+        (reg:SI 127 [ _16 ])) "uart.c":127:14 253 {*arm_movsi_insn}
+     (nil))
+(insn 138 137 139 13 (set (reg:SI 175)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -4 [0xfffffffffffffffc])) [6 up+0 S4 A32])) "uart.c":128:3 253 {*arm_movsi_insn}
+     (nil))
+(insn 139 138 140 13 (set (reg/f:SI 128 [ _17 ])
+        (plus:SI (reg:SI 175)
+            (const_int 76 [0x4c]))) "uart.c":128:3 7 {*arm_addsi3}
+     (nil))
+(insn 140 139 141 13 (set (reg:SI 0 r0)
+        (reg/f:SI 128 [ _17 ])) "uart.c":128:3 253 {*arm_movsi_insn}
+     (nil))
+(call_insn 141 140 142 13 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("V") [flags 0x41]  <function_decl 0x7f19cf067d00 V>) [0 V S4 A32])
+                    (const_int 0 [0])))
+            (use (const_int 0 [0]))
+            (clobber (reg:SI 14 lr))
+        ]) "uart.c":128:3 291 {*call_value_symbol}
+     (nil)
+    (expr_list (clobber (reg:SI 12 ip))
+        (expr_list:SI (use (reg:SI 0 r0))
+            (nil))))
+(insn 142 141 143 13 (set (reg/f:SI 176)
+        (symbol_ref:SI ("color") [flags 0x40]  <var_decl 0x7f19cfd52480 color>)) "uart.c":129:8 253 {*arm_movsi_insn}
+     (nil))
+(insn 143 142 144 13 (set (reg:SI 177)
+        (const_int 6 [0x6])) "uart.c":129:8 253 {*arm_movsi_insn}
+     (nil))
+(insn 144 143 0 13 (set (mem/c:SI (reg/f:SI 176) [3 color+0 S4 A32])
+        (reg:SI 177)) "uart.c":129:8 253 {*arm_movsi_insn}
+     (nil))
+;;  succ:       EXIT [always]  (FALLTHRU)
+
+
+;; Function uart1_handler (uart1_handler, funcdef_no=2, decl_uid=4506, cgraph_uid=3, symbol_order=4)
+
+(note 1 0 3 NOTE_INSN_DELETED)
+;; basic block 2, loop depth 0, maybe hot
+;;  prev block 0, next block 6, flags: (NEW, REACHABLE, RTL)
+;;  pred:       ENTRY (FALLTHRU)
+(note 3 1 2 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+(note 2 3 5 2 NOTE_INSN_FUNCTION_BEG)
+(insn 5 2 6 2 (set (reg/f:SI 129)
+        (symbol_ref:SI ("color") [flags 0x40]  <var_decl 0x7f19cfd52480 color>)) "uart.c":137:8 253 {*arm_movsi_insn}
+     (nil))
+(insn 6 5 7 2 (set (reg:SI 130)
+        (const_int 5 [0x5])) "uart.c":137:8 253 {*arm_movsi_insn}
+     (nil))
+(insn 7 6 8 2 (set (mem/c:SI (reg/f:SI 129) [3 color+0 S4 A32])
+        (reg:SI 130)) "uart.c":137:8 253 {*arm_movsi_insn}
+     (nil))
+(insn 8 7 9 2 (set (reg/f:SI 131)
+        (const:SI (plus:SI (symbol_ref:SI ("uart") [flags 0x2]  <var_decl 0x7f19cfd52ab0 uart>)
+                (const_int 244 [0xf4])))) "uart.c":139:6 253 {*arm_movsi_insn}
+     (nil))
+(insn 9 8 147 2 (set (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -4 [0xfffffffffffffffc])) [6 up+0 S4 A32])
+        (reg/f:SI 131)) "uart.c":139:6 253 {*arm_movsi_insn}
+     (nil))
+(insn 147 9 11 2 (const_int 0 [0]) "uart.c":140:8 311 {nop}
+     (nil))
+(insn 11 147 12 2 (set (reg/f:SI 132)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -4 [0xfffffffffffffffc])) [6 up+0 S4 A32])) "uart.c":140:14 253 {*arm_movsi_insn}
+     (nil))
+(insn 12 11 13 2 (set (reg/f:SI 113 [ _1 ])
+        (mem/v/f:SI (reg/f:SI 132) [2 up_25->base+0 S4 A32])) "uart.c":140:14 253 {*arm_movsi_insn}
+     (nil))
+(insn 13 12 15 2 (set (reg/f:SI 114 [ _2 ])
+        (plus:SI (reg/f:SI 113 [ _1 ])
+            (const_int 24 [0x18]))) "uart.c":140:20 7 {*arm_addsi3}
+     (nil))
+(insn 15 13 16 2 (set (reg/f:SI 133)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -4 [0xfffffffffffffffc])) [6 up+0 S4 A32])) "uart.c":142:11 253 {*arm_movsi_insn}
+     (nil))
+(insn 16 15 17 2 (set (reg/f:SI 115 [ _3 ])
+        (mem/v/f:SI (reg/f:SI 133) [2 up_25->base+0 S4 A32])) "uart.c":142:11 253 {*arm_movsi_insn}
+     (nil))
+(insn 17 16 18 2 (set (reg:QI 134)
+        (mem:QI (reg/f:SI 115 [ _3 ]) [0 *_3+0 S1 A8])) "uart.c":142:5 263 {*arm_movqi_insn}
+     (nil))
+(insn 18 17 19 2 (set (mem/c:QI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -9 [0xfffffffffffffff7])) [0 c+0 S1 A8])
+        (reg:QI 134)) "uart.c":142:5 263 {*arm_movqi_insn}
+     (nil))
+(insn 19 18 20 2 (set (reg:SI 135)
+        (zero_extend:SI (mem/c:QI (plus:SI (reg/f:SI 102 sfp)
+                    (const_int -9 [0xfffffffffffffff7])) [0 c+0 S1 A8]))) "uart.c":145:6 175 {*arm_zero_extendqisi2}
+     (nil))
+(insn 20 19 21 2 (set (reg:CC 100 cc)
+        (compare:CC (reg:SI 135)
+            (const_int 3 [0x3]))) "uart.c":145:6 268 {*arm_cmpsi_insn}
+     (nil))
+(jump_insn 21 20 22 2 (set (pc)
+        (if_then_else (ne (reg:CC 100 cc)
+                (const_int 0 [0]))
+            (label_ref 119)
+            (pc))) "uart.c":145:6 273 {arm_cond_branch}
+     (nil)
+ -> 119)
+;;  succ:       6 (FALLTHRU)
+;;              13
+
+;; basic block 6, loop depth 0, maybe hot
+;;  prev block 2, next block 7, flags: (NEW, REACHABLE, RTL)
+;;  pred:       2 (FALLTHRU)
+(note 22 21 23 6 [bb 6] NOTE_INSN_BASIC_BLOCK)
+(insn 23 22 24 6 (set (reg:SI 0 r0)
+        (symbol_ref/f:SI ("*.LC1") [flags 0x2]  <var_decl 0x7f19cf0af360 *.LC1>)) "uart.c":146:5 253 {*arm_movsi_insn}
+     (nil))
+(call_insn 24 23 25 6 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("kprintf") [flags 0x41]  <function_decl 0x7f19cf067700 kprintf>) [0 kprintf S4 A32])
+                    (const_int 0 [0])))
+            (use (const_int 0 [0]))
+            (clobber (reg:SI 14 lr))
+        ]) "uart.c":146:5 291 {*call_value_symbol}
+     (nil)
+    (expr_list (clobber (reg:SI 12 ip))
+        (expr_list:SI (use (reg:SI 0 r0))
+            (nil))))
+(insn 25 24 26 6 (set (reg:SI 136)
+        (const_int 1 [0x1])) "uart.c":147:11 253 {*arm_movsi_insn}
+     (nil))
+(insn 26 25 27 6 (set (mem/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -8 [0xfffffffffffffff8])) [3 i+0 S4 A64])
+        (reg:SI 136)) "uart.c":147:11 253 {*arm_movsi_insn}
+     (nil))
+(jump_insn 27 26 28 6 (set (pc)
+        (label_ref 105)) "uart.c":147:5 284 {*arm_jump}
+     (nil)
+ -> 105)
+;;  succ:       11
+
+(barrier 28 27 107)
+;; basic block 7, loop depth 1, maybe hot
+;;  prev block 6, next block 8, flags: (NEW, REACHABLE, RTL)
+;;  pred:       11
+(code_label 107 28 29 7 18 (nil) [1 uses])
+(note 29 107 30 7 [bb 7] NOTE_INSN_BASIC_BLOCK)
+(insn 30 29 31 7 (set (reg/f:SI 137)
+        (symbol_ref:SI ("proc") [flags 0x40]  <var_decl 0x7f19cfd525a0 proc>)) "uart.c":148:18 253 {*arm_movsi_insn}
+     (nil))
+(insn 31 30 32 7 (set (reg:SI 138)
+        (mem/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -8 [0xfffffffffffffff8])) [3 i+0 S4 A64])) "uart.c":148:18 253 {*arm_movsi_insn}
+     (nil))
+(insn 32 31 33 7 (set (reg:SI 139)
+        (reg:SI 138)) "uart.c":148:18 253 {*arm_movsi_insn}
+     (nil))
+(insn 33 32 34 7 (set (reg:SI 139)
+        (ashift:SI (reg:SI 139)
+            (const_int 6 [0x6]))) "uart.c":148:18 147 {*arm_shiftsi3}
+     (nil))
+(insn 34 33 35 7 (set (reg:SI 139)
+        (plus:SI (reg:SI 139)
+            (reg:SI 138))) "uart.c":148:18 7 {*arm_addsi3}
+     (expr_list:REG_EQUAL (mult:SI (reg:SI 138)
+            (const_int 65 [0x41]))
+        (nil)))
+(insn 35 34 36 7 (set (reg:SI 139)
+        (ashift:SI (reg:SI 139)
+            (const_int 1 [0x1]))) "uart.c":148:18 147 {*arm_shiftsi3}
+     (nil))
+(insn 36 35 37 7 (set (reg:SI 139)
+        (plus:SI (reg:SI 139)
+            (reg:SI 138))) "uart.c":148:18 7 {*arm_addsi3}
+     (expr_list:REG_EQUAL (mult:SI (reg:SI 138)
+            (const_int 131 [0x83]))
+        (nil)))
+(insn 37 36 38 7 (set (reg:SI 139)
+        (ashift:SI (reg:SI 139)
+            (const_int 3 [0x3]))) "uart.c":148:18 147 {*arm_shiftsi3}
+     (nil))
+(insn 38 37 39 7 (set (reg:SI 139)
+        (minus:SI (reg:SI 139)
+            (reg:SI 138))) "uart.c":148:18 45 {*arm_subsi3_insn}
+     (expr_list:REG_EQUAL (mult:SI (reg:SI 138)
+            (const_int 1047 [0x417]))
+        (nil)))
+(insn 39 38 40 7 (set (reg:SI 140)
+        (ashift:SI (reg:SI 139)
+            (const_int 2 [0x2]))) "uart.c":148:18 147 {*arm_shiftsi3}
+     (nil))
+(insn 40 39 41 7 (set (reg:SI 139)
+        (reg:SI 140)) "uart.c":148:18 253 {*arm_movsi_insn}
+     (expr_list:REG_EQUAL (mult:SI (reg:SI 138)
+            (const_int 4188 [0x105c]))
+        (nil)))
+(insn 41 40 42 7 (set (reg:SI 141)
+        (plus:SI (reg/f:SI 137)
+            (reg:SI 139))) "uart.c":148:18 7 {*arm_addsi3}
+     (nil))
+(insn 42 41 43 7 (set (reg/f:SI 142)
+        (plus:SI (reg:SI 141)
+            (const_int 28 [0x1c]))) "uart.c":148:18 7 {*arm_addsi3}
+     (nil))
+(insn 43 42 44 7 (set (reg:SI 116 [ _4 ])
+        (mem:SI (reg/f:SI 142) [3 proc[i_19].status+0 S4 A32])) "uart.c":148:18 253 {*arm_movsi_insn}
+     (nil))
+(insn 44 43 45 7 (set (reg:CC 100 cc)
+        (compare:CC (reg:SI 116 [ _4 ])
+            (const_int 0 [0]))) "uart.c":148:10 268 {*arm_cmpsi_insn}
+     (nil))
+(jump_insn 45 44 46 7 (set (pc)
+        (if_then_else (eq (reg:CC 100 cc)
+                (const_int 0 [0]))
+            (label_ref 100)
+            (pc))) "uart.c":148:10 273 {arm_cond_branch}
+     (nil)
+ -> 100)
+;;  succ:       8 (FALLTHRU)
+;;              10
+
+;; basic block 8, loop depth 1, maybe hot
+;;  prev block 7, next block 9, flags: (NEW, REACHABLE, RTL)
+;;  pred:       7 (FALLTHRU)
+(note 46 45 47 8 [bb 8] NOTE_INSN_BASIC_BLOCK)
+(insn 47 46 48 8 (set (reg/f:SI 143)
+        (symbol_ref:SI ("proc") [flags 0x40]  <var_decl 0x7f19cfd525a0 proc>)) "uart.c":148:51 253 {*arm_movsi_insn}
+     (nil))
+(insn 48 47 49 8 (set (reg:SI 144)
+        (mem/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -8 [0xfffffffffffffff8])) [3 i+0 S4 A64])) "uart.c":148:51 253 {*arm_movsi_insn}
+     (nil))
+(insn 49 48 50 8 (set (reg:SI 145)
+        (reg:SI 144)) "uart.c":148:51 253 {*arm_movsi_insn}
+     (nil))
+(insn 50 49 51 8 (set (reg:SI 145)
+        (ashift:SI (reg:SI 145)
+            (const_int 6 [0x6]))) "uart.c":148:51 147 {*arm_shiftsi3}
+     (nil))
+(insn 51 50 52 8 (set (reg:SI 145)
+        (plus:SI (reg:SI 145)
+            (reg:SI 144))) "uart.c":148:51 7 {*arm_addsi3}
+     (expr_list:REG_EQUAL (mult:SI (reg:SI 144)
+            (const_int 65 [0x41]))
+        (nil)))
+(insn 52 51 53 8 (set (reg:SI 145)
+        (ashift:SI (reg:SI 145)
+            (const_int 1 [0x1]))) "uart.c":148:51 147 {*arm_shiftsi3}
+     (nil))
+(insn 53 52 54 8 (set (reg:SI 145)
+        (plus:SI (reg:SI 145)
+            (reg:SI 144))) "uart.c":148:51 7 {*arm_addsi3}
+     (expr_list:REG_EQUAL (mult:SI (reg:SI 144)
+            (const_int 131 [0x83]))
+        (nil)))
+(insn 54 53 55 8 (set (reg:SI 145)
+        (ashift:SI (reg:SI 145)
+            (const_int 3 [0x3]))) "uart.c":148:51 147 {*arm_shiftsi3}
+     (nil))
+(insn 55 54 56 8 (set (reg:SI 145)
+        (minus:SI (reg:SI 145)
+            (reg:SI 144))) "uart.c":148:51 45 {*arm_subsi3_insn}
+     (expr_list:REG_EQUAL (mult:SI (reg:SI 144)
+            (const_int 1047 [0x417]))
+        (nil)))
+(insn 56 55 57 8 (set (reg:SI 146)
+        (ashift:SI (reg:SI 145)
+            (const_int 2 [0x2]))) "uart.c":148:51 147 {*arm_shiftsi3}
+     (nil))
+(insn 57 56 58 8 (set (reg:SI 145)
+        (reg:SI 146)) "uart.c":148:51 253 {*arm_movsi_insn}
+     (expr_list:REG_EQUAL (mult:SI (reg:SI 144)
+            (const_int 4188 [0x105c]))
+        (nil)))
+(insn 58 57 59 8 (set (reg:SI 147)
+        (plus:SI (reg/f:SI 143)
+            (reg:SI 145))) "uart.c":148:51 7 {*arm_addsi3}
+     (nil))
+(insn 59 58 60 8 (set (reg/f:SI 148)
+        (plus:SI (reg:SI 147)
+            (const_int 84 [0x54]))) "uart.c":148:51 7 {*arm_addsi3}
+     (nil))
+(insn 60 59 61 8 (set (reg/f:SI 117 [ _5 ])
+        (mem/f:SI (reg/f:SI 148) [10 proc[i_19].res+0 S4 A32])) "uart.c":148:51 253 {*arm_movsi_insn}
+     (nil))
+(insn 61 60 62 8 (set (reg/f:SI 118 [ _6 ])
+        (plus:SI (reg/f:SI 117 [ _5 ])
+            (const_int 60 [0x3c]))) "uart.c":148:55 7 {*arm_addsi3}
+     (nil))
+(insn 62 61 63 8 (set (reg:SI 1 r1)
+        (symbol_ref/f:SI ("*.LC4") [flags 0x2]  <var_decl 0x7f19cf0af5a0 *.LC4>)) "uart.c":148:37 253 {*arm_movsi_insn}
+     (nil))
+(insn 63 62 64 8 (set (reg:SI 0 r0)
+        (reg/f:SI 118 [ _6 ])) "uart.c":148:37 253 {*arm_movsi_insn}
+     (nil))
+(call_insn/i 64 63 65 8 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("strcmp") [flags 0x41]  <function_decl 0x7f19cf2e7700 strcmp>) [0 __builtin_strcmp S4 A32])
+                    (const_int 0 [0])))
+            (use (const_int 0 [0]))
+            (clobber (reg:SI 14 lr))
+        ]) "uart.c":148:37 291 {*call_value_symbol}
+     (expr_list:REG_EH_REGION (const_int 0 [0])
+        (nil))
+    (expr_list (clobber (reg:SI 12 ip))
+        (expr_list:SI (use (reg:SI 0 r0))
+            (expr_list:SI (use (reg:SI 1 r1))
+                (nil)))))
+(insn 65 64 66 8 (set (reg:SI 119 [ _7 ])
+        (reg:SI 0 r0)) "uart.c":148:37 253 {*arm_movsi_insn}
+     (nil))
+(insn 66 65 67 8 (set (reg:CC 100 cc)
+        (compare:CC (reg:SI 119 [ _7 ])
+            (const_int 0 [0]))) "uart.c":148:34 268 {*arm_cmpsi_insn}
+     (nil))
+(jump_insn 67 66 68 8 (set (pc)
+        (if_then_else (ne (reg:CC 100 cc)
+                (const_int 0 [0]))
+            (label_ref 100)
+            (pc))) "uart.c":148:34 273 {arm_cond_branch}
+     (nil)
+ -> 100)
+;;  succ:       9 (FALLTHRU)
+;;              10
+
+;; basic block 9, loop depth 1, maybe hot
+;;  prev block 8, next block 10, flags: (NEW, REACHABLE, RTL)
+;;  pred:       8 (FALLTHRU)
+(note 68 67 69 9 [bb 9] NOTE_INSN_BASIC_BLOCK)
+(insn 69 68 70 9 (set (reg/f:SI 149)
+        (symbol_ref:SI ("proc") [flags 0x40]  <var_decl 0x7f19cfd525a0 proc>)) "uart.c":149:9 253 {*arm_movsi_insn}
+     (nil))
+(insn 70 69 71 9 (set (reg:SI 150)
+        (mem/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -8 [0xfffffffffffffff8])) [3 i+0 S4 A64])) "uart.c":149:9 253 {*arm_movsi_insn}
+     (nil))
+(insn 71 70 72 9 (set (reg:SI 151)
+        (reg:SI 150)) "uart.c":149:9 253 {*arm_movsi_insn}
+     (nil))
+(insn 72 71 73 9 (set (reg:SI 151)
+        (ashift:SI (reg:SI 151)
+            (const_int 6 [0x6]))) "uart.c":149:9 147 {*arm_shiftsi3}
+     (nil))
+(insn 73 72 74 9 (set (reg:SI 151)
+        (plus:SI (reg:SI 151)
+            (reg:SI 150))) "uart.c":149:9 7 {*arm_addsi3}
+     (expr_list:REG_EQUAL (mult:SI (reg:SI 150)
+            (const_int 65 [0x41]))
+        (nil)))
+(insn 74 73 75 9 (set (reg:SI 151)
+        (ashift:SI (reg:SI 151)
+            (const_int 1 [0x1]))) "uart.c":149:9 147 {*arm_shiftsi3}
+     (nil))
+(insn 75 74 76 9 (set (reg:SI 151)
+        (plus:SI (reg:SI 151)
+            (reg:SI 150))) "uart.c":149:9 7 {*arm_addsi3}
+     (expr_list:REG_EQUAL (mult:SI (reg:SI 150)
+            (const_int 131 [0x83]))
+        (nil)))
+(insn 76 75 77 9 (set (reg:SI 151)
+        (ashift:SI (reg:SI 151)
+            (const_int 3 [0x3]))) "uart.c":149:9 147 {*arm_shiftsi3}
+     (nil))
+(insn 77 76 78 9 (set (reg:SI 151)
+        (minus:SI (reg:SI 151)
+            (reg:SI 150))) "uart.c":149:9 45 {*arm_subsi3_insn}
+     (expr_list:REG_EQUAL (mult:SI (reg:SI 150)
+            (const_int 1047 [0x417]))
+        (nil)))
+(insn 78 77 79 9 (set (reg:SI 152)
+        (ashift:SI (reg:SI 151)
+            (const_int 2 [0x2]))) "uart.c":149:9 147 {*arm_shiftsi3}
+     (nil))
+(insn 79 78 80 9 (set (reg:SI 151)
+        (reg:SI 152)) "uart.c":149:9 253 {*arm_movsi_insn}
+     (expr_list:REG_EQUAL (mult:SI (reg:SI 150)
+            (const_int 4188 [0x105c]))
+        (nil)))
+(insn 80 79 81 9 (set (reg:SI 153)
+        (plus:SI (reg/f:SI 149)
+            (reg:SI 151))) "uart.c":149:9 7 {*arm_addsi3}
+     (nil))
+(insn 81 80 82 9 (set (reg/f:SI 154)
+        (plus:SI (reg:SI 153)
+            (const_int 84 [0x54]))) "uart.c":149:9 7 {*arm_addsi3}
+     (nil))
+(insn 82 81 83 9 (set (reg/f:SI 120 [ _8 ])
+        (mem/f:SI (reg/f:SI 154) [10 proc[i_19].res+0 S4 A32])) "uart.c":149:9 253 {*arm_movsi_insn}
+     (nil))
+(insn 83 82 84 9 (set (reg:SI 121 [ _9 ])
+        (mem:SI (plus:SI (reg/f:SI 120 [ _8 ])
+                (const_int 92 [0x5c])) [3 _8->signal+0 S4 A32])) "uart.c":149:22 253 {*arm_movsi_insn}
+     (nil))
+(insn 84 83 85 9 (set (reg/f:SI 155)
+        (symbol_ref:SI ("proc") [flags 0x40]  <var_decl 0x7f19cfd525a0 proc>)) "uart.c":149:9 253 {*arm_movsi_insn}
+     (nil))
+(insn 85 84 86 9 (set (reg:SI 156)
+        (mem/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -8 [0xfffffffffffffff8])) [3 i+0 S4 A64])) "uart.c":149:9 253 {*arm_movsi_insn}
+     (nil))
+(insn 86 85 87 9 (set (reg:SI 157)
+        (reg:SI 156)) "uart.c":149:9 253 {*arm_movsi_insn}
+     (nil))
+(insn 87 86 88 9 (set (reg:SI 157)
+        (ashift:SI (reg:SI 157)
+            (const_int 6 [0x6]))) "uart.c":149:9 147 {*arm_shiftsi3}
+     (nil))
+(insn 88 87 89 9 (set (reg:SI 157)
+        (plus:SI (reg:SI 157)
+            (reg:SI 156))) "uart.c":149:9 7 {*arm_addsi3}
+     (expr_list:REG_EQUAL (mult:SI (reg:SI 156)
+            (const_int 65 [0x41]))
+        (nil)))
+(insn 89 88 90 9 (set (reg:SI 157)
+        (ashift:SI (reg:SI 157)
+            (const_int 1 [0x1]))) "uart.c":149:9 147 {*arm_shiftsi3}
+     (nil))
+(insn 90 89 91 9 (set (reg:SI 157)
+        (plus:SI (reg:SI 157)
+            (reg:SI 156))) "uart.c":149:9 7 {*arm_addsi3}
+     (expr_list:REG_EQUAL (mult:SI (reg:SI 156)
+            (const_int 131 [0x83]))
+        (nil)))
+(insn 91 90 92 9 (set (reg:SI 157)
+        (ashift:SI (reg:SI 157)
+            (const_int 3 [0x3]))) "uart.c":149:9 147 {*arm_shiftsi3}
+     (nil))
+(insn 92 91 93 9 (set (reg:SI 157)
+        (minus:SI (reg:SI 157)
+            (reg:SI 156))) "uart.c":149:9 45 {*arm_subsi3_insn}
+     (expr_list:REG_EQUAL (mult:SI (reg:SI 156)
+            (const_int 1047 [0x417]))
+        (nil)))
+(insn 93 92 94 9 (set (reg:SI 158)
+        (ashift:SI (reg:SI 157)
+            (const_int 2 [0x2]))) "uart.c":149:9 147 {*arm_shiftsi3}
+     (nil))
+(insn 94 93 95 9 (set (reg:SI 157)
+        (reg:SI 158)) "uart.c":149:9 253 {*arm_movsi_insn}
+     (expr_list:REG_EQUAL (mult:SI (reg:SI 156)
+            (const_int 4188 [0x105c]))
+        (nil)))
+(insn 95 94 96 9 (set (reg:SI 159)
+        (plus:SI (reg/f:SI 155)
+            (reg:SI 157))) "uart.c":149:9 7 {*arm_addsi3}
+     (nil))
+(insn 96 95 97 9 (set (reg/f:SI 160)
+        (plus:SI (reg:SI 159)
+            (const_int 84 [0x54]))) "uart.c":149:9 7 {*arm_addsi3}
+     (nil))
+(insn 97 96 98 9 (set (reg/f:SI 122 [ _10 ])
+        (mem/f:SI (reg/f:SI 160) [10 proc[i_19].res+0 S4 A32])) "uart.c":149:9 253 {*arm_movsi_insn}
+     (nil))
+(insn 98 97 99 9 (set (reg:SI 123 [ _11 ])
+        (ior:SI (reg:SI 121 [ _9 ])
+            (const_int 4 [0x4]))) "uart.c":149:22 106 {*iorsi3_insn}
+     (nil))
+(insn 99 98 100 9 (set (mem:SI (plus:SI (reg/f:SI 122 [ _10 ])
+                (const_int 92 [0x5c])) [3 _10->signal+0 S4 A32])
+        (reg:SI 123 [ _11 ])) "uart.c":149:22 253 {*arm_movsi_insn}
+     (nil))
+;;  succ:       10 (FALLTHRU)
+
+;; basic block 10, loop depth 1, maybe hot
+;;  prev block 9, next block 11, flags: (NEW, REACHABLE, RTL)
+;;  pred:       7
+;;              8
+;;              9 (FALLTHRU)
+(code_label 100 99 101 10 17 (nil) [2 uses])
+(note 101 100 102 10 [bb 10] NOTE_INSN_BASIC_BLOCK)
+(insn 102 101 103 10 (set (reg:SI 162)
+        (mem/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -8 [0xfffffffffffffff8])) [3 i+0 S4 A64])) "uart.c":147:25 253 {*arm_movsi_insn}
+     (nil))
+(insn 103 102 104 10 (set (reg:SI 161)
+        (plus:SI (reg:SI 162)
+            (const_int 1 [0x1]))) "uart.c":147:25 7 {*arm_addsi3}
+     (nil))
+(insn 104 103 105 10 (set (mem/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -8 [0xfffffffffffffff8])) [3 i+0 S4 A64])
+        (reg:SI 161)) "uart.c":147:25 253 {*arm_movsi_insn}
+     (nil))
+;;  succ:       11 (FALLTHRU,DFS_BACK)
+
+;; basic block 11, loop depth 1, maybe hot
+;;  prev block 10, next block 12, flags: (NEW, REACHABLE, RTL)
+;;  pred:       6
+;;              10 (FALLTHRU,DFS_BACK)
+(code_label 105 104 106 11 16 (nil) [1 uses])
+(note 106 105 110 11 [bb 11] NOTE_INSN_BASIC_BLOCK)
+(insn 110 106 111 11 (set (reg:SI 163)
+        (mem/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -8 [0xfffffffffffffff8])) [3 i+0 S4 A64])) "uart.c":147:16 253 {*arm_movsi_insn}
+     (nil))
+(insn 111 110 112 11 (set (reg:CC 100 cc)
+        (compare:CC (reg:SI 163)
+            (const_int 63 [0x3f]))) "uart.c":147:16 268 {*arm_cmpsi_insn}
+     (nil))
+(jump_insn 112 111 113 11 (set (pc)
+        (if_then_else (le (reg:CC 100 cc)
+                (const_int 0 [0]))
+            (label_ref 107)
+            (pc))) "uart.c":147:16 273 {arm_cond_branch}
+     (nil)
+ -> 107)
+;;  succ:       7
+;;              12 (FALLTHRU)
+
+;; basic block 12, loop depth 0, maybe hot
+;;  prev block 11, next block 13, flags: (NEW, REACHABLE, RTL)
+;;  pred:       11 (FALLTHRU)
+(note 113 112 114 12 [bb 12] NOTE_INSN_BASIC_BLOCK)
+(insn 114 113 115 12 (set (reg:SI 0 r0)
+        (symbol_ref/f:SI ("*.LC3") [flags 0x2]  <var_decl 0x7f19cf0af510 *.LC3>)) "uart.c":152:5 253 {*arm_movsi_insn}
+     (nil))
+(call_insn 115 114 116 12 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("kprintf") [flags 0x41]  <function_decl 0x7f19cf067700 kprintf>) [0 kprintf S4 A32])
+                    (const_int 0 [0])))
+            (use (const_int 0 [0]))
+            (clobber (reg:SI 14 lr))
+        ]) "uart.c":152:5 291 {*call_value_symbol}
+     (nil)
+    (expr_list (clobber (reg:SI 12 ip))
+        (expr_list:SI (use (reg:SI 0 r0))
+            (nil))))
+(insn 116 115 117 12 (set (reg:SI 164)
+        (const_int 13 [0xd])) "uart.c":153:7 253 {*arm_movsi_insn}
+     (nil))
+(insn 117 116 118 12 (set (reg:QI 165)
+        (subreg:QI (reg:SI 164) 0)) "uart.c":153:7 263 {*arm_movqi_insn}
+     (nil))
+(insn 118 117 119 12 (set (mem/c:QI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -9 [0xfffffffffffffff7])) [0 c+0 S1 A8])
+        (reg:QI 165)) "uart.c":153:7 263 {*arm_movqi_insn}
+     (nil))
+;;  succ:       13 (FALLTHRU)
+
+;; basic block 13, loop depth 0, maybe hot
+;;  prev block 12, next block 1, flags: (NEW, REACHABLE, RTL)
+;;  pred:       2
+;;              12 (FALLTHRU)
+(code_label 119 118 120 13 15 (nil) [1 uses])
+(note 120 119 121 13 [bb 13] NOTE_INSN_BASIC_BLOCK)
+(insn 121 120 122 13 (set (reg/f:SI 166)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -4 [0xfffffffffffffffc])) [6 up+0 S4 A32])) "uart.c":156:15 253 {*arm_movsi_insn}
+     (nil))
+(insn 122 121 123 13 (set (reg:SI 124 [ _12 ])
+        (mem/v:SI (plus:SI (reg/f:SI 166)
+                (const_int 68 [0x44])) [3 up_25->inhead+0 S4 A32])) "uart.c":156:15 253 {*arm_movsi_insn}
+     (nil))
+(insn 123 122 124 13 (set (reg:SI 125 [ _14 ])
+        (plus:SI (reg:SI 124 [ _12 ])
+            (const_int 1 [0x1]))) "uart.c":156:23 7 {*arm_addsi3}
+     (nil))
+(insn 124 123 125 13 (set (reg/f:SI 167)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -4 [0xfffffffffffffffc])) [6 up+0 S4 A32])) "uart.c":156:23 253 {*arm_movsi_insn}
+     (nil))
+(insn 125 124 126 13 (set (mem/v:SI (plus:SI (reg/f:SI 167)
+                (const_int 68 [0x44])) [3 up_25->inhead+0 S4 A32])
+        (reg:SI 125 [ _14 ])) "uart.c":156:23 253 {*arm_movsi_insn}
+     (nil))
+(insn 126 125 127 13 (set (reg/f:SI 168)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -4 [0xfffffffffffffffc])) [6 up+0 S4 A32])) "uart.c":156:27 253 {*arm_movsi_insn}
+     (nil))
+(insn 127 126 128 13 (set (reg/f:SI 169)
+        (plus:SI (reg/f:SI 168)
+            (reg:SI 124 [ _12 ]))) "uart.c":156:27 7 {*arm_addsi3}
+     (nil))
+(insn 128 127 129 13 (set (reg:QI 170)
+        (mem/c:QI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -9 [0xfffffffffffffff7])) [0 c+0 S1 A8])) "uart.c":156:27 263 {*arm_movqi_insn}
+     (nil))
+(insn 129 128 130 13 (set (mem/v:QI (plus:SI (reg/f:SI 169)
+                (const_int 4 [0x4])) [0 up_25->inbuf[_13]+0 S1 A8])
+        (reg:QI 170)) "uart.c":156:27 263 {*arm_movqi_insn}
+     (nil))
+(insn 130 129 131 13 (set (reg/f:SI 171)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -4 [0xfffffffffffffffc])) [6 up+0 S4 A32])) "uart.c":157:14 253 {*arm_movsi_insn}
+     (nil))
+(insn 131 130 132 13 (set (reg:SI 126 [ _15 ])
+        (mem/v:SI (plus:SI (reg/f:SI 171)
+                (const_int 68 [0x44])) [3 up_25->inhead+0 S4 A32])) "uart.c":157:14 253 {*arm_movsi_insn}
+     (nil))
+(insn 132 131 133 13 (parallel [
+            (set (reg:CC_NZ 100 cc)
+                (compare:CC_NZ (minus:SI (const_int 0 [0])
+                        (reg:SI 126 [ _15 ]))
+                    (const_int 0 [0])))
+            (set (reg:SI 172)
+                (minus:SI (const_int 0 [0])
+                    (reg:SI 126 [ _15 ])))
+        ]) "uart.c":157:14 46 {subsi3_compare0}
+     (nil))
+(insn 133 132 134 13 (set (reg:SI 127 [ _16 ])
+        (and:SI (reg:SI 126 [ _15 ])
+            (const_int 63 [0x3f]))) "uart.c":157:14 90 {*arm_andsi3_insn}
+     (nil))
+(insn 134 133 135 13 (set (reg:SI 173)
+        (and:SI (reg:SI 172)
+            (const_int 63 [0x3f]))) "uart.c":157:14 90 {*arm_andsi3_insn}
+     (nil))
+(insn 135 134 136 13 (set (reg:SI 127 [ _16 ])
+        (if_then_else:SI (ge:SI (reg:CC_NZ 100 cc)
+                (const_int 0 [0]))
+            (neg:SI (reg:SI 173))
+            (reg:SI 127 [ _16 ]))) "uart.c":157:14 371 {*if_neg_move}
+     (expr_list:REG_EQUAL (mod:SI (reg:SI 126 [ _15 ])
+            (const_int 64 [0x40]))
+        (nil)))
+(insn 136 135 137 13 (set (reg/f:SI 174)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -4 [0xfffffffffffffffc])) [6 up+0 S4 A32])) "uart.c":157:14 253 {*arm_movsi_insn}
+     (nil))
+(insn 137 136 138 13 (set (mem/v:SI (plus:SI (reg/f:SI 174)
+                (const_int 68 [0x44])) [3 up_25->inhead+0 S4 A32])
+        (reg:SI 127 [ _16 ])) "uart.c":157:14 253 {*arm_movsi_insn}
+     (nil))
+(insn 138 137 139 13 (set (reg:SI 175)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -4 [0xfffffffffffffffc])) [6 up+0 S4 A32])) "uart.c":158:3 253 {*arm_movsi_insn}
+     (nil))
+(insn 139 138 140 13 (set (reg/f:SI 128 [ _17 ])
+        (plus:SI (reg:SI 175)
+            (const_int 76 [0x4c]))) "uart.c":158:3 7 {*arm_addsi3}
+     (nil))
+(insn 140 139 141 13 (set (reg:SI 0 r0)
+        (reg/f:SI 128 [ _17 ])) "uart.c":158:3 253 {*arm_movsi_insn}
+     (nil))
+(call_insn 141 140 142 13 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("V") [flags 0x41]  <function_decl 0x7f19cf067d00 V>) [0 V S4 A32])
+                    (const_int 0 [0])))
+            (use (const_int 0 [0]))
+            (clobber (reg:SI 14 lr))
+        ]) "uart.c":158:3 291 {*call_value_symbol}
+     (nil)
+    (expr_list (clobber (reg:SI 12 ip))
+        (expr_list:SI (use (reg:SI 0 r0))
+            (nil))))
+(insn 142 141 143 13 (set (reg/f:SI 176)
+        (symbol_ref:SI ("color") [flags 0x40]  <var_decl 0x7f19cfd52480 color>)) "uart.c":160:8 253 {*arm_movsi_insn}
+     (nil))
+(insn 143 142 144 13 (set (reg:SI 177)
+        (const_int 6 [0x6])) "uart.c":160:8 253 {*arm_movsi_insn}
+     (nil))
+(insn 144 143 0 13 (set (mem/c:SI (reg/f:SI 176) [3 color+0 S4 A32])
+        (reg:SI 177)) "uart.c":160:8 253 {*arm_movsi_insn}
+     (nil))
+;;  succ:       EXIT [always]  (FALLTHRU)
+
+
+;; Function sputc (sputc, funcdef_no=3, decl_uid=4522, cgraph_uid=4, symbol_order=5)
+
+(note 1 0 7 NOTE_INSN_DELETED)
+;; basic block 2, loop depth 0, maybe hot
+;;  prev block 0, next block 4, flags: (NEW, REACHABLE, RTL)
+;;  pred:       ENTRY (FALLTHRU)
+(note 7 1 2 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+(insn 2 7 3 2 (set (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -12 [0xfffffffffffffff4])) [6 up+0 S4 A32])
+        (reg:SI 0 r0 [ up ])) "uart.c":166:1 253 {*arm_movsi_insn}
+     (nil))
+(insn 3 2 4 2 (set (reg:SI 123)
+        (reg:SI 1 r1 [ c ])) "uart.c":166:1 253 {*arm_movsi_insn}
+     (nil))
+(insn 4 3 5 2 (set (reg:QI 124)
+        (subreg:QI (reg:SI 123) 0)) "uart.c":166:1 263 {*arm_movqi_insn}
+     (nil))
+(insn 5 4 6 2 (set (mem/c:QI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -13 [0xfffffffffffffff3])) [0 c+0 S1 A8])
+        (reg:QI 124)) "uart.c":166:1 263 {*arm_movqi_insn}
+     (nil))
+(note 6 5 9 2 NOTE_INSN_FUNCTION_BEG)
+(insn 9 6 10 2 (set (reg/f:SI 125)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -12 [0xfffffffffffffff4])) [6 up+0 S4 A32])) "uart.c":167:15 253 {*arm_movsi_insn}
+     (nil))
+(insn 10 9 11 2 (set (reg/f:SI 113 [ _1 ])
+        (mem/v/f:SI (reg/f:SI 125) [2 up_11(D)->base+0 S4 A32])) "uart.c":167:15 253 {*arm_movsi_insn}
+     (nil))
+(insn 11 10 12 2 (set (reg/f:SI 114 [ _2 ])
+        (plus:SI (reg/f:SI 113 [ _1 ])
+            (const_int 24 [0x18]))) "uart.c":167:22 7 {*arm_addsi3}
+     (nil))
+(insn 12 11 13 2 (set (reg:SI 115 [ _3 ])
+        (zero_extend:SI (mem:QI (reg/f:SI 114 [ _2 ]) [0 *_2+0 S1 A8]))) "uart.c":167:11 175 {*arm_zero_extendqisi2}
+     (nil))
+(insn 13 12 21 2 (set (mem/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -4 [0xfffffffffffffffc])) [3 i+0 S4 A32])
+        (reg:SI 115 [ _3 ])) "uart.c":167:7 253 {*arm_movsi_insn}
+     (nil))
+;;  succ:       4 (FALLTHRU)
+
+;; basic block 4, loop depth 1, maybe hot
+;;  prev block 2, next block 5, flags: (NEW, REACHABLE, RTL)
+;;  pred:       2 (FALLTHRU)
+;;              4 (DFS_BACK)
+(code_label 21 13 14 4 22 (nil) [1 uses])
+(note 14 21 15 4 [bb 4] NOTE_INSN_BASIC_BLOCK)
+(insn 15 14 16 4 (set (reg/f:SI 126)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -12 [0xfffffffffffffff4])) [6 up+0 S4 A32])) "uart.c":168:13 253 {*arm_movsi_insn}
+     (nil))
+(insn 16 15 17 4 (set (reg/f:SI 116 [ _4 ])
+        (mem/v/f:SI (reg/f:SI 126) [2 up_11(D)->base+0 S4 A32])) "uart.c":168:13 253 {*arm_movsi_insn}
+     (nil))
+(insn 17 16 18 4 (set (reg/f:SI 117 [ _5 ])
+        (plus:SI (reg/f:SI 116 [ _4 ])
+            (const_int 24 [0x18]))) "uart.c":168:20 7 {*arm_addsi3}
+     (nil))
+(insn 18 17 19 4 (set (reg:SI 118 [ _6 ])
+        (zero_extend:SI (mem:QI (reg/f:SI 117 [ _5 ]) [0 *_5+0 S1 A8]))) "uart.c":168:9 175 {*arm_zero_extendqisi2}
+     (nil))
+(insn 19 18 20 4 (set (reg:SI 119 [ _7 ])
+        (reg:SI 118 [ _6 ])) "uart.c":168:26 253 {*arm_movsi_insn}
+     (nil))
+(insn 20 19 22 4 (set (reg:SI 120 [ _8 ])
+        (and:SI (reg:SI 119 [ _7 ])
+            (const_int 32 [0x20]))) "uart.c":168:26 90 {*arm_andsi3_insn}
+     (nil))
+(insn 22 20 23 4 (set (reg:CC 100 cc)
+        (compare:CC (reg:SI 120 [ _8 ])
+            (const_int 0 [0]))) "uart.c":168:9 268 {*arm_cmpsi_insn}
+     (nil))
+(jump_insn 23 22 24 4 (set (pc)
+        (if_then_else (ne (reg:CC 100 cc)
+                (const_int 0 [0]))
+            (label_ref 21)
+            (pc))) "uart.c":168:9 273 {arm_cond_branch}
+     (nil)
+ -> 21)
+;;  succ:       4 (DFS_BACK)
+;;              5 (FALLTHRU)
+
+;; basic block 5, loop depth 0, maybe hot
+;;  prev block 4, next block 1, flags: (NEW, REACHABLE, RTL, MODIFIED)
+;;  pred:       4 (FALLTHRU)
+(note 24 23 25 5 [bb 5] NOTE_INSN_BASIC_BLOCK)
+(insn 25 24 26 5 (set (reg/f:SI 127)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -12 [0xfffffffffffffff4])) [6 up+0 S4 A32])) "uart.c":170:7 253 {*arm_movsi_insn}
+     (nil))
+(insn 26 25 27 5 (set (reg/f:SI 121 [ _9 ])
+        (mem/v/f:SI (reg/f:SI 127) [2 up_11(D)->base+0 S4 A32])) "uart.c":170:7 253 {*arm_movsi_insn}
+     (nil))
+(insn 27 26 28 5 (set (reg:QI 128)
+        (mem/c:QI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -13 [0xfffffffffffffff3])) [0 c+0 S1 A8])) "uart.c":170:20 263 {*arm_movqi_insn}
+     (nil))
+(insn 28 27 31 5 (set (mem:QI (reg/f:SI 121 [ _9 ]) [0 *_9+0 S1 A8])
+        (reg:QI 128)) "uart.c":170:20 263 {*arm_movqi_insn}
+     (nil))
+(insn 31 28 32 5 (clobber (reg/i:SI 0 r0)) "uart.c":171:1 -1
+     (nil))
+(insn 32 31 35 5 (clobber (reg:SI 122 [ <retval> ])) "uart.c":171:1 -1
+     (nil))
+(insn 35 32 30 5 (const_int 0 [0]) "uart.c":171:1 311 {nop}
+     (nil))
+(insn 30 35 33 5 (set (reg/i:SI 0 r0)
+        (reg:SI 122 [ <retval> ])) "uart.c":171:1 253 {*arm_movsi_insn}
+     (nil))
+(insn 33 30 0 5 (use (reg/i:SI 0 r0)) "uart.c":171:1 -1
+     (nil))
+;;  succ:       EXIT [always]  (FALLTHRU)
+
+
+;; Function sgetc (sgetc, funcdef_no=4, decl_uid=4529, cgraph_uid=5, symbol_order=6)
+
+(note 1 0 4 NOTE_INSN_DELETED)
+;; basic block 2, loop depth 0, maybe hot
+;;  prev block 0, next block 1, flags: (NEW, REACHABLE, RTL)
+;;  pred:       ENTRY (FALLTHRU)
+(note 4 1 2 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+(insn 2 4 3 2 (set (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -12 [0xfffffffffffffff4])) [6 up+0 S4 A32])
+        (reg:SI 0 r0 [ up ])) "uart.c":174:1 253 {*arm_movsi_insn}
+     (nil))
+(note 3 2 6 2 NOTE_INSN_FUNCTION_BEG)
+(insn 6 3 7 2 (set (reg:SI 120)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -12 [0xfffffffffffffff4])) [6 up+0 S4 A32])) "uart.c":177:3 253 {*arm_movsi_insn}
+     (nil))
+(insn 7 6 8 2 (set (reg/f:SI 113 [ _1 ])
+        (plus:SI (reg:SI 120)
+            (const_int 76 [0x4c]))) "uart.c":177:3 7 {*arm_addsi3}
+     (nil))
+(insn 8 7 9 2 (set (reg:SI 0 r0)
+        (reg/f:SI 113 [ _1 ])) "uart.c":177:3 253 {*arm_movsi_insn}
+     (nil))
+(call_insn 9 8 10 2 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("P") [flags 0x41]  <function_decl 0x7f19cf077700 P>) [0 P S4 A32])
+                    (const_int 0 [0])))
+            (use (const_int 0 [0]))
+            (clobber (reg:SI 14 lr))
+        ]) "uart.c":177:3 291 {*call_value_symbol}
+     (nil)
+    (expr_list (clobber (reg:SI 12 ip))
+        (expr_list:SI (use (reg:SI 0 r0))
+            (nil))))
+(insn 10 9 11 2 (set (reg/f:SI 121)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -12 [0xfffffffffffffff4])) [6 up+0 S4 A32])) "uart.c":179:19 253 {*arm_movsi_insn}
+     (nil))
+(insn 11 10 12 2 (set (reg:SI 114 [ _2 ])
+        (mem/v:SI (plus:SI (reg/f:SI 121)
+                (const_int 72 [0x48])) [3 up_7(D)->intail+0 S4 A32])) "uart.c":179:19 253 {*arm_movsi_insn}
+     (nil))
+(insn 12 11 13 2 (set (reg:SI 115 [ _4 ])
+        (plus:SI (reg:SI 114 [ _2 ])
+            (const_int 1 [0x1]))) "uart.c":179:27 7 {*arm_addsi3}
+     (nil))
+(insn 13 12 14 2 (set (reg/f:SI 122)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -12 [0xfffffffffffffff4])) [6 up+0 S4 A32])) "uart.c":179:27 253 {*arm_movsi_insn}
+     (nil))
+(insn 14 13 15 2 (set (mem/v:SI (plus:SI (reg/f:SI 122)
+                (const_int 72 [0x48])) [3 up_7(D)->intail+0 S4 A32])
+        (reg:SI 115 [ _4 ])) "uart.c":179:27 253 {*arm_movsi_insn}
+     (nil))
+(insn 15 14 16 2 (set (reg/f:SI 123)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -12 [0xfffffffffffffff4])) [6 up+0 S4 A32])) "uart.c":179:5 253 {*arm_movsi_insn}
+     (nil))
+(insn 16 15 17 2 (set (reg/f:SI 124)
+        (plus:SI (reg/f:SI 123)
+            (reg:SI 114 [ _2 ]))) "uart.c":179:5 7 {*arm_addsi3}
+     (nil))
+(insn 17 16 18 2 (set (reg:QI 125)
+        (mem/v:QI (plus:SI (reg/f:SI 124)
+                (const_int 4 [0x4])) [0 up_7(D)->inbuf[_3]+0 S1 A8])) "uart.c":179:5 263 {*arm_movqi_insn}
+     (nil))
+(insn 18 17 19 2 (set (mem/c:QI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -1 [0xffffffffffffffff])) [0 c+0 S1 A8])
+        (reg:QI 125)) "uart.c":179:5 263 {*arm_movqi_insn}
+     (nil))
+(insn 19 18 20 2 (set (reg/f:SI 126)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -12 [0xfffffffffffffff4])) [6 up+0 S4 A32])) "uart.c":180:14 253 {*arm_movsi_insn}
+     (nil))
+(insn 20 19 21 2 (set (reg:SI 116 [ _5 ])
+        (mem/v:SI (plus:SI (reg/f:SI 126)
+                (const_int 72 [0x48])) [3 up_7(D)->intail+0 S4 A32])) "uart.c":180:14 253 {*arm_movsi_insn}
+     (nil))
+(insn 21 20 22 2 (parallel [
+            (set (reg:CC_NZ 100 cc)
+                (compare:CC_NZ (minus:SI (const_int 0 [0])
+                        (reg:SI 116 [ _5 ]))
+                    (const_int 0 [0])))
+            (set (reg:SI 127)
+                (minus:SI (const_int 0 [0])
+                    (reg:SI 116 [ _5 ])))
+        ]) "uart.c":180:14 46 {subsi3_compare0}
+     (nil))
+(insn 22 21 23 2 (set (reg:SI 117 [ _6 ])
+        (and:SI (reg:SI 116 [ _5 ])
+            (const_int 63 [0x3f]))) "uart.c":180:14 90 {*arm_andsi3_insn}
+     (nil))
+(insn 23 22 24 2 (set (reg:SI 128)
+        (and:SI (reg:SI 127)
+            (const_int 63 [0x3f]))) "uart.c":180:14 90 {*arm_andsi3_insn}
+     (nil))
+(insn 24 23 25 2 (set (reg:SI 117 [ _6 ])
+        (if_then_else:SI (ge:SI (reg:CC_NZ 100 cc)
+                (const_int 0 [0]))
+            (neg:SI (reg:SI 128))
+            (reg:SI 117 [ _6 ]))) "uart.c":180:14 371 {*if_neg_move}
+     (expr_list:REG_EQUAL (mod:SI (reg:SI 116 [ _5 ])
+            (const_int 64 [0x40]))
+        (nil)))
+(insn 25 24 26 2 (set (reg/f:SI 129)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -12 [0xfffffffffffffff4])) [6 up+0 S4 A32])) "uart.c":180:14 253 {*arm_movsi_insn}
+     (nil))
+(insn 26 25 27 2 (set (mem/v:SI (plus:SI (reg/f:SI 129)
+                (const_int 72 [0x48])) [3 up_7(D)->intail+0 S4 A32])
+        (reg:SI 117 [ _6 ])) "uart.c":180:14 253 {*arm_movsi_insn}
+     (nil))
+(insn 27 26 30 2 (set (reg:SI 118 [ _13 ])
+        (zero_extend:SI (mem/c:QI (plus:SI (reg/f:SI 102 sfp)
+                    (const_int -1 [0xffffffffffffffff])) [0 c+0 S1 A8]))) "uart.c":182:10 175 {*arm_zero_extendqisi2}
+     (nil))
+(insn 30 27 34 2 (set (reg:SI 119 [ <retval> ])
+        (reg:SI 118 [ _13 ])) "uart.c":182:10 253 {*arm_movsi_insn}
+     (nil))
+(insn 34 30 35 2 (set (reg/i:SI 0 r0)
+        (reg:SI 119 [ <retval> ])) "uart.c":183:1 253 {*arm_movsi_insn}
+     (nil))
+(insn 35 34 0 2 (use (reg/i:SI 0 r0)) "uart.c":183:1 -1
+     (nil))
+;;  succ:       EXIT [always]  (FALLTHRU)
+
+
+;; Function sgets (sgets, funcdef_no=5, decl_uid=4536, cgraph_uid=6, symbol_order=7)
+
+(note 1 0 5 NOTE_INSN_DELETED)
+;; basic block 2, loop depth 0, maybe hot
+;;  prev block 0, next block 4, flags: (NEW, REACHABLE, RTL)
+;;  pred:       ENTRY (FALLTHRU)
+(note 5 1 2 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+(insn 2 5 3 2 (set (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -4 [0xfffffffffffffffc])) [6 up+0 S4 A32])
+        (reg:SI 0 r0 [ up ])) "uart.c":186:1 253 {*arm_movsi_insn}
+     (nil))
+(insn 3 2 4 2 (set (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -8 [0xfffffffffffffff8])) [2 s+0 S4 A32])
+        (reg:SI 1 r1 [ s ])) "uart.c":186:1 253 {*arm_movsi_insn}
+     (nil))
+(note 4 3 7 2 NOTE_INSN_FUNCTION_BEG)
+(jump_insn 7 4 8 2 (set (pc)
+        (label_ref 18)) "uart.c":187:9 284 {*arm_jump}
+     (nil)
+ -> 18)
+;;  succ:       5
+
+(barrier 8 7 29)
+;; basic block 4, loop depth 1, maybe hot
+;;  prev block 2, next block 5, flags: (NEW, REACHABLE, RTL)
+;;  pred:       5
+(code_label 29 8 9 4 27 (nil) [1 uses])
+(note 9 29 10 4 [bb 4] NOTE_INSN_BASIC_BLOCK)
+(insn 10 9 11 4 (set (reg/f:SI 118)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -8 [0xfffffffffffffff8])) [2 s+0 S4 A32])) "uart.c":188:5 253 {*arm_movsi_insn}
+     (nil))
+(insn 11 10 12 4 (set (reg:SI 113 [ _1 ])
+        (zero_extend:SI (mem:QI (reg/f:SI 118) [0 *s_5+0 S1 A8]))) "uart.c":188:5 175 {*arm_zero_extendqisi2}
+     (nil))
+(insn 12 11 13 4 (set (reg:SI 1 r1)
+        (reg:SI 113 [ _1 ])) "uart.c":188:5 253 {*arm_movsi_insn}
+     (nil))
+(insn 13 12 14 4 (set (reg:SI 0 r0)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -4 [0xfffffffffffffffc])) [6 up+0 S4 A32])) "uart.c":188:5 253 {*arm_movsi_insn}
+     (nil))
+(call_insn 14 13 15 4 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("sputc") [flags 0x3]  <function_decl 0x7f19cf077300 sputc>) [0 sputc S4 A32])
+                    (const_int 0 [0])))
+            (use (const_int 0 [0]))
+            (clobber (reg:SI 14 lr))
+        ]) "uart.c":188:5 291 {*call_value_symbol}
+     (nil)
+    (expr_list (clobber (reg:SI 12 ip))
+        (expr_list:SI (use (reg:SI 0 r0))
+            (expr_list:QI (use (reg:SI 1 r1))
+                (nil)))))
+(insn 15 14 16 4 (set (reg:SI 120)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -8 [0xfffffffffffffff8])) [2 s+0 S4 A32])) "uart.c":189:6 253 {*arm_movsi_insn}
+     (nil))
+(insn 16 15 17 4 (set (reg:SI 119)
+        (plus:SI (reg:SI 120)
+            (const_int 1 [0x1]))) "uart.c":189:6 7 {*arm_addsi3}
+     (nil))
+(insn 17 16 18 4 (set (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -8 [0xfffffffffffffff8])) [2 s+0 S4 A32])
+        (reg:SI 119)) "uart.c":189:6 253 {*arm_movsi_insn}
+     (nil))
+;;  succ:       5 (FALLTHRU,DFS_BACK)
+
+;; basic block 5, loop depth 1, maybe hot
+;;  prev block 4, next block 6, flags: (NEW, REACHABLE, RTL)
+;;  pred:       2
+;;              4 (FALLTHRU,DFS_BACK)
+(code_label 18 17 19 5 26 (nil) [1 uses])
+(note 19 18 20 5 [bb 5] NOTE_INSN_BASIC_BLOCK)
+(insn 20 19 21 5 (set (reg:SI 0 r0)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -4 [0xfffffffffffffffc])) [6 up+0 S4 A32])) "uart.c":187:22 253 {*arm_movsi_insn}
+     (nil))
+(call_insn 21 20 22 5 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("sgetc") [flags 0x3]  <function_decl 0x7f19cf077500 sgetc>) [0 sgetc S4 A32])
+                    (const_int 0 [0])))
+            (use (const_int 0 [0]))
+            (clobber (reg:SI 14 lr))
+        ]) "uart.c":187:22 291 {*call_value_symbol}
+     (nil)
+    (expr_list (clobber (reg:SI 12 ip))
+        (expr_list:SI (use (reg:SI 0 r0))
+            (nil))))
+(insn 22 21 23 5 (set (reg:SI 114 [ _2 ])
+        (reg:SI 0 r0)) "uart.c":187:22 253 {*arm_movsi_insn}
+     (nil))
+(insn 23 22 24 5 (set (reg:SI 115 [ _3 ])
+        (and:SI (reg:SI 114 [ _2 ])
+            (const_int 255 [0xff]))) "uart.c":187:16 90 {*arm_andsi3_insn}
+     (nil))
+(insn 24 23 25 5 (set (reg/f:SI 121)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -8 [0xfffffffffffffff8])) [2 s+0 S4 A32])) "uart.c":187:14 253 {*arm_movsi_insn}
+     (nil))
+(insn 25 24 26 5 (set (reg:QI 122)
+        (subreg/s/v:QI (reg:SI 115 [ _3 ]) 0)) "uart.c":187:14 263 {*arm_movqi_insn}
+     (nil))
+(insn 26 25 27 5 (set (mem:QI (reg/f:SI 121) [0 *s_5+0 S1 A8])
+        (reg:QI 122)) "uart.c":187:14 263 {*arm_movqi_insn}
+     (nil))
+(insn 27 26 28 5 (set (reg/f:SI 123)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -8 [0xfffffffffffffff8])) [2 s+0 S4 A32])) "uart.c":187:11 253 {*arm_movsi_insn}
+     (nil))
+(insn 28 27 30 5 (set (reg:SI 116 [ _4 ])
+        (zero_extend:SI (mem:QI (reg/f:SI 123) [0 *s_5+0 S1 A8]))) "uart.c":187:11 175 {*arm_zero_extendqisi2}
+     (nil))
+(insn 30 28 31 5 (set (reg:CC 100 cc)
+        (compare:CC (reg:SI 116 [ _4 ])
+            (const_int 13 [0xd]))) "uart.c":187:33 268 {*arm_cmpsi_insn}
+     (nil))
+(jump_insn 31 30 32 5 (set (pc)
+        (if_then_else (ne (reg:CC 100 cc)
+                (const_int 0 [0]))
+            (label_ref 29)
+            (pc))) "uart.c":187:33 273 {arm_cond_branch}
+     (nil)
+ -> 29)
+;;  succ:       4
+;;              6 (FALLTHRU)
+
+;; basic block 6, loop depth 0, maybe hot
+;;  prev block 5, next block 1, flags: (NEW, REACHABLE, RTL, MODIFIED)
+;;  pred:       5 (FALLTHRU)
+(note 32 31 33 6 [bb 6] NOTE_INSN_BASIC_BLOCK)
+(insn 33 32 34 6 (set (reg/f:SI 124)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -8 [0xfffffffffffffff8])) [2 s+0 S4 A32])) "uart.c":191:5 253 {*arm_movsi_insn}
+     (nil))
+(insn 34 33 35 6 (set (reg:SI 125)
+        (const_int 0 [0])) "uart.c":191:5 253 {*arm_movsi_insn}
+     (nil))
+(insn 35 34 36 6 (set (reg:QI 126)
+        (subreg:QI (reg:SI 125) 0)) "uart.c":191:5 263 {*arm_movqi_insn}
+     (nil))
+(insn 36 35 39 6 (set (mem:QI (reg/f:SI 124) [0 *s_5+0 S1 A8])
+        (reg:QI 126)) "uart.c":191:5 263 {*arm_movqi_insn}
+     (nil))
+(insn 39 36 40 6 (clobber (reg/i:SI 0 r0)) "uart.c":192:1 -1
+     (nil))
+(insn 40 39 43 6 (clobber (reg:SI 117 [ <retval> ])) "uart.c":192:1 -1
+     (nil))
+(insn 43 40 38 6 (const_int 0 [0]) "uart.c":192:1 311 {nop}
+     (nil))
+(insn 38 43 41 6 (set (reg/i:SI 0 r0)
+        (reg:SI 117 [ <retval> ])) "uart.c":192:1 253 {*arm_movsi_insn}
+     (nil))
+(insn 41 38 0 6 (use (reg/i:SI 0 r0)) "uart.c":192:1 -1
+     (nil))
+;;  succ:       EXIT [always]  (FALLTHRU)
+
+
+;; Function sputs (sputs, funcdef_no=6, decl_uid=4542, cgraph_uid=7, symbol_order=8)
+
+(note 1 0 4 NOTE_INSN_DELETED)
+;; basic block 2, loop depth 0, maybe hot
+;;  prev block 0, next block 4, flags: (NEW, REACHABLE, RTL)
+;;  pred:       ENTRY (FALLTHRU)
+(note 4 1 2 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+(insn 2 4 3 2 (set (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -4 [0xfffffffffffffffc])) [2 s+0 S4 A32])
+        (reg:SI 0 r0 [ s ])) "uart.c":195:1 253 {*arm_movsi_insn}
+     (nil))
+(note 3 2 6 2 NOTE_INSN_FUNCTION_BEG)
+(jump_insn 6 3 7 2 (set (pc)
+        (label_ref 28)) "uart.c":196:8 284 {*arm_jump}
+     (nil)
+ -> 28)
+;;  succ:       6
+
+(barrier 7 6 32)
+;; basic block 4, loop depth 1, maybe hot
+;;  prev block 2, next block 5, flags: (NEW, REACHABLE, RTL)
+;;  pred:       6
+(code_label 32 7 8 4 30 (nil) [1 uses])
+(note 8 32 9 4 [bb 4] NOTE_INSN_BASIC_BLOCK)
+(insn 9 8 10 4 (set (reg/f:SI 120)
+        (symbol_ref:SI ("up") [flags 0x2]  <var_decl 0x7f19cfd52b40 up>)) "uart.c":197:5 253 {*arm_movsi_insn}
+     (nil))
+(insn 10 9 11 4 (set (reg/f:SI 113 [ up.0_1 ])
+        (mem/f/c:SI (reg/f:SI 120) [6 up+0 S4 A32])) "uart.c":197:5 253 {*arm_movsi_insn}
+     (nil))
+(insn 11 10 12 4 (set (reg/f:SI 114 [ s.1_2 ])
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -4 [0xfffffffffffffffc])) [2 s+0 S4 A32])) "uart.c":197:17 253 {*arm_movsi_insn}
+     (nil))
+(insn 12 11 13 4 (set (reg:SI 121)
+        (plus:SI (reg/f:SI 114 [ s.1_2 ])
+            (const_int 1 [0x1]))) "uart.c":197:17 7 {*arm_addsi3}
+     (nil))
+(insn 13 12 14 4 (set (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -4 [0xfffffffffffffffc])) [2 s+0 S4 A32])
+        (reg:SI 121)) "uart.c":197:17 253 {*arm_movsi_insn}
+     (nil))
+(insn 14 13 15 4 (set (reg:SI 115 [ _3 ])
+        (zero_extend:SI (mem:QI (reg/f:SI 114 [ s.1_2 ]) [0 *s.1_2+0 S1 A8]))) "uart.c":197:5 175 {*arm_zero_extendqisi2}
+     (nil))
+(insn 15 14 16 4 (set (reg:SI 1 r1)
+        (reg:SI 115 [ _3 ])) "uart.c":197:5 253 {*arm_movsi_insn}
+     (nil))
+(insn 16 15 17 4 (set (reg:SI 0 r0)
+        (reg/f:SI 113 [ up.0_1 ])) "uart.c":197:5 253 {*arm_movsi_insn}
+     (nil))
+(call_insn 17 16 18 4 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("sputc") [flags 0x3]  <function_decl 0x7f19cf077300 sputc>) [0 sputc S4 A32])
+                    (const_int 0 [0])))
+            (use (const_int 0 [0]))
+            (clobber (reg:SI 14 lr))
+        ]) "uart.c":197:5 291 {*call_value_symbol}
+     (nil)
+    (expr_list (clobber (reg:SI 12 ip))
+        (expr_list:SI (use (reg:SI 0 r0))
+            (expr_list:QI (use (reg:SI 1 r1))
+                (nil)))))
+(insn 18 17 19 4 (set (reg/f:SI 122)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -4 [0xfffffffffffffffc])) [2 s+0 S4 A32])) "uart.c":198:9 253 {*arm_movsi_insn}
+     (nil))
+(insn 19 18 20 4 (set (reg:SI 116 [ _4 ])
+        (zero_extend:SI (mem:QI (reg/f:SI 122) [0 *s_11+0 S1 A8]))) "uart.c":198:9 175 {*arm_zero_extendqisi2}
+     (nil))
+(insn 20 19 21 4 (set (reg:CC 100 cc)
+        (compare:CC (reg:SI 116 [ _4 ])
+            (const_int 10 [0xa]))) "uart.c":198:8 268 {*arm_cmpsi_insn}
+     (nil))
+(jump_insn 21 20 22 4 (set (pc)
+        (if_then_else (ne (reg:CC 100 cc)
+                (const_int 0 [0]))
+            (label_ref 28)
+            (pc))) "uart.c":198:8 273 {arm_cond_branch}
+     (nil)
+ -> 28)
+;;  succ:       5 (FALLTHRU)
+;;              6 (DFS_BACK)
+
+;; basic block 5, loop depth 1, maybe hot
+;;  prev block 4, next block 6, flags: (NEW, REACHABLE, RTL)
+;;  pred:       4 (FALLTHRU)
+(note 22 21 23 5 [bb 5] NOTE_INSN_BASIC_BLOCK)
+(insn 23 22 24 5 (set (reg/f:SI 123)
+        (symbol_ref:SI ("up") [flags 0x2]  <var_decl 0x7f19cfd52b40 up>)) "uart.c":199:7 253 {*arm_movsi_insn}
+     (nil))
+(insn 24 23 25 5 (set (reg/f:SI 117 [ up.2_5 ])
+        (mem/f/c:SI (reg/f:SI 123) [6 up+0 S4 A32])) "uart.c":199:7 253 {*arm_movsi_insn}
+     (nil))
+(insn 25 24 26 5 (set (reg:SI 1 r1)
+        (const_int 13 [0xd])) "uart.c":199:7 253 {*arm_movsi_insn}
+     (nil))
+(insn 26 25 27 5 (set (reg:SI 0 r0)
+        (reg/f:SI 117 [ up.2_5 ])) "uart.c":199:7 253 {*arm_movsi_insn}
+     (nil))
+(call_insn 27 26 28 5 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("sputc") [flags 0x3]  <function_decl 0x7f19cf077300 sputc>) [0 sputc S4 A32])
+                    (const_int 0 [0])))
+            (use (const_int 0 [0]))
+            (clobber (reg:SI 14 lr))
+        ]) "uart.c":199:7 291 {*call_value_symbol}
+     (nil)
+    (expr_list (clobber (reg:SI 12 ip))
+        (expr_list:SI (use (reg:SI 0 r0))
+            (expr_list:QI (use (reg:SI 1 r1))
+                (nil)))))
+;;  succ:       6 (FALLTHRU,DFS_BACK)
+
+;; basic block 6, loop depth 1, maybe hot
+;;  prev block 5, next block 7, flags: (NEW, REACHABLE, RTL)
+;;  pred:       2
+;;              4 (DFS_BACK)
+;;              5 (FALLTHRU,DFS_BACK)
+(code_label 28 27 29 6 29 (nil) [2 uses])
+(note 29 28 30 6 [bb 6] NOTE_INSN_BASIC_BLOCK)
+(insn 30 29 31 6 (set (reg/f:SI 124)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -4 [0xfffffffffffffffc])) [2 s+0 S4 A32])) "uart.c":196:9 253 {*arm_movsi_insn}
+     (nil))
+(insn 31 30 33 6 (set (reg:SI 118 [ _6 ])
+        (zero_extend:SI (mem:QI (reg/f:SI 124) [0 *s_7+0 S1 A8]))) "uart.c":196:9 175 {*arm_zero_extendqisi2}
+     (nil))
+(insn 33 31 34 6 (set (reg:CC 100 cc)
+        (compare:CC (reg:SI 118 [ _6 ])
+            (const_int 0 [0]))) "uart.c":196:9 268 {*arm_cmpsi_insn}
+     (nil))
+(jump_insn 34 33 35 6 (set (pc)
+        (if_then_else (ne (reg:CC 100 cc)
+                (const_int 0 [0]))
+            (label_ref 32)
+            (pc))) "uart.c":196:9 273 {arm_cond_branch}
+     (nil)
+ -> 32)
+;;  succ:       4
+;;              7 (FALLTHRU)
+
+;; basic block 7, loop depth 0, maybe hot
+;;  prev block 6, next block 1, flags: (NEW, REACHABLE, RTL, MODIFIED)
+;;  pred:       6 (FALLTHRU)
+(note 35 34 38 7 [bb 7] NOTE_INSN_BASIC_BLOCK)
+(insn 38 35 39 7 (clobber (reg/i:SI 0 r0)) "uart.c":202:1 -1
+     (nil))
+(insn 39 38 42 7 (clobber (reg:SI 119 [ <retval> ])) "uart.c":202:1 -1
+     (nil))
+(insn 42 39 37 7 (const_int 0 [0]) "uart.c":202:1 311 {nop}
+     (nil))
+(insn 37 42 40 7 (set (reg/i:SI 0 r0)
+        (reg:SI 119 [ <retval> ])) "uart.c":202:1 253 {*arm_movsi_insn}
+     (nil))
+(insn 40 37 0 7 (use (reg/i:SI 0 r0)) "uart.c":202:1 -1
+     (nil))
+;;  succ:       EXIT [always]  (FALLTHRU)
+
+
+;; Function sprints (sprints, funcdef_no=7, decl_uid=4549, cgraph_uid=8, symbol_order=9)
+
+(note 1 0 5 NOTE_INSN_DELETED)
+;; basic block 2, loop depth 0, maybe hot
+;;  prev block 0, next block 4, flags: (NEW, REACHABLE, RTL)
+;;  pred:       ENTRY (FALLTHRU)
+(note 5 1 2 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+(insn 2 5 3 2 (set (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -4 [0xfffffffffffffffc])) [6 up+0 S4 A32])
+        (reg:SI 0 r0 [ up ])) "uart.c":205:1 253 {*arm_movsi_insn}
+     (nil))
+(insn 3 2 4 2 (set (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -8 [0xfffffffffffffff8])) [2 s+0 S4 A32])
+        (reg:SI 1 r1 [ s ])) "uart.c":205:1 253 {*arm_movsi_insn}
+     (nil))
+(note 4 3 7 2 NOTE_INSN_FUNCTION_BEG)
+(jump_insn 7 4 8 2 (set (pc)
+        (label_ref 17)) "uart.c":206:8 284 {*arm_jump}
+     (nil)
+ -> 17)
+;;  succ:       5
+
+(barrier 8 7 21)
+;; basic block 4, loop depth 1, maybe hot
+;;  prev block 2, next block 5, flags: (NEW, REACHABLE, RTL)
+;;  pred:       5
+(code_label 21 8 9 4 35 (nil) [1 uses])
+(note 9 21 10 4 [bb 4] NOTE_INSN_BASIC_BLOCK)
+(insn 10 9 11 4 (set (reg/f:SI 113 [ s.3_1 ])
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -8 [0xfffffffffffffff8])) [2 s+0 S4 A32])) "uart.c":207:17 253 {*arm_movsi_insn}
+     (nil))
+(insn 11 10 12 4 (set (reg:SI 117)
+        (plus:SI (reg/f:SI 113 [ s.3_1 ])
+            (const_int 1 [0x1]))) "uart.c":207:17 7 {*arm_addsi3}
+     (nil))
+(insn 12 11 13 4 (set (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -8 [0xfffffffffffffff8])) [2 s+0 S4 A32])
+        (reg:SI 117)) "uart.c":207:17 253 {*arm_movsi_insn}
+     (nil))
+(insn 13 12 14 4 (set (reg:SI 114 [ _2 ])
+        (zero_extend:SI (mem:QI (reg/f:SI 113 [ s.3_1 ]) [0 *s.3_1+0 S1 A8]))) "uart.c":207:5 175 {*arm_zero_extendqisi2}
+     (nil))
+(insn 14 13 15 4 (set (reg:SI 1 r1)
+        (reg:SI 114 [ _2 ])) "uart.c":207:5 253 {*arm_movsi_insn}
+     (nil))
+(insn 15 14 16 4 (set (reg:SI 0 r0)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -4 [0xfffffffffffffffc])) [6 up+0 S4 A32])) "uart.c":207:5 253 {*arm_movsi_insn}
+     (nil))
+(call_insn 16 15 17 4 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("sputc") [flags 0x3]  <function_decl 0x7f19cf077300 sputc>) [0 sputc S4 A32])
+                    (const_int 0 [0])))
+            (use (const_int 0 [0]))
+            (clobber (reg:SI 14 lr))
+        ]) "uart.c":207:5 291 {*call_value_symbol}
+     (nil)
+    (expr_list (clobber (reg:SI 12 ip))
+        (expr_list:SI (use (reg:SI 0 r0))
+            (expr_list:QI (use (reg:SI 1 r1))
+                (nil)))))
+;;  succ:       5 (FALLTHRU,DFS_BACK)
+
+;; basic block 5, loop depth 1, maybe hot
+;;  prev block 4, next block 6, flags: (NEW, REACHABLE, RTL)
+;;  pred:       2
+;;              4 (FALLTHRU,DFS_BACK)
+(code_label 17 16 18 5 34 (nil) [1 uses])
+(note 18 17 19 5 [bb 5] NOTE_INSN_BASIC_BLOCK)
+(insn 19 18 20 5 (set (reg/f:SI 118)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -8 [0xfffffffffffffff8])) [2 s+0 S4 A32])) "uart.c":206:9 253 {*arm_movsi_insn}
+     (nil))
+(insn 20 19 22 5 (set (reg:SI 115 [ _3 ])
+        (zero_extend:SI (mem:QI (reg/f:SI 118) [0 *s_4+0 S1 A8]))) "uart.c":206:9 175 {*arm_zero_extendqisi2}
+     (nil))
+(insn 22 20 23 5 (set (reg:CC 100 cc)
+        (compare:CC (reg:SI 115 [ _3 ])
+            (const_int 0 [0]))) "uart.c":206:9 268 {*arm_cmpsi_insn}
+     (nil))
+(jump_insn 23 22 24 5 (set (pc)
+        (if_then_else (ne (reg:CC 100 cc)
+                (const_int 0 [0]))
+            (label_ref 21)
+            (pc))) "uart.c":206:9 273 {arm_cond_branch}
+     (nil)
+ -> 21)
+;;  succ:       4
+;;              6 (FALLTHRU)
+
+;; basic block 6, loop depth 0, maybe hot
+;;  prev block 5, next block 1, flags: (NEW, REACHABLE, RTL, MODIFIED)
+;;  pred:       5 (FALLTHRU)
+(note 24 23 27 6 [bb 6] NOTE_INSN_BASIC_BLOCK)
+(insn 27 24 28 6 (clobber (reg/i:SI 0 r0)) "uart.c":207:21 -1
+     (nil))
+(insn 28 27 31 6 (clobber (reg:SI 116 [ <retval> ])) "uart.c":207:21 -1
+     (nil))
+(insn 31 28 26 6 (const_int 0 [0]) "uart.c":207:21 311 {nop}
+     (nil))
+(insn 26 31 29 6 (set (reg/i:SI 0 r0)
+        (reg:SI 116 [ <retval> ])) "uart.c":207:21 253 {*arm_movsi_insn}
+     (nil))
+(insn 29 26 0 6 (use (reg/i:SI 0 r0)) "uart.c":207:21 -1
+     (nil))
+;;  succ:       EXIT [always]  (FALLTHRU)
+
+
+;; Function srpx (srpx, funcdef_no=8, decl_uid=4556, cgraph_uid=9, symbol_order=10)
+
+(note 1 0 5 NOTE_INSN_DELETED)
+;; basic block 2, loop depth 0, maybe hot
+;;  prev block 0, next block 4, flags: (NEW, REACHABLE, RTL)
+;;  pred:       ENTRY (FALLTHRU)
+(note 5 1 2 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+(insn 2 5 3 2 (set (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -12 [0xfffffffffffffff4])) [6 up+0 S4 A32])
+        (reg:SI 0 r0 [ up ])) "uart.c":210:1 253 {*arm_movsi_insn}
+     (nil))
+(insn 3 2 4 2 (set (mem/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -16 [0xfffffffffffffff0])) [3 x+0 S4 A32])
+        (reg:SI 1 r1 [ x ])) "uart.c":210:1 253 {*arm_movsi_insn}
+     (nil))
+(note 4 3 7 2 NOTE_INSN_FUNCTION_BEG)
+(insn 7 4 8 2 (set (reg:SI 119)
+        (mem/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -16 [0xfffffffffffffff0])) [3 x+0 S4 A32])) "uart.c":212:6 253 {*arm_movsi_insn}
+     (nil))
+(insn 8 7 9 2 (set (reg:CC 100 cc)
+        (compare:CC (reg:SI 119)
+            (const_int 0 [0]))) "uart.c":212:6 268 {*arm_cmpsi_insn}
+     (nil))
+(jump_insn 9 8 10 2 (set (pc)
+        (if_then_else (eq (reg:CC 100 cc)
+                (const_int 0 [0]))
+            (label_ref 34)
+            (pc))) "uart.c":212:6 273 {arm_cond_branch}
+     (nil)
+ -> 34)
+;;  succ:       4 (FALLTHRU)
+;;              5
+
+;; basic block 4, loop depth 0, maybe hot
+;;  prev block 2, next block 5, flags: (NEW, REACHABLE, RTL)
+;;  pred:       2 (FALLTHRU)
+(note 10 9 11 4 [bb 4] NOTE_INSN_BASIC_BLOCK)
+(insn 11 10 12 4 (set (reg/f:SI 120)
+        (symbol_ref:SI ("tab") [flags 0x40]  <var_decl 0x7f19cfd52510 tab>)) "uart.c":213:13 253 {*arm_movsi_insn}
+     (nil))
+(insn 12 11 13 4 (set (reg/f:SI 113 [ tab.4_1 ])
+        (mem/f/c:SI (reg/f:SI 120) [2 tab+0 S4 A32])) "uart.c":213:13 253 {*arm_movsi_insn}
+     (nil))
+(insn 13 12 14 4 (set (reg:SI 121)
+        (mem/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -16 [0xfffffffffffffff0])) [3 x+0 S4 A32])) "uart.c":213:16 253 {*arm_movsi_insn}
+     (nil))
+(insn 14 13 15 4 (parallel [
+            (set (reg:CC_NZ 100 cc)
+                (compare:CC_NZ (minus:SI (const_int 0 [0])
+                        (reg:SI 121))
+                    (const_int 0 [0])))
+            (set (reg:SI 122)
+                (minus:SI (const_int 0 [0])
+                    (reg:SI 121)))
+        ]) "uart.c":213:16 46 {subsi3_compare0}
+     (nil))
+(insn 15 14 16 4 (set (reg:SI 114 [ _2 ])
+        (and:SI (reg:SI 121)
+            (const_int 15 [0xf]))) "uart.c":213:16 90 {*arm_andsi3_insn}
+     (nil))
+(insn 16 15 17 4 (set (reg:SI 123)
+        (and:SI (reg:SI 122)
+            (const_int 15 [0xf]))) "uart.c":213:16 90 {*arm_andsi3_insn}
+     (nil))
+(insn 17 16 18 4 (set (reg:SI 114 [ _2 ])
+        (if_then_else:SI (ge:SI (reg:CC_NZ 100 cc)
+                (const_int 0 [0]))
+            (neg:SI (reg:SI 123))
+            (reg:SI 114 [ _2 ]))) "uart.c":213:16 371 {*if_neg_move}
+     (expr_list:REG_EQUAL (mod:SI (reg:SI 121)
+            (const_int 16 [0x10]))
+        (nil)))
+(insn 18 17 19 4 (set (reg:SI 115 [ _3 ])
+        (reg:SI 114 [ _2 ])) "uart.c":213:16 253 {*arm_movsi_insn}
+     (nil))
+(insn 19 18 20 4 (set (reg/f:SI 116 [ _4 ])
+        (plus:SI (reg/f:SI 113 [ tab.4_1 ])
+            (reg:SI 115 [ _3 ]))) "uart.c":213:13 7 {*arm_addsi3}
+     (nil))
+(insn 20 19 21 4 (set (reg:QI 124)
+        (mem:QI (reg/f:SI 116 [ _4 ]) [0 *_4+0 S1 A8])) "uart.c":213:8 263 {*arm_movqi_insn}
+     (nil))
+(insn 21 20 22 4 (set (mem/c:QI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -1 [0xffffffffffffffff])) [0 c+0 S1 A8])
+        (reg:QI 124)) "uart.c":213:8 263 {*arm_movqi_insn}
+     (nil))
+(insn 22 21 23 4 (set (reg:SI 125)
+        (mem/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -16 [0xfffffffffffffff0])) [3 x+0 S4 A32])) "uart.c":214:6 253 {*arm_movsi_insn}
+     (nil))
+(insn 23 22 24 4 (set (reg:SI 126)
+        (reg:SI 125)) "uart.c":214:6 253 {*arm_movsi_insn}
+     (nil))
+(insn 24 23 27 4 (set (reg:SI 127)
+        (plus:SI (reg:SI 126)
+            (const_int 15 [0xf]))) "uart.c":214:6 7 {*arm_addsi3}
+     (nil))
+(insn 27 24 28 4 (set (reg:CC 100 cc)
+        (compare:CC (reg:SI 126)
+            (const_int 0 [0]))) "uart.c":214:6 268 {*arm_cmpsi_insn}
+     (nil))
+(insn 28 27 29 4 (set (reg:SI 126)
+        (if_then_else:SI (lt (reg:CC 100 cc)
+                (const_int 0 [0]))
+            (reg:SI 127)
+            (reg:SI 126))) "uart.c":214:6 282 {*movsicc_insn}
+     (nil))
+(insn 29 28 30 4 (set (reg:SI 128)
+        (ashiftrt:SI (reg:SI 126)
+            (const_int 4 [0x4]))) "uart.c":214:6 147 {*arm_shiftsi3}
+     (expr_list:REG_EQUAL (div:SI (reg:SI 125)
+            (const_int 16 [0x10]))
+        (nil)))
+(insn 30 29 31 4 (set (reg:SI 117 [ _5 ])
+        (reg:SI 128)) "uart.c":214:6 253 {*arm_movsi_insn}
+     (nil))
+(insn 31 30 32 4 (set (reg:SI 1 r1)
+        (reg:SI 117 [ _5 ])) "uart.c":214:6 253 {*arm_movsi_insn}
+     (nil))
+(insn 32 31 33 4 (set (reg:SI 0 r0)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -12 [0xfffffffffffffff4])) [6 up+0 S4 A32])) "uart.c":214:6 253 {*arm_movsi_insn}
+     (nil))
+(call_insn 33 32 34 4 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("srpx") [flags 0x3]  <function_decl 0x7f19cf077f00 srpx>) [0 srpx S4 A32])
+                    (const_int 0 [0])))
+            (use (const_int 0 [0]))
+            (clobber (reg:SI 14 lr))
+        ]) "uart.c":214:6 291 {*call_value_symbol}
+     (nil)
+    (expr_list (clobber (reg:SI 12 ip))
+        (expr_list:SI (use (reg:SI 0 r0))
+            (expr_list:SI (use (reg:SI 1 r1))
+                (nil)))))
+;;  succ:       5 (FALLTHRU)
+
+;; basic block 5, loop depth 0, maybe hot
+;;  prev block 4, next block 1, flags: (NEW, REACHABLE, RTL, MODIFIED)
+;;  pred:       2
+;;              4 (FALLTHRU)
+(code_label 34 33 35 5 37 (nil) [1 uses])
+(note 35 34 36 5 [bb 5] NOTE_INSN_BASIC_BLOCK)
+(insn 36 35 37 5 (set (reg:SI 129)
+        (zero_extend:SI (mem/c:QI (plus:SI (reg/f:SI 102 sfp)
+                    (const_int -1 [0xffffffffffffffff])) [0 c+0 S1 A8]))) "uart.c":216:3 175 {*arm_zero_extendqisi2}
+     (nil))
+(insn 37 36 38 5 (set (reg:SI 1 r1)
+        (reg:SI 129)) "uart.c":216:3 253 {*arm_movsi_insn}
+     (nil))
+(insn 38 37 39 5 (set (reg:SI 0 r0)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -12 [0xfffffffffffffff4])) [6 up+0 S4 A32])) "uart.c":216:3 253 {*arm_movsi_insn}
+     (nil))
+(call_insn 39 38 42 5 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("sputc") [flags 0x3]  <function_decl 0x7f19cf077300 sputc>) [0 sputc S4 A32])
+                    (const_int 0 [0])))
+            (use (const_int 0 [0]))
+            (clobber (reg:SI 14 lr))
+        ]) "uart.c":216:3 291 {*call_value_symbol}
+     (nil)
+    (expr_list (clobber (reg:SI 12 ip))
+        (expr_list:SI (use (reg:SI 0 r0))
+            (expr_list:QI (use (reg:SI 1 r1))
+                (nil)))))
+(insn 42 39 43 5 (clobber (reg/i:SI 0 r0)) "uart.c":217:1 -1
+     (nil))
+(insn 43 42 46 5 (clobber (reg:SI 118 [ <retval> ])) "uart.c":217:1 -1
+     (nil))
+(insn 46 43 41 5 (const_int 0 [0]) "uart.c":217:1 311 {nop}
+     (nil))
+(insn 41 46 44 5 (set (reg/i:SI 0 r0)
+        (reg:SI 118 [ <retval> ])) "uart.c":217:1 253 {*arm_movsi_insn}
+     (nil))
+(insn 44 41 0 5 (use (reg/i:SI 0 r0)) "uart.c":217:1 -1
+     (nil))
+;;  succ:       EXIT [always]  (FALLTHRU)
+
+
+;; Function sprintx (sprintx, funcdef_no=9, decl_uid=4561, cgraph_uid=10, symbol_order=11)
+
+(note 1 0 5 NOTE_INSN_DELETED)
+;; basic block 2, loop depth 0, maybe hot
+;;  prev block 0, next block 4, flags: (NEW, REACHABLE, RTL)
+;;  pred:       ENTRY (FALLTHRU)
+(note 5 1 2 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+(insn 2 5 3 2 (set (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -4 [0xfffffffffffffffc])) [6 up+0 S4 A32])
+        (reg:SI 0 r0 [ up ])) "uart.c":220:1 253 {*arm_movsi_insn}
+     (nil))
+(insn 3 2 4 2 (set (mem/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -8 [0xfffffffffffffff8])) [3 x+0 S4 A32])
+        (reg:SI 1 r1 [ x ])) "uart.c":220:1 253 {*arm_movsi_insn}
+     (nil))
+(note 4 3 7 2 NOTE_INSN_FUNCTION_BEG)
+(insn 7 4 8 2 (set (reg:SI 1 r1)
+        (symbol_ref/f:SI ("*.LC5") [flags 0x2]  <var_decl 0x7f19cf0af6c0 *.LC5>)) "uart.c":221:3 253 {*arm_movsi_insn}
+     (nil))
+(insn 8 7 9 2 (set (reg:SI 0 r0)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -4 [0xfffffffffffffffc])) [6 up+0 S4 A32])) "uart.c":221:3 253 {*arm_movsi_insn}
+     (nil))
+(call_insn 9 8 10 2 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("sprints") [flags 0x3]  <function_decl 0x7f19cf077d00 sprints>) [0 sprints S4 A32])
+                    (const_int 0 [0])))
+            (use (const_int 0 [0]))
+            (clobber (reg:SI 14 lr))
+        ]) "uart.c":221:3 291 {*call_value_symbol}
+     (nil)
+    (expr_list (clobber (reg:SI 12 ip))
+        (expr_list:SI (use (reg:SI 0 r0))
+            (expr_list:SI (use (reg:SI 1 r1))
+                (nil)))))
+(insn 10 9 11 2 (set (reg:SI 114)
+        (mem/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -8 [0xfffffffffffffff8])) [3 x+0 S4 A32])) "uart.c":222:6 253 {*arm_movsi_insn}
+     (nil))
+(insn 11 10 12 2 (set (reg:CC 100 cc)
+        (compare:CC (reg:SI 114)
+            (const_int 0 [0]))) "uart.c":222:6 268 {*arm_cmpsi_insn}
+     (nil))
+(jump_insn 12 11 13 2 (set (pc)
+        (if_then_else (ne (reg:CC 100 cc)
+                (const_int 0 [0]))
+            (label_ref 19)
+            (pc))) "uart.c":222:6 273 {arm_cond_branch}
+     (nil)
+ -> 19)
+;;  succ:       4 (FALLTHRU)
+;;              5
+
+;; basic block 4, loop depth 0, maybe hot
+;;  prev block 2, next block 5, flags: (NEW, REACHABLE, RTL)
+;;  pred:       2 (FALLTHRU)
+(note 13 12 14 4 [bb 4] NOTE_INSN_BASIC_BLOCK)
+(insn 14 13 15 4 (set (reg:SI 1 r1)
+        (const_int 48 [0x30])) "uart.c":223:5 253 {*arm_movsi_insn}
+     (nil))
+(insn 15 14 16 4 (set (reg:SI 0 r0)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -4 [0xfffffffffffffffc])) [6 up+0 S4 A32])) "uart.c":223:5 253 {*arm_movsi_insn}
+     (nil))
+(call_insn 16 15 17 4 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("sputc") [flags 0x3]  <function_decl 0x7f19cf077300 sputc>) [0 sputc S4 A32])
+                    (const_int 0 [0])))
+            (use (const_int 0 [0]))
+            (clobber (reg:SI 14 lr))
+        ]) "uart.c":223:5 291 {*call_value_symbol}
+     (nil)
+    (expr_list (clobber (reg:SI 12 ip))
+        (expr_list:SI (use (reg:SI 0 r0))
+            (expr_list:QI (use (reg:SI 1 r1))
+                (nil)))))
+(jump_insn 17 16 18 4 (set (pc)
+        (label_ref 24)) 284 {*arm_jump}
+     (nil)
+ -> 24)
+;;  succ:       6
+
+(barrier 18 17 19)
+;; basic block 5, loop depth 0, maybe hot
+;;  prev block 4, next block 6, flags: (NEW, REACHABLE, RTL)
+;;  pred:       2
+(code_label 19 18 20 5 41 (nil) [1 uses])
+(note 20 19 21 5 [bb 5] NOTE_INSN_BASIC_BLOCK)
+(insn 21 20 22 5 (set (reg:SI 1 r1)
+        (mem/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -8 [0xfffffffffffffff8])) [3 x+0 S4 A32])) "uart.c":225:5 253 {*arm_movsi_insn}
+     (nil))
+(insn 22 21 23 5 (set (reg:SI 0 r0)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -4 [0xfffffffffffffffc])) [6 up+0 S4 A32])) "uart.c":225:5 253 {*arm_movsi_insn}
+     (nil))
+(call_insn 23 22 24 5 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("srpx") [flags 0x3]  <function_decl 0x7f19cf077f00 srpx>) [0 srpx S4 A32])
+                    (const_int 0 [0])))
+            (use (const_int 0 [0]))
+            (clobber (reg:SI 14 lr))
+        ]) "uart.c":225:5 291 {*call_value_symbol}
+     (nil)
+    (expr_list (clobber (reg:SI 12 ip))
+        (expr_list:SI (use (reg:SI 0 r0))
+            (expr_list:SI (use (reg:SI 1 r1))
+                (nil)))))
+;;  succ:       6 (FALLTHRU)
+
+;; basic block 6, loop depth 0, maybe hot
+;;  prev block 5, next block 1, flags: (NEW, REACHABLE, RTL, MODIFIED)
+;;  pred:       4
+;;              5 (FALLTHRU)
+(code_label 24 23 25 6 42 (nil) [1 uses])
+(note 25 24 26 6 [bb 6] NOTE_INSN_BASIC_BLOCK)
+(insn 26 25 27 6 (set (reg:SI 1 r1)
+        (const_int 32 [0x20])) "uart.c":226:3 253 {*arm_movsi_insn}
+     (nil))
+(insn 27 26 28 6 (set (reg:SI 0 r0)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -4 [0xfffffffffffffffc])) [6 up+0 S4 A32])) "uart.c":226:3 253 {*arm_movsi_insn}
+     (nil))
+(call_insn 28 27 31 6 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("sputc") [flags 0x3]  <function_decl 0x7f19cf077300 sputc>) [0 sputc S4 A32])
+                    (const_int 0 [0])))
+            (use (const_int 0 [0]))
+            (clobber (reg:SI 14 lr))
+        ]) "uart.c":226:3 291 {*call_value_symbol}
+     (nil)
+    (expr_list (clobber (reg:SI 12 ip))
+        (expr_list:SI (use (reg:SI 0 r0))
+            (expr_list:QI (use (reg:SI 1 r1))
+                (nil)))))
+(insn 31 28 32 6 (clobber (reg/i:SI 0 r0)) "uart.c":227:1 -1
+     (nil))
+(insn 32 31 35 6 (clobber (reg:SI 113 [ <retval> ])) "uart.c":227:1 -1
+     (nil))
+(insn 35 32 30 6 (const_int 0 [0]) "uart.c":227:1 311 {nop}
+     (nil))
+(insn 30 35 33 6 (set (reg/i:SI 0 r0)
+        (reg:SI 113 [ <retval> ])) "uart.c":227:1 253 {*arm_movsi_insn}
+     (nil))
+(insn 33 30 0 6 (use (reg/i:SI 0 r0)) "uart.c":227:1 -1
+     (nil))
+;;  succ:       EXIT [always]  (FALLTHRU)
+
+
+;; Function srpu (srpu, funcdef_no=10, decl_uid=4565, cgraph_uid=11, symbol_order=12)
+
+(note 1 0 5 NOTE_INSN_DELETED)
+;; basic block 2, loop depth 0, maybe hot
+;;  prev block 0, next block 4, flags: (NEW, REACHABLE, RTL)
+;;  pred:       ENTRY (FALLTHRU)
+(note 5 1 2 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+(insn 2 5 3 2 (set (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -12 [0xfffffffffffffff4])) [6 up+0 S4 A32])
+        (reg:SI 0 r0 [ up ])) "uart.c":230:1 253 {*arm_movsi_insn}
+     (nil))
+(insn 3 2 4 2 (set (mem/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -16 [0xfffffffffffffff0])) [3 x+0 S4 A32])
+        (reg:SI 1 r1 [ x ])) "uart.c":230:1 253 {*arm_movsi_insn}
+     (nil))
+(note 4 3 7 2 NOTE_INSN_FUNCTION_BEG)
+(insn 7 4 8 2 (set (reg:SI 119)
+        (mem/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -16 [0xfffffffffffffff0])) [3 x+0 S4 A32])) "uart.c":232:6 253 {*arm_movsi_insn}
+     (nil))
+(insn 8 7 9 2 (set (reg:CC 100 cc)
+        (compare:CC (reg:SI 119)
+            (const_int 0 [0]))) "uart.c":232:6 268 {*arm_cmpsi_insn}
+     (nil))
+(jump_insn 9 8 10 2 (set (pc)
+        (if_then_else (eq (reg:CC 100 cc)
+                (const_int 0 [0]))
+            (label_ref 38)
+            (pc))) "uart.c":232:6 273 {arm_cond_branch}
+     (nil)
+ -> 38)
+;;  succ:       4 (FALLTHRU)
+;;              5
+
+;; basic block 4, loop depth 0, maybe hot
+;;  prev block 2, next block 5, flags: (NEW, REACHABLE, RTL)
+;;  pred:       2 (FALLTHRU)
+(note 10 9 11 4 [bb 4] NOTE_INSN_BASIC_BLOCK)
+(insn 11 10 12 4 (set (reg/f:SI 120)
+        (symbol_ref:SI ("tab") [flags 0x40]  <var_decl 0x7f19cfd52510 tab>)) "uart.c":233:13 253 {*arm_movsi_insn}
+     (nil))
+(insn 12 11 13 4 (set (reg/f:SI 113 [ tab.5_1 ])
+        (mem/f/c:SI (reg/f:SI 120) [2 tab+0 S4 A32])) "uart.c":233:13 253 {*arm_movsi_insn}
+     (nil))
+(insn 13 12 14 4 (set (reg:SI 121)
+        (mem/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -16 [0xfffffffffffffff0])) [3 x+0 S4 A32])) "uart.c":233:16 253 {*arm_movsi_insn}
+     (nil))
+(insn 14 13 15 4 (set (reg:SI 123)
+        (const_int 1717986919 [0x66666667])) "uart.c":233:16 253 {*arm_movsi_insn}
+     (nil))
+(insn 15 14 16 4 (parallel [
+            (set (reg:SI 122)
+                (truncate:SI (lshiftrt:DI (mult:DI (sign_extend:DI (reg:SI 121))
+                            (sign_extend:DI (reg:SI 123)))
+                        (const_int 32 [0x20]))))
+            (clobber (scratch:SI))
+        ]) "uart.c":233:16 71 {*smull_high}
+     (nil))
+(insn 16 15 17 4 (set (reg:SI 124)
+        (ashiftrt:SI (reg:SI 122)
+            (const_int 2 [0x2]))) "uart.c":233:16 147 {*arm_shiftsi3}
+     (nil))
+(insn 17 16 18 4 (set (reg:SI 125)
+        (ashiftrt:SI (reg:SI 121)
+            (const_int 31 [0x1f]))) "uart.c":233:16 147 {*arm_shiftsi3}
+     (nil))
+(insn 18 17 19 4 (set (reg:SI 114 [ _2 ])
+        (minus:SI (reg:SI 124)
+            (reg:SI 125))) "uart.c":233:16 45 {*arm_subsi3_insn}
+     (expr_list:REG_EQUAL (div:SI (reg:SI 121)
+            (const_int 10 [0xa]))
+        (nil)))
+(insn 19 18 20 4 (set (reg:SI 126)
+        (reg:SI 114 [ _2 ])) "uart.c":233:16 253 {*arm_movsi_insn}
+     (nil))
+(insn 20 19 21 4 (set (reg:SI 126)
+        (ashift:SI (reg:SI 126)
+            (const_int 2 [0x2]))) "uart.c":233:16 147 {*arm_shiftsi3}
+     (nil))
+(insn 21 20 22 4 (set (reg:SI 126)
+        (plus:SI (reg:SI 126)
+            (reg:SI 114 [ _2 ]))) "uart.c":233:16 7 {*arm_addsi3}
+     (expr_list:REG_EQUAL (mult:SI (reg:SI 114 [ _2 ])
+            (const_int 5 [0x5]))
+        (nil)))
+(insn 22 21 23 4 (set (reg:SI 127)
+        (ashift:SI (reg:SI 126)
+            (const_int 1 [0x1]))) "uart.c":233:16 147 {*arm_shiftsi3}
+     (nil))
+(insn 23 22 24 4 (set (reg:SI 126)
+        (reg:SI 127)) "uart.c":233:16 253 {*arm_movsi_insn}
+     (expr_list:REG_EQUAL (mult:SI (reg:SI 114 [ _2 ])
+            (const_int 10 [0xa]))
+        (nil)))
+(insn 24 23 25 4 (set (reg:SI 114 [ _2 ])
+        (minus:SI (reg:SI 121)
+            (reg:SI 126))) "uart.c":233:16 45 {*arm_subsi3_insn}
+     (nil))
+(insn 25 24 26 4 (set (reg:SI 115 [ _3 ])
+        (reg:SI 114 [ _2 ])) "uart.c":233:16 253 {*arm_movsi_insn}
+     (nil))
+(insn 26 25 27 4 (set (reg/f:SI 116 [ _4 ])
+        (plus:SI (reg/f:SI 113 [ tab.5_1 ])
+            (reg:SI 115 [ _3 ]))) "uart.c":233:13 7 {*arm_addsi3}
+     (nil))
+(insn 27 26 28 4 (set (reg:QI 128)
+        (mem:QI (reg/f:SI 116 [ _4 ]) [0 *_4+0 S1 A8])) "uart.c":233:8 263 {*arm_movqi_insn}
+     (nil))
+(insn 28 27 29 4 (set (mem/c:QI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -1 [0xffffffffffffffff])) [0 c+0 S1 A8])
+        (reg:QI 128)) "uart.c":233:8 263 {*arm_movqi_insn}
+     (nil))
+(insn 29 28 30 4 (set (reg:SI 129)
+        (mem/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -16 [0xfffffffffffffff0])) [3 x+0 S4 A32])) "uart.c":234:6 253 {*arm_movsi_insn}
+     (nil))
+(insn 30 29 31 4 (set (reg:SI 131)
+        (const_int 1717986919 [0x66666667])) "uart.c":234:6 253 {*arm_movsi_insn}
+     (nil))
+(insn 31 30 32 4 (parallel [
+            (set (reg:SI 130)
+                (truncate:SI (lshiftrt:DI (mult:DI (sign_extend:DI (reg:SI 129))
+                            (sign_extend:DI (reg:SI 131)))
+                        (const_int 32 [0x20]))))
+            (clobber (scratch:SI))
+        ]) "uart.c":234:6 71 {*smull_high}
+     (nil))
+(insn 32 31 33 4 (set (reg:SI 132)
+        (ashiftrt:SI (reg:SI 130)
+            (const_int 2 [0x2]))) "uart.c":234:6 147 {*arm_shiftsi3}
+     (nil))
+(insn 33 32 34 4 (set (reg:SI 133)
+        (ashiftrt:SI (reg:SI 129)
+            (const_int 31 [0x1f]))) "uart.c":234:6 147 {*arm_shiftsi3}
+     (nil))
+(insn 34 33 35 4 (set (reg:SI 117 [ _5 ])
+        (minus:SI (reg:SI 132)
+            (reg:SI 133))) "uart.c":234:6 45 {*arm_subsi3_insn}
+     (expr_list:REG_EQUAL (div:SI (reg:SI 129)
+            (const_int 10 [0xa]))
+        (nil)))
+(insn 35 34 36 4 (set (reg:SI 1 r1)
+        (reg:SI 117 [ _5 ])) "uart.c":234:6 253 {*arm_movsi_insn}
+     (nil))
+(insn 36 35 37 4 (set (reg:SI 0 r0)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -12 [0xfffffffffffffff4])) [6 up+0 S4 A32])) "uart.c":234:6 253 {*arm_movsi_insn}
+     (nil))
+(call_insn 37 36 38 4 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("srpu") [flags 0x3]  <function_decl 0x7f19cf07d300 srpu>) [0 srpu S4 A32])
+                    (const_int 0 [0])))
+            (use (const_int 0 [0]))
+            (clobber (reg:SI 14 lr))
+        ]) "uart.c":234:6 291 {*call_value_symbol}
+     (nil)
+    (expr_list (clobber (reg:SI 12 ip))
+        (expr_list:SI (use (reg:SI 0 r0))
+            (expr_list:SI (use (reg:SI 1 r1))
+                (nil)))))
+;;  succ:       5 (FALLTHRU)
+
+;; basic block 5, loop depth 0, maybe hot
+;;  prev block 4, next block 1, flags: (NEW, REACHABLE, RTL, MODIFIED)
+;;  pred:       2
+;;              4 (FALLTHRU)
+(code_label 38 37 39 5 46 (nil) [1 uses])
+(note 39 38 40 5 [bb 5] NOTE_INSN_BASIC_BLOCK)
+(insn 40 39 41 5 (set (reg:SI 134)
+        (zero_extend:SI (mem/c:QI (plus:SI (reg/f:SI 102 sfp)
+                    (const_int -1 [0xffffffffffffffff])) [0 c+0 S1 A8]))) "uart.c":236:3 175 {*arm_zero_extendqisi2}
+     (nil))
+(insn 41 40 42 5 (set (reg:SI 1 r1)
+        (reg:SI 134)) "uart.c":236:3 253 {*arm_movsi_insn}
+     (nil))
+(insn 42 41 43 5 (set (reg:SI 0 r0)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -12 [0xfffffffffffffff4])) [6 up+0 S4 A32])) "uart.c":236:3 253 {*arm_movsi_insn}
+     (nil))
+(call_insn 43 42 46 5 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("sputc") [flags 0x3]  <function_decl 0x7f19cf077300 sputc>) [0 sputc S4 A32])
+                    (const_int 0 [0])))
+            (use (const_int 0 [0]))
+            (clobber (reg:SI 14 lr))
+        ]) "uart.c":236:3 291 {*call_value_symbol}
+     (nil)
+    (expr_list (clobber (reg:SI 12 ip))
+        (expr_list:SI (use (reg:SI 0 r0))
+            (expr_list:QI (use (reg:SI 1 r1))
+                (nil)))))
+(insn 46 43 47 5 (clobber (reg/i:SI 0 r0)) "uart.c":237:1 -1
+     (nil))
+(insn 47 46 50 5 (clobber (reg:SI 118 [ <retval> ])) "uart.c":237:1 -1
+     (nil))
+(insn 50 47 45 5 (const_int 0 [0]) "uart.c":237:1 311 {nop}
+     (nil))
+(insn 45 50 48 5 (set (reg/i:SI 0 r0)
+        (reg:SI 118 [ <retval> ])) "uart.c":237:1 253 {*arm_movsi_insn}
+     (nil))
+(insn 48 45 0 5 (use (reg/i:SI 0 r0)) "uart.c":237:1 -1
+     (nil))
+;;  succ:       EXIT [always]  (FALLTHRU)
+
+
+;; Function sprintu (sprintu, funcdef_no=11, decl_uid=4570, cgraph_uid=12, symbol_order=13)
+
+(note 1 0 5 NOTE_INSN_DELETED)
+;; basic block 2, loop depth 0, maybe hot
+;;  prev block 0, next block 4, flags: (NEW, REACHABLE, RTL)
+;;  pred:       ENTRY (FALLTHRU)
+(note 5 1 2 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+(insn 2 5 3 2 (set (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -4 [0xfffffffffffffffc])) [6 up+0 S4 A32])
+        (reg:SI 0 r0 [ up ])) "uart.c":240:1 253 {*arm_movsi_insn}
+     (nil))
+(insn 3 2 4 2 (set (mem/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -8 [0xfffffffffffffff8])) [3 x+0 S4 A32])
+        (reg:SI 1 r1 [ x ])) "uart.c":240:1 253 {*arm_movsi_insn}
+     (nil))
+(note 4 3 7 2 NOTE_INSN_FUNCTION_BEG)
+(insn 7 4 8 2 (set (reg:SI 114)
+        (mem/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -8 [0xfffffffffffffff8])) [3 x+0 S4 A32])) "uart.c":241:6 253 {*arm_movsi_insn}
+     (nil))
+(insn 8 7 9 2 (set (reg:CC 100 cc)
+        (compare:CC (reg:SI 114)
+            (const_int 0 [0]))) "uart.c":241:6 268 {*arm_cmpsi_insn}
+     (nil))
+(jump_insn 9 8 10 2 (set (pc)
+        (if_then_else (ne (reg:CC 100 cc)
+                (const_int 0 [0]))
+            (label_ref 16)
+            (pc))) "uart.c":241:6 273 {arm_cond_branch}
+     (nil)
+ -> 16)
+;;  succ:       4 (FALLTHRU)
+;;              5
+
+;; basic block 4, loop depth 0, maybe hot
+;;  prev block 2, next block 5, flags: (NEW, REACHABLE, RTL)
+;;  pred:       2 (FALLTHRU)
+(note 10 9 11 4 [bb 4] NOTE_INSN_BASIC_BLOCK)
+(insn 11 10 12 4 (set (reg:SI 1 r1)
+        (const_int 48 [0x30])) "uart.c":242:5 253 {*arm_movsi_insn}
+     (nil))
+(insn 12 11 13 4 (set (reg:SI 0 r0)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -4 [0xfffffffffffffffc])) [6 up+0 S4 A32])) "uart.c":242:5 253 {*arm_movsi_insn}
+     (nil))
+(call_insn 13 12 14 4 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("sputc") [flags 0x3]  <function_decl 0x7f19cf077300 sputc>) [0 sputc S4 A32])
+                    (const_int 0 [0])))
+            (use (const_int 0 [0]))
+            (clobber (reg:SI 14 lr))
+        ]) "uart.c":242:5 291 {*call_value_symbol}
+     (nil)
+    (expr_list (clobber (reg:SI 12 ip))
+        (expr_list:SI (use (reg:SI 0 r0))
+            (expr_list:QI (use (reg:SI 1 r1))
+                (nil)))))
+(jump_insn 14 13 15 4 (set (pc)
+        (label_ref 21)) 284 {*arm_jump}
+     (nil)
+ -> 21)
+;;  succ:       6
+
+(barrier 15 14 16)
+;; basic block 5, loop depth 0, maybe hot
+;;  prev block 4, next block 6, flags: (NEW, REACHABLE, RTL)
+;;  pred:       2
+(code_label 16 15 17 5 50 (nil) [1 uses])
+(note 17 16 18 5 [bb 5] NOTE_INSN_BASIC_BLOCK)
+(insn 18 17 19 5 (set (reg:SI 1 r1)
+        (mem/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -8 [0xfffffffffffffff8])) [3 x+0 S4 A32])) "uart.c":244:5 253 {*arm_movsi_insn}
+     (nil))
+(insn 19 18 20 5 (set (reg:SI 0 r0)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -4 [0xfffffffffffffffc])) [6 up+0 S4 A32])) "uart.c":244:5 253 {*arm_movsi_insn}
+     (nil))
+(call_insn 20 19 21 5 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("srpu") [flags 0x3]  <function_decl 0x7f19cf07d300 srpu>) [0 srpu S4 A32])
+                    (const_int 0 [0])))
+            (use (const_int 0 [0]))
+            (clobber (reg:SI 14 lr))
+        ]) "uart.c":244:5 291 {*call_value_symbol}
+     (nil)
+    (expr_list (clobber (reg:SI 12 ip))
+        (expr_list:SI (use (reg:SI 0 r0))
+            (expr_list:SI (use (reg:SI 1 r1))
+                (nil)))))
+;;  succ:       6 (FALLTHRU)
+
+;; basic block 6, loop depth 0, maybe hot
+;;  prev block 5, next block 1, flags: (NEW, REACHABLE, RTL, MODIFIED)
+;;  pred:       4
+;;              5 (FALLTHRU)
+(code_label 21 20 22 6 51 (nil) [1 uses])
+(note 22 21 23 6 [bb 6] NOTE_INSN_BASIC_BLOCK)
+(insn 23 22 24 6 (set (reg:SI 1 r1)
+        (const_int 32 [0x20])) "uart.c":245:3 253 {*arm_movsi_insn}
+     (nil))
+(insn 24 23 25 6 (set (reg:SI 0 r0)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -4 [0xfffffffffffffffc])) [6 up+0 S4 A32])) "uart.c":245:3 253 {*arm_movsi_insn}
+     (nil))
+(call_insn 25 24 28 6 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("sputc") [flags 0x3]  <function_decl 0x7f19cf077300 sputc>) [0 sputc S4 A32])
+                    (const_int 0 [0])))
+            (use (const_int 0 [0]))
+            (clobber (reg:SI 14 lr))
+        ]) "uart.c":245:3 291 {*call_value_symbol}
+     (nil)
+    (expr_list (clobber (reg:SI 12 ip))
+        (expr_list:SI (use (reg:SI 0 r0))
+            (expr_list:QI (use (reg:SI 1 r1))
+                (nil)))))
+(insn 28 25 29 6 (clobber (reg/i:SI 0 r0)) "uart.c":246:1 -1
+     (nil))
+(insn 29 28 32 6 (clobber (reg:SI 113 [ <retval> ])) "uart.c":246:1 -1
+     (nil))
+(insn 32 29 27 6 (const_int 0 [0]) "uart.c":246:1 311 {nop}
+     (nil))
+(insn 27 32 30 6 (set (reg/i:SI 0 r0)
+        (reg:SI 113 [ <retval> ])) "uart.c":246:1 253 {*arm_movsi_insn}
+     (nil))
+(insn 30 27 0 6 (use (reg/i:SI 0 r0)) "uart.c":246:1 -1
+     (nil))
+;;  succ:       EXIT [always]  (FALLTHRU)
+
+
+;; Function sprinti (sprinti, funcdef_no=12, decl_uid=4574, cgraph_uid=13, symbol_order=14)
+
+(note 1 0 5 NOTE_INSN_DELETED)
+;; basic block 2, loop depth 0, maybe hot
+;;  prev block 0, next block 4, flags: (NEW, REACHABLE, RTL)
+;;  pred:       ENTRY (FALLTHRU)
+(note 5 1 2 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+(insn 2 5 3 2 (set (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -4 [0xfffffffffffffffc])) [6 up+0 S4 A32])
+        (reg:SI 0 r0 [ up ])) "uart.c":249:1 253 {*arm_movsi_insn}
+     (nil))
+(insn 3 2 4 2 (set (mem/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -8 [0xfffffffffffffff8])) [3 x+0 S4 A32])
+        (reg:SI 1 r1 [ x ])) "uart.c":249:1 253 {*arm_movsi_insn}
+     (nil))
+(note 4 3 9 2 NOTE_INSN_FUNCTION_BEG)
+(insn 9 4 10 2 (set (reg:SI 114)
+        (mem/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -8 [0xfffffffffffffff8])) [3 x+0 S4 A32])) "uart.c":250:6 253 {*arm_movsi_insn}
+     (nil))
+(insn 10 9 11 2 (set (reg:CC 100 cc)
+        (compare:CC (reg:SI 114)
+            (const_int 0 [0]))) "uart.c":250:6 268 {*arm_cmpsi_insn}
+     (nil))
+(jump_insn 11 10 12 2 (set (pc)
+        (if_then_else (ge (reg:CC 100 cc)
+                (const_int 0 [0]))
+            (label_ref 19)
+            (pc))) "uart.c":250:6 273 {arm_cond_branch}
+     (nil)
+ -> 19)
+;;  succ:       4 (FALLTHRU)
+;;              5
+
+;; basic block 4, loop depth 0, maybe hot
+;;  prev block 2, next block 5, flags: (NEW, REACHABLE, RTL)
+;;  pred:       2 (FALLTHRU)
+(note 12 11 13 4 [bb 4] NOTE_INSN_BASIC_BLOCK)
+(insn 13 12 14 4 (set (reg:SI 1 r1)
+        (const_int 45 [0x2d])) "uart.c":251:5 253 {*arm_movsi_insn}
+     (nil))
+(insn 14 13 15 4 (set (reg:SI 0 r0)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -4 [0xfffffffffffffffc])) [6 up+0 S4 A32])) "uart.c":251:5 253 {*arm_movsi_insn}
+     (nil))
+(call_insn 15 14 16 4 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("sputc") [flags 0x3]  <function_decl 0x7f19cf077300 sputc>) [0 sputc S4 A32])
+                    (const_int 0 [0])))
+            (use (const_int 0 [0]))
+            (clobber (reg:SI 14 lr))
+        ]) "uart.c":251:5 291 {*call_value_symbol}
+     (nil)
+    (expr_list (clobber (reg:SI 12 ip))
+        (expr_list:SI (use (reg:SI 0 r0))
+            (expr_list:QI (use (reg:SI 1 r1))
+                (nil)))))
+(insn 16 15 17 4 (set (reg:SI 116)
+        (mem/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -8 [0xfffffffffffffff8])) [3 x+0 S4 A32])) "uart.c":252:7 253 {*arm_movsi_insn}
+     (nil))
+(insn 17 16 18 4 (set (reg:SI 115)
+        (neg:SI (reg:SI 116))) "uart.c":252:7 164 {*arm_negsi2}
+     (nil))
+(insn 18 17 19 4 (set (mem/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -8 [0xfffffffffffffff8])) [3 x+0 S4 A32])
+        (reg:SI 115)) "uart.c":252:7 253 {*arm_movsi_insn}
+     (nil))
+;;  succ:       5 (FALLTHRU)
+
+;; basic block 5, loop depth 0, maybe hot
+;;  prev block 4, next block 1, flags: (NEW, REACHABLE, RTL, MODIFIED)
+;;  pred:       2
+;;              4 (FALLTHRU)
+(code_label 19 18 20 5 53 (nil) [1 uses])
+(note 20 19 21 5 [bb 5] NOTE_INSN_BASIC_BLOCK)
+(insn 21 20 22 5 (set (reg:SI 1 r1)
+        (mem/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -8 [0xfffffffffffffff8])) [3 x+0 S4 A32])) "uart.c":254:3 253 {*arm_movsi_insn}
+     (nil))
+(insn 22 21 23 5 (set (reg:SI 0 r0)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -4 [0xfffffffffffffffc])) [6 up+0 S4 A32])) "uart.c":254:3 253 {*arm_movsi_insn}
+     (nil))
+(call_insn 23 22 26 5 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("sprintu") [flags 0x3]  <function_decl 0x7f19cf07d500 sprintu>) [0 sprintu S4 A32])
+                    (const_int 0 [0])))
+            (use (const_int 0 [0]))
+            (clobber (reg:SI 14 lr))
+        ]) "uart.c":254:3 291 {*call_value_symbol}
+     (nil)
+    (expr_list (clobber (reg:SI 12 ip))
+        (expr_list:SI (use (reg:SI 0 r0))
+            (expr_list:SI (use (reg:SI 1 r1))
+                (nil)))))
+(insn 26 23 27 5 (clobber (reg/i:SI 0 r0)) "uart.c":255:1 -1
+     (nil))
+(insn 27 26 30 5 (clobber (reg:SI 113 [ <retval> ])) "uart.c":255:1 -1
+     (nil))
+(insn 30 27 25 5 (const_int 0 [0]) "uart.c":255:1 311 {nop}
+     (nil))
+(insn 25 30 28 5 (set (reg/i:SI 0 r0)
+        (reg:SI 113 [ <retval> ])) "uart.c":255:1 253 {*arm_movsi_insn}
+     (nil))
+(insn 28 25 0 5 (use (reg/i:SI 0 r0)) "uart.c":255:1 -1
+     (nil))
+;;  succ:       EXIT [always]  (FALLTHRU)
+
+
+;; Function sfprintf (sfprintf, funcdef_no=13, decl_uid=4578, cgraph_uid=14, symbol_order=15)
+
+(note 1 0 4 NOTE_INSN_DELETED)
+;; basic block 2, loop depth 0, maybe hot
+;;  prev block 0, next block 4, flags: (NEW, REACHABLE, RTL)
+;;  pred:       ENTRY (FALLTHRU)
+(note 4 1 2 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+(insn 2 4 3 2 (set (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -12 [0xfffffffffffffff4])) [6 up+0 S4 A32])
+        (reg:SI 0 r0 [ up ])) "uart.c":258:1 253 {*arm_movsi_insn}
+     (nil))
+(note 3 2 6 2 NOTE_INSN_FUNCTION_BEG)
+(insn 6 3 7 2 (set (reg/f:SI 127)
+        (mem/f/c:SI (plus:SI (reg/f:SI 103 afp)
+                (const_int 4 [0x4])) [2 fmt+0 S4 A64])) "uart.c":261:6 253 {*arm_movsi_insn}
+     (nil))
+(insn 7 6 8 2 (set (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -4 [0xfffffffffffffffc])) [2 cp+0 S4 A32])
+        (reg/f:SI 127)) "uart.c":261:6 253 {*arm_movsi_insn}
+     (nil))
+(insn 8 7 9 2 (set (reg:SI 128)
+        (plus:SI (reg/f:SI 103 afp)
+            (const_int 8 [0x8]))) "uart.c":262:6 7 {*arm_addsi3}
+     (nil))
+(insn 9 8 10 2 (set (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -8 [0xfffffffffffffff8])) [9 ip+0 S4 A64])
+        (reg:SI 128)) "uart.c":262:6 253 {*arm_movsi_insn}
+     (nil))
+(jump_insn 10 9 11 2 (set (pc)
+        (label_ref 104)) "uart.c":264:8 284 {*arm_jump}
+     (nil)
+ -> 104)
+;;  succ:       15
+
+(barrier 11 10 108)
+;; basic block 4, loop depth 1, maybe hot
+;;  prev block 2, next block 5, flags: (NEW, REACHABLE, RTL)
+;;  pred:       15
+(code_label 108 11 12 4 65 (nil) [1 uses])
+(note 12 108 13 4 [bb 4] NOTE_INSN_BASIC_BLOCK)
+(insn 13 12 14 4 (set (reg/f:SI 129)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -4 [0xfffffffffffffffc])) [2 cp+0 S4 A32])) "uart.c":265:9 253 {*arm_movsi_insn}
+     (nil))
+(insn 14 13 15 4 (set (reg:SI 113 [ _1 ])
+        (zero_extend:SI (mem:QI (reg/f:SI 129) [0 *cp_15+0 S1 A8]))) "uart.c":265:9 175 {*arm_zero_extendqisi2}
+     (nil))
+(insn 15 14 16 4 (set (reg:CC 100 cc)
+        (compare:CC (reg:SI 113 [ _1 ])
+            (const_int 37 [0x25]))) "uart.c":265:8 268 {*arm_cmpsi_insn}
+     (nil))
+(jump_insn 16 15 17 4 (set (pc)
+        (if_then_else (eq (reg:CC 100 cc)
+                (const_int 0 [0]))
+            (label_ref 38)
+            (pc))) "uart.c":265:8 273 {arm_cond_branch}
+     (nil)
+ -> 38)
+;;  succ:       5 (FALLTHRU)
+;;              8
+
+;; basic block 5, loop depth 1, maybe hot
+;;  prev block 4, next block 6, flags: (NEW, REACHABLE, RTL)
+;;  pred:       4 (FALLTHRU)
+(note 17 16 18 5 [bb 5] NOTE_INSN_BASIC_BLOCK)
+(insn 18 17 19 5 (set (reg/f:SI 130)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -4 [0xfffffffffffffffc])) [2 cp+0 S4 A32])) "uart.c":266:7 253 {*arm_movsi_insn}
+     (nil))
+(insn 19 18 20 5 (set (reg:SI 114 [ _2 ])
+        (zero_extend:SI (mem:QI (reg/f:SI 130) [0 *cp_15+0 S1 A8]))) "uart.c":266:7 175 {*arm_zero_extendqisi2}
+     (nil))
+(insn 20 19 21 5 (set (reg:SI 1 r1)
+        (reg:SI 114 [ _2 ])) "uart.c":266:7 253 {*arm_movsi_insn}
+     (nil))
+(insn 21 20 22 5 (set (reg:SI 0 r0)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -12 [0xfffffffffffffff4])) [6 up+0 S4 A32])) "uart.c":266:7 253 {*arm_movsi_insn}
+     (nil))
+(call_insn 22 21 23 5 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("sputc") [flags 0x3]  <function_decl 0x7f19cf077300 sputc>) [0 sputc S4 A32])
+                    (const_int 0 [0])))
+            (use (const_int 0 [0]))
+            (clobber (reg:SI 14 lr))
+        ]) "uart.c":266:7 291 {*call_value_symbol}
+     (nil)
+    (expr_list (clobber (reg:SI 12 ip))
+        (expr_list:SI (use (reg:SI 0 r0))
+            (expr_list:QI (use (reg:SI 1 r1))
+                (nil)))))
+(insn 23 22 24 5 (set (reg/f:SI 131)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -4 [0xfffffffffffffffc])) [2 cp+0 S4 A32])) "uart.c":267:11 253 {*arm_movsi_insn}
+     (nil))
+(insn 24 23 25 5 (set (reg:SI 115 [ _3 ])
+        (zero_extend:SI (mem:QI (reg/f:SI 131) [0 *cp_15+0 S1 A8]))) "uart.c":267:11 175 {*arm_zero_extendqisi2}
+     (nil))
+(insn 25 24 26 5 (set (reg:CC 100 cc)
+        (compare:CC (reg:SI 115 [ _3 ])
+            (const_int 10 [0xa]))) "uart.c":267:10 268 {*arm_cmpsi_insn}
+     (nil))
+(jump_insn 26 25 27 5 (set (pc)
+        (if_then_else (ne (reg:CC 100 cc)
+                (const_int 0 [0]))
+            (label_ref 31)
+            (pc))) "uart.c":267:10 273 {arm_cond_branch}
+     (nil)
+ -> 31)
+;;  succ:       6 (FALLTHRU)
+;;              7
+
+;; basic block 6, loop depth 1, maybe hot
+;;  prev block 5, next block 7, flags: (NEW, REACHABLE, RTL)
+;;  pred:       5 (FALLTHRU)
+(note 27 26 28 6 [bb 6] NOTE_INSN_BASIC_BLOCK)
+(insn 28 27 29 6 (set (reg:SI 1 r1)
+        (const_int 13 [0xd])) "uart.c":268:2 253 {*arm_movsi_insn}
+     (nil))
+(insn 29 28 30 6 (set (reg:SI 0 r0)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -12 [0xfffffffffffffff4])) [6 up+0 S4 A32])) "uart.c":268:2 253 {*arm_movsi_insn}
+     (nil))
+(call_insn 30 29 31 6 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("sputc") [flags 0x3]  <function_decl 0x7f19cf077300 sputc>) [0 sputc S4 A32])
+                    (const_int 0 [0])))
+            (use (const_int 0 [0]))
+            (clobber (reg:SI 14 lr))
+        ]) "uart.c":268:2 291 {*call_value_symbol}
+     (nil)
+    (expr_list (clobber (reg:SI 12 ip))
+        (expr_list:SI (use (reg:SI 0 r0))
+            (expr_list:QI (use (reg:SI 1 r1))
+                (nil)))))
+;;  succ:       7 (FALLTHRU)
+
+;; basic block 7, loop depth 1, maybe hot
+;;  prev block 6, next block 8, flags: (NEW, REACHABLE, RTL)
+;;  pred:       5
+;;              6 (FALLTHRU)
+(code_label 31 30 32 7 57 (nil) [1 uses])
+(note 32 31 33 7 [bb 7] NOTE_INSN_BASIC_BLOCK)
+(insn 33 32 34 7 (set (reg:SI 133)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -4 [0xfffffffffffffffc])) [2 cp+0 S4 A32])) "uart.c":269:9 253 {*arm_movsi_insn}
+     (nil))
+(insn 34 33 35 7 (set (reg:SI 132)
+        (plus:SI (reg:SI 133)
+            (const_int 1 [0x1]))) "uart.c":269:9 7 {*arm_addsi3}
+     (nil))
+(insn 35 34 36 7 (set (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -4 [0xfffffffffffffffc])) [2 cp+0 S4 A32])
+        (reg:SI 132)) "uart.c":269:9 253 {*arm_movsi_insn}
+     (nil))
+(jump_insn 36 35 37 7 (set (pc)
+        (label_ref 104)) "uart.c":270:7 284 {*arm_jump}
+     (nil)
+ -> 104)
+;;  succ:       15 (DFS_BACK)
+
+(barrier 37 36 38)
+;; basic block 8, loop depth 1, maybe hot
+;;  prev block 7, next block 9, flags: (NEW, REACHABLE, RTL)
+;;  pred:       4
+(code_label 38 37 39 8 56 (nil) [1 uses])
+(note 39 38 40 8 [bb 8] NOTE_INSN_BASIC_BLOCK)
+(insn 40 39 41 8 (set (reg:SI 135)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -4 [0xfffffffffffffffc])) [2 cp+0 S4 A32])) "uart.c":272:7 253 {*arm_movsi_insn}
+     (nil))
+(insn 41 40 42 8 (set (reg:SI 134)
+        (plus:SI (reg:SI 135)
+            (const_int 1 [0x1]))) "uart.c":272:7 7 {*arm_addsi3}
+     (nil))
+(insn 42 41 43 8 (set (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -4 [0xfffffffffffffffc])) [2 cp+0 S4 A32])
+        (reg:SI 134)) "uart.c":272:7 253 {*arm_movsi_insn}
+     (nil))
+(insn 43 42 44 8 (set (reg/f:SI 136)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -4 [0xfffffffffffffffc])) [2 cp+0 S4 A32])) "uart.c":273:12 253 {*arm_movsi_insn}
+     (nil))
+(insn 44 43 45 8 (set (reg:SI 116 [ _4 ])
+        (zero_extend:SI (mem:QI (reg/f:SI 136) [0 *cp_22+0 S1 A8]))) "uart.c":273:12 175 {*arm_zero_extendqisi2}
+     (nil))
+(insn 45 44 46 8 (set (reg:SI 117 [ _5 ])
+        (reg:SI 116 [ _4 ])) "uart.c":273:12 253 {*arm_movsi_insn}
+     (nil))
+(insn 46 45 47 8 (set (reg:SI 137)
+        (plus:SI (reg:SI 117 [ _5 ])
+            (const_int -99 [0xffffffffffffff9d]))) "uart.c":273:5 7 {*arm_addsi3}
+     (nil))
+(jump_insn 47 46 48 8 (parallel [
+            (set (pc)
+                (if_then_else (leu (reg:SI 137)
+                        (const_int 21 [0x15]))
+                    (mem/u/c:SI (plus:SI (mult:SI (reg:SI 137)
+                                (const_int 4 [0x4]))
+                            (label_ref:SI 48)) [0  S4 A32])
+                    (label_ref:SI 96)))
+            (clobber (reg:CC 100 cc))
+            (use (label_ref:SI 48))
+        ]) "uart.c":273:5 308 {*arm_casesi_internal}
+     (insn_list:REG_LABEL_TARGET 96 (nil))
+ -> 48)
+;;  succ:       14 [63.0% (adjusted)] 
+;;              9 [7.4% (adjusted)] 
+;;              11 [7.4% (adjusted)] 
+;;              10 [7.4% (adjusted)] 
+;;              12 [7.4% (adjusted)] 
+;;              13 [7.4% (adjusted)] 
+
+;; Insn is not within a basic block
+(code_label 48 47 49 60 (nil) [2 uses])
+;; Insn is not within a basic block
+(jump_table_data 49 48 50 (addr_vec:SI [
+            (label_ref:SI 51)
+            (label_ref:SI 71)
+            (label_ref:SI 96)
+            (label_ref:SI 96)
+            (label_ref:SI 96)
+            (label_ref:SI 96)
+            (label_ref:SI 96)
+            (label_ref:SI 96)
+            (label_ref:SI 96)
+            (label_ref:SI 96)
+            (label_ref:SI 96)
+            (label_ref:SI 96)
+            (label_ref:SI 96)
+            (label_ref:SI 96)
+            (label_ref:SI 96)
+            (label_ref:SI 96)
+            (label_ref:SI 61)
+            (label_ref:SI 96)
+            (label_ref:SI 80)
+            (label_ref:SI 96)
+            (label_ref:SI 96)
+            (label_ref:SI 89)
+        ]))
+(barrier 50 49 51)
+;; basic block 9, loop depth 1, maybe hot
+;;  prev block 8, next block 10, flags: (NEW, REACHABLE, RTL)
+;;  pred:       8 [7.4% (adjusted)] 
+(code_label 51 50 52 9 64 (nil) [1 uses])
+(note 52 51 53 9 [bb 9] NOTE_INSN_BASIC_BLOCK)
+(insn 53 52 54 9 (set (reg/f:SI 138)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -8 [0xfffffffffffffff8])) [9 ip+0 S4 A64])) "uart.c":274:31 253 {*arm_movsi_insn}
+     (nil))
+(insn 54 53 55 9 (set (reg:SI 118 [ _6 ])
+        (mem:SI (reg/f:SI 138) [3 *ip_14+0 S4 A32])) "uart.c":274:31 253 {*arm_movsi_insn}
+     (nil))
+(insn 55 54 56 9 (set (reg:SI 119 [ _7 ])
+        (and:SI (reg:SI 118 [ _6 ])
+            (const_int 255 [0xff]))) "uart.c":274:15 90 {*arm_andsi3_insn}
+     (nil))
+(insn 56 55 57 9 (set (reg:SI 1 r1)
+        (reg:SI 119 [ _7 ])) "uart.c":274:15 253 {*arm_movsi_insn}
+     (nil))
+(insn 57 56 58 9 (set (reg:SI 0 r0)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -12 [0xfffffffffffffff4])) [6 up+0 S4 A32])) "uart.c":274:15 253 {*arm_movsi_insn}
+     (nil))
+(call_insn 58 57 59 9 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("sputc") [flags 0x3]  <function_decl 0x7f19cf077300 sputc>) [0 sputc S4 A32])
+                    (const_int 0 [0])))
+            (use (const_int 0 [0]))
+            (clobber (reg:SI 14 lr))
+        ]) "uart.c":274:15 291 {*call_value_symbol}
+     (nil)
+    (expr_list (clobber (reg:SI 12 ip))
+        (expr_list:SI (use (reg:SI 0 r0))
+            (expr_list:QI (use (reg:SI 1 r1))
+                (nil)))))
+(jump_insn 59 58 60 9 (set (pc)
+        (label_ref 96)) "uart.c":274:42 284 {*arm_jump}
+     (nil)
+ -> 96)
+;;  succ:       14
+
+(barrier 60 59 61)
+;; basic block 10, loop depth 1, maybe hot
+;;  prev block 9, next block 11, flags: (NEW, REACHABLE, RTL)
+;;  pred:       8 [7.4% (adjusted)] 
+(code_label 61 60 62 10 62 (nil) [1 uses])
+(note 62 61 63 10 [bb 10] NOTE_INSN_BASIC_BLOCK)
+(insn 63 62 64 10 (set (reg/f:SI 139)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -8 [0xfffffffffffffff8])) [9 ip+0 S4 A64])) "uart.c":275:35 253 {*arm_movsi_insn}
+     (nil))
+(insn 64 63 65 10 (set (reg:SI 120 [ _8 ])
+        (mem:SI (reg/f:SI 139) [3 *ip_14+0 S4 A32])) "uart.c":275:35 253 {*arm_movsi_insn}
+     (nil))
+(insn 65 64 66 10 (set (reg/f:SI 121 [ _9 ])
+        (reg:SI 120 [ _8 ])) "uart.c":275:15 253 {*arm_movsi_insn}
+     (nil))
+(insn 66 65 67 10 (set (reg:SI 1 r1)
+        (reg/f:SI 121 [ _9 ])) "uart.c":275:15 253 {*arm_movsi_insn}
+     (nil))
+(insn 67 66 68 10 (set (reg:SI 0 r0)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -12 [0xfffffffffffffff4])) [6 up+0 S4 A32])) "uart.c":275:15 253 {*arm_movsi_insn}
+     (nil))
+(call_insn 68 67 69 10 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("sprints") [flags 0x3]  <function_decl 0x7f19cf077d00 sprints>) [0 sprints S4 A32])
+                    (const_int 0 [0])))
+            (use (const_int 0 [0]))
+            (clobber (reg:SI 14 lr))
+        ]) "uart.c":275:15 291 {*call_value_symbol}
+     (nil)
+    (expr_list (clobber (reg:SI 12 ip))
+        (expr_list:SI (use (reg:SI 0 r0))
+            (expr_list:SI (use (reg:SI 1 r1))
+                (nil)))))
+(jump_insn 69 68 70 10 (set (pc)
+        (label_ref 96)) "uart.c":275:42 284 {*arm_jump}
+     (nil)
+ -> 96)
+;;  succ:       14
+
+(barrier 70 69 71)
+;; basic block 11, loop depth 1, maybe hot
+;;  prev block 10, next block 12, flags: (NEW, REACHABLE, RTL)
+;;  pred:       8 [7.4% (adjusted)] 
+(code_label 71 70 72 11 63 (nil) [1 uses])
+(note 72 71 73 11 [bb 11] NOTE_INSN_BASIC_BLOCK)
+(insn 73 72 74 11 (set (reg/f:SI 140)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -8 [0xfffffffffffffff8])) [9 ip+0 S4 A64])) "uart.c":276:15 253 {*arm_movsi_insn}
+     (nil))
+(insn 74 73 75 11 (set (reg:SI 122 [ _10 ])
+        (mem:SI (reg/f:SI 140) [3 *ip_14+0 S4 A32])) "uart.c":276:15 253 {*arm_movsi_insn}
+     (nil))
+(insn 75 74 76 11 (set (reg:SI 1 r1)
+        (reg:SI 122 [ _10 ])) "uart.c":276:15 253 {*arm_movsi_insn}
+     (nil))
+(insn 76 75 77 11 (set (reg:SI 0 r0)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -12 [0xfffffffffffffff4])) [6 up+0 S4 A32])) "uart.c":276:15 253 {*arm_movsi_insn}
+     (nil))
+(call_insn 77 76 78 11 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("sprinti") [flags 0x3]  <function_decl 0x7f19cf07d700 sprinti>) [0 sprinti S4 A32])
+                    (const_int 0 [0])))
+            (use (const_int 0 [0]))
+            (clobber (reg:SI 14 lr))
+        ]) "uart.c":276:15 291 {*call_value_symbol}
+     (nil)
+    (expr_list (clobber (reg:SI 12 ip))
+        (expr_list:SI (use (reg:SI 0 r0))
+            (expr_list:SI (use (reg:SI 1 r1))
+                (nil)))))
+(jump_insn 78 77 79 11 (set (pc)
+        (label_ref 96)) "uart.c":276:43 284 {*arm_jump}
+     (nil)
+ -> 96)
+;;  succ:       14
+
+(barrier 79 78 80)
+;; basic block 12, loop depth 1, maybe hot
+;;  prev block 11, next block 13, flags: (NEW, REACHABLE, RTL)
+;;  pred:       8 [7.4% (adjusted)] 
+(code_label 80 79 81 12 61 (nil) [1 uses])
+(note 81 80 82 12 [bb 12] NOTE_INSN_BASIC_BLOCK)
+(insn 82 81 83 12 (set (reg/f:SI 141)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -8 [0xfffffffffffffff8])) [9 ip+0 S4 A64])) "uart.c":277:15 253 {*arm_movsi_insn}
+     (nil))
+(insn 83 82 84 12 (set (reg:SI 123 [ _11 ])
+        (mem:SI (reg/f:SI 141) [3 *ip_14+0 S4 A32])) "uart.c":277:15 253 {*arm_movsi_insn}
+     (nil))
+(insn 84 83 85 12 (set (reg:SI 1 r1)
+        (reg:SI 123 [ _11 ])) "uart.c":277:15 253 {*arm_movsi_insn}
+     (nil))
+(insn 85 84 86 12 (set (reg:SI 0 r0)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -12 [0xfffffffffffffff4])) [6 up+0 S4 A32])) "uart.c":277:15 253 {*arm_movsi_insn}
+     (nil))
+(call_insn 86 85 87 12 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("sprintu") [flags 0x3]  <function_decl 0x7f19cf07d500 sprintu>) [0 sprintu S4 A32])
+                    (const_int 0 [0])))
+            (use (const_int 0 [0]))
+            (clobber (reg:SI 14 lr))
+        ]) "uart.c":277:15 291 {*call_value_symbol}
+     (nil)
+    (expr_list (clobber (reg:SI 12 ip))
+        (expr_list:SI (use (reg:SI 0 r0))
+            (expr_list:SI (use (reg:SI 1 r1))
+                (nil)))))
+(jump_insn 87 86 88 12 (set (pc)
+        (label_ref 96)) "uart.c":277:43 284 {*arm_jump}
+     (nil)
+ -> 96)
+;;  succ:       14
+
+(barrier 88 87 89)
+;; basic block 13, loop depth 1, maybe hot
+;;  prev block 12, next block 14, flags: (NEW, REACHABLE, RTL)
+;;  pred:       8 [7.4% (adjusted)] 
+(code_label 89 88 90 13 59 (nil) [1 uses])
+(note 90 89 91 13 [bb 13] NOTE_INSN_BASIC_BLOCK)
+(insn 91 90 92 13 (set (reg/f:SI 142)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -8 [0xfffffffffffffff8])) [9 ip+0 S4 A64])) "uart.c":278:15 253 {*arm_movsi_insn}
+     (nil))
+(insn 92 91 93 13 (set (reg:SI 124 [ _12 ])
+        (mem:SI (reg/f:SI 142) [3 *ip_14+0 S4 A32])) "uart.c":278:15 253 {*arm_movsi_insn}
+     (nil))
+(insn 93 92 94 13 (set (reg:SI 1 r1)
+        (reg:SI 124 [ _12 ])) "uart.c":278:15 253 {*arm_movsi_insn}
+     (nil))
+(insn 94 93 95 13 (set (reg:SI 0 r0)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -12 [0xfffffffffffffff4])) [6 up+0 S4 A32])) "uart.c":278:15 253 {*arm_movsi_insn}
+     (nil))
+(call_insn 95 94 96 13 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("sprintx") [flags 0x3]  <function_decl 0x7f19cf07d100 sprintx>) [0 sprintx S4 A32])
+                    (const_int 0 [0])))
+            (use (const_int 0 [0]))
+            (clobber (reg:SI 14 lr))
+        ]) "uart.c":278:15 291 {*call_value_symbol}
+     (nil)
+    (expr_list (clobber (reg:SI 12 ip))
+        (expr_list:SI (use (reg:SI 0 r0))
+            (expr_list:SI (use (reg:SI 1 r1))
+                (nil)))))
+;;  succ:       14 (FALLTHRU)
+
+;; basic block 14, loop depth 1, maybe hot
+;;  prev block 13, next block 15, flags: (NEW, REACHABLE, RTL)
+;;  pred:       8 [63.0% (adjusted)] 
+;;              9
+;;              10
+;;              11
+;;              12
+;;              13 (FALLTHRU)
+(code_label 96 95 97 14 58 (nil) [22 uses])
+(note 97 96 98 14 [bb 14] NOTE_INSN_BASIC_BLOCK)
+(insn 98 97 99 14 (set (reg:SI 144)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -4 [0xfffffffffffffffc])) [2 cp+0 S4 A32])) "uart.c":280:7 253 {*arm_movsi_insn}
+     (nil))
+(insn 99 98 100 14 (set (reg:SI 143)
+        (plus:SI (reg:SI 144)
+            (const_int 1 [0x1]))) "uart.c":280:7 7 {*arm_addsi3}
+     (nil))
+(insn 100 99 101 14 (set (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -4 [0xfffffffffffffffc])) [2 cp+0 S4 A32])
+        (reg:SI 143)) "uart.c":280:7 253 {*arm_movsi_insn}
+     (nil))
+(insn 101 100 102 14 (set (reg:SI 146)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -8 [0xfffffffffffffff8])) [9 ip+0 S4 A64])) "uart.c":280:13 253 {*arm_movsi_insn}
+     (nil))
+(insn 102 101 103 14 (set (reg:SI 145)
+        (plus:SI (reg:SI 146)
+            (const_int 4 [0x4]))) "uart.c":280:13 7 {*arm_addsi3}
+     (nil))
+(insn 103 102 104 14 (set (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -8 [0xfffffffffffffff8])) [9 ip+0 S4 A64])
+        (reg:SI 145)) "uart.c":280:13 253 {*arm_movsi_insn}
+     (nil))
+;;  succ:       15 (FALLTHRU,DFS_BACK)
+
+;; basic block 15, loop depth 1, maybe hot
+;;  prev block 14, next block 16, flags: (NEW, REACHABLE, RTL)
+;;  pred:       2
+;;              7 (DFS_BACK)
+;;              14 (FALLTHRU,DFS_BACK)
+(code_label 104 103 105 15 55 (nil) [2 uses])
+(note 105 104 106 15 [bb 15] NOTE_INSN_BASIC_BLOCK)
+(insn 106 105 107 15 (set (reg/f:SI 147)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -4 [0xfffffffffffffffc])) [2 cp+0 S4 A32])) "uart.c":264:9 253 {*arm_movsi_insn}
+     (nil))
+(insn 107 106 109 15 (set (reg:SI 125 [ _13 ])
+        (zero_extend:SI (mem:QI (reg/f:SI 147) [0 *cp_15+0 S1 A8]))) "uart.c":264:9 175 {*arm_zero_extendqisi2}
+     (nil))
+(insn 109 107 110 15 (set (reg:CC 100 cc)
+        (compare:CC (reg:SI 125 [ _13 ])
+            (const_int 0 [0]))) "uart.c":264:9 268 {*arm_cmpsi_insn}
+     (nil))
+(jump_insn 110 109 111 15 (set (pc)
+        (if_then_else (ne (reg:CC 100 cc)
+                (const_int 0 [0]))
+            (label_ref 108)
+            (pc))) "uart.c":264:9 273 {arm_cond_branch}
+     (nil)
+ -> 108)
+;;  succ:       4
+;;              16 (FALLTHRU)
+
+;; basic block 16, loop depth 0, maybe hot
+;;  prev block 15, next block 1, flags: (NEW, REACHABLE, RTL, MODIFIED)
+;;  pred:       15 (FALLTHRU)
+(note 111 110 114 16 [bb 16] NOTE_INSN_BASIC_BLOCK)
+(insn 114 111 115 16 (clobber (reg/i:SI 0 r0)) "uart.c":282:1 -1
+     (nil))
+(insn 115 114 118 16 (clobber (reg:SI 126 [ <retval> ])) "uart.c":282:1 -1
+     (nil))
+(insn 118 115 113 16 (const_int 0 [0]) "uart.c":282:1 311 {nop}
+     (nil))
+(insn 113 118 116 16 (set (reg/i:SI 0 r0)
+        (reg:SI 126 [ <retval> ])) "uart.c":282:1 253 {*arm_movsi_insn}
+     (nil))
+(insn 116 113 0 16 (use (reg/i:SI 0 r0)) "uart.c":282:1 -1
+     (nil))
+;;  succ:       EXIT [always]  (FALLTHRU)
+
+
+;; Function ksprintf (ksprintf, funcdef_no=14, decl_uid=4592, cgraph_uid=15, symbol_order=16)
+
+(note 1 0 3 NOTE_INSN_DELETED)
+;; basic block 2, loop depth 0, maybe hot
+;;  prev block 0, next block 4, flags: (NEW, REACHABLE, RTL)
+;;  pred:       ENTRY (FALLTHRU)
+(note 3 1 2 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+(note 2 3 5 2 NOTE_INSN_FUNCTION_BEG)
+(insn 5 2 6 2 (set (reg/f:SI 127)
+        (mem/f/c:SI (plus:SI (reg/f:SI 103 afp)
+                (const_int 4 [0x4])) [2 fmt+0 S4 A64])) "uart.c":288:6 253 {*arm_movsi_insn}
+     (nil))
+(insn 6 5 7 2 (set (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -8 [0xfffffffffffffff8])) [2 cp+0 S4 A64])
+        (reg/f:SI 127)) "uart.c":288:6 253 {*arm_movsi_insn}
+     (nil))
+(insn 7 6 8 2 (set (reg:SI 128)
+        (plus:SI (reg/f:SI 103 afp)
+            (const_int 8 [0x8]))) "uart.c":289:6 7 {*arm_addsi3}
+     (nil))
+(insn 8 7 9 2 (set (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -12 [0xfffffffffffffff4])) [9 ip+0 S4 A32])
+        (reg:SI 128)) "uart.c":289:6 253 {*arm_movsi_insn}
+     (nil))
+(insn 9 8 10 2 (set (reg/f:SI 129)
+        (symbol_ref:SI ("uart") [flags 0x2]  <var_decl 0x7f19cfd52ab0 uart>)) "uart.c":291:9 253 {*arm_movsi_insn}
+     (nil))
+(insn 10 9 11 2 (set (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -4 [0xfffffffffffffffc])) [6 up+0 S4 A32])
+        (reg/f:SI 129)) "uart.c":291:9 253 {*arm_movsi_insn}
+     (nil))
+(jump_insn 11 10 12 2 (set (pc)
+        (label_ref 105)) "uart.c":293:8 284 {*arm_jump}
+     (nil)
+ -> 105)
+;;  succ:       15
+
+(barrier 12 11 109)
+;; basic block 4, loop depth 1, maybe hot
+;;  prev block 2, next block 5, flags: (NEW, REACHABLE, RTL)
+;;  pred:       15
+(code_label 109 12 13 4 77 (nil) [1 uses])
+(note 13 109 14 4 [bb 4] NOTE_INSN_BASIC_BLOCK)
+(insn 14 13 15 4 (set (reg/f:SI 130)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -8 [0xfffffffffffffff8])) [2 cp+0 S4 A64])) "uart.c":294:9 253 {*arm_movsi_insn}
+     (nil))
+(insn 15 14 16 4 (set (reg:SI 113 [ _1 ])
+        (zero_extend:SI (mem:QI (reg/f:SI 130) [0 *cp_15+0 S1 A8]))) "uart.c":294:9 175 {*arm_zero_extendqisi2}
+     (nil))
+(insn 16 15 17 4 (set (reg:CC 100 cc)
+        (compare:CC (reg:SI 113 [ _1 ])
+            (const_int 37 [0x25]))) "uart.c":294:8 268 {*arm_cmpsi_insn}
+     (nil))
+(jump_insn 17 16 18 4 (set (pc)
+        (if_then_else (eq (reg:CC 100 cc)
+                (const_int 0 [0]))
+            (label_ref 39)
+            (pc))) "uart.c":294:8 273 {arm_cond_branch}
+     (nil)
+ -> 39)
+;;  succ:       5 (FALLTHRU)
+;;              8
+
+;; basic block 5, loop depth 1, maybe hot
+;;  prev block 4, next block 6, flags: (NEW, REACHABLE, RTL)
+;;  pred:       4 (FALLTHRU)
+(note 18 17 19 5 [bb 5] NOTE_INSN_BASIC_BLOCK)
+(insn 19 18 20 5 (set (reg/f:SI 131)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -8 [0xfffffffffffffff8])) [2 cp+0 S4 A64])) "uart.c":295:7 253 {*arm_movsi_insn}
+     (nil))
+(insn 20 19 21 5 (set (reg:SI 114 [ _2 ])
+        (zero_extend:SI (mem:QI (reg/f:SI 131) [0 *cp_15+0 S1 A8]))) "uart.c":295:7 175 {*arm_zero_extendqisi2}
+     (nil))
+(insn 21 20 22 5 (set (reg:SI 1 r1)
+        (reg:SI 114 [ _2 ])) "uart.c":295:7 253 {*arm_movsi_insn}
+     (nil))
+(insn 22 21 23 5 (set (reg:SI 0 r0)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -4 [0xfffffffffffffffc])) [6 up+0 S4 A32])) "uart.c":295:7 253 {*arm_movsi_insn}
+     (nil))
+(call_insn 23 22 24 5 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("sputc") [flags 0x3]  <function_decl 0x7f19cf077300 sputc>) [0 sputc S4 A32])
+                    (const_int 0 [0])))
+            (use (const_int 0 [0]))
+            (clobber (reg:SI 14 lr))
+        ]) "uart.c":295:7 291 {*call_value_symbol}
+     (nil)
+    (expr_list (clobber (reg:SI 12 ip))
+        (expr_list:SI (use (reg:SI 0 r0))
+            (expr_list:QI (use (reg:SI 1 r1))
+                (nil)))))
+(insn 24 23 25 5 (set (reg/f:SI 132)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -8 [0xfffffffffffffff8])) [2 cp+0 S4 A64])) "uart.c":296:11 253 {*arm_movsi_insn}
+     (nil))
+(insn 25 24 26 5 (set (reg:SI 115 [ _3 ])
+        (zero_extend:SI (mem:QI (reg/f:SI 132) [0 *cp_15+0 S1 A8]))) "uart.c":296:11 175 {*arm_zero_extendqisi2}
+     (nil))
+(insn 26 25 27 5 (set (reg:CC 100 cc)
+        (compare:CC (reg:SI 115 [ _3 ])
+            (const_int 10 [0xa]))) "uart.c":296:10 268 {*arm_cmpsi_insn}
+     (nil))
+(jump_insn 27 26 28 5 (set (pc)
+        (if_then_else (ne (reg:CC 100 cc)
+                (const_int 0 [0]))
+            (label_ref 32)
+            (pc))) "uart.c":296:10 273 {arm_cond_branch}
+     (nil)
+ -> 32)
+;;  succ:       6 (FALLTHRU)
+;;              7
+
+;; basic block 6, loop depth 1, maybe hot
+;;  prev block 5, next block 7, flags: (NEW, REACHABLE, RTL)
+;;  pred:       5 (FALLTHRU)
+(note 28 27 29 6 [bb 6] NOTE_INSN_BASIC_BLOCK)
+(insn 29 28 30 6 (set (reg:SI 1 r1)
+        (const_int 13 [0xd])) "uart.c":297:2 253 {*arm_movsi_insn}
+     (nil))
+(insn 30 29 31 6 (set (reg:SI 0 r0)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -4 [0xfffffffffffffffc])) [6 up+0 S4 A32])) "uart.c":297:2 253 {*arm_movsi_insn}
+     (nil))
+(call_insn 31 30 32 6 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("sputc") [flags 0x3]  <function_decl 0x7f19cf077300 sputc>) [0 sputc S4 A32])
+                    (const_int 0 [0])))
+            (use (const_int 0 [0]))
+            (clobber (reg:SI 14 lr))
+        ]) "uart.c":297:2 291 {*call_value_symbol}
+     (nil)
+    (expr_list (clobber (reg:SI 12 ip))
+        (expr_list:SI (use (reg:SI 0 r0))
+            (expr_list:QI (use (reg:SI 1 r1))
+                (nil)))))
+;;  succ:       7 (FALLTHRU)
+
+;; basic block 7, loop depth 1, maybe hot
+;;  prev block 6, next block 8, flags: (NEW, REACHABLE, RTL)
+;;  pred:       5
+;;              6 (FALLTHRU)
+(code_label 32 31 33 7 69 (nil) [1 uses])
+(note 33 32 34 7 [bb 7] NOTE_INSN_BASIC_BLOCK)
+(insn 34 33 35 7 (set (reg:SI 134)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -8 [0xfffffffffffffff8])) [2 cp+0 S4 A64])) "uart.c":298:9 253 {*arm_movsi_insn}
+     (nil))
+(insn 35 34 36 7 (set (reg:SI 133)
+        (plus:SI (reg:SI 134)
+            (const_int 1 [0x1]))) "uart.c":298:9 7 {*arm_addsi3}
+     (nil))
+(insn 36 35 37 7 (set (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -8 [0xfffffffffffffff8])) [2 cp+0 S4 A64])
+        (reg:SI 133)) "uart.c":298:9 253 {*arm_movsi_insn}
+     (nil))
+(jump_insn 37 36 38 7 (set (pc)
+        (label_ref 105)) "uart.c":299:7 284 {*arm_jump}
+     (nil)
+ -> 105)
+;;  succ:       15 (DFS_BACK)
+
+(barrier 38 37 39)
+;; basic block 8, loop depth 1, maybe hot
+;;  prev block 7, next block 9, flags: (NEW, REACHABLE, RTL)
+;;  pred:       4
+(code_label 39 38 40 8 68 (nil) [1 uses])
+(note 40 39 41 8 [bb 8] NOTE_INSN_BASIC_BLOCK)
+(insn 41 40 42 8 (set (reg:SI 136)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -8 [0xfffffffffffffff8])) [2 cp+0 S4 A64])) "uart.c":301:7 253 {*arm_movsi_insn}
+     (nil))
+(insn 42 41 43 8 (set (reg:SI 135)
+        (plus:SI (reg:SI 136)
+            (const_int 1 [0x1]))) "uart.c":301:7 7 {*arm_addsi3}
+     (nil))
+(insn 43 42 44 8 (set (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -8 [0xfffffffffffffff8])) [2 cp+0 S4 A64])
+        (reg:SI 135)) "uart.c":301:7 253 {*arm_movsi_insn}
+     (nil))
+(insn 44 43 45 8 (set (reg/f:SI 137)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -8 [0xfffffffffffffff8])) [2 cp+0 S4 A64])) "uart.c":302:12 253 {*arm_movsi_insn}
+     (nil))
+(insn 45 44 46 8 (set (reg:SI 116 [ _4 ])
+        (zero_extend:SI (mem:QI (reg/f:SI 137) [0 *cp_23+0 S1 A8]))) "uart.c":302:12 175 {*arm_zero_extendqisi2}
+     (nil))
+(insn 46 45 47 8 (set (reg:SI 117 [ _5 ])
+        (reg:SI 116 [ _4 ])) "uart.c":302:12 253 {*arm_movsi_insn}
+     (nil))
+(insn 47 46 48 8 (set (reg:SI 138)
+        (plus:SI (reg:SI 117 [ _5 ])
+            (const_int -99 [0xffffffffffffff9d]))) "uart.c":302:5 7 {*arm_addsi3}
+     (nil))
+(jump_insn 48 47 49 8 (parallel [
+            (set (pc)
+                (if_then_else (leu (reg:SI 138)
+                        (const_int 21 [0x15]))
+                    (mem/u/c:SI (plus:SI (mult:SI (reg:SI 138)
+                                (const_int 4 [0x4]))
+                            (label_ref:SI 49)) [0  S4 A32])
+                    (label_ref:SI 97)))
+            (clobber (reg:CC 100 cc))
+            (use (label_ref:SI 49))
+        ]) "uart.c":302:5 308 {*arm_casesi_internal}
+     (insn_list:REG_LABEL_TARGET 97 (nil))
+ -> 49)
+;;  succ:       14 [63.0% (adjusted)] 
+;;              9 [7.4% (adjusted)] 
+;;              11 [7.4% (adjusted)] 
+;;              10 [7.4% (adjusted)] 
+;;              12 [7.4% (adjusted)] 
+;;              13 [7.4% (adjusted)] 
+
+;; Insn is not within a basic block
+(code_label 49 48 50 72 (nil) [2 uses])
+;; Insn is not within a basic block
+(jump_table_data 50 49 51 (addr_vec:SI [
+            (label_ref:SI 52)
+            (label_ref:SI 72)
+            (label_ref:SI 97)
+            (label_ref:SI 97)
+            (label_ref:SI 97)
+            (label_ref:SI 97)
+            (label_ref:SI 97)
+            (label_ref:SI 97)
+            (label_ref:SI 97)
+            (label_ref:SI 97)
+            (label_ref:SI 97)
+            (label_ref:SI 97)
+            (label_ref:SI 97)
+            (label_ref:SI 97)
+            (label_ref:SI 97)
+            (label_ref:SI 97)
+            (label_ref:SI 62)
+            (label_ref:SI 97)
+            (label_ref:SI 81)
+            (label_ref:SI 97)
+            (label_ref:SI 97)
+            (label_ref:SI 90)
+        ]))
+(barrier 51 50 52)
+;; basic block 9, loop depth 1, maybe hot
+;;  prev block 8, next block 10, flags: (NEW, REACHABLE, RTL)
+;;  pred:       8 [7.4% (adjusted)] 
+(code_label 52 51 53 9 76 (nil) [1 uses])
+(note 53 52 54 9 [bb 9] NOTE_INSN_BASIC_BLOCK)
+(insn 54 53 55 9 (set (reg/f:SI 139)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -12 [0xfffffffffffffff4])) [9 ip+0 S4 A32])) "uart.c":303:31 253 {*arm_movsi_insn}
+     (nil))
+(insn 55 54 56 9 (set (reg:SI 118 [ _6 ])
+        (mem:SI (reg/f:SI 139) [3 *ip_14+0 S4 A32])) "uart.c":303:31 253 {*arm_movsi_insn}
+     (nil))
+(insn 56 55 57 9 (set (reg:SI 119 [ _7 ])
+        (and:SI (reg:SI 118 [ _6 ])
+            (const_int 255 [0xff]))) "uart.c":303:15 90 {*arm_andsi3_insn}
+     (nil))
+(insn 57 56 58 9 (set (reg:SI 1 r1)
+        (reg:SI 119 [ _7 ])) "uart.c":303:15 253 {*arm_movsi_insn}
+     (nil))
+(insn 58 57 59 9 (set (reg:SI 0 r0)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -4 [0xfffffffffffffffc])) [6 up+0 S4 A32])) "uart.c":303:15 253 {*arm_movsi_insn}
+     (nil))
+(call_insn 59 58 60 9 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("sputc") [flags 0x3]  <function_decl 0x7f19cf077300 sputc>) [0 sputc S4 A32])
+                    (const_int 0 [0])))
+            (use (const_int 0 [0]))
+            (clobber (reg:SI 14 lr))
+        ]) "uart.c":303:15 291 {*call_value_symbol}
+     (nil)
+    (expr_list (clobber (reg:SI 12 ip))
+        (expr_list:SI (use (reg:SI 0 r0))
+            (expr_list:QI (use (reg:SI 1 r1))
+                (nil)))))
+(jump_insn 60 59 61 9 (set (pc)
+        (label_ref 97)) "uart.c":303:42 284 {*arm_jump}
+     (nil)
+ -> 97)
+;;  succ:       14
+
+(barrier 61 60 62)
+;; basic block 10, loop depth 1, maybe hot
+;;  prev block 9, next block 11, flags: (NEW, REACHABLE, RTL)
+;;  pred:       8 [7.4% (adjusted)] 
+(code_label 62 61 63 10 74 (nil) [1 uses])
+(note 63 62 64 10 [bb 10] NOTE_INSN_BASIC_BLOCK)
+(insn 64 63 65 10 (set (reg/f:SI 140)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -12 [0xfffffffffffffff4])) [9 ip+0 S4 A32])) "uart.c":304:35 253 {*arm_movsi_insn}
+     (nil))
+(insn 65 64 66 10 (set (reg:SI 120 [ _8 ])
+        (mem:SI (reg/f:SI 140) [3 *ip_14+0 S4 A32])) "uart.c":304:35 253 {*arm_movsi_insn}
+     (nil))
+(insn 66 65 67 10 (set (reg/f:SI 121 [ _9 ])
+        (reg:SI 120 [ _8 ])) "uart.c":304:15 253 {*arm_movsi_insn}
+     (nil))
+(insn 67 66 68 10 (set (reg:SI 1 r1)
+        (reg/f:SI 121 [ _9 ])) "uart.c":304:15 253 {*arm_movsi_insn}
+     (nil))
+(insn 68 67 69 10 (set (reg:SI 0 r0)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -4 [0xfffffffffffffffc])) [6 up+0 S4 A32])) "uart.c":304:15 253 {*arm_movsi_insn}
+     (nil))
+(call_insn 69 68 70 10 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("sprints") [flags 0x3]  <function_decl 0x7f19cf077d00 sprints>) [0 sprints S4 A32])
+                    (const_int 0 [0])))
+            (use (const_int 0 [0]))
+            (clobber (reg:SI 14 lr))
+        ]) "uart.c":304:15 291 {*call_value_symbol}
+     (nil)
+    (expr_list (clobber (reg:SI 12 ip))
+        (expr_list:SI (use (reg:SI 0 r0))
+            (expr_list:SI (use (reg:SI 1 r1))
+                (nil)))))
+(jump_insn 70 69 71 10 (set (pc)
+        (label_ref 97)) "uart.c":304:43 284 {*arm_jump}
+     (nil)
+ -> 97)
+;;  succ:       14
+
+(barrier 71 70 72)
+;; basic block 11, loop depth 1, maybe hot
+;;  prev block 10, next block 12, flags: (NEW, REACHABLE, RTL)
+;;  pred:       8 [7.4% (adjusted)] 
+(code_label 72 71 73 11 75 (nil) [1 uses])
+(note 73 72 74 11 [bb 11] NOTE_INSN_BASIC_BLOCK)
+(insn 74 73 75 11 (set (reg/f:SI 141)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -12 [0xfffffffffffffff4])) [9 ip+0 S4 A32])) "uart.c":305:15 253 {*arm_movsi_insn}
+     (nil))
+(insn 75 74 76 11 (set (reg:SI 122 [ _10 ])
+        (mem:SI (reg/f:SI 141) [3 *ip_14+0 S4 A32])) "uart.c":305:15 253 {*arm_movsi_insn}
+     (nil))
+(insn 76 75 77 11 (set (reg:SI 1 r1)
+        (reg:SI 122 [ _10 ])) "uart.c":305:15 253 {*arm_movsi_insn}
+     (nil))
+(insn 77 76 78 11 (set (reg:SI 0 r0)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -4 [0xfffffffffffffffc])) [6 up+0 S4 A32])) "uart.c":305:15 253 {*arm_movsi_insn}
+     (nil))
+(call_insn 78 77 79 11 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("sprinti") [flags 0x3]  <function_decl 0x7f19cf07d700 sprinti>) [0 sprinti S4 A32])
+                    (const_int 0 [0])))
+            (use (const_int 0 [0]))
+            (clobber (reg:SI 14 lr))
+        ]) "uart.c":305:15 291 {*call_value_symbol}
+     (nil)
+    (expr_list (clobber (reg:SI 12 ip))
+        (expr_list:SI (use (reg:SI 0 r0))
+            (expr_list:SI (use (reg:SI 1 r1))
+                (nil)))))
+(jump_insn 79 78 80 11 (set (pc)
+        (label_ref 97)) "uart.c":305:43 284 {*arm_jump}
+     (nil)
+ -> 97)
+;;  succ:       14
+
+(barrier 80 79 81)
+;; basic block 12, loop depth 1, maybe hot
+;;  prev block 11, next block 13, flags: (NEW, REACHABLE, RTL)
+;;  pred:       8 [7.4% (adjusted)] 
+(code_label 81 80 82 12 73 (nil) [1 uses])
+(note 82 81 83 12 [bb 12] NOTE_INSN_BASIC_BLOCK)
+(insn 83 82 84 12 (set (reg/f:SI 142)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -12 [0xfffffffffffffff4])) [9 ip+0 S4 A32])) "uart.c":306:15 253 {*arm_movsi_insn}
+     (nil))
+(insn 84 83 85 12 (set (reg:SI 123 [ _11 ])
+        (mem:SI (reg/f:SI 142) [3 *ip_14+0 S4 A32])) "uart.c":306:15 253 {*arm_movsi_insn}
+     (nil))
+(insn 85 84 86 12 (set (reg:SI 1 r1)
+        (reg:SI 123 [ _11 ])) "uart.c":306:15 253 {*arm_movsi_insn}
+     (nil))
+(insn 86 85 87 12 (set (reg:SI 0 r0)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -4 [0xfffffffffffffffc])) [6 up+0 S4 A32])) "uart.c":306:15 253 {*arm_movsi_insn}
+     (nil))
+(call_insn 87 86 88 12 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("sprintu") [flags 0x3]  <function_decl 0x7f19cf07d500 sprintu>) [0 sprintu S4 A32])
+                    (const_int 0 [0])))
+            (use (const_int 0 [0]))
+            (clobber (reg:SI 14 lr))
+        ]) "uart.c":306:15 291 {*call_value_symbol}
+     (nil)
+    (expr_list (clobber (reg:SI 12 ip))
+        (expr_list:SI (use (reg:SI 0 r0))
+            (expr_list:SI (use (reg:SI 1 r1))
+                (nil)))))
+(jump_insn 88 87 89 12 (set (pc)
+        (label_ref 97)) "uart.c":306:43 284 {*arm_jump}
+     (nil)
+ -> 97)
+;;  succ:       14
+
+(barrier 89 88 90)
+;; basic block 13, loop depth 1, maybe hot
+;;  prev block 12, next block 14, flags: (NEW, REACHABLE, RTL)
+;;  pred:       8 [7.4% (adjusted)] 
+(code_label 90 89 91 13 71 (nil) [1 uses])
+(note 91 90 92 13 [bb 13] NOTE_INSN_BASIC_BLOCK)
+(insn 92 91 93 13 (set (reg/f:SI 143)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -12 [0xfffffffffffffff4])) [9 ip+0 S4 A32])) "uart.c":307:15 253 {*arm_movsi_insn}
+     (nil))
+(insn 93 92 94 13 (set (reg:SI 124 [ _12 ])
+        (mem:SI (reg/f:SI 143) [3 *ip_14+0 S4 A32])) "uart.c":307:15 253 {*arm_movsi_insn}
+     (nil))
+(insn 94 93 95 13 (set (reg:SI 1 r1)
+        (reg:SI 124 [ _12 ])) "uart.c":307:15 253 {*arm_movsi_insn}
+     (nil))
+(insn 95 94 96 13 (set (reg:SI 0 r0)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -4 [0xfffffffffffffffc])) [6 up+0 S4 A32])) "uart.c":307:15 253 {*arm_movsi_insn}
+     (nil))
+(call_insn 96 95 97 13 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("sprintx") [flags 0x3]  <function_decl 0x7f19cf07d100 sprintx>) [0 sprintx S4 A32])
+                    (const_int 0 [0])))
+            (use (const_int 0 [0]))
+            (clobber (reg:SI 14 lr))
+        ]) "uart.c":307:15 291 {*call_value_symbol}
+     (nil)
+    (expr_list (clobber (reg:SI 12 ip))
+        (expr_list:SI (use (reg:SI 0 r0))
+            (expr_list:SI (use (reg:SI 1 r1))
+                (nil)))))
+;;  succ:       14 (FALLTHRU)
+
+;; basic block 14, loop depth 1, maybe hot
+;;  prev block 13, next block 15, flags: (NEW, REACHABLE, RTL)
+;;  pred:       8 [63.0% (adjusted)] 
+;;              9
+;;              10
+;;              11
+;;              12
+;;              13 (FALLTHRU)
+(code_label 97 96 98 14 70 (nil) [22 uses])
+(note 98 97 99 14 [bb 14] NOTE_INSN_BASIC_BLOCK)
+(insn 99 98 100 14 (set (reg:SI 145)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -8 [0xfffffffffffffff8])) [2 cp+0 S4 A64])) "uart.c":309:7 253 {*arm_movsi_insn}
+     (nil))
+(insn 100 99 101 14 (set (reg:SI 144)
+        (plus:SI (reg:SI 145)
+            (const_int 1 [0x1]))) "uart.c":309:7 7 {*arm_addsi3}
+     (nil))
+(insn 101 100 102 14 (set (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -8 [0xfffffffffffffff8])) [2 cp+0 S4 A64])
+        (reg:SI 144)) "uart.c":309:7 253 {*arm_movsi_insn}
+     (nil))
+(insn 102 101 103 14 (set (reg:SI 147)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -12 [0xfffffffffffffff4])) [9 ip+0 S4 A32])) "uart.c":309:13 253 {*arm_movsi_insn}
+     (nil))
+(insn 103 102 104 14 (set (reg:SI 146)
+        (plus:SI (reg:SI 147)
+            (const_int 4 [0x4]))) "uart.c":309:13 7 {*arm_addsi3}
+     (nil))
+(insn 104 103 105 14 (set (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -12 [0xfffffffffffffff4])) [9 ip+0 S4 A32])
+        (reg:SI 146)) "uart.c":309:13 253 {*arm_movsi_insn}
+     (nil))
+;;  succ:       15 (FALLTHRU,DFS_BACK)
+
+;; basic block 15, loop depth 1, maybe hot
+;;  prev block 14, next block 16, flags: (NEW, REACHABLE, RTL)
+;;  pred:       2
+;;              7 (DFS_BACK)
+;;              14 (FALLTHRU,DFS_BACK)
+(code_label 105 104 106 15 67 (nil) [2 uses])
+(note 106 105 107 15 [bb 15] NOTE_INSN_BASIC_BLOCK)
+(insn 107 106 108 15 (set (reg/f:SI 148)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -8 [0xfffffffffffffff8])) [2 cp+0 S4 A64])) "uart.c":293:9 253 {*arm_movsi_insn}
+     (nil))
+(insn 108 107 110 15 (set (reg:SI 125 [ _13 ])
+        (zero_extend:SI (mem:QI (reg/f:SI 148) [0 *cp_15+0 S1 A8]))) "uart.c":293:9 175 {*arm_zero_extendqisi2}
+     (nil))
+(insn 110 108 111 15 (set (reg:CC 100 cc)
+        (compare:CC (reg:SI 125 [ _13 ])
+            (const_int 0 [0]))) "uart.c":293:9 268 {*arm_cmpsi_insn}
+     (nil))
+(jump_insn 111 110 112 15 (set (pc)
+        (if_then_else (ne (reg:CC 100 cc)
+                (const_int 0 [0]))
+            (label_ref 109)
+            (pc))) "uart.c":293:9 273 {arm_cond_branch}
+     (nil)
+ -> 109)
+;;  succ:       4
+;;              16 (FALLTHRU)
+
+;; basic block 16, loop depth 0, maybe hot
+;;  prev block 15, next block 1, flags: (NEW, REACHABLE, RTL, MODIFIED)
+;;  pred:       15 (FALLTHRU)
+(note 112 111 115 16 [bb 16] NOTE_INSN_BASIC_BLOCK)
+(insn 115 112 116 16 (clobber (reg/i:SI 0 r0)) "uart.c":311:1 -1
+     (nil))
+(insn 116 115 119 16 (clobber (reg:SI 126 [ <retval> ])) "uart.c":311:1 -1
+     (nil))
+(insn 119 116 114 16 (const_int 0 [0]) "uart.c":311:1 311 {nop}
+     (nil))
+(insn 114 119 117 16 (set (reg/i:SI 0 r0)
+        (reg:SI 126 [ <retval> ])) "uart.c":311:1 253 {*arm_movsi_insn}
+     (nil))
+(insn 117 114 0 16 (use (reg/i:SI 0 r0)) "uart.c":311:1 -1
+     (nil))
+;;  succ:       EXIT [always]  (FALLTHRU)
+
+
+;; Function sgetline (sgetline, funcdef_no=15, decl_uid=4607, cgraph_uid=16, symbol_order=17)
+
+(note 1 0 4 NOTE_INSN_DELETED)
+;; basic block 2, loop depth 0, maybe hot
+;;  prev block 0, next block 4, flags: (NEW, REACHABLE, RTL)
+;;  pred:       ENTRY (FALLTHRU)
+(note 4 1 2 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+(insn 2 4 3 2 (set (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -12 [0xfffffffffffffff4])) [2 s+0 S4 A32])
+        (reg:SI 0 r0 [ s ])) "uart.c":314:1 253 {*arm_movsi_insn}
+     (nil))
+(note 3 2 6 2 NOTE_INSN_FUNCTION_BEG)
+(insn 6 3 7 2 (set (reg/f:SI 116)
+        (symbol_ref:SI ("uart") [flags 0x2]  <var_decl 0x7f19cfd52ab0 uart>)) "uart.c":316:9 253 {*arm_movsi_insn}
+     (nil))
+(insn 7 6 8 2 (set (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -4 [0xfffffffffffffffc])) [6 up+0 S4 A32])
+        (reg/f:SI 116)) "uart.c":316:9 253 {*arm_movsi_insn}
+     (nil))
+(jump_insn 8 7 9 2 (set (pc)
+        (label_ref 16)) "uart.c":318:9 284 {*arm_jump}
+     (nil)
+ -> 16)
+;;  succ:       5
+
+(barrier 9 8 23)
+;; basic block 4, loop depth 1, maybe hot
+;;  prev block 2, next block 5, flags: (NEW, REACHABLE, RTL)
+;;  pred:       5
+(code_label 23 9 10 4 82 (nil) [1 uses])
+(note 10 23 11 4 [bb 4] NOTE_INSN_BASIC_BLOCK)
+(insn 11 10 12 4 (set (reg/f:SI 113 [ s.6_1 ])
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -12 [0xfffffffffffffff4])) [2 s+0 S4 A32])) "uart.c":319:7 253 {*arm_movsi_insn}
+     (nil))
+(insn 12 11 13 4 (set (reg:SI 117)
+        (plus:SI (reg/f:SI 113 [ s.6_1 ])
+            (const_int 1 [0x1]))) "uart.c":319:7 7 {*arm_addsi3}
+     (nil))
+(insn 13 12 14 4 (set (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -12 [0xfffffffffffffff4])) [2 s+0 S4 A32])
+        (reg:SI 117)) "uart.c":319:7 253 {*arm_movsi_insn}
+     (nil))
+(insn 14 13 15 4 (set (reg:QI 118)
+        (mem/c:QI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -5 [0xfffffffffffffffb])) [0 c+0 S1 A8])) "uart.c":319:10 263 {*arm_movqi_insn}
+     (nil))
+(insn 15 14 16 4 (set (mem:QI (reg/f:SI 113 [ s.6_1 ]) [0 *s.6_1+0 S1 A8])
+        (reg:QI 118)) "uart.c":319:10 263 {*arm_movqi_insn}
+     (nil))
+;;  succ:       5 (FALLTHRU,DFS_BACK)
+
+;; basic block 5, loop depth 1, maybe hot
+;;  prev block 4, next block 6, flags: (NEW, REACHABLE, RTL)
+;;  pred:       2
+;;              4 (FALLTHRU,DFS_BACK)
+(code_label 16 15 17 5 81 (nil) [1 uses])
+(note 17 16 18 5 [bb 5] NOTE_INSN_BASIC_BLOCK)
+(insn 18 17 19 5 (set (reg:SI 0 r0)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -4 [0xfffffffffffffffc])) [6 up+0 S4 A32])) "uart.c":318:13 253 {*arm_movsi_insn}
+     (nil))
+(call_insn 19 18 20 5 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("sgetc") [flags 0x3]  <function_decl 0x7f19cf077500 sgetc>) [0 sgetc S4 A32])
+                    (const_int 0 [0])))
+            (use (const_int 0 [0]))
+            (clobber (reg:SI 14 lr))
+        ]) "uart.c":318:13 291 {*call_value_symbol}
+     (nil)
+    (expr_list (clobber (reg:SI 12 ip))
+        (expr_list:SI (use (reg:SI 0 r0))
+            (nil))))
+(insn 20 19 21 5 (set (reg:SI 114 [ _2 ])
+        (reg:SI 0 r0)) "uart.c":318:13 253 {*arm_movsi_insn}
+     (nil))
+(insn 21 20 22 5 (set (reg:QI 119)
+        (subreg:QI (reg:SI 114 [ _2 ]) 0)) "uart.c":318:12 263 {*arm_movqi_insn}
+     (nil))
+(insn 22 21 24 5 (set (mem/c:QI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -5 [0xfffffffffffffffb])) [0 c+0 S1 A8])
+        (reg:QI 119)) "uart.c":318:12 263 {*arm_movqi_insn}
+     (nil))
+(insn 24 22 25 5 (set (reg:SI 120)
+        (zero_extend:SI (mem/c:QI (plus:SI (reg/f:SI 102 sfp)
+                    (const_int -5 [0xfffffffffffffffb])) [0 c+0 S1 A8]))) "uart.c":318:24 175 {*arm_zero_extendqisi2}
+     (nil))
+(insn 25 24 26 5 (set (reg:CC 100 cc)
+        (compare:CC (reg:SI 120)
+            (const_int 13 [0xd]))) "uart.c":318:24 268 {*arm_cmpsi_insn}
+     (nil))
+(jump_insn 26 25 27 5 (set (pc)
+        (if_then_else (ne (reg:CC 100 cc)
+                (const_int 0 [0]))
+            (label_ref 23)
+            (pc))) "uart.c":318:24 273 {arm_cond_branch}
+     (nil)
+ -> 23)
+;;  succ:       4
+;;              6 (FALLTHRU)
+
+;; basic block 6, loop depth 0, maybe hot
+;;  prev block 5, next block 1, flags: (NEW, REACHABLE, RTL, MODIFIED)
+;;  pred:       5 (FALLTHRU)
+(note 27 26 28 6 [bb 6] NOTE_INSN_BASIC_BLOCK)
+(insn 28 27 29 6 (set (reg/f:SI 121)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -12 [0xfffffffffffffff4])) [2 s+0 S4 A32])) "uart.c":321:5 253 {*arm_movsi_insn}
+     (nil))
+(insn 29 28 30 6 (set (reg:SI 122)
+        (const_int 0 [0])) "uart.c":321:5 253 {*arm_movsi_insn}
+     (nil))
+(insn 30 29 31 6 (set (reg:QI 123)
+        (subreg:QI (reg:SI 122) 0)) "uart.c":321:5 263 {*arm_movqi_insn}
+     (nil))
+(insn 31 30 34 6 (set (mem:QI (reg/f:SI 121) [0 *s_3+0 S1 A8])
+        (reg:QI 123)) "uart.c":321:5 263 {*arm_movqi_insn}
+     (nil))
+(insn 34 31 35 6 (clobber (reg/i:SI 0 r0)) "uart.c":322:1 -1
+     (nil))
+(insn 35 34 38 6 (clobber (reg:SI 115 [ <retval> ])) "uart.c":322:1 -1
+     (nil))
+(insn 38 35 33 6 (const_int 0 [0]) "uart.c":322:1 311 {nop}
+     (nil))
+(insn 33 38 36 6 (set (reg/i:SI 0 r0)
+        (reg:SI 115 [ <retval> ])) "uart.c":322:1 253 {*arm_movsi_insn}
+     (nil))
+(insn 36 33 0 6 (use (reg/i:SI 0 r0)) "uart.c":322:1 -1
+     (nil))
+;;  succ:       EXIT [always]  (FALLTHRU)
+
+
+;; Function usgets (usgets, funcdef_no=16, decl_uid=4616, cgraph_uid=17, symbol_order=18)
+
+(note 1 0 5 NOTE_INSN_DELETED)
+;; basic block 2, loop depth 0, maybe hot
+;;  prev block 0, next block 4, flags: (NEW, REACHABLE, RTL)
+;;  pred:       ENTRY (FALLTHRU)
+(note 5 1 2 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+(insn 2 5 3 2 (set (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -12 [0xfffffffffffffff4])) [6 up+0 S4 A32])
+        (reg:SI 0 r0 [ up ])) "uart.c":325:1 253 {*arm_movsi_insn}
+     (nil))
+(insn 3 2 4 2 (set (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -16 [0xfffffffffffffff0])) [2 buf+0 S4 A32])
+        (reg:SI 1 r1 [ buf ])) "uart.c":325:1 253 {*arm_movsi_insn}
+     (nil))
+(note 4 3 7 2 NOTE_INSN_FUNCTION_BEG)
+(jump_insn 7 4 8 2 (set (pc)
+        (label_ref 15)) "uart.c":328:8 284 {*arm_jump}
+     (nil)
+ -> 15)
+;;  succ:       5
+
+(barrier 8 7 22)
+;; basic block 4, loop depth 1, maybe hot
+;;  prev block 2, next block 5, flags: (NEW, REACHABLE, RTL)
+;;  pred:       5
+(code_label 22 8 9 4 87 (nil) [1 uses])
+(note 9 22 10 4 [bb 4] NOTE_INSN_BASIC_BLOCK)
+(insn 10 9 11 4 (set (reg/f:SI 113 [ buf.7_1 ])
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -16 [0xfffffffffffffff0])) [2 buf+0 S4 A32])) "uart.c":329:9 253 {*arm_movsi_insn}
+     (nil))
+(insn 11 10 12 4 (set (reg:SI 117)
+        (plus:SI (reg/f:SI 113 [ buf.7_1 ])
+            (const_int 1 [0x1]))) "uart.c":329:9 7 {*arm_addsi3}
+     (nil))
+(insn 12 11 13 4 (set (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -16 [0xfffffffffffffff0])) [2 buf+0 S4 A32])
+        (reg:SI 117)) "uart.c":329:9 253 {*arm_movsi_insn}
+     (nil))
+(insn 13 12 14 4 (set (reg:QI 118)
+        (mem/c:QI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -1 [0xffffffffffffffff])) [0 c+0 S1 A8])) "uart.c":329:12 263 {*arm_movqi_insn}
+     (nil))
+(insn 14 13 15 4 (set (mem:QI (reg/f:SI 113 [ buf.7_1 ]) [0 *buf.7_1+0 S1 A8])
+        (reg:QI 118)) "uart.c":329:12 263 {*arm_movqi_insn}
+     (nil))
+;;  succ:       5 (FALLTHRU,DFS_BACK)
+
+;; basic block 5, loop depth 1, maybe hot
+;;  prev block 4, next block 6, flags: (NEW, REACHABLE, RTL)
+;;  pred:       2
+;;              4 (FALLTHRU,DFS_BACK)
+(code_label 15 14 16 5 86 (nil) [1 uses])
+(note 16 15 17 5 [bb 5] NOTE_INSN_BASIC_BLOCK)
+(insn 17 16 18 5 (set (reg:SI 0 r0)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -12 [0xfffffffffffffff4])) [6 up+0 S4 A32])) "uart.c":328:12 253 {*arm_movsi_insn}
+     (nil))
+(call_insn 18 17 19 5 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("sgetc") [flags 0x3]  <function_decl 0x7f19cf077500 sgetc>) [0 sgetc S4 A32])
+                    (const_int 0 [0])))
+            (use (const_int 0 [0]))
+            (clobber (reg:SI 14 lr))
+        ]) "uart.c":328:12 291 {*call_value_symbol}
+     (nil)
+    (expr_list (clobber (reg:SI 12 ip))
+        (expr_list:SI (use (reg:SI 0 r0))
+            (nil))))
+(insn 19 18 20 5 (set (reg:SI 114 [ _2 ])
+        (reg:SI 0 r0)) "uart.c":328:12 253 {*arm_movsi_insn}
+     (nil))
+(insn 20 19 21 5 (set (reg:QI 119)
+        (subreg:QI (reg:SI 114 [ _2 ]) 0)) "uart.c":328:11 263 {*arm_movqi_insn}
+     (nil))
+(insn 21 20 23 5 (set (mem/c:QI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -1 [0xffffffffffffffff])) [0 c+0 S1 A8])
+        (reg:QI 119)) "uart.c":328:11 263 {*arm_movqi_insn}
+     (nil))
+(insn 23 21 24 5 (set (reg:SI 120)
+        (zero_extend:SI (mem/c:QI (plus:SI (reg/f:SI 102 sfp)
+                    (const_int -1 [0xffffffffffffffff])) [0 c+0 S1 A8]))) "uart.c":328:23 175 {*arm_zero_extendqisi2}
+     (nil))
+(insn 24 23 25 5 (set (reg:CC 100 cc)
+        (compare:CC (reg:SI 120)
+            (const_int 13 [0xd]))) "uart.c":328:23 268 {*arm_cmpsi_insn}
+     (nil))
+(jump_insn 25 24 26 5 (set (pc)
+        (if_then_else (ne (reg:CC 100 cc)
+                (const_int 0 [0]))
+            (label_ref 22)
+            (pc))) "uart.c":328:23 273 {arm_cond_branch}
+     (nil)
+ -> 22)
+;;  succ:       4
+;;              6 (FALLTHRU)
+
+;; basic block 6, loop depth 0, maybe hot
+;;  prev block 5, next block 1, flags: (NEW, REACHABLE, RTL)
+;;  pred:       5 (FALLTHRU)
+(note 26 25 27 6 [bb 6] NOTE_INSN_BASIC_BLOCK)
+(insn 27 26 28 6 (set (reg/f:SI 121)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -16 [0xfffffffffffffff0])) [2 buf+0 S4 A32])) "uart.c":331:8 253 {*arm_movsi_insn}
+     (nil))
+(insn 28 27 29 6 (set (reg:SI 122)
+        (const_int 0 [0])) "uart.c":331:8 253 {*arm_movsi_insn}
+     (nil))
+(insn 29 28 30 6 (set (reg:QI 123)
+        (subreg:QI (reg:SI 122) 0)) "uart.c":331:8 263 {*arm_movqi_insn}
+     (nil))
+(insn 30 29 31 6 (set (mem:QI (reg/f:SI 121) [0 *buf_3+0 S1 A8])
+        (reg:QI 123)) "uart.c":331:8 263 {*arm_movqi_insn}
+     (nil))
+(insn 31 30 32 6 (set (reg:SI 0 r0)
+        (mem/f/c:SI (plus:SI (reg/f:SI 102 sfp)
+                (const_int -16 [0xfffffffffffffff0])) [2 buf+0 S4 A32])) "uart.c":332:10 253 {*arm_movsi_insn}
+     (nil))
+(call_insn 32 31 33 6 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("kstrlen") [flags 0x41]  <function_decl 0x7f19cf085100 kstrlen>) [0 kstrlen S4 A32])
+                    (const_int 0 [0])))
+            (use (const_int 0 [0]))
+            (clobber (reg:SI 14 lr))
+        ]) "uart.c":332:10 291 {*call_value_symbol}
+     (nil)
+    (expr_list (clobber (reg:SI 12 ip))
+        (expr_list:SI (use (reg:SI 0 r0))
+            (nil))))
+(insn 33 32 36 6 (set (reg:SI 115 [ _12 ])
+        (reg:SI 0 r0)) "uart.c":332:10 253 {*arm_movsi_insn}
+     (nil))
+(insn 36 33 40 6 (set (reg:SI 116 [ <retval> ])
+        (reg:SI 115 [ _12 ])) "uart.c":332:10 253 {*arm_movsi_insn}
+     (nil))
+(insn 40 36 41 6 (set (reg/i:SI 0 r0)
+        (reg:SI 116 [ <retval> ])) "uart.c":333:1 253 {*arm_movsi_insn}
+     (nil))
+(insn 41 40 0 6 (use (reg/i:SI 0 r0)) "uart.c":333:1 -1
+     (nil))
+;;  succ:       EXIT [always]  (FALLTHRU)
+

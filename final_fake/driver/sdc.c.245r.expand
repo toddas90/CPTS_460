@@ -1,0 +1,5585 @@
+
+;; Function do_command (do_command, funcdef_no=0, decl_uid=4478, cgraph_uid=1, symbol_order=1)
+
+int do_command (int cmd, int arg, int resp)
+{
+  unsigned int base.0_1;
+  unsigned int _2;
+  u32 * _3;
+  unsigned int arg.1_4;
+  int _5;
+  int _6;
+  int _7;
+  unsigned int base.2_8;
+  unsigned int _9;
+  u32 * _10;
+  unsigned int _11;
+
+;;   basic block 2, loop depth 0
+;;    pred:       ENTRY
+  base.0_1 = base;
+  _2 = base.0_1 + 8;
+  _3 = (u32 *) _2;
+  arg.1_4 = (unsigned int) arg_13(D);
+  *_3 = arg.1_4;
+  _5 = resp_15(D) << 6;
+  _6 = _5 | 1024;
+  _7 = cmd_16(D) | _6;
+  base.2_8 = base;
+  _9 = base.2_8 + 12;
+  _10 = (u32 *) _9;
+  _11 = (unsigned int) _7;
+  *_10 = _11;
+  return;
+;;    succ:       EXIT
+
+}
+
+
+
+Partition map 
+
+Partition 1 (base.0_1 - 1 )
+Partition 2 (_2 - 2 )
+Partition 3 (_3 - 3 )
+Partition 4 (arg.1_4 - 4 )
+Partition 5 (_5 - 5 )
+Partition 6 (_6 - 6 )
+Partition 7 (_7 - 7 )
+Partition 8 (base.2_8 - 8 )
+Partition 9 (_9 - 9 )
+Partition 10 (_10 - 10 )
+Partition 11 (_11 - 11 )
+Partition 13 (arg_13(D) - 13 )
+Partition 15 (resp_15(D) - 15 )
+Partition 16 (cmd_16(D) - 16 )
+Partition 18 (_18(D) - 18 )
+
+
+Coalescible Partition map 
+
+Partition 0, base 0 (arg_13(D) - 13 )
+Partition 1, base 1 (resp_15(D) - 15 )
+Partition 2, base 2 (cmd_16(D) - 16 )
+Partition 3, base 3 (_18(D) - 18 )
+
+
+Partition map 
+
+Partition 0 (arg_13(D) - 13 )
+Partition 1 (resp_15(D) - 15 )
+Partition 2 (cmd_16(D) - 16 )
+Partition 3 (_18(D) - 18 )
+
+
+Conflict graph:
+
+After sorting:
+Coalesce List:
+
+Partition map 
+
+Partition 0 (arg_13(D) - 13 )
+Partition 1 (resp_15(D) - 15 )
+Partition 2 (cmd_16(D) - 16 )
+Partition 3 (_18(D) - 18 )
+
+After Coalescing:
+
+Partition map 
+
+Partition 0 (base.0_1 - 1 )
+Partition 1 (_2 - 2 )
+Partition 2 (_3 - 3 )
+Partition 3 (arg.1_4 - 4 )
+Partition 4 (_5 - 5 )
+Partition 5 (_6 - 6 )
+Partition 6 (_7 - 7 )
+Partition 7 (base.2_8 - 8 )
+Partition 8 (_9 - 9 )
+Partition 9 (_10 - 10 )
+Partition 10 (_11 - 11 )
+Partition 11 (arg_13(D) - 13 )
+Partition 12 (resp_15(D) - 15 )
+Partition 13 (cmd_16(D) - 16 )
+Partition 14 (_18(D) - 18 )
+
+int do_command (int cmd, int arg, int resp)
+{
+  unsigned int base.0_1;
+  unsigned int _2;
+  u32 * _3;
+  unsigned int arg.1_4;
+  int _5;
+  int _6;
+  int _7;
+  unsigned int base.2_8;
+  unsigned int _9;
+  u32 * _10;
+  unsigned int _11;
+  int _18(D);
+
+;;   basic block 2, loop depth 0
+;;    pred:       ENTRY
+  base.0_1 = base;
+  _2 = base.0_1 + 8;
+  _3 = (u32 *) _2;
+  arg.1_4 = (unsigned int) arg_13(D);
+  *_3 = arg.1_4;
+  _5 = resp_15(D) << 6;
+  _6 = _5 | 1024;
+  _7 = cmd_16(D) | _6;
+  base.2_8 = base;
+  _9 = base.2_8 + 12;
+  _10 = (u32 *) _9;
+  _11 = (unsigned int) _7;
+  *_10 = _11;
+  return;
+;;    succ:       EXIT
+
+}
+
+
+
+;; Generating RTL for gimple basic block 2
+
+;; base.0_1 = base;
+
+(insn 8 7 9 (set (reg/f:SI 125)
+        (symbol_ref:SI ("base") [flags 0x2]  <var_decl 0x7f2800e6a2d0 base>)) "sdc.c":71:17 -1
+     (nil))
+
+(insn 9 8 0 (set (reg:SI 113 [ base.0_1 ])
+        (mem/c:SI (reg/f:SI 125) [1 base+0 S4 A32])) "sdc.c":71:17 -1
+     (nil))
+
+;; _2 = base.0_1 + 8;
+
+(insn 10 9 0 (set (reg:SI 114 [ _2 ])
+        (plus:SI (reg:SI 113 [ base.0_1 ])
+            (const_int 8 [0x8]))) "sdc.c":71:17 -1
+     (nil))
+
+;; _3 = (u32 *) _2;
+
+(insn 11 10 0 (set (reg/f:SI 115 [ _3 ])
+        (reg:SI 114 [ _2 ])) "sdc.c":71:4 -1
+     (nil))
+
+;; arg.1_4 = (unsigned int) arg_13(D);
+
+(insn 12 11 0 (set (reg:SI 116 [ arg.1_4 ])
+        (mem/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [1 arg+0 S4 A32])) "sdc.c":71:31 -1
+     (nil))
+
+;; *_3 = arg.1_4;
+
+(insn 13 12 0 (set (mem:SI (reg/f:SI 115 [ _3 ]) [1 *_3+0 S4 A32])
+        (reg:SI 116 [ arg.1_4 ])) "sdc.c":71:29 -1
+     (nil))
+
+;; _5 = resp_15(D) << 6;
+
+(insn 14 13 15 (set (reg:SI 126)
+        (mem/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -12 [0xfffffffffffffff4])) [1 resp+0 S4 A32])) "sdc.c":72:44 -1
+     (nil))
+
+(insn 15 14 0 (set (reg:SI 117 [ _5 ])
+        (ashift:SI (reg:SI 126)
+            (const_int 6 [0x6]))) "sdc.c":72:44 -1
+     (nil))
+
+;; _6 = _5 | 1024;
+
+(insn 16 15 0 (set (reg:SI 118 [ _6 ])
+        (ior:SI (reg:SI 117 [ _5 ])
+            (const_int 1024 [0x400]))) "sdc.c":72:37 -1
+     (nil))
+
+;; _7 = cmd_16(D) | _6;
+
+(insn 17 16 18 (set (reg:SI 127)
+        (mem/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -4 [0xfffffffffffffffc])) [1 cmd+0 S4 A32])) "sdc.c":72:49 -1
+     (nil))
+
+(insn 18 17 0 (set (reg:SI 119 [ _7 ])
+        (ior:SI (reg:SI 118 [ _6 ])
+            (reg:SI 127))) "sdc.c":72:49 -1
+     (nil))
+
+;; base.2_8 = base;
+
+(insn 19 18 20 (set (reg/f:SI 128)
+        (symbol_ref:SI ("base") [flags 0x2]  <var_decl 0x7f2800e6a2d0 base>)) "sdc.c":72:17 -1
+     (nil))
+
+(insn 20 19 0 (set (reg:SI 120 [ base.2_8 ])
+        (mem/c:SI (reg/f:SI 128) [1 base+0 S4 A32])) "sdc.c":72:17 -1
+     (nil))
+
+;; _9 = base.2_8 + 12;
+
+(insn 21 20 0 (set (reg:SI 121 [ _9 ])
+        (plus:SI (reg:SI 120 [ base.2_8 ])
+            (const_int 12 [0xc]))) "sdc.c":72:17 -1
+     (nil))
+
+;; _10 = (u32 *) _9;
+
+(insn 22 21 0 (set (reg/f:SI 122 [ _10 ])
+        (reg:SI 121 [ _9 ])) "sdc.c":72:4 -1
+     (nil))
+
+;; _11 = (unsigned int) _7;
+
+(insn 23 22 0 (set (reg:SI 123 [ _11 ])
+        (reg:SI 119 [ _7 ])) "sdc.c":72:49 -1
+     (nil))
+
+;; *_10 = _11;
+
+(insn 24 23 0 (set (mem:SI (reg/f:SI 122 [ _10 ]) [1 *_10+0 S4 A32])
+        (reg:SI 123 [ _11 ])) "sdc.c":72:29 -1
+     (nil))
+
+
+try_optimize_cfg iteration 1
+
+Merging block 3 into block 2...
+Merged blocks 2 and 3.
+Merged 2 and 3 without moving.
+Merging block 4 into block 2...
+Merged blocks 2 and 4.
+Merged 2 and 4 without moving.
+
+
+try_optimize_cfg iteration 2
+
+fix_loop_structure: fixing up loops for function
+
+
+;;
+;; Full RTL generated for this function:
+;;
+(note 1 0 6 NOTE_INSN_DELETED)
+;; basic block 2, loop depth 0, maybe hot
+;;  prev block 0, next block 1, flags: (NEW, REACHABLE, RTL, MODIFIED)
+;;  pred:       ENTRY (FALLTHRU)
+(note 6 1 2 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+(insn 2 6 3 2 (set (mem/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -4 [0xfffffffffffffffc])) [1 cmd+0 S4 A32])
+        (reg:SI 0 r0 [ cmd ])) "sdc.c":70:1 -1
+     (nil))
+(insn 3 2 4 2 (set (mem/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [1 arg+0 S4 A32])
+        (reg:SI 1 r1 [ arg ])) "sdc.c":70:1 -1
+     (nil))
+(insn 4 3 5 2 (set (mem/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -12 [0xfffffffffffffff4])) [1 resp+0 S4 A32])
+        (reg:SI 2 r2 [ resp ])) "sdc.c":70:1 -1
+     (nil))
+(note 5 4 8 2 NOTE_INSN_FUNCTION_BEG)
+(insn 8 5 9 2 (set (reg/f:SI 125)
+        (symbol_ref:SI ("base") [flags 0x2]  <var_decl 0x7f2800e6a2d0 base>)) "sdc.c":71:17 -1
+     (nil))
+(insn 9 8 10 2 (set (reg:SI 113 [ base.0_1 ])
+        (mem/c:SI (reg/f:SI 125) [1 base+0 S4 A32])) "sdc.c":71:17 -1
+     (nil))
+(insn 10 9 11 2 (set (reg:SI 114 [ _2 ])
+        (plus:SI (reg:SI 113 [ base.0_1 ])
+            (const_int 8 [0x8]))) "sdc.c":71:17 -1
+     (nil))
+(insn 11 10 12 2 (set (reg/f:SI 115 [ _3 ])
+        (reg:SI 114 [ _2 ])) "sdc.c":71:4 -1
+     (nil))
+(insn 12 11 13 2 (set (reg:SI 116 [ arg.1_4 ])
+        (mem/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [1 arg+0 S4 A32])) "sdc.c":71:31 -1
+     (nil))
+(insn 13 12 14 2 (set (mem:SI (reg/f:SI 115 [ _3 ]) [1 *_3+0 S4 A32])
+        (reg:SI 116 [ arg.1_4 ])) "sdc.c":71:29 -1
+     (nil))
+(insn 14 13 15 2 (set (reg:SI 126)
+        (mem/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -12 [0xfffffffffffffff4])) [1 resp+0 S4 A32])) "sdc.c":72:44 -1
+     (nil))
+(insn 15 14 16 2 (set (reg:SI 117 [ _5 ])
+        (ashift:SI (reg:SI 126)
+            (const_int 6 [0x6]))) "sdc.c":72:44 -1
+     (nil))
+(insn 16 15 17 2 (set (reg:SI 118 [ _6 ])
+        (ior:SI (reg:SI 117 [ _5 ])
+            (const_int 1024 [0x400]))) "sdc.c":72:37 -1
+     (nil))
+(insn 17 16 18 2 (set (reg:SI 127)
+        (mem/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -4 [0xfffffffffffffffc])) [1 cmd+0 S4 A32])) "sdc.c":72:49 -1
+     (nil))
+(insn 18 17 19 2 (set (reg:SI 119 [ _7 ])
+        (ior:SI (reg:SI 118 [ _6 ])
+            (reg:SI 127))) "sdc.c":72:49 -1
+     (nil))
+(insn 19 18 20 2 (set (reg/f:SI 128)
+        (symbol_ref:SI ("base") [flags 0x2]  <var_decl 0x7f2800e6a2d0 base>)) "sdc.c":72:17 -1
+     (nil))
+(insn 20 19 21 2 (set (reg:SI 120 [ base.2_8 ])
+        (mem/c:SI (reg/f:SI 128) [1 base+0 S4 A32])) "sdc.c":72:17 -1
+     (nil))
+(insn 21 20 22 2 (set (reg:SI 121 [ _9 ])
+        (plus:SI (reg:SI 120 [ base.2_8 ])
+            (const_int 12 [0xc]))) "sdc.c":72:17 -1
+     (nil))
+(insn 22 21 23 2 (set (reg/f:SI 122 [ _10 ])
+        (reg:SI 121 [ _9 ])) "sdc.c":72:4 -1
+     (nil))
+(insn 23 22 24 2 (set (reg:SI 123 [ _11 ])
+        (reg:SI 119 [ _7 ])) "sdc.c":72:49 -1
+     (nil))
+(insn 24 23 27 2 (set (mem:SI (reg/f:SI 122 [ _10 ]) [1 *_10+0 S4 A32])
+        (reg:SI 123 [ _11 ])) "sdc.c":72:29 -1
+     (nil))
+(insn 27 24 28 2 (clobber (reg/i:SI 0 r0)) "sdc.c":74:1 -1
+     (nil))
+(insn 28 27 31 2 (clobber (reg:SI 124 [ <retval> ])) "sdc.c":74:1 -1
+     (nil))
+(insn 31 28 26 2 (const_int 0 [0]) "sdc.c":74:1 -1
+     (nil))
+(insn 26 31 29 2 (set (reg/i:SI 0 r0)
+        (reg:SI 124 [ <retval> ])) "sdc.c":74:1 -1
+     (nil))
+(insn 29 26 0 2 (use (reg/i:SI 0 r0)) "sdc.c":74:1 -1
+     (nil))
+;;  succ:       EXIT [always]  (FALLTHRU)
+
+
+;; Function sdc_handler (sdc_handler, funcdef_no=1, decl_uid=4488, cgraph_uid=2, symbol_order=10)
+
+int sdc_handler ()
+{
+  int oldcolor;
+  u32 * up;
+  int i;
+  u32 status_err;
+  u32 status;
+  unsigned int base.3_1;
+  unsigned int _2;
+  u32 * _3;
+  unsigned int _4;
+  int rxcount.4_5;
+  unsigned int base.5_6;
+  unsigned int _7;
+  u32 * _8;
+  unsigned int i.6_9;
+  unsigned int _10;
+  u32 * _11;
+  unsigned int _12;
+  int rxcount.7_13;
+  int _14;
+  char * rxbuf.8_15;
+  char * _16;
+  unsigned int base.9_17;
+  unsigned int _18;
+  u32 * _19;
+  int rxcount.10_20;
+  unsigned int _21;
+  int txcount.11_22;
+  unsigned int i.12_23;
+  unsigned int _24;
+  u32 * _25;
+  unsigned int base.13_26;
+  unsigned int _27;
+  u32 * _28;
+  unsigned int _29;
+  int txcount.14_30;
+  int _31;
+  char * txbuf.15_32;
+  char * _33;
+  unsigned int base.16_34;
+  unsigned int _35;
+  u32 * _36;
+  int txcount.17_37;
+  unsigned int base.18_38;
+  unsigned int _39;
+  u32 * _40;
+
+;;   basic block 2, loop depth 0
+;;    pred:       ENTRY
+  base.3_1 = base;
+  _2 = base.3_1 + 52;
+  _3 = (u32 *) _2;
+  status_49 = *_3;
+  oldcolor_50 = color;
+  _4 = status_49 & 131072;
+  if (_4 != 0)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 11>; [INV]
+;;    succ:       3
+;;                11
+
+;;   basic block 3, loop depth 0
+;;    pred:       2
+  color = 2;
+  up_66 = rxbuf;
+  status_err_67 = status_49 & 42;
+  if (status_err_67 == 0)
+    goto <bb 4>; [INV]
+  else
+    goto <bb 9>; [INV]
+;;    succ:       4
+;;                9
+
+;;   basic block 4, loop depth 0
+;;    pred:       3
+  rxcount.4_5 = rxcount;
+  if (rxcount.4_5 != 0)
+    goto <bb 5>; [INV]
+  else
+    goto <bb 9>; [INV]
+;;    succ:       5
+;;                9
+
+;;   basic block 5, loop depth 0
+;;    pred:       4
+  i_68 = 0;
+  goto <bb 7>; [INV]
+;;    succ:       7
+
+;;   basic block 6, loop depth 1
+;;    pred:       7
+  base.5_6 = base;
+  _7 = base.5_6 + 128;
+  _8 = (u32 *) _7;
+  i.6_9 = (unsigned int) i_41;
+  _10 = i.6_9 * 4;
+  _11 = up_66 + _10;
+  _12 = *_8;
+  *_11 = _12;
+  i_74 = i_41 + 1;
+;;    succ:       7
+
+;;   basic block 7, loop depth 1
+;;    pred:       5
+;;                6
+  # i_41 = PHI <i_68(5), i_74(6)>
+  if (i_41 <= 15)
+    goto <bb 6>; [INV]
+  else
+    goto <bb 8>; [INV]
+;;    succ:       6
+;;                8
+
+;;   basic block 8, loop depth 0
+;;    pred:       7
+  up_69 = up_66 + 64;
+  rxcount.7_13 = rxcount;
+  _14 = rxcount.7_13 + -64;
+  rxcount = _14;
+  rxbuf.8_15 = rxbuf;
+  _16 = rxbuf.8_15 + 64;
+  rxbuf = _16;
+  base.9_17 = base;
+  _18 = base.9_17 + 52;
+  _19 = (u32 *) _18;
+  status_72 = *_19;
+;;    succ:       9
+
+;;   basic block 9, loop depth 0
+;;    pred:       3
+;;                4
+;;                8
+  color = oldcolor_50;
+  rxcount.10_20 = rxcount;
+  if (rxcount.10_20 == 0)
+    goto <bb 10>; [INV]
+  else
+    goto <bb 20>; [INV]
+;;    succ:       10
+;;                20
+
+;;   basic block 10, loop depth 0
+;;    pred:       9
+  do_command (12, 0, 21);
+  rxdone = 1;
+  V (&rxsem);
+  goto <bb 20>; [INV]
+;;    succ:       20
+
+;;   basic block 11, loop depth 0
+;;    pred:       2
+  _21 = status_49 & 262144;
+  if (_21 != 0)
+    goto <bb 12>; [INV]
+  else
+    goto <bb 20>; [INV]
+;;    succ:       12
+;;                20
+
+;;   basic block 12, loop depth 0
+;;    pred:       11
+  color = 3;
+  up_52 = txbuf;
+  status_err_53 = status_49 & 10;
+  if (status_err_53 == 0)
+    goto <bb 13>; [INV]
+  else
+    goto <bb 18>; [INV]
+;;    succ:       13
+;;                18
+
+;;   basic block 13, loop depth 0
+;;    pred:       12
+  txcount.11_22 = txcount;
+  if (txcount.11_22 != 0)
+    goto <bb 14>; [INV]
+  else
+    goto <bb 18>; [INV]
+;;    succ:       14
+;;                18
+
+;;   basic block 14, loop depth 0
+;;    pred:       13
+  i_54 = 0;
+  goto <bb 16>; [INV]
+;;    succ:       16
+
+;;   basic block 15, loop depth 1
+;;    pred:       16
+  i.12_23 = (unsigned int) i_42;
+  _24 = i.12_23 * 4;
+  _25 = up_52 + _24;
+  base.13_26 = base;
+  _27 = base.13_26 + 128;
+  _28 = (u32 *) _27;
+  _29 = *_25;
+  *_28 = _29;
+  i_60 = i_42 + 1;
+;;    succ:       16
+
+;;   basic block 16, loop depth 1
+;;    pred:       14
+;;                15
+  # i_42 = PHI <i_54(14), i_60(15)>
+  if (i_42 <= 15)
+    goto <bb 15>; [INV]
+  else
+    goto <bb 17>; [INV]
+;;    succ:       15
+;;                17
+
+;;   basic block 17, loop depth 0
+;;    pred:       16
+  up_55 = up_52 + 64;
+  txcount.14_30 = txcount;
+  _31 = txcount.14_30 + -64;
+  txcount = _31;
+  txbuf.15_32 = txbuf;
+  _33 = txbuf.15_32 + 64;
+  txbuf = _33;
+  base.16_34 = base;
+  _35 = base.16_34 + 52;
+  _36 = (u32 *) _35;
+  status_58 = *_36;
+;;    succ:       18
+
+;;   basic block 18, loop depth 0
+;;    pred:       12
+;;                13
+;;                17
+  color = oldcolor_50;
+  txcount.17_37 = txcount;
+  if (txcount.17_37 == 0)
+    goto <bb 19>; [INV]
+  else
+    goto <bb 20>; [INV]
+;;    succ:       19
+;;                20
+
+;;   basic block 19, loop depth 0
+;;    pred:       18
+  do_command (12, 0, 21);
+  txdone = 1;
+  V (&txsem);
+;;    succ:       20
+
+;;   basic block 20, loop depth 0
+;;    pred:       10
+;;                11
+;;                18
+;;                19
+;;                9
+  base.18_38 = base;
+  _39 = base.18_38 + 56;
+  _40 = (u32 *) _39;
+  *_40 = 4294967295;
+  return;
+;;    succ:       EXIT
+
+}
+
+
+
+Partition map 
+
+Partition 1 (base.3_1 - 1 )
+Partition 2 (_2 - 2 )
+Partition 3 (_3 - 3 )
+Partition 4 (_4 - 4 )
+Partition 5 (rxcount.4_5 - 5 )
+Partition 6 (base.5_6 - 6 )
+Partition 7 (_7 - 7 )
+Partition 8 (_8 - 8 )
+Partition 9 (i.6_9 - 9 )
+Partition 10 (_10 - 10 )
+Partition 11 (_11 - 11 )
+Partition 12 (_12 - 12 )
+Partition 13 (rxcount.7_13 - 13 )
+Partition 14 (_14 - 14 )
+Partition 15 (rxbuf.8_15 - 15 )
+Partition 16 (_16 - 16 )
+Partition 17 (base.9_17 - 17 )
+Partition 18 (_18 - 18 )
+Partition 19 (_19 - 19 )
+Partition 20 (rxcount.10_20 - 20 )
+Partition 21 (_21 - 21 )
+Partition 22 (txcount.11_22 - 22 )
+Partition 23 (i.12_23 - 23 )
+Partition 24 (_24 - 24 )
+Partition 25 (_25 - 25 )
+Partition 26 (base.13_26 - 26 )
+Partition 27 (_27 - 27 )
+Partition 28 (_28 - 28 )
+Partition 29 (_29 - 29 )
+Partition 30 (txcount.14_30 - 30 )
+Partition 31 (_31 - 31 )
+Partition 32 (txbuf.15_32 - 32 )
+Partition 33 (_33 - 33 )
+Partition 34 (base.16_34 - 34 )
+Partition 35 (_35 - 35 )
+Partition 36 (_36 - 36 )
+Partition 37 (txcount.17_37 - 37 )
+Partition 38 (base.18_38 - 38 )
+Partition 39 (_39 - 39 )
+Partition 40 (_40 - 40 )
+Partition 41 (i_41 - 41 )
+Partition 42 (i_42 - 42 )
+Partition 49 (status_49 - 49 )
+Partition 50 (oldcolor_50 - 50 )
+Partition 52 (up_52 - 52 )
+Partition 53 (status_err_53 - 53 )
+Partition 54 (i_54 - 54 )
+Partition 55 (up_55 - 55 )
+Partition 58 (status_58 - 58 )
+Partition 60 (i_60 - 60 )
+Partition 66 (up_66 - 66 )
+Partition 67 (status_err_67 - 67 )
+Partition 68 (i_68 - 68 )
+Partition 69 (up_69 - 69 )
+Partition 72 (status_72 - 72 )
+Partition 74 (i_74 - 74 )
+Partition 80 (_80(D) - 80 )
+
+
+Coalescible Partition map 
+
+Partition 0, base 0 (i_41 - 41 42 54 60 68 74 )
+Partition 2, base 1 (status_49 - 49 58 72 )
+Partition 3, base 2 (up_52 - 52 55 66 69 )
+Partition 4, base 3 (status_err_53 - 53 67 )
+Partition 15, base 4 (_80(D) - 80 )
+
+
+Partition map 
+
+Partition 0 (i_41 - 41 )
+Partition 1 (i_42 - 42 )
+Partition 2 (status_49 - 49 )
+Partition 3 (up_52 - 52 )
+Partition 4 (status_err_53 - 53 )
+Partition 5 (i_54 - 54 )
+Partition 6 (up_55 - 55 )
+Partition 7 (status_58 - 58 )
+Partition 8 (i_60 - 60 )
+Partition 9 (up_66 - 66 )
+Partition 10 (status_err_67 - 67 )
+Partition 11 (i_68 - 68 )
+Partition 12 (up_69 - 69 )
+Partition 13 (status_72 - 72 )
+Partition 14 (i_74 - 74 )
+Partition 15 (_80(D) - 80 )
+
+
+Conflict graph:
+
+After sorting:
+Sorted Coalesce list:
+(2147483646, 0) i_41 <-> i_68
+(2147483646, 0) i_41 <-> i_74
+(2147483646, 0) i_41 <-> i_42
+(2147483646, 0) i_41 <-> i_54
+(2147483646, 0) up_52 <-> up_55
+(2147483646, 0) status_49 <-> status_58
+(2147483646, 0) i_41 <-> i_60
+(2147483646, 0) up_52 <-> up_66
+(2147483646, 0) status_err_53 <-> status_err_67
+(2147483646, 0) up_52 <-> up_69
+(2147483646, 0) status_49 <-> status_72
+(10000, 0) i_42 <-> i_54
+(10000, 0) i_42 <-> i_60
+
+Partition map 
+
+Partition 0 (i_41 - 41 )
+Partition 1 (i_42 - 42 )
+Partition 2 (status_49 - 49 )
+Partition 3 (up_52 - 52 )
+Partition 4 (status_err_53 - 53 )
+Partition 5 (i_54 - 54 )
+Partition 6 (up_55 - 55 )
+Partition 7 (status_58 - 58 )
+Partition 8 (i_60 - 60 )
+Partition 9 (up_66 - 66 )
+Partition 10 (status_err_67 - 67 )
+Partition 11 (i_68 - 68 )
+Partition 12 (up_69 - 69 )
+Partition 13 (status_72 - 72 )
+Partition 14 (i_74 - 74 )
+Partition 15 (_80(D) - 80 )
+
+Coalesce list: (41)i_41 & (68)i_68 [map: 0, 11] : Success -> 0
+Coalesce list: (41)i_41 & (74)i_74 [map: 0, 14] : Success -> 0
+Coalesce list: (41)i_41 & (42)i_42 [map: 0, 1] : Success -> 0
+Coalesce list: (41)i_41 & (54)i_54 [map: 0, 5] : Success -> 0
+Coalesce list: (52)up_52 & (55)up_55 [map: 3, 6] : Success -> 3
+Coalesce list: (49)status_49 & (58)status_58 [map: 2, 7] : Success -> 2
+Coalesce list: (41)i_41 & (60)i_60 [map: 0, 8] : Success -> 0
+Coalesce list: (52)up_52 & (66)up_66 [map: 3, 9] : Success -> 3
+Coalesce list: (53)status_err_53 & (67)status_err_67 [map: 4, 10] : Success -> 4
+Coalesce list: (52)up_52 & (69)up_69 [map: 3, 12] : Success -> 3
+Coalesce list: (49)status_49 & (72)status_72 [map: 2, 13] : Success -> 2
+Coalesce list: (42)i_41 & (54)i_41: Already Coalesced.
+Coalesce list: (42)i_41 & (60)i_41: Already Coalesced.
+After Coalescing:
+
+Partition map 
+
+Partition 0 (base.3_1 - 1 )
+Partition 1 (_2 - 2 )
+Partition 2 (_3 - 3 )
+Partition 3 (_4 - 4 )
+Partition 4 (rxcount.4_5 - 5 )
+Partition 5 (base.5_6 - 6 )
+Partition 6 (_7 - 7 )
+Partition 7 (_8 - 8 )
+Partition 8 (i.6_9 - 9 )
+Partition 9 (_10 - 10 )
+Partition 10 (_11 - 11 )
+Partition 11 (_12 - 12 )
+Partition 12 (rxcount.7_13 - 13 )
+Partition 13 (_14 - 14 )
+Partition 14 (rxbuf.8_15 - 15 )
+Partition 15 (_16 - 16 )
+Partition 16 (base.9_17 - 17 )
+Partition 17 (_18 - 18 )
+Partition 18 (_19 - 19 )
+Partition 19 (rxcount.10_20 - 20 )
+Partition 20 (_21 - 21 )
+Partition 21 (txcount.11_22 - 22 )
+Partition 22 (i.12_23 - 23 )
+Partition 23 (_24 - 24 )
+Partition 24 (_25 - 25 )
+Partition 25 (base.13_26 - 26 )
+Partition 26 (_27 - 27 )
+Partition 27 (_28 - 28 )
+Partition 28 (_29 - 29 )
+Partition 29 (txcount.14_30 - 30 )
+Partition 30 (_31 - 31 )
+Partition 31 (txbuf.15_32 - 32 )
+Partition 32 (_33 - 33 )
+Partition 33 (base.16_34 - 34 )
+Partition 34 (_35 - 35 )
+Partition 35 (_36 - 36 )
+Partition 36 (txcount.17_37 - 37 )
+Partition 37 (base.18_38 - 38 )
+Partition 38 (_39 - 39 )
+Partition 39 (_40 - 40 )
+Partition 40 (i_41 - 41 42 54 60 68 74 )
+Partition 41 (status_49 - 49 58 72 )
+Partition 42 (oldcolor_50 - 50 )
+Partition 43 (up_52 - 52 55 66 69 )
+Partition 44 (status_err_53 - 53 67 )
+Partition 45 (_80(D) - 80 )
+
+int sdc_handler ()
+{
+  int oldcolor;
+  u32 * up;
+  int i;
+  u32 status_err;
+  u32 status;
+  unsigned int base.3_1;
+  unsigned int _2;
+  u32 * _3;
+  unsigned int _4;
+  int rxcount.4_5;
+  unsigned int base.5_6;
+  unsigned int _7;
+  u32 * _8;
+  unsigned int i.6_9;
+  unsigned int _10;
+  u32 * _11;
+  unsigned int _12;
+  int rxcount.7_13;
+  int _14;
+  char * rxbuf.8_15;
+  char * _16;
+  unsigned int base.9_17;
+  unsigned int _18;
+  u32 * _19;
+  int rxcount.10_20;
+  unsigned int _21;
+  int txcount.11_22;
+  unsigned int i.12_23;
+  unsigned int _24;
+  u32 * _25;
+  unsigned int base.13_26;
+  unsigned int _27;
+  u32 * _28;
+  unsigned int _29;
+  int txcount.14_30;
+  int _31;
+  char * txbuf.15_32;
+  char * _33;
+  unsigned int base.16_34;
+  unsigned int _35;
+  u32 * _36;
+  int txcount.17_37;
+  unsigned int base.18_38;
+  unsigned int _39;
+  u32 * _40;
+  int _80(D);
+
+;;   basic block 2, loop depth 0
+;;    pred:       ENTRY
+  base.3_1 = base;
+  _2 = base.3_1 + 52;
+  _3 = (u32 *) _2;
+  status_49 = *_3;
+  oldcolor_50 = color;
+  _4 = status_49 & 131072;
+  if (_4 != 0)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 11>; [INV]
+;;    succ:       3
+;;                11
+
+;;   basic block 3, loop depth 0
+;;    pred:       2
+  color = 2;
+  up_66 = rxbuf;
+  status_err_67 = status_49 & 42;
+  if (status_err_67 == 0)
+    goto <bb 4>; [INV]
+  else
+    goto <bb 9>; [INV]
+;;    succ:       4
+;;                9
+
+;;   basic block 4, loop depth 0
+;;    pred:       3
+  rxcount.4_5 = rxcount;
+  if (rxcount.4_5 != 0)
+    goto <bb 5>; [INV]
+  else
+    goto <bb 9>; [INV]
+;;    succ:       5
+;;                9
+
+;;   basic block 5, loop depth 0
+;;    pred:       4
+  i_68 = 0;
+  goto <bb 7>; [INV]
+;;    succ:       7
+
+;;   basic block 6, loop depth 1
+;;    pred:       7
+  base.5_6 = base;
+  _7 = base.5_6 + 128;
+  _8 = (u32 *) _7;
+  i.6_9 = (unsigned int) i_41;
+  _10 = i.6_9 * 4;
+  _11 = up_66 + _10;
+  _12 = *_8;
+  *_11 = _12;
+  i_74 = i_41 + 1;
+;;    succ:       7
+
+;;   basic block 7, loop depth 1
+;;    pred:       5
+;;                6
+  # i_41 = PHI <i_68(5), i_74(6)>
+  if (i_41 <= 15)
+    goto <bb 6>; [INV]
+  else
+    goto <bb 8>; [INV]
+;;    succ:       6
+;;                8
+
+;;   basic block 8, loop depth 0
+;;    pred:       7
+  up_69 = up_66 + 64;
+  rxcount.7_13 = rxcount;
+  _14 = rxcount.7_13 + -64;
+  rxcount = _14;
+  rxbuf.8_15 = rxbuf;
+  _16 = rxbuf.8_15 + 64;
+  rxbuf = _16;
+  base.9_17 = base;
+  _18 = base.9_17 + 52;
+  _19 = (u32 *) _18;
+  status_72 = *_19;
+;;    succ:       9
+
+;;   basic block 9, loop depth 0
+;;    pred:       3
+;;                4
+;;                8
+  color = oldcolor_50;
+  rxcount.10_20 = rxcount;
+  if (rxcount.10_20 == 0)
+    goto <bb 10>; [INV]
+  else
+    goto <bb 20>; [INV]
+;;    succ:       10
+;;                20
+
+;;   basic block 10, loop depth 0
+;;    pred:       9
+  do_command (12, 0, 21);
+  rxdone = 1;
+  V (&rxsem);
+  goto <bb 20>; [INV]
+;;    succ:       20
+
+;;   basic block 11, loop depth 0
+;;    pred:       2
+  _21 = status_49 & 262144;
+  if (_21 != 0)
+    goto <bb 12>; [INV]
+  else
+    goto <bb 20>; [INV]
+;;    succ:       12
+;;                20
+
+;;   basic block 12, loop depth 0
+;;    pred:       11
+  color = 3;
+  up_52 = txbuf;
+  status_err_53 = status_49 & 10;
+  if (status_err_53 == 0)
+    goto <bb 13>; [INV]
+  else
+    goto <bb 18>; [INV]
+;;    succ:       13
+;;                18
+
+;;   basic block 13, loop depth 0
+;;    pred:       12
+  txcount.11_22 = txcount;
+  if (txcount.11_22 != 0)
+    goto <bb 14>; [INV]
+  else
+    goto <bb 18>; [INV]
+;;    succ:       14
+;;                18
+
+;;   basic block 14, loop depth 0
+;;    pred:       13
+  i_54 = 0;
+  goto <bb 16>; [INV]
+;;    succ:       16
+
+;;   basic block 15, loop depth 1
+;;    pred:       16
+  i.12_23 = (unsigned int) i_42;
+  _24 = i.12_23 * 4;
+  _25 = up_52 + _24;
+  base.13_26 = base;
+  _27 = base.13_26 + 128;
+  _28 = (u32 *) _27;
+  _29 = *_25;
+  *_28 = _29;
+  i_60 = i_42 + 1;
+;;    succ:       16
+
+;;   basic block 16, loop depth 1
+;;    pred:       14
+;;                15
+  # i_42 = PHI <i_54(14), i_60(15)>
+  if (i_42 <= 15)
+    goto <bb 15>; [INV]
+  else
+    goto <bb 17>; [INV]
+;;    succ:       15
+;;                17
+
+;;   basic block 17, loop depth 0
+;;    pred:       16
+  up_55 = up_52 + 64;
+  txcount.14_30 = txcount;
+  _31 = txcount.14_30 + -64;
+  txcount = _31;
+  txbuf.15_32 = txbuf;
+  _33 = txbuf.15_32 + 64;
+  txbuf = _33;
+  base.16_34 = base;
+  _35 = base.16_34 + 52;
+  _36 = (u32 *) _35;
+  status_58 = *_36;
+;;    succ:       18
+
+;;   basic block 18, loop depth 0
+;;    pred:       12
+;;                13
+;;                17
+  color = oldcolor_50;
+  txcount.17_37 = txcount;
+  if (txcount.17_37 == 0)
+    goto <bb 19>; [INV]
+  else
+    goto <bb 20>; [INV]
+;;    succ:       19
+;;                20
+
+;;   basic block 19, loop depth 0
+;;    pred:       18
+  do_command (12, 0, 21);
+  txdone = 1;
+  V (&txsem);
+;;    succ:       20
+
+;;   basic block 20, loop depth 0
+;;    pred:       10
+;;                11
+;;                18
+;;                19
+;;                9
+  base.18_38 = base;
+  _39 = base.18_38 + 56;
+  _40 = (u32 *) _39;
+  *_40 = 4294967295;
+  return;
+;;    succ:       EXIT
+
+}
+
+
+Partition 4: size 4 align 4
+	status_err_53
+Partition 3: size 4 align 4
+	up_52
+Partition 2: size 4 align 4
+	oldcolor_50
+Partition 1: size 4 align 4
+	status_49
+Partition 0: size 4 align 4
+	i_41
+
+;; Generating RTL for gimple basic block 2
+
+;; base.3_1 = base;
+
+(insn 5 4 6 (set (reg/f:SI 154)
+        (symbol_ref:SI ("base") [flags 0x2]  <var_decl 0x7f2800e6a2d0 base>)) "sdc.c":94:26 -1
+     (nil))
+
+(insn 6 5 0 (set (reg:SI 113 [ base.3_1 ])
+        (mem/c:SI (reg/f:SI 154) [1 base+0 S4 A32])) "sdc.c":94:26 -1
+     (nil))
+
+;; _2 = base.3_1 + 52;
+
+(insn 7 6 0 (set (reg:SI 114 [ _2 ])
+        (plus:SI (reg:SI 113 [ base.3_1 ])
+            (const_int 52 [0x34]))) "sdc.c":94:26 -1
+     (nil))
+
+;; _3 = (u32 *) _2;
+
+(insn 8 7 0 (set (reg/f:SI 115 [ _3 ])
+        (reg:SI 114 [ _2 ])) "sdc.c":94:13 -1
+     (nil))
+
+;; status_49 = *_3;
+
+(insn 9 8 10 (set (reg:SI 155)
+        (mem:SI (reg/f:SI 115 [ _3 ]) [1 *_3+0 S4 A32])) "sdc.c":94:10 -1
+     (nil))
+
+(insn 10 9 0 (set (mem/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -16 [0xfffffffffffffff0])) [1 status+0 S4 A64])
+        (reg:SI 155)) "sdc.c":94:10 -1
+     (nil))
+
+;; oldcolor_50 = color;
+
+(insn 11 10 12 (set (reg/f:SI 156)
+        (symbol_ref:SI ("color") [flags 0x40]  <var_decl 0x7f2801b4c480 color>)) "sdc.c":95:12 -1
+     (nil))
+
+(insn 12 11 13 (set (reg:SI 157)
+        (mem/c:SI (reg/f:SI 156) [1 color+0 S4 A32])) "sdc.c":95:12 -1
+     (nil))
+
+(insn 13 12 0 (set (mem/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -12 [0xfffffffffffffff4])) [1 oldcolor+0 S4 A32])
+        (reg:SI 157)) "sdc.c":95:12 -1
+     (nil))
+
+;; _4 = status_49 & 131072;
+
+(insn 14 13 15 (set (reg:SI 158)
+        (mem/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -16 [0xfffffffffffffff0])) [1 status+0 S4 A64])) "sdc.c":97:14 -1
+     (nil))
+
+(insn 15 14 0 (set (reg:SI 116 [ _4 ])
+        (and:SI (reg:SI 158)
+            (const_int 131072 [0x20000]))) "sdc.c":97:14 -1
+     (nil))
+
+;; if (_4 != 0)
+
+(insn 16 15 17 (set (reg:CC 100 cc)
+        (compare:CC (reg:SI 116 [ _4 ])
+            (const_int 0 [0]))) "sdc.c":97:6 -1
+     (nil))
+
+(jump_insn 17 16 0 (set (pc)
+        (if_then_else (eq (reg:CC 100 cc)
+                (const_int 0 [0]))
+            (label_ref 0)
+            (pc))) "sdc.c":97:6 -1
+     (nil))
+
+;; Generating RTL for gimple basic block 3
+
+;; color = 2;
+
+(insn 19 18 20 (set (reg/f:SI 159)
+        (symbol_ref:SI ("color") [flags 0x40]  <var_decl 0x7f2801b4c480 color>)) "sdc.c":98:12 -1
+     (nil))
+
+(insn 20 19 21 (set (reg:SI 160)
+        (const_int 2 [0x2])) "sdc.c":98:12 -1
+     (nil))
+
+(insn 21 20 0 (set (mem/c:SI (reg/f:SI 159) [1 color+0 S4 A32])
+        (reg:SI 160)) "sdc.c":98:12 -1
+     (nil))
+
+;; up_66 = rxbuf;
+
+(insn 22 21 23 (set (reg/f:SI 161)
+        (symbol_ref:SI ("rxbuf") [flags 0x2]  <var_decl 0x7f2800e6a360 rxbuf>)) "sdc.c":100:9 -1
+     (nil))
+
+(insn 23 22 24 (set (reg/f:SI 162)
+        (mem/f/c:SI (reg/f:SI 161) [3 rxbuf+0 S4 A32])) "sdc.c":100:9 -1
+     (nil))
+
+(insn 24 23 0 (set (mem/f/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [6 up+0 S4 A64])
+        (reg/f:SI 162)) "sdc.c":100:9 -1
+     (nil))
+
+;; status_err_67 = status_49 & 42;
+
+(insn 25 24 26 (set (reg:SI 164)
+        (mem/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -16 [0xfffffffffffffff0])) [1 status+0 S4 A64])) "sdc.c":101:17 -1
+     (nil))
+
+(insn 26 25 27 (set (reg:SI 163)
+        (and:SI (reg:SI 164)
+            (const_int 42 [0x2a]))) "sdc.c":101:17 -1
+     (nil))
+
+(insn 27 26 0 (set (mem/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -4 [0xfffffffffffffffc])) [1 status_err+0 S4 A32])
+        (reg:SI 163)) "sdc.c":101:17 -1
+     (nil))
+
+;; if (status_err_67 == 0)
+
+(insn 28 27 29 (set (reg:SI 165)
+        (mem/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -4 [0xfffffffffffffffc])) [1 status_err+0 S4 A32])) "sdc.c":102:9 -1
+     (nil))
+
+(insn 29 28 30 (set (reg:CC 100 cc)
+        (compare:CC (reg:SI 165)
+            (const_int 0 [0]))) "sdc.c":102:9 -1
+     (nil))
+
+(jump_insn 30 29 0 (set (pc)
+        (if_then_else (ne (reg:CC 100 cc)
+                (const_int 0 [0]))
+            (label_ref 0)
+            (pc))) "sdc.c":102:9 -1
+     (nil))
+
+;; Generating RTL for gimple basic block 4
+
+;; rxcount.4_5 = rxcount;
+
+(insn 32 31 33 (set (reg/f:SI 166)
+        (symbol_ref:SI ("rxcount") [flags 0x2]  <var_decl 0x7f2800e6a480 rxcount>)) "sdc.c":102:22 -1
+     (nil))
+
+(insn 33 32 0 (set (reg:SI 117 [ rxcount.4_5 ])
+        (mem/c:SI (reg/f:SI 166) [1 rxcount+0 S4 A32])) "sdc.c":102:22 -1
+     (nil))
+
+;; if (rxcount.4_5 != 0)
+
+(insn 34 33 35 (set (reg:CC 100 cc)
+        (compare:CC (reg:SI 117 [ rxcount.4_5 ])
+            (const_int 0 [0]))) "sdc.c":102:22 -1
+     (nil))
+
+(jump_insn 35 34 0 (set (pc)
+        (if_then_else (eq (reg:CC 100 cc)
+                (const_int 0 [0]))
+            (label_ref 0)
+            (pc))) "sdc.c":102:22 -1
+     (nil))
+
+;; Generating RTL for gimple basic block 5
+
+;; i_68 = 0;
+
+(insn 37 36 38 (set (reg:SI 167)
+        (const_int 0 [0])) "sdc.c":104:16 -1
+     (nil))
+
+(insn 38 37 0 (set (mem/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -20 [0xffffffffffffffec])) [1 i+0 S4 A32])
+        (reg:SI 167)) "sdc.c":104:16 -1
+     (nil))
+
+;; Generating RTL for gimple basic block 6
+
+;; base.5_6 = base;
+
+(insn 42 41 43 (set (reg/f:SI 168)
+        (symbol_ref:SI ("base") [flags 0x2]  <var_decl 0x7f2800e6a2d0 base>)) "sdc.c":105:38 -1
+     (nil))
+
+(insn 43 42 0 (set (reg:SI 118 [ base.5_6 ])
+        (mem/c:SI (reg/f:SI 168) [1 base+0 S4 A32])) "sdc.c":105:38 -1
+     (nil))
+
+;; _7 = base.5_6 + 128;
+
+(insn 44 43 0 (set (reg:SI 119 [ _7 ])
+        (plus:SI (reg:SI 118 [ base.5_6 ])
+            (const_int 128 [0x80]))) "sdc.c":105:38 -1
+     (nil))
+
+;; _8 = (u32 *) _7;
+
+(insn 45 44 0 (set (reg/f:SI 120 [ _8 ])
+        (reg:SI 119 [ _7 ])) "sdc.c":105:25 -1
+     (nil))
+
+;; i.6_9 = (unsigned int) i_41;
+
+(insn 46 45 0 (set (reg:SI 121 [ i.6_9 ])
+        (mem/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -20 [0xffffffffffffffec])) [1 i+0 S4 A32])) "sdc.c":105:17 -1
+     (nil))
+
+;; _10 = i.6_9 * 4;
+
+(insn 47 46 0 (set (reg:SI 122 [ _10 ])
+        (ashift:SI (reg:SI 121 [ i.6_9 ])
+            (const_int 2 [0x2]))) "sdc.c":105:17 -1
+     (nil))
+
+;; _11 = up_66 + _10;
+
+(insn 48 47 49 (set (reg:SI 169)
+        (mem/f/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [6 up+0 S4 A64])) "sdc.c":105:17 -1
+     (nil))
+
+(insn 49 48 0 (set (reg/f:SI 123 [ _11 ])
+        (plus:SI (reg:SI 169)
+            (reg:SI 122 [ _10 ]))) "sdc.c":105:17 -1
+     (nil))
+
+;; _12 = *_8;
+
+(insn 50 49 0 (set (reg:SI 124 [ _12 ])
+        (mem:SI (reg/f:SI 120 [ _8 ]) [1 *_8+0 S4 A32])) "sdc.c":105:24 -1
+     (nil))
+
+;; *_11 = _12;
+
+(insn 51 50 0 (set (mem:SI (reg/f:SI 123 [ _11 ]) [1 *_11+0 S4 A32])
+        (reg:SI 124 [ _12 ])) "sdc.c":105:22 -1
+     (nil))
+
+;; i_74 = i_41 + 1;
+
+(insn 52 51 53 (set (reg:SI 171)
+        (mem/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -20 [0xffffffffffffffec])) [1 i+0 S4 A32])) "sdc.c":104:30 -1
+     (nil))
+
+(insn 53 52 54 (set (reg:SI 170)
+        (plus:SI (reg:SI 171)
+            (const_int 1 [0x1]))) "sdc.c":104:30 -1
+     (nil))
+
+(insn 54 53 0 (set (mem/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -20 [0xffffffffffffffec])) [1 i+0 S4 A32])
+        (reg:SI 170)) "sdc.c":104:30 -1
+     (nil))
+
+;; Generating RTL for gimple basic block 7
+
+;; 
+
+(code_label 55 54 56 7 (nil) [0 uses])
+
+(note 56 55 0 NOTE_INSN_BASIC_BLOCK)
+
+;; if (i_41 <= 15)
+
+(insn 60 56 61 (set (reg:SI 172)
+        (mem/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -20 [0xffffffffffffffec])) [1 i+0 S4 A32])) "sdc.c":104:23 -1
+     (nil))
+
+(insn 61 60 62 (set (reg:CC 100 cc)
+        (compare:CC (reg:SI 172)
+            (const_int 15 [0xf]))) "sdc.c":104:23 -1
+     (nil))
+
+(jump_insn 62 61 0 (set (pc)
+        (if_then_else (le (reg:CC 100 cc)
+                (const_int 0 [0]))
+            (label_ref 57)
+            (pc))) "sdc.c":104:23 -1
+     (nil))
+
+;; Generating RTL for gimple basic block 8
+
+;; up_69 = up_66 + 64;
+
+(insn 64 63 65 (set (reg:SI 174)
+        (mem/f/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [6 up+0 S4 A64])) "sdc.c":106:12 -1
+     (nil))
+
+(insn 65 64 66 (set (reg:SI 173)
+        (plus:SI (reg:SI 174)
+            (const_int 64 [0x40]))) "sdc.c":106:12 -1
+     (nil))
+
+(insn 66 65 0 (set (mem/f/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [6 up+0 S4 A64])
+        (reg:SI 173)) "sdc.c":106:12 -1
+     (nil))
+
+;; rxcount.7_13 = rxcount;
+
+(insn 67 66 68 (set (reg/f:SI 175)
+        (symbol_ref:SI ("rxcount") [flags 0x2]  <var_decl 0x7f2800e6a480 rxcount>)) "sdc.c":107:17 -1
+     (nil))
+
+(insn 68 67 0 (set (reg:SI 125 [ rxcount.7_13 ])
+        (mem/c:SI (reg/f:SI 175) [1 rxcount+0 S4 A32])) "sdc.c":107:17 -1
+     (nil))
+
+;; _14 = rxcount.7_13 + -64;
+
+(insn 69 68 0 (set (reg:SI 126 [ _14 ])
+        (plus:SI (reg:SI 125 [ rxcount.7_13 ])
+            (const_int -64 [0xffffffffffffffc0]))) "sdc.c":107:17 -1
+     (nil))
+
+;; rxcount = _14;
+
+(insn 70 69 71 (set (reg/f:SI 176)
+        (symbol_ref:SI ("rxcount") [flags 0x2]  <var_decl 0x7f2800e6a480 rxcount>)) "sdc.c":107:17 -1
+     (nil))
+
+(insn 71 70 0 (set (mem/c:SI (reg/f:SI 176) [1 rxcount+0 S4 A32])
+        (reg:SI 126 [ _14 ])) "sdc.c":107:17 -1
+     (nil))
+
+;; rxbuf.8_15 = rxbuf;
+
+(insn 72 71 73 (set (reg/f:SI 177)
+        (symbol_ref:SI ("rxbuf") [flags 0x2]  <var_decl 0x7f2800e6a360 rxbuf>)) "sdc.c":108:15 -1
+     (nil))
+
+(insn 73 72 0 (set (reg/f:SI 127 [ rxbuf.8_15 ])
+        (mem/f/c:SI (reg/f:SI 177) [3 rxbuf+0 S4 A32])) "sdc.c":108:15 -1
+     (nil))
+
+;; _16 = rxbuf.8_15 + 64;
+
+(insn 74 73 0 (set (reg/f:SI 128 [ _16 ])
+        (plus:SI (reg/f:SI 127 [ rxbuf.8_15 ])
+            (const_int 64 [0x40]))) "sdc.c":108:15 -1
+     (nil))
+
+;; rxbuf = _16;
+
+(insn 75 74 76 (set (reg/f:SI 178)
+        (symbol_ref:SI ("rxbuf") [flags 0x2]  <var_decl 0x7f2800e6a360 rxbuf>)) "sdc.c":108:15 -1
+     (nil))
+
+(insn 76 75 0 (set (mem/f/c:SI (reg/f:SI 178) [3 rxbuf+0 S4 A32])
+        (reg/f:SI 128 [ _16 ])) "sdc.c":108:15 -1
+     (nil))
+
+;; base.9_17 = base;
+
+(insn 77 76 78 (set (reg/f:SI 179)
+        (symbol_ref:SI ("base") [flags 0x2]  <var_decl 0x7f2800e6a2d0 base>)) "sdc.c":109:25 -1
+     (nil))
+
+(insn 78 77 0 (set (reg:SI 129 [ base.9_17 ])
+        (mem/c:SI (reg/f:SI 179) [1 base+0 S4 A32])) "sdc.c":109:25 -1
+     (nil))
+
+;; _18 = base.9_17 + 52;
+
+(insn 79 78 0 (set (reg:SI 130 [ _18 ])
+        (plus:SI (reg:SI 129 [ base.9_17 ])
+            (const_int 52 [0x34]))) "sdc.c":109:25 -1
+     (nil))
+
+;; _19 = (u32 *) _18;
+
+(insn 80 79 0 (set (reg/f:SI 131 [ _19 ])
+        (reg:SI 130 [ _18 ])) "sdc.c":109:12 -1
+     (nil))
+
+;; status_72 = *_19;
+
+(insn 81 80 82 (set (reg:SI 180)
+        (mem:SI (reg/f:SI 131 [ _19 ]) [1 *_19+0 S4 A32])) "sdc.c":109:9 -1
+     (nil))
+
+(insn 82 81 0 (set (mem/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -16 [0xfffffffffffffff0])) [1 status+0 S4 A64])
+        (reg:SI 180)) "sdc.c":109:9 -1
+     (nil))
+
+;; Generating RTL for gimple basic block 9
+
+;; 
+
+(code_label 83 82 84 6 (nil) [0 uses])
+
+(note 84 83 0 NOTE_INSN_BASIC_BLOCK)
+
+;; color = oldcolor_50;
+
+(insn 85 84 86 (set (reg/f:SI 181)
+        (symbol_ref:SI ("color") [flags 0x40]  <var_decl 0x7f2801b4c480 color>)) "sdc.c":111:12 -1
+     (nil))
+
+(insn 86 85 87 (set (reg:SI 182)
+        (mem/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -12 [0xfffffffffffffff4])) [1 oldcolor+0 S4 A32])) "sdc.c":111:12 -1
+     (nil))
+
+(insn 87 86 0 (set (mem/c:SI (reg/f:SI 181) [1 color+0 S4 A32])
+        (reg:SI 182)) "sdc.c":111:12 -1
+     (nil))
+
+;; rxcount.10_20 = rxcount;
+
+(insn 88 87 89 (set (reg/f:SI 183)
+        (symbol_ref:SI ("rxcount") [flags 0x2]  <var_decl 0x7f2800e6a480 rxcount>)) "sdc.c":112:18 -1
+     (nil))
+
+(insn 89 88 0 (set (reg:SI 132 [ rxcount.10_20 ])
+        (mem/c:SI (reg/f:SI 183) [1 rxcount+0 S4 A32])) "sdc.c":112:18 -1
+     (nil))
+
+;; if (rxcount.10_20 == 0)
+
+(insn 90 89 91 (set (reg:CC 100 cc)
+        (compare:CC (reg:SI 132 [ rxcount.10_20 ])
+            (const_int 0 [0]))) "sdc.c":112:9 -1
+     (nil))
+
+(jump_insn 91 90 0 (set (pc)
+        (if_then_else (ne (reg:CC 100 cc)
+                (const_int 0 [0]))
+            (label_ref 0)
+            (pc))) "sdc.c":112:9 -1
+     (nil))
+
+;; Generating RTL for gimple basic block 10
+
+;; do_command (12, 0, 21);
+
+(insn 93 92 94 (set (reg:SI 2 r2)
+        (const_int 21 [0x15])) "sdc.c":113:9 -1
+     (nil))
+
+(insn 94 93 95 (set (reg:SI 1 r1)
+        (const_int 0 [0])) "sdc.c":113:9 -1
+     (nil))
+
+(insn 95 94 96 (set (reg:SI 0 r0)
+        (const_int 12 [0xc])) "sdc.c":113:9 -1
+     (nil))
+
+(call_insn 96 95 0 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("do_command") [flags 0x3]  <function_decl 0x7f2800e61e00 do_command>) [0 do_command S4 A32])
+                    (const_int 0 [0])))
+            (use (const_int 0 [0]))
+            (clobber (reg:SI 14 lr))
+        ]) "sdc.c":113:9 -1
+     (nil)
+    (expr_list (clobber (reg:SI 12 ip))
+        (expr_list:SI (use (reg:SI 0 r0))
+            (expr_list:SI (use (reg:SI 1 r1))
+                (expr_list:SI (use (reg:SI 2 r2))
+                    (nil))))))
+
+;; rxdone = 1;
+
+(insn 97 96 98 (set (reg/f:SI 184)
+        (symbol_ref:SI ("rxdone") [flags 0x2]  <var_decl 0x7f2800e6a5a0 rxdone>)) "sdc.c":114:16 -1
+     (nil))
+
+(insn 98 97 99 (set (reg:SI 185)
+        (const_int 1 [0x1])) "sdc.c":114:16 -1
+     (nil))
+
+(insn 99 98 0 (set (mem/c:SI (reg/f:SI 184) [1 rxdone+0 S4 A32])
+        (reg:SI 185)) "sdc.c":114:16 -1
+     (nil))
+
+;; V (&rxsem);
+
+(insn 100 99 101 (set (reg:SI 0 r0)
+        (symbol_ref:SI ("rxsem") [flags 0x2]  <var_decl 0x7f2800e6a6c0 rxsem>)) "sdc.c":116:9 -1
+     (nil))
+
+(call_insn 101 100 0 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("V") [flags 0x41]  <function_decl 0x7f2800e73200 V>) [0 V S4 A32])
+                    (const_int 0 [0])))
+            (use (const_int 0 [0]))
+            (clobber (reg:SI 14 lr))
+        ]) "sdc.c":116:9 -1
+     (nil)
+    (expr_list (clobber (reg:SI 12 ip))
+        (expr_list:SI (use (reg:SI 0 r0))
+            (nil))))
+
+;; Generating RTL for gimple basic block 11
+
+;; 
+
+(code_label 104 103 105 5 (nil) [0 uses])
+
+(note 105 104 0 NOTE_INSN_BASIC_BLOCK)
+
+;; _21 = status_49 & 262144;
+
+(insn 106 105 107 (set (reg:SI 186)
+        (mem/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -16 [0xfffffffffffffff0])) [1 status+0 S4 A64])) "sdc.c":119:19 -1
+     (nil))
+
+(insn 107 106 0 (set (reg:SI 133 [ _21 ])
+        (and:SI (reg:SI 186)
+            (const_int 262144 [0x40000]))) "sdc.c":119:19 -1
+     (nil))
+
+;; if (_21 != 0)
+
+(insn 108 107 109 (set (reg:CC 100 cc)
+        (compare:CC (reg:SI 133 [ _21 ])
+            (const_int 0 [0]))) "sdc.c":119:11 -1
+     (nil))
+
+(jump_insn 109 108 0 (set (pc)
+        (if_then_else (eq (reg:CC 100 cc)
+                (const_int 0 [0]))
+            (label_ref 0)
+            (pc))) "sdc.c":119:11 -1
+     (nil))
+
+;; Generating RTL for gimple basic block 12
+
+;; color = 3;
+
+(insn 111 110 112 (set (reg/f:SI 187)
+        (symbol_ref:SI ("color") [flags 0x40]  <var_decl 0x7f2801b4c480 color>)) "sdc.c":120:11 -1
+     (nil))
+
+(insn 112 111 113 (set (reg:SI 188)
+        (const_int 3 [0x3])) "sdc.c":120:11 -1
+     (nil))
+
+(insn 113 112 0 (set (mem/c:SI (reg/f:SI 187) [1 color+0 S4 A32])
+        (reg:SI 188)) "sdc.c":120:11 -1
+     (nil))
+
+;; up_52 = txbuf;
+
+(insn 114 113 115 (set (reg/f:SI 189)
+        (symbol_ref:SI ("txbuf") [flags 0x2]  <var_decl 0x7f2800e6a3f0 txbuf>)) "sdc.c":122:8 -1
+     (nil))
+
+(insn 115 114 116 (set (reg/f:SI 190)
+        (mem/f/c:SI (reg/f:SI 189) [3 txbuf+0 S4 A32])) "sdc.c":122:8 -1
+     (nil))
+
+(insn 116 115 0 (set (mem/f/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [6 up+0 S4 A64])
+        (reg/f:SI 190)) "sdc.c":122:8 -1
+     (nil))
+
+;; status_err_53 = status_49 & 10;
+
+(insn 117 116 118 (set (reg:SI 192)
+        (mem/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -16 [0xfffffffffffffff0])) [1 status+0 S4 A64])) "sdc.c":123:16 -1
+     (nil))
+
+(insn 118 117 119 (set (reg:SI 191)
+        (and:SI (reg:SI 192)
+            (const_int 10 [0xa]))) "sdc.c":123:16 -1
+     (nil))
+
+(insn 119 118 0 (set (mem/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -4 [0xfffffffffffffffc])) [1 status_err+0 S4 A32])
+        (reg:SI 191)) "sdc.c":123:16 -1
+     (nil))
+
+;; if (status_err_53 == 0)
+
+(insn 120 119 121 (set (reg:SI 193)
+        (mem/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -4 [0xfffffffffffffffc])) [1 status_err+0 S4 A32])) "sdc.c":125:8 -1
+     (nil))
+
+(insn 121 120 122 (set (reg:CC 100 cc)
+        (compare:CC (reg:SI 193)
+            (const_int 0 [0]))) "sdc.c":125:8 -1
+     (nil))
+
+(jump_insn 122 121 0 (set (pc)
+        (if_then_else (ne (reg:CC 100 cc)
+                (const_int 0 [0]))
+            (label_ref 0)
+            (pc))) "sdc.c":125:8 -1
+     (nil))
+
+;; Generating RTL for gimple basic block 13
+
+;; txcount.11_22 = txcount;
+
+(insn 124 123 125 (set (reg/f:SI 194)
+        (symbol_ref:SI ("txcount") [flags 0x2]  <var_decl 0x7f2800e6a510 txcount>)) "sdc.c":125:21 -1
+     (nil))
+
+(insn 125 124 0 (set (reg:SI 134 [ txcount.11_22 ])
+        (mem/c:SI (reg/f:SI 194) [1 txcount+0 S4 A32])) "sdc.c":125:21 -1
+     (nil))
+
+;; if (txcount.11_22 != 0)
+
+(insn 126 125 127 (set (reg:CC 100 cc)
+        (compare:CC (reg:SI 134 [ txcount.11_22 ])
+            (const_int 0 [0]))) "sdc.c":125:21 -1
+     (nil))
+
+(jump_insn 127 126 0 (set (pc)
+        (if_then_else (eq (reg:CC 100 cc)
+                (const_int 0 [0]))
+            (label_ref 0)
+            (pc))) "sdc.c":125:21 -1
+     (nil))
+
+;; Generating RTL for gimple basic block 14
+
+;; i_54 = 0;
+
+(insn 129 128 130 (set (reg:SI 195)
+        (const_int 0 [0])) "sdc.c":127:15 -1
+     (nil))
+
+(insn 130 129 0 (set (mem/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -20 [0xffffffffffffffec])) [1 i+0 S4 A32])
+        (reg:SI 195)) "sdc.c":127:15 -1
+     (nil))
+
+;; Generating RTL for gimple basic block 15
+
+;; i.12_23 = (unsigned int) i_42;
+
+(insn 134 133 0 (set (reg:SI 135 [ i.12_23 ])
+        (mem/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -20 [0xffffffffffffffec])) [1 i+0 S4 A32])) "sdc.c":128:41 -1
+     (nil))
+
+;; _24 = i.12_23 * 4;
+
+(insn 135 134 0 (set (reg:SI 136 [ _24 ])
+        (ashift:SI (reg:SI 135 [ i.12_23 ])
+            (const_int 2 [0x2]))) "sdc.c":128:41 -1
+     (nil))
+
+;; _25 = up_52 + _24;
+
+(insn 136 135 137 (set (reg:SI 196)
+        (mem/f/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [6 up+0 S4 A64])) "sdc.c":128:41 -1
+     (nil))
+
+(insn 137 136 0 (set (reg/f:SI 137 [ _25 ])
+        (plus:SI (reg:SI 196)
+            (reg:SI 136 [ _24 ]))) "sdc.c":128:41 -1
+     (nil))
+
+;; base.13_26 = base;
+
+(insn 138 137 139 (set (reg/f:SI 197)
+        (symbol_ref:SI ("base") [flags 0x2]  <var_decl 0x7f2800e6a2d0 base>)) "sdc.c":128:26 -1
+     (nil))
+
+(insn 139 138 0 (set (reg:SI 138 [ base.13_26 ])
+        (mem/c:SI (reg/f:SI 197) [1 base+0 S4 A32])) "sdc.c":128:26 -1
+     (nil))
+
+;; _27 = base.13_26 + 128;
+
+(insn 140 139 0 (set (reg:SI 139 [ _27 ])
+        (plus:SI (reg:SI 138 [ base.13_26 ])
+            (const_int 128 [0x80]))) "sdc.c":128:26 -1
+     (nil))
+
+;; _28 = (u32 *) _27;
+
+(insn 141 140 0 (set (reg/f:SI 140 [ _28 ])
+        (reg:SI 139 [ _27 ])) "sdc.c":128:13 -1
+     (nil))
+
+;; _29 = *_25;
+
+(insn 142 141 0 (set (reg:SI 141 [ _29 ])
+        (mem:SI (reg/f:SI 137 [ _25 ]) [1 *_25+0 S4 A32])) "sdc.c":128:36 -1
+     (nil))
+
+;; *_28 = _29;
+
+(insn 143 142 0 (set (mem:SI (reg/f:SI 140 [ _28 ]) [1 *_28+0 S4 A32])
+        (reg:SI 141 [ _29 ])) "sdc.c":128:34 -1
+     (nil))
+
+;; i_60 = i_42 + 1;
+
+(insn 144 143 145 (set (reg:SI 199)
+        (mem/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -20 [0xffffffffffffffec])) [1 i+0 S4 A32])) "sdc.c":127:29 -1
+     (nil))
+
+(insn 145 144 146 (set (reg:SI 198)
+        (plus:SI (reg:SI 199)
+            (const_int 1 [0x1]))) "sdc.c":127:29 -1
+     (nil))
+
+(insn 146 145 0 (set (mem/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -20 [0xffffffffffffffec])) [1 i+0 S4 A32])
+        (reg:SI 198)) "sdc.c":127:29 -1
+     (nil))
+
+;; Generating RTL for gimple basic block 16
+
+;; 
+
+(code_label 147 146 148 11 (nil) [0 uses])
+
+(note 148 147 0 NOTE_INSN_BASIC_BLOCK)
+
+;; if (i_42 <= 15)
+
+(insn 152 148 153 (set (reg:SI 200)
+        (mem/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -20 [0xffffffffffffffec])) [1 i+0 S4 A32])) "sdc.c":127:22 -1
+     (nil))
+
+(insn 153 152 154 (set (reg:CC 100 cc)
+        (compare:CC (reg:SI 200)
+            (const_int 15 [0xf]))) "sdc.c":127:22 -1
+     (nil))
+
+(jump_insn 154 153 0 (set (pc)
+        (if_then_else (le (reg:CC 100 cc)
+                (const_int 0 [0]))
+            (label_ref 149)
+            (pc))) "sdc.c":127:22 -1
+     (nil))
+
+;; Generating RTL for gimple basic block 17
+
+;; up_55 = up_52 + 64;
+
+(insn 156 155 157 (set (reg:SI 202)
+        (mem/f/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [6 up+0 S4 A64])) "sdc.c":129:11 -1
+     (nil))
+
+(insn 157 156 158 (set (reg:SI 201)
+        (plus:SI (reg:SI 202)
+            (const_int 64 [0x40]))) "sdc.c":129:11 -1
+     (nil))
+
+(insn 158 157 0 (set (mem/f/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [6 up+0 S4 A64])
+        (reg:SI 201)) "sdc.c":129:11 -1
+     (nil))
+
+;; txcount.14_30 = txcount;
+
+(insn 159 158 160 (set (reg/f:SI 203)
+        (symbol_ref:SI ("txcount") [flags 0x2]  <var_decl 0x7f2800e6a510 txcount>)) "sdc.c":130:16 -1
+     (nil))
+
+(insn 160 159 0 (set (reg:SI 142 [ txcount.14_30 ])
+        (mem/c:SI (reg/f:SI 203) [1 txcount+0 S4 A32])) "sdc.c":130:16 -1
+     (nil))
+
+;; _31 = txcount.14_30 + -64;
+
+(insn 161 160 0 (set (reg:SI 143 [ _31 ])
+        (plus:SI (reg:SI 142 [ txcount.14_30 ])
+            (const_int -64 [0xffffffffffffffc0]))) "sdc.c":130:16 -1
+     (nil))
+
+;; txcount = _31;
+
+(insn 162 161 163 (set (reg/f:SI 204)
+        (symbol_ref:SI ("txcount") [flags 0x2]  <var_decl 0x7f2800e6a510 txcount>)) "sdc.c":130:16 -1
+     (nil))
+
+(insn 163 162 0 (set (mem/c:SI (reg/f:SI 204) [1 txcount+0 S4 A32])
+        (reg:SI 143 [ _31 ])) "sdc.c":130:16 -1
+     (nil))
+
+;; txbuf.15_32 = txbuf;
+
+(insn 164 163 165 (set (reg/f:SI 205)
+        (symbol_ref:SI ("txbuf") [flags 0x2]  <var_decl 0x7f2800e6a3f0 txbuf>)) "sdc.c":131:14 -1
+     (nil))
+
+(insn 165 164 0 (set (reg/f:SI 144 [ txbuf.15_32 ])
+        (mem/f/c:SI (reg/f:SI 205) [3 txbuf+0 S4 A32])) "sdc.c":131:14 -1
+     (nil))
+
+;; _33 = txbuf.15_32 + 64;
+
+(insn 166 165 0 (set (reg/f:SI 145 [ _33 ])
+        (plus:SI (reg/f:SI 144 [ txbuf.15_32 ])
+            (const_int 64 [0x40]))) "sdc.c":131:14 -1
+     (nil))
+
+;; txbuf = _33;
+
+(insn 167 166 168 (set (reg/f:SI 206)
+        (symbol_ref:SI ("txbuf") [flags 0x2]  <var_decl 0x7f2800e6a3f0 txbuf>)) "sdc.c":131:14 -1
+     (nil))
+
+(insn 168 167 0 (set (mem/f/c:SI (reg/f:SI 206) [3 txbuf+0 S4 A32])
+        (reg/f:SI 145 [ _33 ])) "sdc.c":131:14 -1
+     (nil))
+
+;; base.16_34 = base;
+
+(insn 169 168 170 (set (reg/f:SI 207)
+        (symbol_ref:SI ("base") [flags 0x2]  <var_decl 0x7f2800e6a2d0 base>)) "sdc.c":132:31 -1
+     (nil))
+
+(insn 170 169 0 (set (reg:SI 146 [ base.16_34 ])
+        (mem/c:SI (reg/f:SI 207) [1 base+0 S4 A32])) "sdc.c":132:31 -1
+     (nil))
+
+;; _35 = base.16_34 + 52;
+
+(insn 171 170 0 (set (reg:SI 147 [ _35 ])
+        (plus:SI (reg:SI 146 [ base.16_34 ])
+            (const_int 52 [0x34]))) "sdc.c":132:31 -1
+     (nil))
+
+;; _36 = (u32 *) _35;
+
+(insn 172 171 0 (set (reg/f:SI 148 [ _36 ])
+        (reg:SI 147 [ _35 ])) "sdc.c":132:18 -1
+     (nil))
+
+;; status_58 = *_36;
+
+(insn 173 172 174 (set (reg:SI 208)
+        (mem:SI (reg/f:SI 148 [ _36 ]) [1 *_36+0 S4 A32])) "sdc.c":132:15 -1
+     (nil))
+
+(insn 174 173 0 (set (mem/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -16 [0xfffffffffffffff0])) [1 status+0 S4 A64])
+        (reg:SI 208)) "sdc.c":132:15 -1
+     (nil))
+
+;; Generating RTL for gimple basic block 18
+
+;; 
+
+(code_label 175 174 176 10 (nil) [0 uses])
+
+(note 176 175 0 NOTE_INSN_BASIC_BLOCK)
+
+;; color = oldcolor_50;
+
+(insn 177 176 178 (set (reg/f:SI 209)
+        (symbol_ref:SI ("color") [flags 0x40]  <var_decl 0x7f2801b4c480 color>)) "sdc.c":134:11 -1
+     (nil))
+
+(insn 178 177 179 (set (reg:SI 210)
+        (mem/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -12 [0xfffffffffffffff4])) [1 oldcolor+0 S4 A32])) "sdc.c":134:11 -1
+     (nil))
+
+(insn 179 178 0 (set (mem/c:SI (reg/f:SI 209) [1 color+0 S4 A32])
+        (reg:SI 210)) "sdc.c":134:11 -1
+     (nil))
+
+;; txcount.17_37 = txcount;
+
+(insn 180 179 181 (set (reg/f:SI 211)
+        (symbol_ref:SI ("txcount") [flags 0x2]  <var_decl 0x7f2800e6a510 txcount>)) "sdc.c":135:17 -1
+     (nil))
+
+(insn 181 180 0 (set (reg:SI 149 [ txcount.17_37 ])
+        (mem/c:SI (reg/f:SI 211) [1 txcount+0 S4 A32])) "sdc.c":135:17 -1
+     (nil))
+
+;; if (txcount.17_37 == 0)
+
+(insn 182 181 183 (set (reg:CC 100 cc)
+        (compare:CC (reg:SI 149 [ txcount.17_37 ])
+            (const_int 0 [0]))) "sdc.c":135:8 -1
+     (nil))
+
+(jump_insn 183 182 0 (set (pc)
+        (if_then_else (ne (reg:CC 100 cc)
+                (const_int 0 [0]))
+            (label_ref 0)
+            (pc))) "sdc.c":135:8 -1
+     (nil))
+
+;; Generating RTL for gimple basic block 19
+
+;; do_command (12, 0, 21);
+
+(insn 185 184 186 (set (reg:SI 2 r2)
+        (const_int 21 [0x15])) "sdc.c":136:8 -1
+     (nil))
+
+(insn 186 185 187 (set (reg:SI 1 r1)
+        (const_int 0 [0])) "sdc.c":136:8 -1
+     (nil))
+
+(insn 187 186 188 (set (reg:SI 0 r0)
+        (const_int 12 [0xc])) "sdc.c":136:8 -1
+     (nil))
+
+(call_insn 188 187 0 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("do_command") [flags 0x3]  <function_decl 0x7f2800e61e00 do_command>) [0 do_command S4 A32])
+                    (const_int 0 [0])))
+            (use (const_int 0 [0]))
+            (clobber (reg:SI 14 lr))
+        ]) "sdc.c":136:8 -1
+     (nil)
+    (expr_list (clobber (reg:SI 12 ip))
+        (expr_list:SI (use (reg:SI 0 r0))
+            (expr_list:SI (use (reg:SI 1 r1))
+                (expr_list:SI (use (reg:SI 2 r2))
+                    (nil))))))
+
+;; txdone = 1;
+
+(insn 189 188 190 (set (reg/f:SI 212)
+        (symbol_ref:SI ("txdone") [flags 0x2]  <var_decl 0x7f2800e6a630 txdone>)) "sdc.c":137:15 -1
+     (nil))
+
+(insn 190 189 191 (set (reg:SI 213)
+        (const_int 1 [0x1])) "sdc.c":137:15 -1
+     (nil))
+
+(insn 191 190 0 (set (mem/c:SI (reg/f:SI 212) [1 txdone+0 S4 A32])
+        (reg:SI 213)) "sdc.c":137:15 -1
+     (nil))
+
+;; V (&txsem);
+
+(insn 192 191 193 (set (reg:SI 0 r0)
+        (symbol_ref:SI ("txsem") [flags 0x2]  <var_decl 0x7f2800e6a750 txsem>)) "sdc.c":138:8 -1
+     (nil))
+
+(call_insn 193 192 0 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("V") [flags 0x41]  <function_decl 0x7f2800e73200 V>) [0 V S4 A32])
+                    (const_int 0 [0])))
+            (use (const_int 0 [0]))
+            (clobber (reg:SI 14 lr))
+        ]) "sdc.c":138:8 -1
+     (nil)
+    (expr_list (clobber (reg:SI 12 ip))
+        (expr_list:SI (use (reg:SI 0 r0))
+            (nil))))
+
+;; Generating RTL for gimple basic block 20
+
+;; 
+
+(code_label 194 193 195 9 (nil) [0 uses])
+
+(note 195 194 0 NOTE_INSN_BASIC_BLOCK)
+
+;; base.18_38 = base;
+
+(insn 196 195 197 (set (reg/f:SI 214)
+        (symbol_ref:SI ("base") [flags 0x2]  <var_decl 0x7f2800e6a2d0 base>)) "sdc.c":142:17 -1
+     (nil))
+
+(insn 197 196 0 (set (reg:SI 150 [ base.18_38 ])
+        (mem/c:SI (reg/f:SI 214) [1 base+0 S4 A32])) "sdc.c":142:17 -1
+     (nil))
+
+;; _39 = base.18_38 + 56;
+
+(insn 198 197 0 (set (reg:SI 151 [ _39 ])
+        (plus:SI (reg:SI 150 [ base.18_38 ])
+            (const_int 56 [0x38]))) "sdc.c":142:17 -1
+     (nil))
+
+;; _40 = (u32 *) _39;
+
+(insn 199 198 0 (set (reg/f:SI 152 [ _40 ])
+        (reg:SI 151 [ _39 ])) "sdc.c":142:4 -1
+     (nil))
+
+;; *_40 = 4294967295;
+
+(insn 200 199 201 (set (reg:SI 215)
+        (const_int -1 [0xffffffffffffffff])) "sdc.c":142:33 -1
+     (nil))
+
+(insn 201 200 0 (set (mem:SI (reg/f:SI 152 [ _40 ]) [1 *_40+0 S4 A32])
+        (reg:SI 215)) "sdc.c":142:33 -1
+     (nil))
+
+
+try_optimize_cfg iteration 1
+
+Merging block 3 into block 2...
+Merged blocks 2 and 3.
+Merged 2 and 3 without moving.
+Merging block 22 into block 21...
+Merged blocks 21 and 22.
+Merged 21 and 22 without moving.
+
+
+try_optimize_cfg iteration 2
+
+fix_loop_structure: fixing up loops for function
+
+
+;;
+;; Full RTL generated for this function:
+;;
+(note 1 0 3 NOTE_INSN_DELETED)
+;; basic block 2, loop depth 0, maybe hot
+;;  prev block 0, next block 4, flags: (NEW, REACHABLE, RTL)
+;;  pred:       ENTRY (FALLTHRU)
+(note 3 1 2 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+(note 2 3 5 2 NOTE_INSN_FUNCTION_BEG)
+(insn 5 2 6 2 (set (reg/f:SI 154)
+        (symbol_ref:SI ("base") [flags 0x2]  <var_decl 0x7f2800e6a2d0 base>)) "sdc.c":94:26 -1
+     (nil))
+(insn 6 5 7 2 (set (reg:SI 113 [ base.3_1 ])
+        (mem/c:SI (reg/f:SI 154) [1 base+0 S4 A32])) "sdc.c":94:26 -1
+     (nil))
+(insn 7 6 8 2 (set (reg:SI 114 [ _2 ])
+        (plus:SI (reg:SI 113 [ base.3_1 ])
+            (const_int 52 [0x34]))) "sdc.c":94:26 -1
+     (nil))
+(insn 8 7 9 2 (set (reg/f:SI 115 [ _3 ])
+        (reg:SI 114 [ _2 ])) "sdc.c":94:13 -1
+     (nil))
+(insn 9 8 10 2 (set (reg:SI 155)
+        (mem:SI (reg/f:SI 115 [ _3 ]) [1 *_3+0 S4 A32])) "sdc.c":94:10 -1
+     (nil))
+(insn 10 9 11 2 (set (mem/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -16 [0xfffffffffffffff0])) [1 status+0 S4 A64])
+        (reg:SI 155)) "sdc.c":94:10 -1
+     (nil))
+(insn 11 10 12 2 (set (reg/f:SI 156)
+        (symbol_ref:SI ("color") [flags 0x40]  <var_decl 0x7f2801b4c480 color>)) "sdc.c":95:12 -1
+     (nil))
+(insn 12 11 13 2 (set (reg:SI 157)
+        (mem/c:SI (reg/f:SI 156) [1 color+0 S4 A32])) "sdc.c":95:12 -1
+     (nil))
+(insn 13 12 14 2 (set (mem/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -12 [0xfffffffffffffff4])) [1 oldcolor+0 S4 A32])
+        (reg:SI 157)) "sdc.c":95:12 -1
+     (nil))
+(insn 14 13 15 2 (set (reg:SI 158)
+        (mem/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -16 [0xfffffffffffffff0])) [1 status+0 S4 A64])) "sdc.c":97:14 -1
+     (nil))
+(insn 15 14 16 2 (set (reg:SI 116 [ _4 ])
+        (and:SI (reg:SI 158)
+            (const_int 131072 [0x20000]))) "sdc.c":97:14 -1
+     (nil))
+(insn 16 15 17 2 (set (reg:CC 100 cc)
+        (compare:CC (reg:SI 116 [ _4 ])
+            (const_int 0 [0]))) "sdc.c":97:6 -1
+     (nil))
+(jump_insn 17 16 18 2 (set (pc)
+        (if_then_else (eq (reg:CC 100 cc)
+                (const_int 0 [0]))
+            (label_ref 104)
+            (pc))) "sdc.c":97:6 -1
+     (nil)
+ -> 104)
+;;  succ:       4 (FALLTHRU)
+;;              12
+
+;; basic block 4, loop depth 0, maybe hot
+;;  prev block 2, next block 5, flags: (NEW, REACHABLE, RTL)
+;;  pred:       2 (FALLTHRU)
+(note 18 17 19 4 [bb 4] NOTE_INSN_BASIC_BLOCK)
+(insn 19 18 20 4 (set (reg/f:SI 159)
+        (symbol_ref:SI ("color") [flags 0x40]  <var_decl 0x7f2801b4c480 color>)) "sdc.c":98:12 -1
+     (nil))
+(insn 20 19 21 4 (set (reg:SI 160)
+        (const_int 2 [0x2])) "sdc.c":98:12 -1
+     (nil))
+(insn 21 20 22 4 (set (mem/c:SI (reg/f:SI 159) [1 color+0 S4 A32])
+        (reg:SI 160)) "sdc.c":98:12 -1
+     (nil))
+(insn 22 21 23 4 (set (reg/f:SI 161)
+        (symbol_ref:SI ("rxbuf") [flags 0x2]  <var_decl 0x7f2800e6a360 rxbuf>)) "sdc.c":100:9 -1
+     (nil))
+(insn 23 22 24 4 (set (reg/f:SI 162)
+        (mem/f/c:SI (reg/f:SI 161) [3 rxbuf+0 S4 A32])) "sdc.c":100:9 -1
+     (nil))
+(insn 24 23 25 4 (set (mem/f/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [6 up+0 S4 A64])
+        (reg/f:SI 162)) "sdc.c":100:9 -1
+     (nil))
+(insn 25 24 26 4 (set (reg:SI 164)
+        (mem/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -16 [0xfffffffffffffff0])) [1 status+0 S4 A64])) "sdc.c":101:17 -1
+     (nil))
+(insn 26 25 27 4 (set (reg:SI 163)
+        (and:SI (reg:SI 164)
+            (const_int 42 [0x2a]))) "sdc.c":101:17 -1
+     (nil))
+(insn 27 26 28 4 (set (mem/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -4 [0xfffffffffffffffc])) [1 status_err+0 S4 A32])
+        (reg:SI 163)) "sdc.c":101:17 -1
+     (nil))
+(insn 28 27 29 4 (set (reg:SI 165)
+        (mem/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -4 [0xfffffffffffffffc])) [1 status_err+0 S4 A32])) "sdc.c":102:9 -1
+     (nil))
+(insn 29 28 30 4 (set (reg:CC 100 cc)
+        (compare:CC (reg:SI 165)
+            (const_int 0 [0]))) "sdc.c":102:9 -1
+     (nil))
+(jump_insn 30 29 31 4 (set (pc)
+        (if_then_else (ne (reg:CC 100 cc)
+                (const_int 0 [0]))
+            (label_ref 83)
+            (pc))) "sdc.c":102:9 -1
+     (nil)
+ -> 83)
+;;  succ:       5 (FALLTHRU)
+;;              10
+
+;; basic block 5, loop depth 0, maybe hot
+;;  prev block 4, next block 6, flags: (NEW, REACHABLE, RTL)
+;;  pred:       4 (FALLTHRU)
+(note 31 30 32 5 [bb 5] NOTE_INSN_BASIC_BLOCK)
+(insn 32 31 33 5 (set (reg/f:SI 166)
+        (symbol_ref:SI ("rxcount") [flags 0x2]  <var_decl 0x7f2800e6a480 rxcount>)) "sdc.c":102:22 -1
+     (nil))
+(insn 33 32 34 5 (set (reg:SI 117 [ rxcount.4_5 ])
+        (mem/c:SI (reg/f:SI 166) [1 rxcount+0 S4 A32])) "sdc.c":102:22 -1
+     (nil))
+(insn 34 33 35 5 (set (reg:CC 100 cc)
+        (compare:CC (reg:SI 117 [ rxcount.4_5 ])
+            (const_int 0 [0]))) "sdc.c":102:22 -1
+     (nil))
+(jump_insn 35 34 36 5 (set (pc)
+        (if_then_else (eq (reg:CC 100 cc)
+                (const_int 0 [0]))
+            (label_ref 83)
+            (pc))) "sdc.c":102:22 -1
+     (nil)
+ -> 83)
+;;  succ:       6 (FALLTHRU)
+;;              10
+
+;; basic block 6, loop depth 0, maybe hot
+;;  prev block 5, next block 7, flags: (NEW, REACHABLE, RTL)
+;;  pred:       5 (FALLTHRU)
+(note 36 35 37 6 [bb 6] NOTE_INSN_BASIC_BLOCK)
+(insn 37 36 38 6 (set (reg:SI 167)
+        (const_int 0 [0])) "sdc.c":104:16 -1
+     (nil))
+(insn 38 37 39 6 (set (mem/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -20 [0xffffffffffffffec])) [1 i+0 S4 A32])
+        (reg:SI 167)) "sdc.c":104:16 -1
+     (nil))
+(jump_insn 39 38 40 6 (set (pc)
+        (label_ref 55)) "sdc.c":104:9 -1
+     (nil)
+ -> 55)
+;;  succ:       8
+
+(barrier 40 39 57)
+;; basic block 7, loop depth 1, maybe hot
+;;  prev block 6, next block 8, flags: (NEW, REACHABLE, RTL)
+;;  pred:       8
+(code_label 57 40 41 7 8 (nil) [1 uses])
+(note 41 57 42 7 [bb 7] NOTE_INSN_BASIC_BLOCK)
+(insn 42 41 43 7 (set (reg/f:SI 168)
+        (symbol_ref:SI ("base") [flags 0x2]  <var_decl 0x7f2800e6a2d0 base>)) "sdc.c":105:38 -1
+     (nil))
+(insn 43 42 44 7 (set (reg:SI 118 [ base.5_6 ])
+        (mem/c:SI (reg/f:SI 168) [1 base+0 S4 A32])) "sdc.c":105:38 -1
+     (nil))
+(insn 44 43 45 7 (set (reg:SI 119 [ _7 ])
+        (plus:SI (reg:SI 118 [ base.5_6 ])
+            (const_int 128 [0x80]))) "sdc.c":105:38 -1
+     (nil))
+(insn 45 44 46 7 (set (reg/f:SI 120 [ _8 ])
+        (reg:SI 119 [ _7 ])) "sdc.c":105:25 -1
+     (nil))
+(insn 46 45 47 7 (set (reg:SI 121 [ i.6_9 ])
+        (mem/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -20 [0xffffffffffffffec])) [1 i+0 S4 A32])) "sdc.c":105:17 -1
+     (nil))
+(insn 47 46 48 7 (set (reg:SI 122 [ _10 ])
+        (ashift:SI (reg:SI 121 [ i.6_9 ])
+            (const_int 2 [0x2]))) "sdc.c":105:17 -1
+     (nil))
+(insn 48 47 49 7 (set (reg:SI 169)
+        (mem/f/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [6 up+0 S4 A64])) "sdc.c":105:17 -1
+     (nil))
+(insn 49 48 50 7 (set (reg/f:SI 123 [ _11 ])
+        (plus:SI (reg:SI 169)
+            (reg:SI 122 [ _10 ]))) "sdc.c":105:17 -1
+     (nil))
+(insn 50 49 51 7 (set (reg:SI 124 [ _12 ])
+        (mem:SI (reg/f:SI 120 [ _8 ]) [1 *_8+0 S4 A32])) "sdc.c":105:24 -1
+     (nil))
+(insn 51 50 52 7 (set (mem:SI (reg/f:SI 123 [ _11 ]) [1 *_11+0 S4 A32])
+        (reg:SI 124 [ _12 ])) "sdc.c":105:22 -1
+     (nil))
+(insn 52 51 53 7 (set (reg:SI 171)
+        (mem/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -20 [0xffffffffffffffec])) [1 i+0 S4 A32])) "sdc.c":104:30 -1
+     (nil))
+(insn 53 52 54 7 (set (reg:SI 170)
+        (plus:SI (reg:SI 171)
+            (const_int 1 [0x1]))) "sdc.c":104:30 -1
+     (nil))
+(insn 54 53 55 7 (set (mem/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -20 [0xffffffffffffffec])) [1 i+0 S4 A32])
+        (reg:SI 170)) "sdc.c":104:30 -1
+     (nil))
+;;  succ:       8 (FALLTHRU,DFS_BACK)
+
+;; basic block 8, loop depth 1, maybe hot
+;;  prev block 7, next block 9, flags: (NEW, REACHABLE, RTL)
+;;  pred:       6
+;;              7 (FALLTHRU,DFS_BACK)
+(code_label 55 54 56 8 7 (nil) [1 uses])
+(note 56 55 60 8 [bb 8] NOTE_INSN_BASIC_BLOCK)
+(insn 60 56 61 8 (set (reg:SI 172)
+        (mem/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -20 [0xffffffffffffffec])) [1 i+0 S4 A32])) "sdc.c":104:23 -1
+     (nil))
+(insn 61 60 62 8 (set (reg:CC 100 cc)
+        (compare:CC (reg:SI 172)
+            (const_int 15 [0xf]))) "sdc.c":104:23 -1
+     (nil))
+(jump_insn 62 61 63 8 (set (pc)
+        (if_then_else (le (reg:CC 100 cc)
+                (const_int 0 [0]))
+            (label_ref 57)
+            (pc))) "sdc.c":104:23 -1
+     (nil)
+ -> 57)
+;;  succ:       7
+;;              9 (FALLTHRU)
+
+;; basic block 9, loop depth 0, maybe hot
+;;  prev block 8, next block 10, flags: (NEW, REACHABLE, RTL)
+;;  pred:       8 (FALLTHRU)
+(note 63 62 64 9 [bb 9] NOTE_INSN_BASIC_BLOCK)
+(insn 64 63 65 9 (set (reg:SI 174)
+        (mem/f/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [6 up+0 S4 A64])) "sdc.c":106:12 -1
+     (nil))
+(insn 65 64 66 9 (set (reg:SI 173)
+        (plus:SI (reg:SI 174)
+            (const_int 64 [0x40]))) "sdc.c":106:12 -1
+     (nil))
+(insn 66 65 67 9 (set (mem/f/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [6 up+0 S4 A64])
+        (reg:SI 173)) "sdc.c":106:12 -1
+     (nil))
+(insn 67 66 68 9 (set (reg/f:SI 175)
+        (symbol_ref:SI ("rxcount") [flags 0x2]  <var_decl 0x7f2800e6a480 rxcount>)) "sdc.c":107:17 -1
+     (nil))
+(insn 68 67 69 9 (set (reg:SI 125 [ rxcount.7_13 ])
+        (mem/c:SI (reg/f:SI 175) [1 rxcount+0 S4 A32])) "sdc.c":107:17 -1
+     (nil))
+(insn 69 68 70 9 (set (reg:SI 126 [ _14 ])
+        (plus:SI (reg:SI 125 [ rxcount.7_13 ])
+            (const_int -64 [0xffffffffffffffc0]))) "sdc.c":107:17 -1
+     (nil))
+(insn 70 69 71 9 (set (reg/f:SI 176)
+        (symbol_ref:SI ("rxcount") [flags 0x2]  <var_decl 0x7f2800e6a480 rxcount>)) "sdc.c":107:17 -1
+     (nil))
+(insn 71 70 72 9 (set (mem/c:SI (reg/f:SI 176) [1 rxcount+0 S4 A32])
+        (reg:SI 126 [ _14 ])) "sdc.c":107:17 -1
+     (nil))
+(insn 72 71 73 9 (set (reg/f:SI 177)
+        (symbol_ref:SI ("rxbuf") [flags 0x2]  <var_decl 0x7f2800e6a360 rxbuf>)) "sdc.c":108:15 -1
+     (nil))
+(insn 73 72 74 9 (set (reg/f:SI 127 [ rxbuf.8_15 ])
+        (mem/f/c:SI (reg/f:SI 177) [3 rxbuf+0 S4 A32])) "sdc.c":108:15 -1
+     (nil))
+(insn 74 73 75 9 (set (reg/f:SI 128 [ _16 ])
+        (plus:SI (reg/f:SI 127 [ rxbuf.8_15 ])
+            (const_int 64 [0x40]))) "sdc.c":108:15 -1
+     (nil))
+(insn 75 74 76 9 (set (reg/f:SI 178)
+        (symbol_ref:SI ("rxbuf") [flags 0x2]  <var_decl 0x7f2800e6a360 rxbuf>)) "sdc.c":108:15 -1
+     (nil))
+(insn 76 75 77 9 (set (mem/f/c:SI (reg/f:SI 178) [3 rxbuf+0 S4 A32])
+        (reg/f:SI 128 [ _16 ])) "sdc.c":108:15 -1
+     (nil))
+(insn 77 76 78 9 (set (reg/f:SI 179)
+        (symbol_ref:SI ("base") [flags 0x2]  <var_decl 0x7f2800e6a2d0 base>)) "sdc.c":109:25 -1
+     (nil))
+(insn 78 77 79 9 (set (reg:SI 129 [ base.9_17 ])
+        (mem/c:SI (reg/f:SI 179) [1 base+0 S4 A32])) "sdc.c":109:25 -1
+     (nil))
+(insn 79 78 80 9 (set (reg:SI 130 [ _18 ])
+        (plus:SI (reg:SI 129 [ base.9_17 ])
+            (const_int 52 [0x34]))) "sdc.c":109:25 -1
+     (nil))
+(insn 80 79 81 9 (set (reg/f:SI 131 [ _19 ])
+        (reg:SI 130 [ _18 ])) "sdc.c":109:12 -1
+     (nil))
+(insn 81 80 82 9 (set (reg:SI 180)
+        (mem:SI (reg/f:SI 131 [ _19 ]) [1 *_19+0 S4 A32])) "sdc.c":109:9 -1
+     (nil))
+(insn 82 81 83 9 (set (mem/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -16 [0xfffffffffffffff0])) [1 status+0 S4 A64])
+        (reg:SI 180)) "sdc.c":109:9 -1
+     (nil))
+;;  succ:       10 (FALLTHRU)
+
+;; basic block 10, loop depth 0, maybe hot
+;;  prev block 9, next block 11, flags: (NEW, REACHABLE, RTL)
+;;  pred:       4
+;;              5
+;;              9 (FALLTHRU)
+(code_label 83 82 84 10 6 (nil) [2 uses])
+(note 84 83 85 10 [bb 10] NOTE_INSN_BASIC_BLOCK)
+(insn 85 84 86 10 (set (reg/f:SI 181)
+        (symbol_ref:SI ("color") [flags 0x40]  <var_decl 0x7f2801b4c480 color>)) "sdc.c":111:12 -1
+     (nil))
+(insn 86 85 87 10 (set (reg:SI 182)
+        (mem/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -12 [0xfffffffffffffff4])) [1 oldcolor+0 S4 A32])) "sdc.c":111:12 -1
+     (nil))
+(insn 87 86 88 10 (set (mem/c:SI (reg/f:SI 181) [1 color+0 S4 A32])
+        (reg:SI 182)) "sdc.c":111:12 -1
+     (nil))
+(insn 88 87 89 10 (set (reg/f:SI 183)
+        (symbol_ref:SI ("rxcount") [flags 0x2]  <var_decl 0x7f2800e6a480 rxcount>)) "sdc.c":112:18 -1
+     (nil))
+(insn 89 88 90 10 (set (reg:SI 132 [ rxcount.10_20 ])
+        (mem/c:SI (reg/f:SI 183) [1 rxcount+0 S4 A32])) "sdc.c":112:18 -1
+     (nil))
+(insn 90 89 91 10 (set (reg:CC 100 cc)
+        (compare:CC (reg:SI 132 [ rxcount.10_20 ])
+            (const_int 0 [0]))) "sdc.c":112:9 -1
+     (nil))
+(jump_insn 91 90 92 10 (set (pc)
+        (if_then_else (ne (reg:CC 100 cc)
+                (const_int 0 [0]))
+            (label_ref 194)
+            (pc))) "sdc.c":112:9 -1
+     (nil)
+ -> 194)
+;;  succ:       11 (FALLTHRU)
+;;              21
+
+;; basic block 11, loop depth 0, maybe hot
+;;  prev block 10, next block 12, flags: (NEW, REACHABLE, RTL)
+;;  pred:       10 (FALLTHRU)
+(note 92 91 93 11 [bb 11] NOTE_INSN_BASIC_BLOCK)
+(insn 93 92 94 11 (set (reg:SI 2 r2)
+        (const_int 21 [0x15])) "sdc.c":113:9 -1
+     (nil))
+(insn 94 93 95 11 (set (reg:SI 1 r1)
+        (const_int 0 [0])) "sdc.c":113:9 -1
+     (nil))
+(insn 95 94 96 11 (set (reg:SI 0 r0)
+        (const_int 12 [0xc])) "sdc.c":113:9 -1
+     (nil))
+(call_insn 96 95 97 11 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("do_command") [flags 0x3]  <function_decl 0x7f2800e61e00 do_command>) [0 do_command S4 A32])
+                    (const_int 0 [0])))
+            (use (const_int 0 [0]))
+            (clobber (reg:SI 14 lr))
+        ]) "sdc.c":113:9 -1
+     (nil)
+    (expr_list (clobber (reg:SI 12 ip))
+        (expr_list:SI (use (reg:SI 0 r0))
+            (expr_list:SI (use (reg:SI 1 r1))
+                (expr_list:SI (use (reg:SI 2 r2))
+                    (nil))))))
+(insn 97 96 98 11 (set (reg/f:SI 184)
+        (symbol_ref:SI ("rxdone") [flags 0x2]  <var_decl 0x7f2800e6a5a0 rxdone>)) "sdc.c":114:16 -1
+     (nil))
+(insn 98 97 99 11 (set (reg:SI 185)
+        (const_int 1 [0x1])) "sdc.c":114:16 -1
+     (nil))
+(insn 99 98 100 11 (set (mem/c:SI (reg/f:SI 184) [1 rxdone+0 S4 A32])
+        (reg:SI 185)) "sdc.c":114:16 -1
+     (nil))
+(insn 100 99 101 11 (set (reg:SI 0 r0)
+        (symbol_ref:SI ("rxsem") [flags 0x2]  <var_decl 0x7f2800e6a6c0 rxsem>)) "sdc.c":116:9 -1
+     (nil))
+(call_insn 101 100 102 11 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("V") [flags 0x41]  <function_decl 0x7f2800e73200 V>) [0 V S4 A32])
+                    (const_int 0 [0])))
+            (use (const_int 0 [0]))
+            (clobber (reg:SI 14 lr))
+        ]) "sdc.c":116:9 -1
+     (nil)
+    (expr_list (clobber (reg:SI 12 ip))
+        (expr_list:SI (use (reg:SI 0 r0))
+            (nil))))
+(jump_insn 102 101 103 11 (set (pc)
+        (label_ref 194)) "sdc.c":116:9 -1
+     (nil)
+ -> 194)
+;;  succ:       21
+
+(barrier 103 102 104)
+;; basic block 12, loop depth 0, maybe hot
+;;  prev block 11, next block 13, flags: (NEW, REACHABLE, RTL)
+;;  pred:       2
+(code_label 104 103 105 12 5 (nil) [1 uses])
+(note 105 104 106 12 [bb 12] NOTE_INSN_BASIC_BLOCK)
+(insn 106 105 107 12 (set (reg:SI 186)
+        (mem/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -16 [0xfffffffffffffff0])) [1 status+0 S4 A64])) "sdc.c":119:19 -1
+     (nil))
+(insn 107 106 108 12 (set (reg:SI 133 [ _21 ])
+        (and:SI (reg:SI 186)
+            (const_int 262144 [0x40000]))) "sdc.c":119:19 -1
+     (nil))
+(insn 108 107 109 12 (set (reg:CC 100 cc)
+        (compare:CC (reg:SI 133 [ _21 ])
+            (const_int 0 [0]))) "sdc.c":119:11 -1
+     (nil))
+(jump_insn 109 108 110 12 (set (pc)
+        (if_then_else (eq (reg:CC 100 cc)
+                (const_int 0 [0]))
+            (label_ref 194)
+            (pc))) "sdc.c":119:11 -1
+     (nil)
+ -> 194)
+;;  succ:       13 (FALLTHRU)
+;;              21
+
+;; basic block 13, loop depth 0, maybe hot
+;;  prev block 12, next block 14, flags: (NEW, REACHABLE, RTL)
+;;  pred:       12 (FALLTHRU)
+(note 110 109 111 13 [bb 13] NOTE_INSN_BASIC_BLOCK)
+(insn 111 110 112 13 (set (reg/f:SI 187)
+        (symbol_ref:SI ("color") [flags 0x40]  <var_decl 0x7f2801b4c480 color>)) "sdc.c":120:11 -1
+     (nil))
+(insn 112 111 113 13 (set (reg:SI 188)
+        (const_int 3 [0x3])) "sdc.c":120:11 -1
+     (nil))
+(insn 113 112 114 13 (set (mem/c:SI (reg/f:SI 187) [1 color+0 S4 A32])
+        (reg:SI 188)) "sdc.c":120:11 -1
+     (nil))
+(insn 114 113 115 13 (set (reg/f:SI 189)
+        (symbol_ref:SI ("txbuf") [flags 0x2]  <var_decl 0x7f2800e6a3f0 txbuf>)) "sdc.c":122:8 -1
+     (nil))
+(insn 115 114 116 13 (set (reg/f:SI 190)
+        (mem/f/c:SI (reg/f:SI 189) [3 txbuf+0 S4 A32])) "sdc.c":122:8 -1
+     (nil))
+(insn 116 115 117 13 (set (mem/f/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [6 up+0 S4 A64])
+        (reg/f:SI 190)) "sdc.c":122:8 -1
+     (nil))
+(insn 117 116 118 13 (set (reg:SI 192)
+        (mem/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -16 [0xfffffffffffffff0])) [1 status+0 S4 A64])) "sdc.c":123:16 -1
+     (nil))
+(insn 118 117 119 13 (set (reg:SI 191)
+        (and:SI (reg:SI 192)
+            (const_int 10 [0xa]))) "sdc.c":123:16 -1
+     (nil))
+(insn 119 118 120 13 (set (mem/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -4 [0xfffffffffffffffc])) [1 status_err+0 S4 A32])
+        (reg:SI 191)) "sdc.c":123:16 -1
+     (nil))
+(insn 120 119 121 13 (set (reg:SI 193)
+        (mem/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -4 [0xfffffffffffffffc])) [1 status_err+0 S4 A32])) "sdc.c":125:8 -1
+     (nil))
+(insn 121 120 122 13 (set (reg:CC 100 cc)
+        (compare:CC (reg:SI 193)
+            (const_int 0 [0]))) "sdc.c":125:8 -1
+     (nil))
+(jump_insn 122 121 123 13 (set (pc)
+        (if_then_else (ne (reg:CC 100 cc)
+                (const_int 0 [0]))
+            (label_ref 175)
+            (pc))) "sdc.c":125:8 -1
+     (nil)
+ -> 175)
+;;  succ:       14 (FALLTHRU)
+;;              19
+
+;; basic block 14, loop depth 0, maybe hot
+;;  prev block 13, next block 15, flags: (NEW, REACHABLE, RTL)
+;;  pred:       13 (FALLTHRU)
+(note 123 122 124 14 [bb 14] NOTE_INSN_BASIC_BLOCK)
+(insn 124 123 125 14 (set (reg/f:SI 194)
+        (symbol_ref:SI ("txcount") [flags 0x2]  <var_decl 0x7f2800e6a510 txcount>)) "sdc.c":125:21 -1
+     (nil))
+(insn 125 124 126 14 (set (reg:SI 134 [ txcount.11_22 ])
+        (mem/c:SI (reg/f:SI 194) [1 txcount+0 S4 A32])) "sdc.c":125:21 -1
+     (nil))
+(insn 126 125 127 14 (set (reg:CC 100 cc)
+        (compare:CC (reg:SI 134 [ txcount.11_22 ])
+            (const_int 0 [0]))) "sdc.c":125:21 -1
+     (nil))
+(jump_insn 127 126 128 14 (set (pc)
+        (if_then_else (eq (reg:CC 100 cc)
+                (const_int 0 [0]))
+            (label_ref 175)
+            (pc))) "sdc.c":125:21 -1
+     (nil)
+ -> 175)
+;;  succ:       15 (FALLTHRU)
+;;              19
+
+;; basic block 15, loop depth 0, maybe hot
+;;  prev block 14, next block 16, flags: (NEW, REACHABLE, RTL)
+;;  pred:       14 (FALLTHRU)
+(note 128 127 129 15 [bb 15] NOTE_INSN_BASIC_BLOCK)
+(insn 129 128 130 15 (set (reg:SI 195)
+        (const_int 0 [0])) "sdc.c":127:15 -1
+     (nil))
+(insn 130 129 131 15 (set (mem/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -20 [0xffffffffffffffec])) [1 i+0 S4 A32])
+        (reg:SI 195)) "sdc.c":127:15 -1
+     (nil))
+(jump_insn 131 130 132 15 (set (pc)
+        (label_ref 147)) "sdc.c":127:8 -1
+     (nil)
+ -> 147)
+;;  succ:       17
+
+(barrier 132 131 149)
+;; basic block 16, loop depth 1, maybe hot
+;;  prev block 15, next block 17, flags: (NEW, REACHABLE, RTL)
+;;  pred:       17
+(code_label 149 132 133 16 12 (nil) [1 uses])
+(note 133 149 134 16 [bb 16] NOTE_INSN_BASIC_BLOCK)
+(insn 134 133 135 16 (set (reg:SI 135 [ i.12_23 ])
+        (mem/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -20 [0xffffffffffffffec])) [1 i+0 S4 A32])) "sdc.c":128:41 -1
+     (nil))
+(insn 135 134 136 16 (set (reg:SI 136 [ _24 ])
+        (ashift:SI (reg:SI 135 [ i.12_23 ])
+            (const_int 2 [0x2]))) "sdc.c":128:41 -1
+     (nil))
+(insn 136 135 137 16 (set (reg:SI 196)
+        (mem/f/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [6 up+0 S4 A64])) "sdc.c":128:41 -1
+     (nil))
+(insn 137 136 138 16 (set (reg/f:SI 137 [ _25 ])
+        (plus:SI (reg:SI 196)
+            (reg:SI 136 [ _24 ]))) "sdc.c":128:41 -1
+     (nil))
+(insn 138 137 139 16 (set (reg/f:SI 197)
+        (symbol_ref:SI ("base") [flags 0x2]  <var_decl 0x7f2800e6a2d0 base>)) "sdc.c":128:26 -1
+     (nil))
+(insn 139 138 140 16 (set (reg:SI 138 [ base.13_26 ])
+        (mem/c:SI (reg/f:SI 197) [1 base+0 S4 A32])) "sdc.c":128:26 -1
+     (nil))
+(insn 140 139 141 16 (set (reg:SI 139 [ _27 ])
+        (plus:SI (reg:SI 138 [ base.13_26 ])
+            (const_int 128 [0x80]))) "sdc.c":128:26 -1
+     (nil))
+(insn 141 140 142 16 (set (reg/f:SI 140 [ _28 ])
+        (reg:SI 139 [ _27 ])) "sdc.c":128:13 -1
+     (nil))
+(insn 142 141 143 16 (set (reg:SI 141 [ _29 ])
+        (mem:SI (reg/f:SI 137 [ _25 ]) [1 *_25+0 S4 A32])) "sdc.c":128:36 -1
+     (nil))
+(insn 143 142 144 16 (set (mem:SI (reg/f:SI 140 [ _28 ]) [1 *_28+0 S4 A32])
+        (reg:SI 141 [ _29 ])) "sdc.c":128:34 -1
+     (nil))
+(insn 144 143 145 16 (set (reg:SI 199)
+        (mem/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -20 [0xffffffffffffffec])) [1 i+0 S4 A32])) "sdc.c":127:29 -1
+     (nil))
+(insn 145 144 146 16 (set (reg:SI 198)
+        (plus:SI (reg:SI 199)
+            (const_int 1 [0x1]))) "sdc.c":127:29 -1
+     (nil))
+(insn 146 145 147 16 (set (mem/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -20 [0xffffffffffffffec])) [1 i+0 S4 A32])
+        (reg:SI 198)) "sdc.c":127:29 -1
+     (nil))
+;;  succ:       17 (FALLTHRU,DFS_BACK)
+
+;; basic block 17, loop depth 1, maybe hot
+;;  prev block 16, next block 18, flags: (NEW, REACHABLE, RTL)
+;;  pred:       15
+;;              16 (FALLTHRU,DFS_BACK)
+(code_label 147 146 148 17 11 (nil) [1 uses])
+(note 148 147 152 17 [bb 17] NOTE_INSN_BASIC_BLOCK)
+(insn 152 148 153 17 (set (reg:SI 200)
+        (mem/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -20 [0xffffffffffffffec])) [1 i+0 S4 A32])) "sdc.c":127:22 -1
+     (nil))
+(insn 153 152 154 17 (set (reg:CC 100 cc)
+        (compare:CC (reg:SI 200)
+            (const_int 15 [0xf]))) "sdc.c":127:22 -1
+     (nil))
+(jump_insn 154 153 155 17 (set (pc)
+        (if_then_else (le (reg:CC 100 cc)
+                (const_int 0 [0]))
+            (label_ref 149)
+            (pc))) "sdc.c":127:22 -1
+     (nil)
+ -> 149)
+;;  succ:       16
+;;              18 (FALLTHRU)
+
+;; basic block 18, loop depth 0, maybe hot
+;;  prev block 17, next block 19, flags: (NEW, REACHABLE, RTL)
+;;  pred:       17 (FALLTHRU)
+(note 155 154 156 18 [bb 18] NOTE_INSN_BASIC_BLOCK)
+(insn 156 155 157 18 (set (reg:SI 202)
+        (mem/f/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [6 up+0 S4 A64])) "sdc.c":129:11 -1
+     (nil))
+(insn 157 156 158 18 (set (reg:SI 201)
+        (plus:SI (reg:SI 202)
+            (const_int 64 [0x40]))) "sdc.c":129:11 -1
+     (nil))
+(insn 158 157 159 18 (set (mem/f/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [6 up+0 S4 A64])
+        (reg:SI 201)) "sdc.c":129:11 -1
+     (nil))
+(insn 159 158 160 18 (set (reg/f:SI 203)
+        (symbol_ref:SI ("txcount") [flags 0x2]  <var_decl 0x7f2800e6a510 txcount>)) "sdc.c":130:16 -1
+     (nil))
+(insn 160 159 161 18 (set (reg:SI 142 [ txcount.14_30 ])
+        (mem/c:SI (reg/f:SI 203) [1 txcount+0 S4 A32])) "sdc.c":130:16 -1
+     (nil))
+(insn 161 160 162 18 (set (reg:SI 143 [ _31 ])
+        (plus:SI (reg:SI 142 [ txcount.14_30 ])
+            (const_int -64 [0xffffffffffffffc0]))) "sdc.c":130:16 -1
+     (nil))
+(insn 162 161 163 18 (set (reg/f:SI 204)
+        (symbol_ref:SI ("txcount") [flags 0x2]  <var_decl 0x7f2800e6a510 txcount>)) "sdc.c":130:16 -1
+     (nil))
+(insn 163 162 164 18 (set (mem/c:SI (reg/f:SI 204) [1 txcount+0 S4 A32])
+        (reg:SI 143 [ _31 ])) "sdc.c":130:16 -1
+     (nil))
+(insn 164 163 165 18 (set (reg/f:SI 205)
+        (symbol_ref:SI ("txbuf") [flags 0x2]  <var_decl 0x7f2800e6a3f0 txbuf>)) "sdc.c":131:14 -1
+     (nil))
+(insn 165 164 166 18 (set (reg/f:SI 144 [ txbuf.15_32 ])
+        (mem/f/c:SI (reg/f:SI 205) [3 txbuf+0 S4 A32])) "sdc.c":131:14 -1
+     (nil))
+(insn 166 165 167 18 (set (reg/f:SI 145 [ _33 ])
+        (plus:SI (reg/f:SI 144 [ txbuf.15_32 ])
+            (const_int 64 [0x40]))) "sdc.c":131:14 -1
+     (nil))
+(insn 167 166 168 18 (set (reg/f:SI 206)
+        (symbol_ref:SI ("txbuf") [flags 0x2]  <var_decl 0x7f2800e6a3f0 txbuf>)) "sdc.c":131:14 -1
+     (nil))
+(insn 168 167 169 18 (set (mem/f/c:SI (reg/f:SI 206) [3 txbuf+0 S4 A32])
+        (reg/f:SI 145 [ _33 ])) "sdc.c":131:14 -1
+     (nil))
+(insn 169 168 170 18 (set (reg/f:SI 207)
+        (symbol_ref:SI ("base") [flags 0x2]  <var_decl 0x7f2800e6a2d0 base>)) "sdc.c":132:31 -1
+     (nil))
+(insn 170 169 171 18 (set (reg:SI 146 [ base.16_34 ])
+        (mem/c:SI (reg/f:SI 207) [1 base+0 S4 A32])) "sdc.c":132:31 -1
+     (nil))
+(insn 171 170 172 18 (set (reg:SI 147 [ _35 ])
+        (plus:SI (reg:SI 146 [ base.16_34 ])
+            (const_int 52 [0x34]))) "sdc.c":132:31 -1
+     (nil))
+(insn 172 171 173 18 (set (reg/f:SI 148 [ _36 ])
+        (reg:SI 147 [ _35 ])) "sdc.c":132:18 -1
+     (nil))
+(insn 173 172 174 18 (set (reg:SI 208)
+        (mem:SI (reg/f:SI 148 [ _36 ]) [1 *_36+0 S4 A32])) "sdc.c":132:15 -1
+     (nil))
+(insn 174 173 175 18 (set (mem/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -16 [0xfffffffffffffff0])) [1 status+0 S4 A64])
+        (reg:SI 208)) "sdc.c":132:15 -1
+     (nil))
+;;  succ:       19 (FALLTHRU)
+
+;; basic block 19, loop depth 0, maybe hot
+;;  prev block 18, next block 20, flags: (NEW, REACHABLE, RTL)
+;;  pred:       13
+;;              14
+;;              18 (FALLTHRU)
+(code_label 175 174 176 19 10 (nil) [2 uses])
+(note 176 175 177 19 [bb 19] NOTE_INSN_BASIC_BLOCK)
+(insn 177 176 178 19 (set (reg/f:SI 209)
+        (symbol_ref:SI ("color") [flags 0x40]  <var_decl 0x7f2801b4c480 color>)) "sdc.c":134:11 -1
+     (nil))
+(insn 178 177 179 19 (set (reg:SI 210)
+        (mem/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -12 [0xfffffffffffffff4])) [1 oldcolor+0 S4 A32])) "sdc.c":134:11 -1
+     (nil))
+(insn 179 178 180 19 (set (mem/c:SI (reg/f:SI 209) [1 color+0 S4 A32])
+        (reg:SI 210)) "sdc.c":134:11 -1
+     (nil))
+(insn 180 179 181 19 (set (reg/f:SI 211)
+        (symbol_ref:SI ("txcount") [flags 0x2]  <var_decl 0x7f2800e6a510 txcount>)) "sdc.c":135:17 -1
+     (nil))
+(insn 181 180 182 19 (set (reg:SI 149 [ txcount.17_37 ])
+        (mem/c:SI (reg/f:SI 211) [1 txcount+0 S4 A32])) "sdc.c":135:17 -1
+     (nil))
+(insn 182 181 183 19 (set (reg:CC 100 cc)
+        (compare:CC (reg:SI 149 [ txcount.17_37 ])
+            (const_int 0 [0]))) "sdc.c":135:8 -1
+     (nil))
+(jump_insn 183 182 184 19 (set (pc)
+        (if_then_else (ne (reg:CC 100 cc)
+                (const_int 0 [0]))
+            (label_ref 194)
+            (pc))) "sdc.c":135:8 -1
+     (nil)
+ -> 194)
+;;  succ:       20 (FALLTHRU)
+;;              21
+
+;; basic block 20, loop depth 0, maybe hot
+;;  prev block 19, next block 21, flags: (NEW, REACHABLE, RTL)
+;;  pred:       19 (FALLTHRU)
+(note 184 183 185 20 [bb 20] NOTE_INSN_BASIC_BLOCK)
+(insn 185 184 186 20 (set (reg:SI 2 r2)
+        (const_int 21 [0x15])) "sdc.c":136:8 -1
+     (nil))
+(insn 186 185 187 20 (set (reg:SI 1 r1)
+        (const_int 0 [0])) "sdc.c":136:8 -1
+     (nil))
+(insn 187 186 188 20 (set (reg:SI 0 r0)
+        (const_int 12 [0xc])) "sdc.c":136:8 -1
+     (nil))
+(call_insn 188 187 189 20 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("do_command") [flags 0x3]  <function_decl 0x7f2800e61e00 do_command>) [0 do_command S4 A32])
+                    (const_int 0 [0])))
+            (use (const_int 0 [0]))
+            (clobber (reg:SI 14 lr))
+        ]) "sdc.c":136:8 -1
+     (nil)
+    (expr_list (clobber (reg:SI 12 ip))
+        (expr_list:SI (use (reg:SI 0 r0))
+            (expr_list:SI (use (reg:SI 1 r1))
+                (expr_list:SI (use (reg:SI 2 r2))
+                    (nil))))))
+(insn 189 188 190 20 (set (reg/f:SI 212)
+        (symbol_ref:SI ("txdone") [flags 0x2]  <var_decl 0x7f2800e6a630 txdone>)) "sdc.c":137:15 -1
+     (nil))
+(insn 190 189 191 20 (set (reg:SI 213)
+        (const_int 1 [0x1])) "sdc.c":137:15 -1
+     (nil))
+(insn 191 190 192 20 (set (mem/c:SI (reg/f:SI 212) [1 txdone+0 S4 A32])
+        (reg:SI 213)) "sdc.c":137:15 -1
+     (nil))
+(insn 192 191 193 20 (set (reg:SI 0 r0)
+        (symbol_ref:SI ("txsem") [flags 0x2]  <var_decl 0x7f2800e6a750 txsem>)) "sdc.c":138:8 -1
+     (nil))
+(call_insn 193 192 194 20 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("V") [flags 0x41]  <function_decl 0x7f2800e73200 V>) [0 V S4 A32])
+                    (const_int 0 [0])))
+            (use (const_int 0 [0]))
+            (clobber (reg:SI 14 lr))
+        ]) "sdc.c":138:8 -1
+     (nil)
+    (expr_list (clobber (reg:SI 12 ip))
+        (expr_list:SI (use (reg:SI 0 r0))
+            (nil))))
+;;  succ:       21 (FALLTHRU)
+
+;; basic block 21, loop depth 0, maybe hot
+;;  prev block 20, next block 1, flags: (NEW, REACHABLE, RTL, MODIFIED)
+;;  pred:       11
+;;              12
+;;              19
+;;              20 (FALLTHRU)
+;;              10
+(code_label 194 193 195 21 9 (nil) [4 uses])
+(note 195 194 196 21 [bb 21] NOTE_INSN_BASIC_BLOCK)
+(insn 196 195 197 21 (set (reg/f:SI 214)
+        (symbol_ref:SI ("base") [flags 0x2]  <var_decl 0x7f2800e6a2d0 base>)) "sdc.c":142:17 -1
+     (nil))
+(insn 197 196 198 21 (set (reg:SI 150 [ base.18_38 ])
+        (mem/c:SI (reg/f:SI 214) [1 base+0 S4 A32])) "sdc.c":142:17 -1
+     (nil))
+(insn 198 197 199 21 (set (reg:SI 151 [ _39 ])
+        (plus:SI (reg:SI 150 [ base.18_38 ])
+            (const_int 56 [0x38]))) "sdc.c":142:17 -1
+     (nil))
+(insn 199 198 200 21 (set (reg/f:SI 152 [ _40 ])
+        (reg:SI 151 [ _39 ])) "sdc.c":142:4 -1
+     (nil))
+(insn 200 199 201 21 (set (reg:SI 215)
+        (const_int -1 [0xffffffffffffffff])) "sdc.c":142:33 -1
+     (nil))
+(insn 201 200 204 21 (set (mem:SI (reg/f:SI 152 [ _40 ]) [1 *_40+0 S4 A32])
+        (reg:SI 215)) "sdc.c":142:33 -1
+     (nil))
+(insn 204 201 205 21 (clobber (reg/i:SI 0 r0)) "sdc.c":144:1 -1
+     (nil))
+(insn 205 204 208 21 (clobber (reg:SI 153 [ <retval> ])) "sdc.c":144:1 -1
+     (nil))
+(insn 208 205 203 21 (const_int 0 [0]) "sdc.c":144:1 -1
+     (nil))
+(insn 203 208 206 21 (set (reg/i:SI 0 r0)
+        (reg:SI 153 [ <retval> ])) "sdc.c":144:1 -1
+     (nil))
+(insn 206 203 0 21 (use (reg/i:SI 0 r0)) "sdc.c":144:1 -1
+     (nil))
+;;  succ:       EXIT [always]  (FALLTHRU)
+
+
+;; Function sdc_init (sdc_init, funcdef_no=2, decl_uid=4506, cgraph_uid=3, symbol_order=11)
+
+int sdc_init ()
+{
+  u32 RCA;
+  unsigned int base.19_1;
+  u32 * base.20_2;
+  unsigned int base.21_3;
+  unsigned int _4;
+  u32 * _5;
+  int RCA.22_6;
+  int RCA.23_7;
+  unsigned int base.24_8;
+  unsigned int _9;
+  u32 * _10;
+
+;;   basic block 2, loop depth 0
+;;    pred:       ENTRY
+  RCA_11 = 1164378112;
+  base = 268455936;
+  kprintf ("sdc_init : ");
+  base.19_1 = base;
+  base.20_2 = (u32 *) base.19_1;
+  *base.20_2 = 191;
+  base.21_3 = base;
+  _4 = base.21_3 + 4;
+  _5 = (u32 *) _4;
+  *_5 = 198;
+  do_command (0, 0, 0);
+  do_command (55, 0, 21);
+  do_command (41, 65535, 1);
+  do_command (2, 0, 7);
+  RCA.22_6 = (int) RCA_11;
+  do_command (3, RCA.22_6, 21);
+  RCA.23_7 = (int) RCA_11;
+  do_command (7, RCA.23_7, 21);
+  do_command (16, 512, 21);
+  base.24_8 = base;
+  _9 = base.24_8 + 60;
+  _10 = (u32 *) _9;
+  *_10 = 393216;
+  rxsem.value = 0;
+  rxsem.queue = 0B;
+  txsem.value = 0;
+  txsem.queue = 0B;
+  kprintf ("done\n");
+  return;
+;;    succ:       EXIT
+
+}
+
+
+
+Partition map 
+
+Partition 1 (base.19_1 - 1 )
+Partition 2 (base.20_2 - 2 )
+Partition 3 (base.21_3 - 3 )
+Partition 4 (_4 - 4 )
+Partition 5 (_5 - 5 )
+Partition 6 (RCA.22_6 - 6 )
+Partition 7 (RCA.23_7 - 7 )
+Partition 8 (base.24_8 - 8 )
+Partition 9 (_9 - 9 )
+Partition 10 (_10 - 10 )
+Partition 11 (RCA_11 - 11 )
+Partition 30 (_30(D) - 30 )
+
+
+Coalescible Partition map 
+
+Partition 0, base 0 (_30(D) - 30 )
+
+
+Partition map 
+
+Partition 0 (_30(D) - 30 )
+
+
+Conflict graph:
+
+After sorting:
+Coalesce List:
+
+Partition map 
+
+Partition 0 (_30(D) - 30 )
+
+After Coalescing:
+
+Partition map 
+
+Partition 0 (base.19_1 - 1 )
+Partition 1 (base.20_2 - 2 )
+Partition 2 (base.21_3 - 3 )
+Partition 3 (_4 - 4 )
+Partition 4 (_5 - 5 )
+Partition 5 (RCA.22_6 - 6 )
+Partition 6 (RCA.23_7 - 7 )
+Partition 7 (base.24_8 - 8 )
+Partition 8 (_9 - 9 )
+Partition 9 (_10 - 10 )
+Partition 10 (RCA_11 - 11 )
+Partition 11 (_30(D) - 30 )
+
+int sdc_init ()
+{
+  u32 RCA;
+  unsigned int base.19_1;
+  u32 * base.20_2;
+  unsigned int base.21_3;
+  unsigned int _4;
+  u32 * _5;
+  int RCA.22_6;
+  int RCA.23_7;
+  unsigned int base.24_8;
+  unsigned int _9;
+  u32 * _10;
+  int _30(D);
+
+;;   basic block 2, loop depth 0
+;;    pred:       ENTRY
+  RCA_11 = 1164378112;
+  base = 268455936;
+  kprintf ("sdc_init : ");
+  base.19_1 = base;
+  base.20_2 = (u32 *) base.19_1;
+  *base.20_2 = 191;
+  base.21_3 = base;
+  _4 = base.21_3 + 4;
+  _5 = (u32 *) _4;
+  *_5 = 198;
+  do_command (0, 0, 0);
+  do_command (55, 0, 21);
+  do_command (41, 65535, 1);
+  do_command (2, 0, 7);
+  RCA.22_6 = (int) RCA_11;
+  do_command (3, RCA.22_6, 21);
+  RCA.23_7 = (int) RCA_11;
+  do_command (7, RCA.23_7, 21);
+  do_command (16, 512, 21);
+  base.24_8 = base;
+  _9 = base.24_8 + 60;
+  _10 = (u32 *) _9;
+  *_10 = 393216;
+  rxsem.value = 0;
+  rxsem.queue = 0B;
+  txsem.value = 0;
+  txsem.queue = 0B;
+  kprintf ("done\n");
+  return;
+;;    succ:       EXIT
+
+}
+
+
+Partition 0: size 4 align 4
+	RCA_11
+
+;; Generating RTL for gimple basic block 2
+
+;; RCA_11 = 1164378112;
+
+(insn 5 4 6 (set (reg:SI 124)
+        (const_int 1164378112 [0x45670000])) "sdc.c":148:7 -1
+     (nil))
+
+(insn 6 5 0 (set (mem/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -4 [0xfffffffffffffffc])) [1 RCA+0 S4 A32])
+        (reg:SI 124)) "sdc.c":148:7 -1
+     (nil))
+
+;; base = 268455936;
+
+(insn 7 6 8 (set (reg/f:SI 125)
+        (symbol_ref:SI ("base") [flags 0x2]  <var_decl 0x7f2800e6a2d0 base>)) "sdc.c":149:11 -1
+     (nil))
+
+(insn 8 7 9 (set (reg:SI 126)
+        (const_int 268455936 [0x10005000])) "sdc.c":149:11 -1
+     (nil))
+
+(insn 9 8 0 (set (mem/c:SI (reg/f:SI 125) [1 base+0 S4 A32])
+        (reg:SI 126)) "sdc.c":149:11 -1
+     (nil))
+
+;; kprintf ("sdc_init : ");
+
+(insn 10 9 11 (set (reg:SI 0 r0)
+        (symbol_ref/f:SI ("*.LC0") [flags 0x2]  <var_decl 0x7f2800e83480 *.LC0>)) "sdc.c":150:3 -1
+     (nil))
+
+(call_insn 11 10 0 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("kprintf") [flags 0x41]  <function_decl 0x7f2800e73700 kprintf>) [0 kprintf S4 A32])
+                    (const_int 0 [0])))
+            (use (const_int 0 [0]))
+            (clobber (reg:SI 14 lr))
+        ]) "sdc.c":150:3 -1
+     (nil)
+    (expr_list (clobber (reg:SI 12 ip))
+        (expr_list:SI (use (reg:SI 0 r0))
+            (nil))))
+
+;; base.19_1 = base;
+
+(insn 12 11 13 (set (reg/f:SI 127)
+        (symbol_ref:SI ("base") [flags 0x2]  <var_decl 0x7f2800e6a2d0 base>)) "sdc.c":151:4 -1
+     (nil))
+
+(insn 13 12 0 (set (reg:SI 113 [ base.19_1 ])
+        (mem/c:SI (reg/f:SI 127) [1 base+0 S4 A32])) "sdc.c":151:4 -1
+     (nil))
+
+;; base.20_2 = (u32 *) base.19_1;
+
+(insn 14 13 0 (set (reg/f:SI 114 [ base.20_2 ])
+        (reg:SI 113 [ base.19_1 ])) "sdc.c":151:4 -1
+     (nil))
+
+;; *base.20_2 = 191;
+
+(insn 15 14 16 (set (reg:SI 128)
+        (const_int 191 [0xbf])) "sdc.c":151:26 -1
+     (nil))
+
+(insn 16 15 0 (set (mem:SI (reg/f:SI 114 [ base.20_2 ]) [1 *base.20_2+0 S4 A32])
+        (reg:SI 128)) "sdc.c":151:26 -1
+     (nil))
+
+;; base.21_3 = base;
+
+(insn 17 16 18 (set (reg/f:SI 129)
+        (symbol_ref:SI ("base") [flags 0x2]  <var_decl 0x7f2800e6a2d0 base>)) "sdc.c":152:17 -1
+     (nil))
+
+(insn 18 17 0 (set (reg:SI 115 [ base.21_3 ])
+        (mem/c:SI (reg/f:SI 129) [1 base+0 S4 A32])) "sdc.c":152:17 -1
+     (nil))
+
+;; _4 = base.21_3 + 4;
+
+(insn 19 18 0 (set (reg:SI 116 [ _4 ])
+        (plus:SI (reg:SI 115 [ base.21_3 ])
+            (const_int 4 [0x4]))) "sdc.c":152:17 -1
+     (nil))
+
+;; _5 = (u32 *) _4;
+
+(insn 20 19 0 (set (reg/f:SI 117 [ _5 ])
+        (reg:SI 116 [ _4 ])) "sdc.c":152:4 -1
+     (nil))
+
+;; *_5 = 198;
+
+(insn 21 20 22 (set (reg:SI 130)
+        (const_int 198 [0xc6])) "sdc.c":152:26 -1
+     (nil))
+
+(insn 22 21 0 (set (mem:SI (reg/f:SI 117 [ _5 ]) [1 *_5+0 S4 A32])
+        (reg:SI 130)) "sdc.c":152:26 -1
+     (nil))
+
+;; do_command (0, 0, 0);
+
+(insn 23 22 24 (set (reg:SI 2 r2)
+        (const_int 0 [0])) "sdc.c":155:3 -1
+     (nil))
+
+(insn 24 23 25 (set (reg:SI 1 r1)
+        (const_int 0 [0])) "sdc.c":155:3 -1
+     (nil))
+
+(insn 25 24 26 (set (reg:SI 0 r0)
+        (const_int 0 [0])) "sdc.c":155:3 -1
+     (nil))
+
+(call_insn 26 25 0 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("do_command") [flags 0x3]  <function_decl 0x7f2800e61e00 do_command>) [0 do_command S4 A32])
+                    (const_int 0 [0])))
+            (use (const_int 0 [0]))
+            (clobber (reg:SI 14 lr))
+        ]) "sdc.c":155:3 -1
+     (nil)
+    (expr_list (clobber (reg:SI 12 ip))
+        (expr_list:SI (use (reg:SI 0 r0))
+            (expr_list:SI (use (reg:SI 1 r1))
+                (expr_list:SI (use (reg:SI 2 r2))
+                    (nil))))))
+
+;; do_command (55, 0, 21);
+
+(insn 27 26 28 (set (reg:SI 2 r2)
+        (const_int 21 [0x15])) "sdc.c":156:3 -1
+     (nil))
+
+(insn 28 27 29 (set (reg:SI 1 r1)
+        (const_int 0 [0])) "sdc.c":156:3 -1
+     (nil))
+
+(insn 29 28 30 (set (reg:SI 0 r0)
+        (const_int 55 [0x37])) "sdc.c":156:3 -1
+     (nil))
+
+(call_insn 30 29 0 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("do_command") [flags 0x3]  <function_decl 0x7f2800e61e00 do_command>) [0 do_command S4 A32])
+                    (const_int 0 [0])))
+            (use (const_int 0 [0]))
+            (clobber (reg:SI 14 lr))
+        ]) "sdc.c":156:3 -1
+     (nil)
+    (expr_list (clobber (reg:SI 12 ip))
+        (expr_list:SI (use (reg:SI 0 r0))
+            (expr_list:SI (use (reg:SI 1 r1))
+                (expr_list:SI (use (reg:SI 2 r2))
+                    (nil))))))
+
+;; do_command (41, 65535, 1);
+
+(insn 31 30 32 (set (reg:SI 2 r2)
+        (const_int 1 [0x1])) "sdc.c":158:3 -1
+     (nil))
+
+(insn 32 31 33 (set (reg:SI 1 r1)
+        (const_int 65535 [0xffff])) "sdc.c":158:3 -1
+     (nil))
+
+(insn 33 32 34 (set (reg:SI 0 r0)
+        (const_int 41 [0x29])) "sdc.c":158:3 -1
+     (nil))
+
+(call_insn 34 33 0 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("do_command") [flags 0x3]  <function_decl 0x7f2800e61e00 do_command>) [0 do_command S4 A32])
+                    (const_int 0 [0])))
+            (use (const_int 0 [0]))
+            (clobber (reg:SI 14 lr))
+        ]) "sdc.c":158:3 -1
+     (nil)
+    (expr_list (clobber (reg:SI 12 ip))
+        (expr_list:SI (use (reg:SI 0 r0))
+            (expr_list:SI (use (reg:SI 1 r1))
+                (expr_list:SI (use (reg:SI 2 r2))
+                    (nil))))))
+
+;; do_command (2, 0, 7);
+
+(insn 35 34 36 (set (reg:SI 2 r2)
+        (const_int 7 [0x7])) "sdc.c":159:3 -1
+     (nil))
+
+(insn 36 35 37 (set (reg:SI 1 r1)
+        (const_int 0 [0])) "sdc.c":159:3 -1
+     (nil))
+
+(insn 37 36 38 (set (reg:SI 0 r0)
+        (const_int 2 [0x2])) "sdc.c":159:3 -1
+     (nil))
+
+(call_insn 38 37 0 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("do_command") [flags 0x3]  <function_decl 0x7f2800e61e00 do_command>) [0 do_command S4 A32])
+                    (const_int 0 [0])))
+            (use (const_int 0 [0]))
+            (clobber (reg:SI 14 lr))
+        ]) "sdc.c":159:3 -1
+     (nil)
+    (expr_list (clobber (reg:SI 12 ip))
+        (expr_list:SI (use (reg:SI 0 r0))
+            (expr_list:SI (use (reg:SI 1 r1))
+                (expr_list:SI (use (reg:SI 2 r2))
+                    (nil))))))
+
+;; RCA.22_6 = (int) RCA_11;
+
+(insn 39 38 0 (set (reg:SI 118 [ RCA.22_6 ])
+        (mem/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -4 [0xfffffffffffffffc])) [1 RCA+0 S4 A32])) "sdc.c":160:3 -1
+     (nil))
+
+;; do_command (3, RCA.22_6, 21);
+
+(insn 40 39 41 (set (reg:SI 2 r2)
+        (const_int 21 [0x15])) "sdc.c":160:3 -1
+     (nil))
+
+(insn 41 40 42 (set (reg:SI 1 r1)
+        (reg:SI 118 [ RCA.22_6 ])) "sdc.c":160:3 -1
+     (nil))
+
+(insn 42 41 43 (set (reg:SI 0 r0)
+        (const_int 3 [0x3])) "sdc.c":160:3 -1
+     (nil))
+
+(call_insn 43 42 0 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("do_command") [flags 0x3]  <function_decl 0x7f2800e61e00 do_command>) [0 do_command S4 A32])
+                    (const_int 0 [0])))
+            (use (const_int 0 [0]))
+            (clobber (reg:SI 14 lr))
+        ]) "sdc.c":160:3 -1
+     (nil)
+    (expr_list (clobber (reg:SI 12 ip))
+        (expr_list:SI (use (reg:SI 0 r0))
+            (expr_list:SI (use (reg:SI 1 r1))
+                (expr_list:SI (use (reg:SI 2 r2))
+                    (nil))))))
+
+;; RCA.23_7 = (int) RCA_11;
+
+(insn 44 43 0 (set (reg:SI 119 [ RCA.23_7 ])
+        (mem/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -4 [0xfffffffffffffffc])) [1 RCA+0 S4 A32])) "sdc.c":161:3 -1
+     (nil))
+
+;; do_command (7, RCA.23_7, 21);
+
+(insn 45 44 46 (set (reg:SI 2 r2)
+        (const_int 21 [0x15])) "sdc.c":161:3 -1
+     (nil))
+
+(insn 46 45 47 (set (reg:SI 1 r1)
+        (reg:SI 119 [ RCA.23_7 ])) "sdc.c":161:3 -1
+     (nil))
+
+(insn 47 46 48 (set (reg:SI 0 r0)
+        (const_int 7 [0x7])) "sdc.c":161:3 -1
+     (nil))
+
+(call_insn 48 47 0 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("do_command") [flags 0x3]  <function_decl 0x7f2800e61e00 do_command>) [0 do_command S4 A32])
+                    (const_int 0 [0])))
+            (use (const_int 0 [0]))
+            (clobber (reg:SI 14 lr))
+        ]) "sdc.c":161:3 -1
+     (nil)
+    (expr_list (clobber (reg:SI 12 ip))
+        (expr_list:SI (use (reg:SI 0 r0))
+            (expr_list:SI (use (reg:SI 1 r1))
+                (expr_list:SI (use (reg:SI 2 r2))
+                    (nil))))))
+
+;; do_command (16, 512, 21);
+
+(insn 49 48 50 (set (reg:SI 2 r2)
+        (const_int 21 [0x15])) "sdc.c":162:3 -1
+     (nil))
+
+(insn 50 49 51 (set (reg:SI 1 r1)
+        (const_int 512 [0x200])) "sdc.c":162:3 -1
+     (nil))
+
+(insn 51 50 52 (set (reg:SI 0 r0)
+        (const_int 16 [0x10])) "sdc.c":162:3 -1
+     (nil))
+
+(call_insn 52 51 0 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("do_command") [flags 0x3]  <function_decl 0x7f2800e61e00 do_command>) [0 do_command S4 A32])
+                    (const_int 0 [0])))
+            (use (const_int 0 [0]))
+            (clobber (reg:SI 14 lr))
+        ]) "sdc.c":162:3 -1
+     (nil)
+    (expr_list (clobber (reg:SI 12 ip))
+        (expr_list:SI (use (reg:SI 0 r0))
+            (expr_list:SI (use (reg:SI 1 r1))
+                (expr_list:SI (use (reg:SI 2 r2))
+                    (nil))))))
+
+;; base.24_8 = base;
+
+(insn 53 52 54 (set (reg/f:SI 131)
+        (symbol_ref:SI ("base") [flags 0x2]  <var_decl 0x7f2800e6a2d0 base>)) "sdc.c":165:17 -1
+     (nil))
+
+(insn 54 53 0 (set (reg:SI 120 [ base.24_8 ])
+        (mem/c:SI (reg/f:SI 131) [1 base+0 S4 A32])) "sdc.c":165:17 -1
+     (nil))
+
+;; _9 = base.24_8 + 60;
+
+(insn 55 54 0 (set (reg:SI 121 [ _9 ])
+        (plus:SI (reg:SI 120 [ base.24_8 ])
+            (const_int 60 [0x3c]))) "sdc.c":165:17 -1
+     (nil))
+
+;; _10 = (u32 *) _9;
+
+(insn 56 55 0 (set (reg/f:SI 122 [ _10 ])
+        (reg:SI 121 [ _9 ])) "sdc.c":165:4 -1
+     (nil))
+
+;; *_10 = 393216;
+
+(insn 57 56 58 (set (reg:SI 132)
+        (const_int 393216 [0x60000])) "sdc.c":165:26 -1
+     (nil))
+
+(insn 58 57 0 (set (mem:SI (reg/f:SI 122 [ _10 ]) [1 *_10+0 S4 A32])
+        (reg:SI 132)) "sdc.c":165:26 -1
+     (nil))
+
+;; rxsem.value = 0;
+
+(insn 59 58 60 (set (reg/f:SI 133)
+        (symbol_ref:SI ("rxsem") [flags 0x2]  <var_decl 0x7f2800e6a6c0 rxsem>)) "sdc.c":167:15 -1
+     (nil))
+
+(insn 60 59 61 (set (reg:SI 134)
+        (const_int 0 [0])) "sdc.c":167:15 -1
+     (nil))
+
+(insn 61 60 0 (set (mem/c:SI (reg/f:SI 133) [1 rxsem.value+0 S4 A32])
+        (reg:SI 134)) "sdc.c":167:15 -1
+     (nil))
+
+;; rxsem.queue = 0B;
+
+(insn 62 61 63 (set (reg/f:SI 135)
+        (symbol_ref:SI ("rxsem") [flags 0x2]  <var_decl 0x7f2800e6a6c0 rxsem>)) "sdc.c":168:15 -1
+     (nil))
+
+(insn 63 62 64 (set (reg:SI 136)
+        (const_int 0 [0])) "sdc.c":168:15 -1
+     (nil))
+
+(insn 64 63 0 (set (mem/f/c:SI (plus:SI (reg/f:SI 135)
+                (const_int 4 [0x4])) [5 rxsem.queue+0 S4 A32])
+        (reg:SI 136)) "sdc.c":168:15 -1
+     (nil))
+
+;; txsem.value = 0;
+
+(insn 65 64 66 (set (reg/f:SI 137)
+        (symbol_ref:SI ("txsem") [flags 0x2]  <var_decl 0x7f2800e6a750 txsem>)) "sdc.c":169:15 -1
+     (nil))
+
+(insn 66 65 67 (set (reg:SI 138)
+        (const_int 0 [0])) "sdc.c":169:15 -1
+     (nil))
+
+(insn 67 66 0 (set (mem/c:SI (reg/f:SI 137) [1 txsem.value+0 S4 A32])
+        (reg:SI 138)) "sdc.c":169:15 -1
+     (nil))
+
+;; txsem.queue = 0B;
+
+(insn 68 67 69 (set (reg/f:SI 139)
+        (symbol_ref:SI ("txsem") [flags 0x2]  <var_decl 0x7f2800e6a750 txsem>)) "sdc.c":170:15 -1
+     (nil))
+
+(insn 69 68 70 (set (reg:SI 140)
+        (const_int 0 [0])) "sdc.c":170:15 -1
+     (nil))
+
+(insn 70 69 0 (set (mem/f/c:SI (plus:SI (reg/f:SI 139)
+                (const_int 4 [0x4])) [5 txsem.queue+0 S4 A32])
+        (reg:SI 140)) "sdc.c":170:15 -1
+     (nil))
+
+;; kprintf ("done\n");
+
+(insn 71 70 72 (set (reg:SI 0 r0)
+        (symbol_ref/f:SI ("*.LC1") [flags 0x2]  <var_decl 0x7f2800e83510 *.LC1>)) "sdc.c":172:3 -1
+     (nil))
+
+(call_insn 72 71 0 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("kprintf") [flags 0x41]  <function_decl 0x7f2800e73700 kprintf>) [0 kprintf S4 A32])
+                    (const_int 0 [0])))
+            (use (const_int 0 [0]))
+            (clobber (reg:SI 14 lr))
+        ]) "sdc.c":172:3 -1
+     (nil)
+    (expr_list (clobber (reg:SI 12 ip))
+        (expr_list:SI (use (reg:SI 0 r0))
+            (nil))))
+
+
+try_optimize_cfg iteration 1
+
+Merging block 3 into block 2...
+Merged blocks 2 and 3.
+Merged 2 and 3 without moving.
+Merging block 4 into block 2...
+Merged blocks 2 and 4.
+Merged 2 and 4 without moving.
+
+
+try_optimize_cfg iteration 2
+
+fix_loop_structure: fixing up loops for function
+
+
+;;
+;; Full RTL generated for this function:
+;;
+(note 1 0 3 NOTE_INSN_DELETED)
+;; basic block 2, loop depth 0, maybe hot
+;;  prev block 0, next block 1, flags: (NEW, REACHABLE, RTL, MODIFIED)
+;;  pred:       ENTRY (FALLTHRU)
+(note 3 1 2 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+(note 2 3 5 2 NOTE_INSN_FUNCTION_BEG)
+(insn 5 2 6 2 (set (reg:SI 124)
+        (const_int 1164378112 [0x45670000])) "sdc.c":148:7 -1
+     (nil))
+(insn 6 5 7 2 (set (mem/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -4 [0xfffffffffffffffc])) [1 RCA+0 S4 A32])
+        (reg:SI 124)) "sdc.c":148:7 -1
+     (nil))
+(insn 7 6 8 2 (set (reg/f:SI 125)
+        (symbol_ref:SI ("base") [flags 0x2]  <var_decl 0x7f2800e6a2d0 base>)) "sdc.c":149:11 -1
+     (nil))
+(insn 8 7 9 2 (set (reg:SI 126)
+        (const_int 268455936 [0x10005000])) "sdc.c":149:11 -1
+     (nil))
+(insn 9 8 10 2 (set (mem/c:SI (reg/f:SI 125) [1 base+0 S4 A32])
+        (reg:SI 126)) "sdc.c":149:11 -1
+     (nil))
+(insn 10 9 11 2 (set (reg:SI 0 r0)
+        (symbol_ref/f:SI ("*.LC0") [flags 0x2]  <var_decl 0x7f2800e83480 *.LC0>)) "sdc.c":150:3 -1
+     (nil))
+(call_insn 11 10 12 2 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("kprintf") [flags 0x41]  <function_decl 0x7f2800e73700 kprintf>) [0 kprintf S4 A32])
+                    (const_int 0 [0])))
+            (use (const_int 0 [0]))
+            (clobber (reg:SI 14 lr))
+        ]) "sdc.c":150:3 -1
+     (nil)
+    (expr_list (clobber (reg:SI 12 ip))
+        (expr_list:SI (use (reg:SI 0 r0))
+            (nil))))
+(insn 12 11 13 2 (set (reg/f:SI 127)
+        (symbol_ref:SI ("base") [flags 0x2]  <var_decl 0x7f2800e6a2d0 base>)) "sdc.c":151:4 -1
+     (nil))
+(insn 13 12 14 2 (set (reg:SI 113 [ base.19_1 ])
+        (mem/c:SI (reg/f:SI 127) [1 base+0 S4 A32])) "sdc.c":151:4 -1
+     (nil))
+(insn 14 13 15 2 (set (reg/f:SI 114 [ base.20_2 ])
+        (reg:SI 113 [ base.19_1 ])) "sdc.c":151:4 -1
+     (nil))
+(insn 15 14 16 2 (set (reg:SI 128)
+        (const_int 191 [0xbf])) "sdc.c":151:26 -1
+     (nil))
+(insn 16 15 17 2 (set (mem:SI (reg/f:SI 114 [ base.20_2 ]) [1 *base.20_2+0 S4 A32])
+        (reg:SI 128)) "sdc.c":151:26 -1
+     (nil))
+(insn 17 16 18 2 (set (reg/f:SI 129)
+        (symbol_ref:SI ("base") [flags 0x2]  <var_decl 0x7f2800e6a2d0 base>)) "sdc.c":152:17 -1
+     (nil))
+(insn 18 17 19 2 (set (reg:SI 115 [ base.21_3 ])
+        (mem/c:SI (reg/f:SI 129) [1 base+0 S4 A32])) "sdc.c":152:17 -1
+     (nil))
+(insn 19 18 20 2 (set (reg:SI 116 [ _4 ])
+        (plus:SI (reg:SI 115 [ base.21_3 ])
+            (const_int 4 [0x4]))) "sdc.c":152:17 -1
+     (nil))
+(insn 20 19 21 2 (set (reg/f:SI 117 [ _5 ])
+        (reg:SI 116 [ _4 ])) "sdc.c":152:4 -1
+     (nil))
+(insn 21 20 22 2 (set (reg:SI 130)
+        (const_int 198 [0xc6])) "sdc.c":152:26 -1
+     (nil))
+(insn 22 21 23 2 (set (mem:SI (reg/f:SI 117 [ _5 ]) [1 *_5+0 S4 A32])
+        (reg:SI 130)) "sdc.c":152:26 -1
+     (nil))
+(insn 23 22 24 2 (set (reg:SI 2 r2)
+        (const_int 0 [0])) "sdc.c":155:3 -1
+     (nil))
+(insn 24 23 25 2 (set (reg:SI 1 r1)
+        (const_int 0 [0])) "sdc.c":155:3 -1
+     (nil))
+(insn 25 24 26 2 (set (reg:SI 0 r0)
+        (const_int 0 [0])) "sdc.c":155:3 -1
+     (nil))
+(call_insn 26 25 27 2 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("do_command") [flags 0x3]  <function_decl 0x7f2800e61e00 do_command>) [0 do_command S4 A32])
+                    (const_int 0 [0])))
+            (use (const_int 0 [0]))
+            (clobber (reg:SI 14 lr))
+        ]) "sdc.c":155:3 -1
+     (nil)
+    (expr_list (clobber (reg:SI 12 ip))
+        (expr_list:SI (use (reg:SI 0 r0))
+            (expr_list:SI (use (reg:SI 1 r1))
+                (expr_list:SI (use (reg:SI 2 r2))
+                    (nil))))))
+(insn 27 26 28 2 (set (reg:SI 2 r2)
+        (const_int 21 [0x15])) "sdc.c":156:3 -1
+     (nil))
+(insn 28 27 29 2 (set (reg:SI 1 r1)
+        (const_int 0 [0])) "sdc.c":156:3 -1
+     (nil))
+(insn 29 28 30 2 (set (reg:SI 0 r0)
+        (const_int 55 [0x37])) "sdc.c":156:3 -1
+     (nil))
+(call_insn 30 29 31 2 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("do_command") [flags 0x3]  <function_decl 0x7f2800e61e00 do_command>) [0 do_command S4 A32])
+                    (const_int 0 [0])))
+            (use (const_int 0 [0]))
+            (clobber (reg:SI 14 lr))
+        ]) "sdc.c":156:3 -1
+     (nil)
+    (expr_list (clobber (reg:SI 12 ip))
+        (expr_list:SI (use (reg:SI 0 r0))
+            (expr_list:SI (use (reg:SI 1 r1))
+                (expr_list:SI (use (reg:SI 2 r2))
+                    (nil))))))
+(insn 31 30 32 2 (set (reg:SI 2 r2)
+        (const_int 1 [0x1])) "sdc.c":158:3 -1
+     (nil))
+(insn 32 31 33 2 (set (reg:SI 1 r1)
+        (const_int 65535 [0xffff])) "sdc.c":158:3 -1
+     (nil))
+(insn 33 32 34 2 (set (reg:SI 0 r0)
+        (const_int 41 [0x29])) "sdc.c":158:3 -1
+     (nil))
+(call_insn 34 33 35 2 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("do_command") [flags 0x3]  <function_decl 0x7f2800e61e00 do_command>) [0 do_command S4 A32])
+                    (const_int 0 [0])))
+            (use (const_int 0 [0]))
+            (clobber (reg:SI 14 lr))
+        ]) "sdc.c":158:3 -1
+     (nil)
+    (expr_list (clobber (reg:SI 12 ip))
+        (expr_list:SI (use (reg:SI 0 r0))
+            (expr_list:SI (use (reg:SI 1 r1))
+                (expr_list:SI (use (reg:SI 2 r2))
+                    (nil))))))
+(insn 35 34 36 2 (set (reg:SI 2 r2)
+        (const_int 7 [0x7])) "sdc.c":159:3 -1
+     (nil))
+(insn 36 35 37 2 (set (reg:SI 1 r1)
+        (const_int 0 [0])) "sdc.c":159:3 -1
+     (nil))
+(insn 37 36 38 2 (set (reg:SI 0 r0)
+        (const_int 2 [0x2])) "sdc.c":159:3 -1
+     (nil))
+(call_insn 38 37 39 2 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("do_command") [flags 0x3]  <function_decl 0x7f2800e61e00 do_command>) [0 do_command S4 A32])
+                    (const_int 0 [0])))
+            (use (const_int 0 [0]))
+            (clobber (reg:SI 14 lr))
+        ]) "sdc.c":159:3 -1
+     (nil)
+    (expr_list (clobber (reg:SI 12 ip))
+        (expr_list:SI (use (reg:SI 0 r0))
+            (expr_list:SI (use (reg:SI 1 r1))
+                (expr_list:SI (use (reg:SI 2 r2))
+                    (nil))))))
+(insn 39 38 40 2 (set (reg:SI 118 [ RCA.22_6 ])
+        (mem/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -4 [0xfffffffffffffffc])) [1 RCA+0 S4 A32])) "sdc.c":160:3 -1
+     (nil))
+(insn 40 39 41 2 (set (reg:SI 2 r2)
+        (const_int 21 [0x15])) "sdc.c":160:3 -1
+     (nil))
+(insn 41 40 42 2 (set (reg:SI 1 r1)
+        (reg:SI 118 [ RCA.22_6 ])) "sdc.c":160:3 -1
+     (nil))
+(insn 42 41 43 2 (set (reg:SI 0 r0)
+        (const_int 3 [0x3])) "sdc.c":160:3 -1
+     (nil))
+(call_insn 43 42 44 2 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("do_command") [flags 0x3]  <function_decl 0x7f2800e61e00 do_command>) [0 do_command S4 A32])
+                    (const_int 0 [0])))
+            (use (const_int 0 [0]))
+            (clobber (reg:SI 14 lr))
+        ]) "sdc.c":160:3 -1
+     (nil)
+    (expr_list (clobber (reg:SI 12 ip))
+        (expr_list:SI (use (reg:SI 0 r0))
+            (expr_list:SI (use (reg:SI 1 r1))
+                (expr_list:SI (use (reg:SI 2 r2))
+                    (nil))))))
+(insn 44 43 45 2 (set (reg:SI 119 [ RCA.23_7 ])
+        (mem/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -4 [0xfffffffffffffffc])) [1 RCA+0 S4 A32])) "sdc.c":161:3 -1
+     (nil))
+(insn 45 44 46 2 (set (reg:SI 2 r2)
+        (const_int 21 [0x15])) "sdc.c":161:3 -1
+     (nil))
+(insn 46 45 47 2 (set (reg:SI 1 r1)
+        (reg:SI 119 [ RCA.23_7 ])) "sdc.c":161:3 -1
+     (nil))
+(insn 47 46 48 2 (set (reg:SI 0 r0)
+        (const_int 7 [0x7])) "sdc.c":161:3 -1
+     (nil))
+(call_insn 48 47 49 2 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("do_command") [flags 0x3]  <function_decl 0x7f2800e61e00 do_command>) [0 do_command S4 A32])
+                    (const_int 0 [0])))
+            (use (const_int 0 [0]))
+            (clobber (reg:SI 14 lr))
+        ]) "sdc.c":161:3 -1
+     (nil)
+    (expr_list (clobber (reg:SI 12 ip))
+        (expr_list:SI (use (reg:SI 0 r0))
+            (expr_list:SI (use (reg:SI 1 r1))
+                (expr_list:SI (use (reg:SI 2 r2))
+                    (nil))))))
+(insn 49 48 50 2 (set (reg:SI 2 r2)
+        (const_int 21 [0x15])) "sdc.c":162:3 -1
+     (nil))
+(insn 50 49 51 2 (set (reg:SI 1 r1)
+        (const_int 512 [0x200])) "sdc.c":162:3 -1
+     (nil))
+(insn 51 50 52 2 (set (reg:SI 0 r0)
+        (const_int 16 [0x10])) "sdc.c":162:3 -1
+     (nil))
+(call_insn 52 51 53 2 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("do_command") [flags 0x3]  <function_decl 0x7f2800e61e00 do_command>) [0 do_command S4 A32])
+                    (const_int 0 [0])))
+            (use (const_int 0 [0]))
+            (clobber (reg:SI 14 lr))
+        ]) "sdc.c":162:3 -1
+     (nil)
+    (expr_list (clobber (reg:SI 12 ip))
+        (expr_list:SI (use (reg:SI 0 r0))
+            (expr_list:SI (use (reg:SI 1 r1))
+                (expr_list:SI (use (reg:SI 2 r2))
+                    (nil))))))
+(insn 53 52 54 2 (set (reg/f:SI 131)
+        (symbol_ref:SI ("base") [flags 0x2]  <var_decl 0x7f2800e6a2d0 base>)) "sdc.c":165:17 -1
+     (nil))
+(insn 54 53 55 2 (set (reg:SI 120 [ base.24_8 ])
+        (mem/c:SI (reg/f:SI 131) [1 base+0 S4 A32])) "sdc.c":165:17 -1
+     (nil))
+(insn 55 54 56 2 (set (reg:SI 121 [ _9 ])
+        (plus:SI (reg:SI 120 [ base.24_8 ])
+            (const_int 60 [0x3c]))) "sdc.c":165:17 -1
+     (nil))
+(insn 56 55 57 2 (set (reg/f:SI 122 [ _10 ])
+        (reg:SI 121 [ _9 ])) "sdc.c":165:4 -1
+     (nil))
+(insn 57 56 58 2 (set (reg:SI 132)
+        (const_int 393216 [0x60000])) "sdc.c":165:26 -1
+     (nil))
+(insn 58 57 59 2 (set (mem:SI (reg/f:SI 122 [ _10 ]) [1 *_10+0 S4 A32])
+        (reg:SI 132)) "sdc.c":165:26 -1
+     (nil))
+(insn 59 58 60 2 (set (reg/f:SI 133)
+        (symbol_ref:SI ("rxsem") [flags 0x2]  <var_decl 0x7f2800e6a6c0 rxsem>)) "sdc.c":167:15 -1
+     (nil))
+(insn 60 59 61 2 (set (reg:SI 134)
+        (const_int 0 [0])) "sdc.c":167:15 -1
+     (nil))
+(insn 61 60 62 2 (set (mem/c:SI (reg/f:SI 133) [1 rxsem.value+0 S4 A32])
+        (reg:SI 134)) "sdc.c":167:15 -1
+     (nil))
+(insn 62 61 63 2 (set (reg/f:SI 135)
+        (symbol_ref:SI ("rxsem") [flags 0x2]  <var_decl 0x7f2800e6a6c0 rxsem>)) "sdc.c":168:15 -1
+     (nil))
+(insn 63 62 64 2 (set (reg:SI 136)
+        (const_int 0 [0])) "sdc.c":168:15 -1
+     (nil))
+(insn 64 63 65 2 (set (mem/f/c:SI (plus:SI (reg/f:SI 135)
+                (const_int 4 [0x4])) [5 rxsem.queue+0 S4 A32])
+        (reg:SI 136)) "sdc.c":168:15 -1
+     (nil))
+(insn 65 64 66 2 (set (reg/f:SI 137)
+        (symbol_ref:SI ("txsem") [flags 0x2]  <var_decl 0x7f2800e6a750 txsem>)) "sdc.c":169:15 -1
+     (nil))
+(insn 66 65 67 2 (set (reg:SI 138)
+        (const_int 0 [0])) "sdc.c":169:15 -1
+     (nil))
+(insn 67 66 68 2 (set (mem/c:SI (reg/f:SI 137) [1 txsem.value+0 S4 A32])
+        (reg:SI 138)) "sdc.c":169:15 -1
+     (nil))
+(insn 68 67 69 2 (set (reg/f:SI 139)
+        (symbol_ref:SI ("txsem") [flags 0x2]  <var_decl 0x7f2800e6a750 txsem>)) "sdc.c":170:15 -1
+     (nil))
+(insn 69 68 70 2 (set (reg:SI 140)
+        (const_int 0 [0])) "sdc.c":170:15 -1
+     (nil))
+(insn 70 69 71 2 (set (mem/f/c:SI (plus:SI (reg/f:SI 139)
+                (const_int 4 [0x4])) [5 txsem.queue+0 S4 A32])
+        (reg:SI 140)) "sdc.c":170:15 -1
+     (nil))
+(insn 71 70 72 2 (set (reg:SI 0 r0)
+        (symbol_ref/f:SI ("*.LC1") [flags 0x2]  <var_decl 0x7f2800e83510 *.LC1>)) "sdc.c":172:3 -1
+     (nil))
+(call_insn 72 71 75 2 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("kprintf") [flags 0x41]  <function_decl 0x7f2800e73700 kprintf>) [0 kprintf S4 A32])
+                    (const_int 0 [0])))
+            (use (const_int 0 [0]))
+            (clobber (reg:SI 14 lr))
+        ]) "sdc.c":172:3 -1
+     (nil)
+    (expr_list (clobber (reg:SI 12 ip))
+        (expr_list:SI (use (reg:SI 0 r0))
+            (nil))))
+(insn 75 72 76 2 (clobber (reg/i:SI 0 r0)) "sdc.c":173:1 -1
+     (nil))
+(insn 76 75 79 2 (clobber (reg:SI 123 [ <retval> ])) "sdc.c":173:1 -1
+     (nil))
+(insn 79 76 74 2 (const_int 0 [0]) "sdc.c":173:1 -1
+     (nil))
+(insn 74 79 77 2 (set (reg/i:SI 0 r0)
+        (reg:SI 123 [ <retval> ])) "sdc.c":173:1 -1
+     (nil))
+(insn 77 74 0 2 (use (reg/i:SI 0 r0)) "sdc.c":173:1 -1
+     (nil))
+;;  succ:       EXIT [always]  (FALLTHRU)
+
+
+;; Function getblock (getblock, funcdef_no=3, decl_uid=4513, cgraph_uid=4, symbol_order=12)
+
+int getblock (int blk, char * buf)
+{
+  u32 arg;
+  u32 cmd;
+  unsigned int base.25_1;
+  unsigned int _2;
+  u32 * _3;
+  unsigned int base.26_4;
+  unsigned int _5;
+  u32 * _6;
+  int _7;
+  int cmd.27_8;
+  int arg.28_9;
+  unsigned int base.29_10;
+  unsigned int _11;
+  u32 * _12;
+  struct PROC * running.30_13;
+  int _14;
+  int rxdone.31_15;
+
+;;   basic block 2, loop depth 0
+;;    pred:       ENTRY
+  rxbuf = buf_18(D);
+  rxcount = 1024;
+  rxsem.value = 0;
+  rxsem.queue = 0B;
+  rxdone = 0;
+  base.25_1 = base;
+  _2 = base.25_1 + 36;
+  _3 = (u32 *) _2;
+  *_3 = 4294901760;
+  base.26_4 = base;
+  _5 = base.26_4 + 40;
+  _6 = (u32 *) _5;
+  *_6 = 1024;
+  cmd_26 = 18;
+  _7 = blk_27(D) * 1024;
+  arg_28 = (u32) _7;
+  cmd.27_8 = (int) cmd_26;
+  arg.28_9 = (int) arg_28;
+  do_command (cmd.27_8, arg.28_9, 21);
+  base.29_10 = base;
+  _11 = base.29_10 + 44;
+  _12 = (u32 *) _11;
+  *_12 = 147;
+  running.30_13 = running;
+  _14 = running.30_13->pid;
+  if (_14 != 0)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 4>; [INV]
+;;    succ:       3
+;;                4
+
+;;   basic block 3, loop depth 0
+;;    pred:       2
+  P (&rxsem);
+  goto <bb 6>; [INV]
+;;    succ:       6
+
+;;   basic block 4, loop depth 0
+;;    pred:       2
+;;    succ:       5
+
+;;   basic block 5, loop depth 1
+;;    pred:       4
+;;                5
+  rxdone.31_15 = rxdone;
+  if (rxdone.31_15 == 0)
+    goto <bb 5>; [INV]
+  else
+    goto <bb 6>; [INV]
+;;    succ:       5
+;;                6
+
+;;   basic block 6, loop depth 0
+;;    pred:       3
+;;                5
+  return;
+;;    succ:       EXIT
+
+}
+
+
+
+Partition map 
+
+Partition 1 (base.25_1 - 1 )
+Partition 2 (_2 - 2 )
+Partition 3 (_3 - 3 )
+Partition 4 (base.26_4 - 4 )
+Partition 5 (_5 - 5 )
+Partition 6 (_6 - 6 )
+Partition 7 (_7 - 7 )
+Partition 8 (cmd.27_8 - 8 )
+Partition 9 (arg.28_9 - 9 )
+Partition 10 (base.29_10 - 10 )
+Partition 11 (_11 - 11 )
+Partition 12 (_12 - 12 )
+Partition 13 (running.30_13 - 13 )
+Partition 14 (_14 - 14 )
+Partition 15 (rxdone.31_15 - 15 )
+Partition 18 (buf_18(D) - 18 )
+Partition 26 (cmd_26 - 26 )
+Partition 27 (blk_27(D) - 27 )
+Partition 28 (arg_28 - 28 )
+Partition 32 (_32(D) - 32 )
+
+
+Coalescible Partition map 
+
+Partition 0, base 0 (buf_18(D) - 18 )
+Partition 1, base 1 (blk_27(D) - 27 )
+Partition 2, base 2 (_32(D) - 32 )
+
+
+Partition map 
+
+Partition 0 (buf_18(D) - 18 )
+Partition 1 (blk_27(D) - 27 )
+Partition 2 (_32(D) - 32 )
+
+
+Conflict graph:
+
+After sorting:
+Coalesce List:
+
+Partition map 
+
+Partition 0 (buf_18(D) - 18 )
+Partition 1 (blk_27(D) - 27 )
+Partition 2 (_32(D) - 32 )
+
+After Coalescing:
+
+Partition map 
+
+Partition 0 (base.25_1 - 1 )
+Partition 1 (_2 - 2 )
+Partition 2 (_3 - 3 )
+Partition 3 (base.26_4 - 4 )
+Partition 4 (_5 - 5 )
+Partition 5 (_6 - 6 )
+Partition 6 (_7 - 7 )
+Partition 7 (cmd.27_8 - 8 )
+Partition 8 (arg.28_9 - 9 )
+Partition 9 (base.29_10 - 10 )
+Partition 10 (_11 - 11 )
+Partition 11 (_12 - 12 )
+Partition 12 (running.30_13 - 13 )
+Partition 13 (_14 - 14 )
+Partition 14 (rxdone.31_15 - 15 )
+Partition 15 (buf_18(D) - 18 )
+Partition 16 (cmd_26 - 26 )
+Partition 17 (blk_27(D) - 27 )
+Partition 18 (arg_28 - 28 )
+Partition 19 (_32(D) - 32 )
+
+int getblock (int blk, char * buf)
+{
+  u32 arg;
+  u32 cmd;
+  unsigned int base.25_1;
+  unsigned int _2;
+  u32 * _3;
+  unsigned int base.26_4;
+  unsigned int _5;
+  u32 * _6;
+  int _7;
+  int cmd.27_8;
+  int arg.28_9;
+  unsigned int base.29_10;
+  unsigned int _11;
+  u32 * _12;
+  struct PROC * running.30_13;
+  int _14;
+  int rxdone.31_15;
+  int _32(D);
+
+;;   basic block 2, loop depth 0
+;;    pred:       ENTRY
+  rxbuf = buf_18(D);
+  rxcount = 1024;
+  rxsem.value = 0;
+  rxsem.queue = 0B;
+  rxdone = 0;
+  base.25_1 = base;
+  _2 = base.25_1 + 36;
+  _3 = (u32 *) _2;
+  *_3 = 4294901760;
+  base.26_4 = base;
+  _5 = base.26_4 + 40;
+  _6 = (u32 *) _5;
+  *_6 = 1024;
+  cmd_26 = 18;
+  _7 = blk_27(D) * 1024;
+  arg_28 = (u32) _7;
+  cmd.27_8 = (int) cmd_26;
+  arg.28_9 = (int) arg_28;
+  do_command (cmd.27_8, arg.28_9, 21);
+  base.29_10 = base;
+  _11 = base.29_10 + 44;
+  _12 = (u32 *) _11;
+  *_12 = 147;
+  running.30_13 = running;
+  _14 = running.30_13->pid;
+  if (_14 != 0)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 4>; [INV]
+;;    succ:       3
+;;                4
+
+;;   basic block 3, loop depth 0
+;;    pred:       2
+  P (&rxsem);
+  goto <bb 6>; [INV]
+;;    succ:       6
+
+;;   basic block 4, loop depth 0
+;;    pred:       2
+;;    succ:       5
+
+;;   basic block 5, loop depth 1
+;;    pred:       4
+;;                5
+  rxdone.31_15 = rxdone;
+  if (rxdone.31_15 == 0)
+    goto <bb 5>; [INV]
+  else
+    goto <bb 6>; [INV]
+;;    succ:       5
+;;                6
+
+;;   basic block 6, loop depth 0
+;;    pred:       3
+;;                5
+  return;
+;;    succ:       EXIT
+
+}
+
+
+Partition 1: size 4 align 4
+	arg_28
+Partition 0: size 4 align 4
+	cmd_26
+
+;; Generating RTL for gimple basic block 2
+
+;; rxbuf = buf_18(D);
+
+(insn 7 6 8 (set (reg/f:SI 129)
+        (symbol_ref:SI ("rxbuf") [flags 0x2]  <var_decl 0x7f2800e6a360 rxbuf>)) "sdc.c":180:9 -1
+     (nil))
+
+(insn 8 7 9 (set (reg/f:SI 130)
+        (mem/f/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -16 [0xfffffffffffffff0])) [3 buf+0 S4 A32])) "sdc.c":180:9 -1
+     (nil))
+
+(insn 9 8 0 (set (mem/f/c:SI (reg/f:SI 129) [3 rxbuf+0 S4 A32])
+        (reg/f:SI 130)) "sdc.c":180:9 -1
+     (nil))
+
+;; rxcount = 1024;
+
+(insn 10 9 11 (set (reg/f:SI 131)
+        (symbol_ref:SI ("rxcount") [flags 0x2]  <var_decl 0x7f2800e6a480 rxcount>)) "sdc.c":180:24 -1
+     (nil))
+
+(insn 11 10 12 (set (reg:SI 132)
+        (const_int 1024 [0x400])) "sdc.c":180:24 -1
+     (nil))
+
+(insn 12 11 0 (set (mem/c:SI (reg/f:SI 131) [1 rxcount+0 S4 A32])
+        (reg:SI 132)) "sdc.c":180:24 -1
+     (nil))
+
+;; rxsem.value = 0;
+
+(insn 13 12 14 (set (reg/f:SI 133)
+        (symbol_ref:SI ("rxsem") [flags 0x2]  <var_decl 0x7f2800e6a6c0 rxsem>)) "sdc.c":181:15 -1
+     (nil))
+
+(insn 14 13 15 (set (reg:SI 134)
+        (const_int 0 [0])) "sdc.c":181:15 -1
+     (nil))
+
+(insn 15 14 0 (set (mem/c:SI (reg/f:SI 133) [1 rxsem.value+0 S4 A32])
+        (reg:SI 134)) "sdc.c":181:15 -1
+     (nil))
+
+;; rxsem.queue = 0B;
+
+(insn 16 15 17 (set (reg/f:SI 135)
+        (symbol_ref:SI ("rxsem") [flags 0x2]  <var_decl 0x7f2800e6a6c0 rxsem>)) "sdc.c":182:15 -1
+     (nil))
+
+(insn 17 16 18 (set (reg:SI 136)
+        (const_int 0 [0])) "sdc.c":182:15 -1
+     (nil))
+
+(insn 18 17 0 (set (mem/f/c:SI (plus:SI (reg/f:SI 135)
+                (const_int 4 [0x4])) [5 rxsem.queue+0 S4 A32])
+        (reg:SI 136)) "sdc.c":182:15 -1
+     (nil))
+
+;; rxdone = 0;
+
+(insn 19 18 20 (set (reg/f:SI 137)
+        (symbol_ref:SI ("rxdone") [flags 0x2]  <var_decl 0x7f2800e6a5a0 rxdone>)) "sdc.c":183:10 -1
+     (nil))
+
+(insn 20 19 21 (set (reg:SI 138)
+        (const_int 0 [0])) "sdc.c":183:10 -1
+     (nil))
+
+(insn 21 20 0 (set (mem/c:SI (reg/f:SI 137) [1 rxdone+0 S4 A32])
+        (reg:SI 138)) "sdc.c":183:10 -1
+     (nil))
+
+;; base.25_1 = base;
+
+(insn 22 21 23 (set (reg/f:SI 139)
+        (symbol_ref:SI ("base") [flags 0x2]  <var_decl 0x7f2800e6a2d0 base>)) "sdc.c":185:17 -1
+     (nil))
+
+(insn 23 22 0 (set (reg:SI 113 [ base.25_1 ])
+        (mem/c:SI (reg/f:SI 139) [1 base+0 S4 A32])) "sdc.c":185:17 -1
+     (nil))
+
+;; _2 = base.25_1 + 36;
+
+(insn 24 23 0 (set (reg:SI 114 [ _2 ])
+        (plus:SI (reg:SI 113 [ base.25_1 ])
+            (const_int 36 [0x24]))) "sdc.c":185:17 -1
+     (nil))
+
+;; _3 = (u32 *) _2;
+
+(insn 25 24 0 (set (reg/f:SI 115 [ _3 ])
+        (reg:SI 114 [ _2 ])) "sdc.c":185:4 -1
+     (nil))
+
+;; *_3 = 4294901760;
+
+(insn 26 25 27 (set (reg:SI 140)
+        (const_int -65536 [0xffffffffffff0000])) "sdc.c":185:30 -1
+     (nil))
+
+(insn 27 26 0 (set (mem:SI (reg/f:SI 115 [ _3 ]) [1 *_3+0 S4 A32])
+        (reg:SI 140)) "sdc.c":185:30 -1
+     (nil))
+
+;; base.26_4 = base;
+
+(insn 28 27 29 (set (reg/f:SI 141)
+        (symbol_ref:SI ("base") [flags 0x2]  <var_decl 0x7f2800e6a2d0 base>)) "sdc.c":187:17 -1
+     (nil))
+
+(insn 29 28 0 (set (reg:SI 116 [ base.26_4 ])
+        (mem/c:SI (reg/f:SI 141) [1 base+0 S4 A32])) "sdc.c":187:17 -1
+     (nil))
+
+;; _5 = base.26_4 + 40;
+
+(insn 30 29 0 (set (reg:SI 117 [ _5 ])
+        (plus:SI (reg:SI 116 [ base.26_4 ])
+            (const_int 40 [0x28]))) "sdc.c":187:17 -1
+     (nil))
+
+;; _6 = (u32 *) _5;
+
+(insn 31 30 0 (set (reg/f:SI 118 [ _6 ])
+        (reg:SI 117 [ _5 ])) "sdc.c":187:4 -1
+     (nil))
+
+;; *_6 = 1024;
+
+(insn 32 31 33 (set (reg:SI 142)
+        (const_int 1024 [0x400])) "sdc.c":187:31 -1
+     (nil))
+
+(insn 33 32 0 (set (mem:SI (reg/f:SI 118 [ _6 ]) [1 *_6+0 S4 A32])
+        (reg:SI 142)) "sdc.c":187:31 -1
+     (nil))
+
+;; cmd_26 = 18;
+
+(insn 34 33 35 (set (reg:SI 143)
+        (const_int 18 [0x12])) "sdc.c":189:7 -1
+     (nil))
+
+(insn 35 34 0 (set (mem/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [1 cmd+0 S4 A64])
+        (reg:SI 143)) "sdc.c":189:7 -1
+     (nil))
+
+;; _7 = blk_27(D) * 1024;
+
+(insn 36 35 37 (set (reg:SI 144)
+        (mem/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -12 [0xfffffffffffffff4])) [1 blk+0 S4 A32])) "sdc.c":190:17 -1
+     (nil))
+
+(insn 37 36 0 (set (reg:SI 119 [ _7 ])
+        (ashift:SI (reg:SI 144)
+            (const_int 10 [0xa]))) "sdc.c":190:17 -1
+     (nil))
+
+;; arg_28 = (u32) _7;
+
+(insn 38 37 0 (set (mem/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -4 [0xfffffffffffffffc])) [1 arg+0 S4 A32])
+        (reg:SI 119 [ _7 ])) "sdc.c":190:7 -1
+     (nil))
+
+;; cmd.27_8 = (int) cmd_26;
+
+(insn 39 38 0 (set (reg:SI 120 [ cmd.27_8 ])
+        (mem/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [1 cmd+0 S4 A64])) "sdc.c":191:3 -1
+     (nil))
+
+;; arg.28_9 = (int) arg_28;
+
+(insn 40 39 0 (set (reg:SI 121 [ arg.28_9 ])
+        (mem/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -4 [0xfffffffffffffffc])) [1 arg+0 S4 A32])) "sdc.c":191:3 -1
+     (nil))
+
+;; do_command (cmd.27_8, arg.28_9, 21);
+
+(insn 41 40 42 (set (reg:SI 2 r2)
+        (const_int 21 [0x15])) "sdc.c":191:3 -1
+     (nil))
+
+(insn 42 41 43 (set (reg:SI 1 r1)
+        (reg:SI 121 [ arg.28_9 ])) "sdc.c":191:3 -1
+     (nil))
+
+(insn 43 42 44 (set (reg:SI 0 r0)
+        (reg:SI 120 [ cmd.27_8 ])) "sdc.c":191:3 -1
+     (nil))
+
+(call_insn 44 43 0 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("do_command") [flags 0x3]  <function_decl 0x7f2800e61e00 do_command>) [0 do_command S4 A32])
+                    (const_int 0 [0])))
+            (use (const_int 0 [0]))
+            (clobber (reg:SI 14 lr))
+        ]) "sdc.c":191:3 -1
+     (nil)
+    (expr_list (clobber (reg:SI 12 ip))
+        (expr_list:SI (use (reg:SI 0 r0))
+            (expr_list:SI (use (reg:SI 1 r1))
+                (expr_list:SI (use (reg:SI 2 r2))
+                    (nil))))))
+
+;; base.29_10 = base;
+
+(insn 45 44 46 (set (reg/f:SI 145)
+        (symbol_ref:SI ("base") [flags 0x2]  <var_decl 0x7f2800e6a2d0 base>)) "sdc.c":195:17 -1
+     (nil))
+
+(insn 46 45 0 (set (reg:SI 122 [ base.29_10 ])
+        (mem/c:SI (reg/f:SI 145) [1 base+0 S4 A32])) "sdc.c":195:17 -1
+     (nil))
+
+;; _11 = base.29_10 + 44;
+
+(insn 47 46 0 (set (reg:SI 123 [ _11 ])
+        (plus:SI (reg:SI 122 [ base.29_10 ])
+            (const_int 44 [0x2c]))) "sdc.c":195:17 -1
+     (nil))
+
+;; _12 = (u32 *) _11;
+
+(insn 48 47 0 (set (reg/f:SI 124 [ _12 ])
+        (reg:SI 123 [ _11 ])) "sdc.c":195:4 -1
+     (nil))
+
+;; *_12 = 147;
+
+(insn 49 48 50 (set (reg:SI 146)
+        (const_int 147 [0x93])) "sdc.c":195:29 -1
+     (nil))
+
+(insn 50 49 0 (set (mem:SI (reg/f:SI 124 [ _12 ]) [1 *_12+0 S4 A32])
+        (reg:SI 146)) "sdc.c":195:29 -1
+     (nil))
+
+;; running.30_13 = running;
+
+(insn 51 50 52 (set (reg/f:SI 147)
+        (symbol_ref:SI ("running") [flags 0x40]  <var_decl 0x7f2801b4c7e0 running>)) "sdc.c":198:14 -1
+     (nil))
+
+(insn 52 51 0 (set (reg/f:SI 125 [ running.30_13 ])
+        (mem/f/c:SI (reg/f:SI 147) [5 running+0 S4 A32])) "sdc.c":198:14 -1
+     (nil))
+
+;; _14 = running.30_13->pid;
+
+(insn 53 52 0 (set (reg:SI 126 [ _14 ])
+        (mem:SI (plus:SI (reg/f:SI 125 [ running.30_13 ])
+                (const_int 24 [0x18])) [1 running.30_13->pid+0 S4 A32])) "sdc.c":198:14 -1
+     (nil))
+
+;; if (_14 != 0)
+
+(insn 54 53 55 (set (reg:CC 100 cc)
+        (compare:CC (reg:SI 126 [ _14 ])
+            (const_int 0 [0]))) "sdc.c":198:6 -1
+     (nil))
+
+(jump_insn 55 54 0 (set (pc)
+        (if_then_else (eq (reg:CC 100 cc)
+                (const_int 0 [0]))
+            (label_ref 0)
+            (pc))) "sdc.c":198:6 -1
+     (nil))
+
+;; Generating RTL for gimple basic block 3
+
+;; P (&rxsem);
+
+(insn 57 56 58 (set (reg:SI 0 r0)
+        (symbol_ref:SI ("rxsem") [flags 0x2]  <var_decl 0x7f2800e6a6c0 rxsem>)) "sdc.c":199:6 -1
+     (nil))
+
+(call_insn 58 57 0 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("P") [flags 0x41]  <function_decl 0x7f2800e73b00 P>) [0 P S4 A32])
+                    (const_int 0 [0])))
+            (use (const_int 0 [0]))
+            (clobber (reg:SI 14 lr))
+        ]) "sdc.c":199:6 -1
+     (nil)
+    (expr_list (clobber (reg:SI 12 ip))
+        (expr_list:SI (use (reg:SI 0 r0))
+            (nil))))
+
+;; Generating RTL for gimple basic block 4
+
+;; 
+
+(code_label 61 60 62 19 (nil) [0 uses])
+
+(note 62 61 0 NOTE_INSN_BASIC_BLOCK)
+
+;; Generating RTL for gimple basic block 5
+
+;; rxdone.31_15 = rxdone;
+
+(insn 64 63 65 (set (reg/f:SI 148)
+        (symbol_ref:SI ("rxdone") [flags 0x2]  <var_decl 0x7f2800e6a5a0 rxdone>)) "sdc.c":201:17 -1
+     (nil))
+
+(insn 65 64 0 (set (reg:SI 127 [ rxdone.31_15 ])
+        (mem/c:SI (reg/f:SI 148) [1 rxdone+0 S4 A32])) "sdc.c":201:17 -1
+     (nil))
+
+;; if (rxdone.31_15 == 0)
+
+(insn 67 65 68 (set (reg:CC 100 cc)
+        (compare:CC (reg:SI 127 [ rxdone.31_15 ])
+            (const_int 0 [0]))) "sdc.c":201:17 -1
+     (nil))
+
+(jump_insn 68 67 0 (set (pc)
+        (if_then_else (eq (reg:CC 100 cc)
+                (const_int 0 [0]))
+            (label_ref 66)
+            (pc))) "sdc.c":201:17 -1
+     (nil))
+
+;; Generating RTL for gimple basic block 6
+
+;; 
+
+(code_label 69 68 70 20 (nil) [0 uses])
+
+(note 70 69 0 NOTE_INSN_BASIC_BLOCK)
+
+
+try_optimize_cfg iteration 1
+
+Merging block 3 into block 2...
+Merged blocks 2 and 3.
+Merged 2 and 3 without moving.
+Merging block 8 into block 7...
+Merged blocks 7 and 8.
+Merged 7 and 8 without moving.
+
+
+try_optimize_cfg iteration 2
+
+fix_loop_structure: fixing up loops for function
+
+
+;;
+;; Full RTL generated for this function:
+;;
+(note 1 0 5 NOTE_INSN_DELETED)
+;; basic block 2, loop depth 0, maybe hot
+;;  prev block 0, next block 4, flags: (NEW, REACHABLE, RTL)
+;;  pred:       ENTRY (FALLTHRU)
+(note 5 1 2 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+(insn 2 5 3 2 (set (mem/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -12 [0xfffffffffffffff4])) [1 blk+0 S4 A32])
+        (reg:SI 0 r0 [ blk ])) "sdc.c":176:1 -1
+     (nil))
+(insn 3 2 4 2 (set (mem/f/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -16 [0xfffffffffffffff0])) [3 buf+0 S4 A32])
+        (reg:SI 1 r1 [ buf ])) "sdc.c":176:1 -1
+     (nil))
+(note 4 3 7 2 NOTE_INSN_FUNCTION_BEG)
+(insn 7 4 8 2 (set (reg/f:SI 129)
+        (symbol_ref:SI ("rxbuf") [flags 0x2]  <var_decl 0x7f2800e6a360 rxbuf>)) "sdc.c":180:9 -1
+     (nil))
+(insn 8 7 9 2 (set (reg/f:SI 130)
+        (mem/f/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -16 [0xfffffffffffffff0])) [3 buf+0 S4 A32])) "sdc.c":180:9 -1
+     (nil))
+(insn 9 8 10 2 (set (mem/f/c:SI (reg/f:SI 129) [3 rxbuf+0 S4 A32])
+        (reg/f:SI 130)) "sdc.c":180:9 -1
+     (nil))
+(insn 10 9 11 2 (set (reg/f:SI 131)
+        (symbol_ref:SI ("rxcount") [flags 0x2]  <var_decl 0x7f2800e6a480 rxcount>)) "sdc.c":180:24 -1
+     (nil))
+(insn 11 10 12 2 (set (reg:SI 132)
+        (const_int 1024 [0x400])) "sdc.c":180:24 -1
+     (nil))
+(insn 12 11 13 2 (set (mem/c:SI (reg/f:SI 131) [1 rxcount+0 S4 A32])
+        (reg:SI 132)) "sdc.c":180:24 -1
+     (nil))
+(insn 13 12 14 2 (set (reg/f:SI 133)
+        (symbol_ref:SI ("rxsem") [flags 0x2]  <var_decl 0x7f2800e6a6c0 rxsem>)) "sdc.c":181:15 -1
+     (nil))
+(insn 14 13 15 2 (set (reg:SI 134)
+        (const_int 0 [0])) "sdc.c":181:15 -1
+     (nil))
+(insn 15 14 16 2 (set (mem/c:SI (reg/f:SI 133) [1 rxsem.value+0 S4 A32])
+        (reg:SI 134)) "sdc.c":181:15 -1
+     (nil))
+(insn 16 15 17 2 (set (reg/f:SI 135)
+        (symbol_ref:SI ("rxsem") [flags 0x2]  <var_decl 0x7f2800e6a6c0 rxsem>)) "sdc.c":182:15 -1
+     (nil))
+(insn 17 16 18 2 (set (reg:SI 136)
+        (const_int 0 [0])) "sdc.c":182:15 -1
+     (nil))
+(insn 18 17 19 2 (set (mem/f/c:SI (plus:SI (reg/f:SI 135)
+                (const_int 4 [0x4])) [5 rxsem.queue+0 S4 A32])
+        (reg:SI 136)) "sdc.c":182:15 -1
+     (nil))
+(insn 19 18 20 2 (set (reg/f:SI 137)
+        (symbol_ref:SI ("rxdone") [flags 0x2]  <var_decl 0x7f2800e6a5a0 rxdone>)) "sdc.c":183:10 -1
+     (nil))
+(insn 20 19 21 2 (set (reg:SI 138)
+        (const_int 0 [0])) "sdc.c":183:10 -1
+     (nil))
+(insn 21 20 22 2 (set (mem/c:SI (reg/f:SI 137) [1 rxdone+0 S4 A32])
+        (reg:SI 138)) "sdc.c":183:10 -1
+     (nil))
+(insn 22 21 23 2 (set (reg/f:SI 139)
+        (symbol_ref:SI ("base") [flags 0x2]  <var_decl 0x7f2800e6a2d0 base>)) "sdc.c":185:17 -1
+     (nil))
+(insn 23 22 24 2 (set (reg:SI 113 [ base.25_1 ])
+        (mem/c:SI (reg/f:SI 139) [1 base+0 S4 A32])) "sdc.c":185:17 -1
+     (nil))
+(insn 24 23 25 2 (set (reg:SI 114 [ _2 ])
+        (plus:SI (reg:SI 113 [ base.25_1 ])
+            (const_int 36 [0x24]))) "sdc.c":185:17 -1
+     (nil))
+(insn 25 24 26 2 (set (reg/f:SI 115 [ _3 ])
+        (reg:SI 114 [ _2 ])) "sdc.c":185:4 -1
+     (nil))
+(insn 26 25 27 2 (set (reg:SI 140)
+        (const_int -65536 [0xffffffffffff0000])) "sdc.c":185:30 -1
+     (nil))
+(insn 27 26 28 2 (set (mem:SI (reg/f:SI 115 [ _3 ]) [1 *_3+0 S4 A32])
+        (reg:SI 140)) "sdc.c":185:30 -1
+     (nil))
+(insn 28 27 29 2 (set (reg/f:SI 141)
+        (symbol_ref:SI ("base") [flags 0x2]  <var_decl 0x7f2800e6a2d0 base>)) "sdc.c":187:17 -1
+     (nil))
+(insn 29 28 30 2 (set (reg:SI 116 [ base.26_4 ])
+        (mem/c:SI (reg/f:SI 141) [1 base+0 S4 A32])) "sdc.c":187:17 -1
+     (nil))
+(insn 30 29 31 2 (set (reg:SI 117 [ _5 ])
+        (plus:SI (reg:SI 116 [ base.26_4 ])
+            (const_int 40 [0x28]))) "sdc.c":187:17 -1
+     (nil))
+(insn 31 30 32 2 (set (reg/f:SI 118 [ _6 ])
+        (reg:SI 117 [ _5 ])) "sdc.c":187:4 -1
+     (nil))
+(insn 32 31 33 2 (set (reg:SI 142)
+        (const_int 1024 [0x400])) "sdc.c":187:31 -1
+     (nil))
+(insn 33 32 34 2 (set (mem:SI (reg/f:SI 118 [ _6 ]) [1 *_6+0 S4 A32])
+        (reg:SI 142)) "sdc.c":187:31 -1
+     (nil))
+(insn 34 33 35 2 (set (reg:SI 143)
+        (const_int 18 [0x12])) "sdc.c":189:7 -1
+     (nil))
+(insn 35 34 36 2 (set (mem/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [1 cmd+0 S4 A64])
+        (reg:SI 143)) "sdc.c":189:7 -1
+     (nil))
+(insn 36 35 37 2 (set (reg:SI 144)
+        (mem/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -12 [0xfffffffffffffff4])) [1 blk+0 S4 A32])) "sdc.c":190:17 -1
+     (nil))
+(insn 37 36 38 2 (set (reg:SI 119 [ _7 ])
+        (ashift:SI (reg:SI 144)
+            (const_int 10 [0xa]))) "sdc.c":190:17 -1
+     (nil))
+(insn 38 37 39 2 (set (mem/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -4 [0xfffffffffffffffc])) [1 arg+0 S4 A32])
+        (reg:SI 119 [ _7 ])) "sdc.c":190:7 -1
+     (nil))
+(insn 39 38 40 2 (set (reg:SI 120 [ cmd.27_8 ])
+        (mem/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [1 cmd+0 S4 A64])) "sdc.c":191:3 -1
+     (nil))
+(insn 40 39 41 2 (set (reg:SI 121 [ arg.28_9 ])
+        (mem/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -4 [0xfffffffffffffffc])) [1 arg+0 S4 A32])) "sdc.c":191:3 -1
+     (nil))
+(insn 41 40 42 2 (set (reg:SI 2 r2)
+        (const_int 21 [0x15])) "sdc.c":191:3 -1
+     (nil))
+(insn 42 41 43 2 (set (reg:SI 1 r1)
+        (reg:SI 121 [ arg.28_9 ])) "sdc.c":191:3 -1
+     (nil))
+(insn 43 42 44 2 (set (reg:SI 0 r0)
+        (reg:SI 120 [ cmd.27_8 ])) "sdc.c":191:3 -1
+     (nil))
+(call_insn 44 43 45 2 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("do_command") [flags 0x3]  <function_decl 0x7f2800e61e00 do_command>) [0 do_command S4 A32])
+                    (const_int 0 [0])))
+            (use (const_int 0 [0]))
+            (clobber (reg:SI 14 lr))
+        ]) "sdc.c":191:3 -1
+     (nil)
+    (expr_list (clobber (reg:SI 12 ip))
+        (expr_list:SI (use (reg:SI 0 r0))
+            (expr_list:SI (use (reg:SI 1 r1))
+                (expr_list:SI (use (reg:SI 2 r2))
+                    (nil))))))
+(insn 45 44 46 2 (set (reg/f:SI 145)
+        (symbol_ref:SI ("base") [flags 0x2]  <var_decl 0x7f2800e6a2d0 base>)) "sdc.c":195:17 -1
+     (nil))
+(insn 46 45 47 2 (set (reg:SI 122 [ base.29_10 ])
+        (mem/c:SI (reg/f:SI 145) [1 base+0 S4 A32])) "sdc.c":195:17 -1
+     (nil))
+(insn 47 46 48 2 (set (reg:SI 123 [ _11 ])
+        (plus:SI (reg:SI 122 [ base.29_10 ])
+            (const_int 44 [0x2c]))) "sdc.c":195:17 -1
+     (nil))
+(insn 48 47 49 2 (set (reg/f:SI 124 [ _12 ])
+        (reg:SI 123 [ _11 ])) "sdc.c":195:4 -1
+     (nil))
+(insn 49 48 50 2 (set (reg:SI 146)
+        (const_int 147 [0x93])) "sdc.c":195:29 -1
+     (nil))
+(insn 50 49 51 2 (set (mem:SI (reg/f:SI 124 [ _12 ]) [1 *_12+0 S4 A32])
+        (reg:SI 146)) "sdc.c":195:29 -1
+     (nil))
+(insn 51 50 52 2 (set (reg/f:SI 147)
+        (symbol_ref:SI ("running") [flags 0x40]  <var_decl 0x7f2801b4c7e0 running>)) "sdc.c":198:14 -1
+     (nil))
+(insn 52 51 53 2 (set (reg/f:SI 125 [ running.30_13 ])
+        (mem/f/c:SI (reg/f:SI 147) [5 running+0 S4 A32])) "sdc.c":198:14 -1
+     (nil))
+(insn 53 52 54 2 (set (reg:SI 126 [ _14 ])
+        (mem:SI (plus:SI (reg/f:SI 125 [ running.30_13 ])
+                (const_int 24 [0x18])) [1 running.30_13->pid+0 S4 A32])) "sdc.c":198:14 -1
+     (nil))
+(insn 54 53 55 2 (set (reg:CC 100 cc)
+        (compare:CC (reg:SI 126 [ _14 ])
+            (const_int 0 [0]))) "sdc.c":198:6 -1
+     (nil))
+(jump_insn 55 54 56 2 (set (pc)
+        (if_then_else (eq (reg:CC 100 cc)
+                (const_int 0 [0]))
+            (label_ref 61)
+            (pc))) "sdc.c":198:6 -1
+     (nil)
+ -> 61)
+;;  succ:       4 (FALLTHRU)
+;;              5
+
+;; basic block 4, loop depth 0, maybe hot
+;;  prev block 2, next block 5, flags: (NEW, REACHABLE, RTL)
+;;  pred:       2 (FALLTHRU)
+(note 56 55 57 4 [bb 4] NOTE_INSN_BASIC_BLOCK)
+(insn 57 56 58 4 (set (reg:SI 0 r0)
+        (symbol_ref:SI ("rxsem") [flags 0x2]  <var_decl 0x7f2800e6a6c0 rxsem>)) "sdc.c":199:6 -1
+     (nil))
+(call_insn 58 57 59 4 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("P") [flags 0x41]  <function_decl 0x7f2800e73b00 P>) [0 P S4 A32])
+                    (const_int 0 [0])))
+            (use (const_int 0 [0]))
+            (clobber (reg:SI 14 lr))
+        ]) "sdc.c":199:6 -1
+     (nil)
+    (expr_list (clobber (reg:SI 12 ip))
+        (expr_list:SI (use (reg:SI 0 r0))
+            (nil))))
+(jump_insn 59 58 60 4 (set (pc)
+        (label_ref 69)) -1
+     (nil)
+ -> 69)
+;;  succ:       7
+
+(barrier 60 59 61)
+;; basic block 5, loop depth 0, maybe hot
+;;  prev block 4, next block 6, flags: (NEW, REACHABLE, RTL)
+;;  pred:       2
+(code_label 61 60 62 5 19 (nil) [1 uses])
+(note 62 61 66 5 [bb 5] NOTE_INSN_BASIC_BLOCK)
+;;  succ:       6 (FALLTHRU)
+
+;; basic block 6, loop depth 1, maybe hot
+;;  prev block 5, next block 7, flags: (NEW, REACHABLE, RTL)
+;;  pred:       5 (FALLTHRU)
+;;              6 (DFS_BACK)
+(code_label 66 62 63 6 21 (nil) [1 uses])
+(note 63 66 64 6 [bb 6] NOTE_INSN_BASIC_BLOCK)
+(insn 64 63 65 6 (set (reg/f:SI 148)
+        (symbol_ref:SI ("rxdone") [flags 0x2]  <var_decl 0x7f2800e6a5a0 rxdone>)) "sdc.c":201:17 -1
+     (nil))
+(insn 65 64 67 6 (set (reg:SI 127 [ rxdone.31_15 ])
+        (mem/c:SI (reg/f:SI 148) [1 rxdone+0 S4 A32])) "sdc.c":201:17 -1
+     (nil))
+(insn 67 65 68 6 (set (reg:CC 100 cc)
+        (compare:CC (reg:SI 127 [ rxdone.31_15 ])
+            (const_int 0 [0]))) "sdc.c":201:17 -1
+     (nil))
+(jump_insn 68 67 69 6 (set (pc)
+        (if_then_else (eq (reg:CC 100 cc)
+                (const_int 0 [0]))
+            (label_ref 66)
+            (pc))) "sdc.c":201:17 -1
+     (nil)
+ -> 66)
+;;  succ:       6 (DFS_BACK)
+;;              7 (FALLTHRU)
+
+;; basic block 7, loop depth 0, maybe hot
+;;  prev block 6, next block 1, flags: (NEW, REACHABLE, RTL, MODIFIED)
+;;  pred:       4
+;;              6 (FALLTHRU)
+(code_label 69 68 70 7 20 (nil) [1 uses])
+(note 70 69 73 7 [bb 7] NOTE_INSN_BASIC_BLOCK)
+(insn 73 70 74 7 (clobber (reg/i:SI 0 r0)) "sdc.c":204:1 -1
+     (nil))
+(insn 74 73 77 7 (clobber (reg:SI 128 [ <retval> ])) "sdc.c":204:1 -1
+     (nil))
+(insn 77 74 72 7 (const_int 0 [0]) "sdc.c":204:1 -1
+     (nil))
+(insn 72 77 75 7 (set (reg/i:SI 0 r0)
+        (reg:SI 128 [ <retval> ])) "sdc.c":204:1 -1
+     (nil))
+(insn 75 72 0 7 (use (reg/i:SI 0 r0)) "sdc.c":204:1 -1
+     (nil))
+;;  succ:       EXIT [always]  (FALLTHRU)
+
+
+;; Function putblock (putblock, funcdef_no=4, decl_uid=4524, cgraph_uid=5, symbol_order=13)
+
+int putblock (int blk, char * buf)
+{
+  u32 arg;
+  u32 cmd;
+  unsigned int base.32_1;
+  unsigned int _2;
+  u32 * _3;
+  unsigned int base.33_4;
+  unsigned int _5;
+  u32 * _6;
+  int _7;
+  int cmd.34_8;
+  int arg.35_9;
+  unsigned int base.36_10;
+  unsigned int _11;
+  u32 * _12;
+  struct PROC * running.37_13;
+  int _14;
+  int txdone.38_15;
+
+;;   basic block 2, loop depth 0
+;;    pred:       ENTRY
+  txbuf = buf_18(D);
+  txcount = 1024;
+  txsem.value = 0;
+  txsem.queue = 0B;
+  txdone = 0;
+  base.32_1 = base;
+  _2 = base.32_1 + 36;
+  _3 = (u32 *) _2;
+  *_3 = 4294901760;
+  base.33_4 = base;
+  _5 = base.33_4 + 40;
+  _6 = (u32 *) _5;
+  *_6 = 1024;
+  cmd_26 = 25;
+  _7 = blk_27(D) * 1024;
+  arg_28 = (u32) _7;
+  cmd.34_8 = (int) cmd_26;
+  arg.35_9 = (int) arg_28;
+  do_command (cmd.34_8, arg.35_9, 21);
+  base.36_10 = base;
+  _11 = base.36_10 + 44;
+  _12 = (u32 *) _11;
+  *_12 = 145;
+  running.37_13 = running;
+  _14 = running.37_13->pid;
+  if (_14 != 0)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 4>; [INV]
+;;    succ:       3
+;;                4
+
+;;   basic block 3, loop depth 0
+;;    pred:       2
+  P (&txsem);
+  goto <bb 6>; [INV]
+;;    succ:       6
+
+;;   basic block 4, loop depth 0
+;;    pred:       2
+;;    succ:       5
+
+;;   basic block 5, loop depth 1
+;;    pred:       4
+;;                5
+  txdone.38_15 = txdone;
+  if (txdone.38_15 == 0)
+    goto <bb 5>; [INV]
+  else
+    goto <bb 6>; [INV]
+;;    succ:       5
+;;                6
+
+;;   basic block 6, loop depth 0
+;;    pred:       3
+;;                5
+  return;
+;;    succ:       EXIT
+
+}
+
+
+
+Partition map 
+
+Partition 1 (base.32_1 - 1 )
+Partition 2 (_2 - 2 )
+Partition 3 (_3 - 3 )
+Partition 4 (base.33_4 - 4 )
+Partition 5 (_5 - 5 )
+Partition 6 (_6 - 6 )
+Partition 7 (_7 - 7 )
+Partition 8 (cmd.34_8 - 8 )
+Partition 9 (arg.35_9 - 9 )
+Partition 10 (base.36_10 - 10 )
+Partition 11 (_11 - 11 )
+Partition 12 (_12 - 12 )
+Partition 13 (running.37_13 - 13 )
+Partition 14 (_14 - 14 )
+Partition 15 (txdone.38_15 - 15 )
+Partition 18 (buf_18(D) - 18 )
+Partition 26 (cmd_26 - 26 )
+Partition 27 (blk_27(D) - 27 )
+Partition 28 (arg_28 - 28 )
+Partition 32 (_32(D) - 32 )
+
+
+Coalescible Partition map 
+
+Partition 0, base 0 (buf_18(D) - 18 )
+Partition 1, base 1 (blk_27(D) - 27 )
+Partition 2, base 2 (_32(D) - 32 )
+
+
+Partition map 
+
+Partition 0 (buf_18(D) - 18 )
+Partition 1 (blk_27(D) - 27 )
+Partition 2 (_32(D) - 32 )
+
+
+Conflict graph:
+
+After sorting:
+Coalesce List:
+
+Partition map 
+
+Partition 0 (buf_18(D) - 18 )
+Partition 1 (blk_27(D) - 27 )
+Partition 2 (_32(D) - 32 )
+
+After Coalescing:
+
+Partition map 
+
+Partition 0 (base.32_1 - 1 )
+Partition 1 (_2 - 2 )
+Partition 2 (_3 - 3 )
+Partition 3 (base.33_4 - 4 )
+Partition 4 (_5 - 5 )
+Partition 5 (_6 - 6 )
+Partition 6 (_7 - 7 )
+Partition 7 (cmd.34_8 - 8 )
+Partition 8 (arg.35_9 - 9 )
+Partition 9 (base.36_10 - 10 )
+Partition 10 (_11 - 11 )
+Partition 11 (_12 - 12 )
+Partition 12 (running.37_13 - 13 )
+Partition 13 (_14 - 14 )
+Partition 14 (txdone.38_15 - 15 )
+Partition 15 (buf_18(D) - 18 )
+Partition 16 (cmd_26 - 26 )
+Partition 17 (blk_27(D) - 27 )
+Partition 18 (arg_28 - 28 )
+Partition 19 (_32(D) - 32 )
+
+int putblock (int blk, char * buf)
+{
+  u32 arg;
+  u32 cmd;
+  unsigned int base.32_1;
+  unsigned int _2;
+  u32 * _3;
+  unsigned int base.33_4;
+  unsigned int _5;
+  u32 * _6;
+  int _7;
+  int cmd.34_8;
+  int arg.35_9;
+  unsigned int base.36_10;
+  unsigned int _11;
+  u32 * _12;
+  struct PROC * running.37_13;
+  int _14;
+  int txdone.38_15;
+  int _32(D);
+
+;;   basic block 2, loop depth 0
+;;    pred:       ENTRY
+  txbuf = buf_18(D);
+  txcount = 1024;
+  txsem.value = 0;
+  txsem.queue = 0B;
+  txdone = 0;
+  base.32_1 = base;
+  _2 = base.32_1 + 36;
+  _3 = (u32 *) _2;
+  *_3 = 4294901760;
+  base.33_4 = base;
+  _5 = base.33_4 + 40;
+  _6 = (u32 *) _5;
+  *_6 = 1024;
+  cmd_26 = 25;
+  _7 = blk_27(D) * 1024;
+  arg_28 = (u32) _7;
+  cmd.34_8 = (int) cmd_26;
+  arg.35_9 = (int) arg_28;
+  do_command (cmd.34_8, arg.35_9, 21);
+  base.36_10 = base;
+  _11 = base.36_10 + 44;
+  _12 = (u32 *) _11;
+  *_12 = 145;
+  running.37_13 = running;
+  _14 = running.37_13->pid;
+  if (_14 != 0)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 4>; [INV]
+;;    succ:       3
+;;                4
+
+;;   basic block 3, loop depth 0
+;;    pred:       2
+  P (&txsem);
+  goto <bb 6>; [INV]
+;;    succ:       6
+
+;;   basic block 4, loop depth 0
+;;    pred:       2
+;;    succ:       5
+
+;;   basic block 5, loop depth 1
+;;    pred:       4
+;;                5
+  txdone.38_15 = txdone;
+  if (txdone.38_15 == 0)
+    goto <bb 5>; [INV]
+  else
+    goto <bb 6>; [INV]
+;;    succ:       5
+;;                6
+
+;;   basic block 6, loop depth 0
+;;    pred:       3
+;;                5
+  return;
+;;    succ:       EXIT
+
+}
+
+
+Partition 1: size 4 align 4
+	arg_28
+Partition 0: size 4 align 4
+	cmd_26
+
+;; Generating RTL for gimple basic block 2
+
+;; txbuf = buf_18(D);
+
+(insn 7 6 8 (set (reg/f:SI 129)
+        (symbol_ref:SI ("txbuf") [flags 0x2]  <var_decl 0x7f2800e6a3f0 txbuf>)) "sdc.c":211:9 -1
+     (nil))
+
+(insn 8 7 9 (set (reg/f:SI 130)
+        (mem/f/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -16 [0xfffffffffffffff0])) [3 buf+0 S4 A32])) "sdc.c":211:9 -1
+     (nil))
+
+(insn 9 8 0 (set (mem/f/c:SI (reg/f:SI 129) [3 txbuf+0 S4 A32])
+        (reg/f:SI 130)) "sdc.c":211:9 -1
+     (nil))
+
+;; txcount = 1024;
+
+(insn 10 9 11 (set (reg/f:SI 131)
+        (symbol_ref:SI ("txcount") [flags 0x2]  <var_decl 0x7f2800e6a510 txcount>)) "sdc.c":211:24 -1
+     (nil))
+
+(insn 11 10 12 (set (reg:SI 132)
+        (const_int 1024 [0x400])) "sdc.c":211:24 -1
+     (nil))
+
+(insn 12 11 0 (set (mem/c:SI (reg/f:SI 131) [1 txcount+0 S4 A32])
+        (reg:SI 132)) "sdc.c":211:24 -1
+     (nil))
+
+;; txsem.value = 0;
+
+(insn 13 12 14 (set (reg/f:SI 133)
+        (symbol_ref:SI ("txsem") [flags 0x2]  <var_decl 0x7f2800e6a750 txsem>)) "sdc.c":212:15 -1
+     (nil))
+
+(insn 14 13 15 (set (reg:SI 134)
+        (const_int 0 [0])) "sdc.c":212:15 -1
+     (nil))
+
+(insn 15 14 0 (set (mem/c:SI (reg/f:SI 133) [1 txsem.value+0 S4 A32])
+        (reg:SI 134)) "sdc.c":212:15 -1
+     (nil))
+
+;; txsem.queue = 0B;
+
+(insn 16 15 17 (set (reg/f:SI 135)
+        (symbol_ref:SI ("txsem") [flags 0x2]  <var_decl 0x7f2800e6a750 txsem>)) "sdc.c":213:15 -1
+     (nil))
+
+(insn 17 16 18 (set (reg:SI 136)
+        (const_int 0 [0])) "sdc.c":213:15 -1
+     (nil))
+
+(insn 18 17 0 (set (mem/f/c:SI (plus:SI (reg/f:SI 135)
+                (const_int 4 [0x4])) [5 txsem.queue+0 S4 A32])
+        (reg:SI 136)) "sdc.c":213:15 -1
+     (nil))
+
+;; txdone = 0;
+
+(insn 19 18 20 (set (reg/f:SI 137)
+        (symbol_ref:SI ("txdone") [flags 0x2]  <var_decl 0x7f2800e6a630 txdone>)) "sdc.c":214:10 -1
+     (nil))
+
+(insn 20 19 21 (set (reg:SI 138)
+        (const_int 0 [0])) "sdc.c":214:10 -1
+     (nil))
+
+(insn 21 20 0 (set (mem/c:SI (reg/f:SI 137) [1 txdone+0 S4 A32])
+        (reg:SI 138)) "sdc.c":214:10 -1
+     (nil))
+
+;; base.32_1 = base;
+
+(insn 22 21 23 (set (reg/f:SI 139)
+        (symbol_ref:SI ("base") [flags 0x2]  <var_decl 0x7f2800e6a2d0 base>)) "sdc.c":216:17 -1
+     (nil))
+
+(insn 23 22 0 (set (reg:SI 113 [ base.32_1 ])
+        (mem/c:SI (reg/f:SI 139) [1 base+0 S4 A32])) "sdc.c":216:17 -1
+     (nil))
+
+;; _2 = base.32_1 + 36;
+
+(insn 24 23 0 (set (reg:SI 114 [ _2 ])
+        (plus:SI (reg:SI 113 [ base.32_1 ])
+            (const_int 36 [0x24]))) "sdc.c":216:17 -1
+     (nil))
+
+;; _3 = (u32 *) _2;
+
+(insn 25 24 0 (set (reg/f:SI 115 [ _3 ])
+        (reg:SI 114 [ _2 ])) "sdc.c":216:4 -1
+     (nil))
+
+;; *_3 = 4294901760;
+
+(insn 26 25 27 (set (reg:SI 140)
+        (const_int -65536 [0xffffffffffff0000])) "sdc.c":216:30 -1
+     (nil))
+
+(insn 27 26 0 (set (mem:SI (reg/f:SI 115 [ _3 ]) [1 *_3+0 S4 A32])
+        (reg:SI 140)) "sdc.c":216:30 -1
+     (nil))
+
+;; base.33_4 = base;
+
+(insn 28 27 29 (set (reg/f:SI 141)
+        (symbol_ref:SI ("base") [flags 0x2]  <var_decl 0x7f2800e6a2d0 base>)) "sdc.c":217:17 -1
+     (nil))
+
+(insn 29 28 0 (set (reg:SI 116 [ base.33_4 ])
+        (mem/c:SI (reg/f:SI 141) [1 base+0 S4 A32])) "sdc.c":217:17 -1
+     (nil))
+
+;; _5 = base.33_4 + 40;
+
+(insn 30 29 0 (set (reg:SI 117 [ _5 ])
+        (plus:SI (reg:SI 116 [ base.33_4 ])
+            (const_int 40 [0x28]))) "sdc.c":217:17 -1
+     (nil))
+
+;; _6 = (u32 *) _5;
+
+(insn 31 30 0 (set (reg/f:SI 118 [ _6 ])
+        (reg:SI 117 [ _5 ])) "sdc.c":217:4 -1
+     (nil))
+
+;; *_6 = 1024;
+
+(insn 32 31 33 (set (reg:SI 142)
+        (const_int 1024 [0x400])) "sdc.c":217:31 -1
+     (nil))
+
+(insn 33 32 0 (set (mem:SI (reg/f:SI 118 [ _6 ]) [1 *_6+0 S4 A32])
+        (reg:SI 142)) "sdc.c":217:31 -1
+     (nil))
+
+;; cmd_26 = 25;
+
+(insn 34 33 35 (set (reg:SI 143)
+        (const_int 25 [0x19])) "sdc.c":219:7 -1
+     (nil))
+
+(insn 35 34 0 (set (mem/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [1 cmd+0 S4 A64])
+        (reg:SI 143)) "sdc.c":219:7 -1
+     (nil))
+
+;; _7 = blk_27(D) * 1024;
+
+(insn 36 35 37 (set (reg:SI 144)
+        (mem/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -12 [0xfffffffffffffff4])) [1 blk+0 S4 A32])) "sdc.c":220:22 -1
+     (nil))
+
+(insn 37 36 0 (set (reg:SI 119 [ _7 ])
+        (ashift:SI (reg:SI 144)
+            (const_int 10 [0xa]))) "sdc.c":220:22 -1
+     (nil))
+
+;; arg_28 = (u32) _7;
+
+(insn 38 37 0 (set (mem/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -4 [0xfffffffffffffffc])) [1 arg+0 S4 A32])
+        (reg:SI 119 [ _7 ])) "sdc.c":220:7 -1
+     (nil))
+
+;; cmd.34_8 = (int) cmd_26;
+
+(insn 39 38 0 (set (reg:SI 120 [ cmd.34_8 ])
+        (mem/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [1 cmd+0 S4 A64])) "sdc.c":221:3 -1
+     (nil))
+
+;; arg.35_9 = (int) arg_28;
+
+(insn 40 39 0 (set (reg:SI 121 [ arg.35_9 ])
+        (mem/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -4 [0xfffffffffffffffc])) [1 arg+0 S4 A32])) "sdc.c":221:3 -1
+     (nil))
+
+;; do_command (cmd.34_8, arg.35_9, 21);
+
+(insn 41 40 42 (set (reg:SI 2 r2)
+        (const_int 21 [0x15])) "sdc.c":221:3 -1
+     (nil))
+
+(insn 42 41 43 (set (reg:SI 1 r1)
+        (reg:SI 121 [ arg.35_9 ])) "sdc.c":221:3 -1
+     (nil))
+
+(insn 43 42 44 (set (reg:SI 0 r0)
+        (reg:SI 120 [ cmd.34_8 ])) "sdc.c":221:3 -1
+     (nil))
+
+(call_insn 44 43 0 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("do_command") [flags 0x3]  <function_decl 0x7f2800e61e00 do_command>) [0 do_command S4 A32])
+                    (const_int 0 [0])))
+            (use (const_int 0 [0]))
+            (clobber (reg:SI 14 lr))
+        ]) "sdc.c":221:3 -1
+     (nil)
+    (expr_list (clobber (reg:SI 12 ip))
+        (expr_list:SI (use (reg:SI 0 r0))
+            (expr_list:SI (use (reg:SI 1 r1))
+                (expr_list:SI (use (reg:SI 2 r2))
+                    (nil))))))
+
+;; base.36_10 = base;
+
+(insn 45 44 46 (set (reg/f:SI 145)
+        (symbol_ref:SI ("base") [flags 0x2]  <var_decl 0x7f2800e6a2d0 base>)) "sdc.c":225:17 -1
+     (nil))
+
+(insn 46 45 0 (set (reg:SI 122 [ base.36_10 ])
+        (mem/c:SI (reg/f:SI 145) [1 base+0 S4 A32])) "sdc.c":225:17 -1
+     (nil))
+
+;; _11 = base.36_10 + 44;
+
+(insn 47 46 0 (set (reg:SI 123 [ _11 ])
+        (plus:SI (reg:SI 122 [ base.36_10 ])
+            (const_int 44 [0x2c]))) "sdc.c":225:17 -1
+     (nil))
+
+;; _12 = (u32 *) _11;
+
+(insn 48 47 0 (set (reg/f:SI 124 [ _12 ])
+        (reg:SI 123 [ _11 ])) "sdc.c":225:4 -1
+     (nil))
+
+;; *_12 = 145;
+
+(insn 49 48 50 (set (reg:SI 146)
+        (const_int 145 [0x91])) "sdc.c":225:29 -1
+     (nil))
+
+(insn 50 49 0 (set (mem:SI (reg/f:SI 124 [ _12 ]) [1 *_12+0 S4 A32])
+        (reg:SI 146)) "sdc.c":225:29 -1
+     (nil))
+
+;; running.37_13 = running;
+
+(insn 51 50 52 (set (reg/f:SI 147)
+        (symbol_ref:SI ("running") [flags 0x40]  <var_decl 0x7f2801b4c7e0 running>)) "sdc.c":228:14 -1
+     (nil))
+
+(insn 52 51 0 (set (reg/f:SI 125 [ running.37_13 ])
+        (mem/f/c:SI (reg/f:SI 147) [5 running+0 S4 A32])) "sdc.c":228:14 -1
+     (nil))
+
+;; _14 = running.37_13->pid;
+
+(insn 53 52 0 (set (reg:SI 126 [ _14 ])
+        (mem:SI (plus:SI (reg/f:SI 125 [ running.37_13 ])
+                (const_int 24 [0x18])) [1 running.37_13->pid+0 S4 A32])) "sdc.c":228:14 -1
+     (nil))
+
+;; if (_14 != 0)
+
+(insn 54 53 55 (set (reg:CC 100 cc)
+        (compare:CC (reg:SI 126 [ _14 ])
+            (const_int 0 [0]))) "sdc.c":228:6 -1
+     (nil))
+
+(jump_insn 55 54 0 (set (pc)
+        (if_then_else (eq (reg:CC 100 cc)
+                (const_int 0 [0]))
+            (label_ref 0)
+            (pc))) "sdc.c":228:6 -1
+     (nil))
+
+;; Generating RTL for gimple basic block 3
+
+;; P (&txsem);
+
+(insn 57 56 58 (set (reg:SI 0 r0)
+        (symbol_ref:SI ("txsem") [flags 0x2]  <var_decl 0x7f2800e6a750 txsem>)) "sdc.c":229:6 -1
+     (nil))
+
+(call_insn 58 57 0 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("P") [flags 0x41]  <function_decl 0x7f2800e73b00 P>) [0 P S4 A32])
+                    (const_int 0 [0])))
+            (use (const_int 0 [0]))
+            (clobber (reg:SI 14 lr))
+        ]) "sdc.c":229:6 -1
+     (nil)
+    (expr_list (clobber (reg:SI 12 ip))
+        (expr_list:SI (use (reg:SI 0 r0))
+            (nil))))
+
+;; Generating RTL for gimple basic block 4
+
+;; 
+
+(code_label 61 60 62 26 (nil) [0 uses])
+
+(note 62 61 0 NOTE_INSN_BASIC_BLOCK)
+
+;; Generating RTL for gimple basic block 5
+
+;; txdone.38_15 = txdone;
+
+(insn 64 63 65 (set (reg/f:SI 148)
+        (symbol_ref:SI ("txdone") [flags 0x2]  <var_decl 0x7f2800e6a630 txdone>)) "sdc.c":231:17 -1
+     (nil))
+
+(insn 65 64 0 (set (reg:SI 127 [ txdone.38_15 ])
+        (mem/c:SI (reg/f:SI 148) [1 txdone+0 S4 A32])) "sdc.c":231:17 -1
+     (nil))
+
+;; if (txdone.38_15 == 0)
+
+(insn 67 65 68 (set (reg:CC 100 cc)
+        (compare:CC (reg:SI 127 [ txdone.38_15 ])
+            (const_int 0 [0]))) "sdc.c":231:17 -1
+     (nil))
+
+(jump_insn 68 67 0 (set (pc)
+        (if_then_else (eq (reg:CC 100 cc)
+                (const_int 0 [0]))
+            (label_ref 66)
+            (pc))) "sdc.c":231:17 -1
+     (nil))
+
+;; Generating RTL for gimple basic block 6
+
+;; 
+
+(code_label 69 68 70 27 (nil) [0 uses])
+
+(note 70 69 0 NOTE_INSN_BASIC_BLOCK)
+
+
+try_optimize_cfg iteration 1
+
+Merging block 3 into block 2...
+Merged blocks 2 and 3.
+Merged 2 and 3 without moving.
+Merging block 8 into block 7...
+Merged blocks 7 and 8.
+Merged 7 and 8 without moving.
+
+
+try_optimize_cfg iteration 2
+
+fix_loop_structure: fixing up loops for function
+
+
+;;
+;; Full RTL generated for this function:
+;;
+(note 1 0 5 NOTE_INSN_DELETED)
+;; basic block 2, loop depth 0, maybe hot
+;;  prev block 0, next block 4, flags: (NEW, REACHABLE, RTL)
+;;  pred:       ENTRY (FALLTHRU)
+(note 5 1 2 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+(insn 2 5 3 2 (set (mem/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -12 [0xfffffffffffffff4])) [1 blk+0 S4 A32])
+        (reg:SI 0 r0 [ blk ])) "sdc.c":207:1 -1
+     (nil))
+(insn 3 2 4 2 (set (mem/f/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -16 [0xfffffffffffffff0])) [3 buf+0 S4 A32])
+        (reg:SI 1 r1 [ buf ])) "sdc.c":207:1 -1
+     (nil))
+(note 4 3 7 2 NOTE_INSN_FUNCTION_BEG)
+(insn 7 4 8 2 (set (reg/f:SI 129)
+        (symbol_ref:SI ("txbuf") [flags 0x2]  <var_decl 0x7f2800e6a3f0 txbuf>)) "sdc.c":211:9 -1
+     (nil))
+(insn 8 7 9 2 (set (reg/f:SI 130)
+        (mem/f/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -16 [0xfffffffffffffff0])) [3 buf+0 S4 A32])) "sdc.c":211:9 -1
+     (nil))
+(insn 9 8 10 2 (set (mem/f/c:SI (reg/f:SI 129) [3 txbuf+0 S4 A32])
+        (reg/f:SI 130)) "sdc.c":211:9 -1
+     (nil))
+(insn 10 9 11 2 (set (reg/f:SI 131)
+        (symbol_ref:SI ("txcount") [flags 0x2]  <var_decl 0x7f2800e6a510 txcount>)) "sdc.c":211:24 -1
+     (nil))
+(insn 11 10 12 2 (set (reg:SI 132)
+        (const_int 1024 [0x400])) "sdc.c":211:24 -1
+     (nil))
+(insn 12 11 13 2 (set (mem/c:SI (reg/f:SI 131) [1 txcount+0 S4 A32])
+        (reg:SI 132)) "sdc.c":211:24 -1
+     (nil))
+(insn 13 12 14 2 (set (reg/f:SI 133)
+        (symbol_ref:SI ("txsem") [flags 0x2]  <var_decl 0x7f2800e6a750 txsem>)) "sdc.c":212:15 -1
+     (nil))
+(insn 14 13 15 2 (set (reg:SI 134)
+        (const_int 0 [0])) "sdc.c":212:15 -1
+     (nil))
+(insn 15 14 16 2 (set (mem/c:SI (reg/f:SI 133) [1 txsem.value+0 S4 A32])
+        (reg:SI 134)) "sdc.c":212:15 -1
+     (nil))
+(insn 16 15 17 2 (set (reg/f:SI 135)
+        (symbol_ref:SI ("txsem") [flags 0x2]  <var_decl 0x7f2800e6a750 txsem>)) "sdc.c":213:15 -1
+     (nil))
+(insn 17 16 18 2 (set (reg:SI 136)
+        (const_int 0 [0])) "sdc.c":213:15 -1
+     (nil))
+(insn 18 17 19 2 (set (mem/f/c:SI (plus:SI (reg/f:SI 135)
+                (const_int 4 [0x4])) [5 txsem.queue+0 S4 A32])
+        (reg:SI 136)) "sdc.c":213:15 -1
+     (nil))
+(insn 19 18 20 2 (set (reg/f:SI 137)
+        (symbol_ref:SI ("txdone") [flags 0x2]  <var_decl 0x7f2800e6a630 txdone>)) "sdc.c":214:10 -1
+     (nil))
+(insn 20 19 21 2 (set (reg:SI 138)
+        (const_int 0 [0])) "sdc.c":214:10 -1
+     (nil))
+(insn 21 20 22 2 (set (mem/c:SI (reg/f:SI 137) [1 txdone+0 S4 A32])
+        (reg:SI 138)) "sdc.c":214:10 -1
+     (nil))
+(insn 22 21 23 2 (set (reg/f:SI 139)
+        (symbol_ref:SI ("base") [flags 0x2]  <var_decl 0x7f2800e6a2d0 base>)) "sdc.c":216:17 -1
+     (nil))
+(insn 23 22 24 2 (set (reg:SI 113 [ base.32_1 ])
+        (mem/c:SI (reg/f:SI 139) [1 base+0 S4 A32])) "sdc.c":216:17 -1
+     (nil))
+(insn 24 23 25 2 (set (reg:SI 114 [ _2 ])
+        (plus:SI (reg:SI 113 [ base.32_1 ])
+            (const_int 36 [0x24]))) "sdc.c":216:17 -1
+     (nil))
+(insn 25 24 26 2 (set (reg/f:SI 115 [ _3 ])
+        (reg:SI 114 [ _2 ])) "sdc.c":216:4 -1
+     (nil))
+(insn 26 25 27 2 (set (reg:SI 140)
+        (const_int -65536 [0xffffffffffff0000])) "sdc.c":216:30 -1
+     (nil))
+(insn 27 26 28 2 (set (mem:SI (reg/f:SI 115 [ _3 ]) [1 *_3+0 S4 A32])
+        (reg:SI 140)) "sdc.c":216:30 -1
+     (nil))
+(insn 28 27 29 2 (set (reg/f:SI 141)
+        (symbol_ref:SI ("base") [flags 0x2]  <var_decl 0x7f2800e6a2d0 base>)) "sdc.c":217:17 -1
+     (nil))
+(insn 29 28 30 2 (set (reg:SI 116 [ base.33_4 ])
+        (mem/c:SI (reg/f:SI 141) [1 base+0 S4 A32])) "sdc.c":217:17 -1
+     (nil))
+(insn 30 29 31 2 (set (reg:SI 117 [ _5 ])
+        (plus:SI (reg:SI 116 [ base.33_4 ])
+            (const_int 40 [0x28]))) "sdc.c":217:17 -1
+     (nil))
+(insn 31 30 32 2 (set (reg/f:SI 118 [ _6 ])
+        (reg:SI 117 [ _5 ])) "sdc.c":217:4 -1
+     (nil))
+(insn 32 31 33 2 (set (reg:SI 142)
+        (const_int 1024 [0x400])) "sdc.c":217:31 -1
+     (nil))
+(insn 33 32 34 2 (set (mem:SI (reg/f:SI 118 [ _6 ]) [1 *_6+0 S4 A32])
+        (reg:SI 142)) "sdc.c":217:31 -1
+     (nil))
+(insn 34 33 35 2 (set (reg:SI 143)
+        (const_int 25 [0x19])) "sdc.c":219:7 -1
+     (nil))
+(insn 35 34 36 2 (set (mem/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [1 cmd+0 S4 A64])
+        (reg:SI 143)) "sdc.c":219:7 -1
+     (nil))
+(insn 36 35 37 2 (set (reg:SI 144)
+        (mem/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -12 [0xfffffffffffffff4])) [1 blk+0 S4 A32])) "sdc.c":220:22 -1
+     (nil))
+(insn 37 36 38 2 (set (reg:SI 119 [ _7 ])
+        (ashift:SI (reg:SI 144)
+            (const_int 10 [0xa]))) "sdc.c":220:22 -1
+     (nil))
+(insn 38 37 39 2 (set (mem/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -4 [0xfffffffffffffffc])) [1 arg+0 S4 A32])
+        (reg:SI 119 [ _7 ])) "sdc.c":220:7 -1
+     (nil))
+(insn 39 38 40 2 (set (reg:SI 120 [ cmd.34_8 ])
+        (mem/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [1 cmd+0 S4 A64])) "sdc.c":221:3 -1
+     (nil))
+(insn 40 39 41 2 (set (reg:SI 121 [ arg.35_9 ])
+        (mem/c:SI (plus:SI (reg/f:SI 108 virtual-stack-vars)
+                (const_int -4 [0xfffffffffffffffc])) [1 arg+0 S4 A32])) "sdc.c":221:3 -1
+     (nil))
+(insn 41 40 42 2 (set (reg:SI 2 r2)
+        (const_int 21 [0x15])) "sdc.c":221:3 -1
+     (nil))
+(insn 42 41 43 2 (set (reg:SI 1 r1)
+        (reg:SI 121 [ arg.35_9 ])) "sdc.c":221:3 -1
+     (nil))
+(insn 43 42 44 2 (set (reg:SI 0 r0)
+        (reg:SI 120 [ cmd.34_8 ])) "sdc.c":221:3 -1
+     (nil))
+(call_insn 44 43 45 2 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("do_command") [flags 0x3]  <function_decl 0x7f2800e61e00 do_command>) [0 do_command S4 A32])
+                    (const_int 0 [0])))
+            (use (const_int 0 [0]))
+            (clobber (reg:SI 14 lr))
+        ]) "sdc.c":221:3 -1
+     (nil)
+    (expr_list (clobber (reg:SI 12 ip))
+        (expr_list:SI (use (reg:SI 0 r0))
+            (expr_list:SI (use (reg:SI 1 r1))
+                (expr_list:SI (use (reg:SI 2 r2))
+                    (nil))))))
+(insn 45 44 46 2 (set (reg/f:SI 145)
+        (symbol_ref:SI ("base") [flags 0x2]  <var_decl 0x7f2800e6a2d0 base>)) "sdc.c":225:17 -1
+     (nil))
+(insn 46 45 47 2 (set (reg:SI 122 [ base.36_10 ])
+        (mem/c:SI (reg/f:SI 145) [1 base+0 S4 A32])) "sdc.c":225:17 -1
+     (nil))
+(insn 47 46 48 2 (set (reg:SI 123 [ _11 ])
+        (plus:SI (reg:SI 122 [ base.36_10 ])
+            (const_int 44 [0x2c]))) "sdc.c":225:17 -1
+     (nil))
+(insn 48 47 49 2 (set (reg/f:SI 124 [ _12 ])
+        (reg:SI 123 [ _11 ])) "sdc.c":225:4 -1
+     (nil))
+(insn 49 48 50 2 (set (reg:SI 146)
+        (const_int 145 [0x91])) "sdc.c":225:29 -1
+     (nil))
+(insn 50 49 51 2 (set (mem:SI (reg/f:SI 124 [ _12 ]) [1 *_12+0 S4 A32])
+        (reg:SI 146)) "sdc.c":225:29 -1
+     (nil))
+(insn 51 50 52 2 (set (reg/f:SI 147)
+        (symbol_ref:SI ("running") [flags 0x40]  <var_decl 0x7f2801b4c7e0 running>)) "sdc.c":228:14 -1
+     (nil))
+(insn 52 51 53 2 (set (reg/f:SI 125 [ running.37_13 ])
+        (mem/f/c:SI (reg/f:SI 147) [5 running+0 S4 A32])) "sdc.c":228:14 -1
+     (nil))
+(insn 53 52 54 2 (set (reg:SI 126 [ _14 ])
+        (mem:SI (plus:SI (reg/f:SI 125 [ running.37_13 ])
+                (const_int 24 [0x18])) [1 running.37_13->pid+0 S4 A32])) "sdc.c":228:14 -1
+     (nil))
+(insn 54 53 55 2 (set (reg:CC 100 cc)
+        (compare:CC (reg:SI 126 [ _14 ])
+            (const_int 0 [0]))) "sdc.c":228:6 -1
+     (nil))
+(jump_insn 55 54 56 2 (set (pc)
+        (if_then_else (eq (reg:CC 100 cc)
+                (const_int 0 [0]))
+            (label_ref 61)
+            (pc))) "sdc.c":228:6 -1
+     (nil)
+ -> 61)
+;;  succ:       4 (FALLTHRU)
+;;              5
+
+;; basic block 4, loop depth 0, maybe hot
+;;  prev block 2, next block 5, flags: (NEW, REACHABLE, RTL)
+;;  pred:       2 (FALLTHRU)
+(note 56 55 57 4 [bb 4] NOTE_INSN_BASIC_BLOCK)
+(insn 57 56 58 4 (set (reg:SI 0 r0)
+        (symbol_ref:SI ("txsem") [flags 0x2]  <var_decl 0x7f2800e6a750 txsem>)) "sdc.c":229:6 -1
+     (nil))
+(call_insn 58 57 59 4 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("P") [flags 0x41]  <function_decl 0x7f2800e73b00 P>) [0 P S4 A32])
+                    (const_int 0 [0])))
+            (use (const_int 0 [0]))
+            (clobber (reg:SI 14 lr))
+        ]) "sdc.c":229:6 -1
+     (nil)
+    (expr_list (clobber (reg:SI 12 ip))
+        (expr_list:SI (use (reg:SI 0 r0))
+            (nil))))
+(jump_insn 59 58 60 4 (set (pc)
+        (label_ref 69)) -1
+     (nil)
+ -> 69)
+;;  succ:       7
+
+(barrier 60 59 61)
+;; basic block 5, loop depth 0, maybe hot
+;;  prev block 4, next block 6, flags: (NEW, REACHABLE, RTL)
+;;  pred:       2
+(code_label 61 60 62 5 26 (nil) [1 uses])
+(note 62 61 66 5 [bb 5] NOTE_INSN_BASIC_BLOCK)
+;;  succ:       6 (FALLTHRU)
+
+;; basic block 6, loop depth 1, maybe hot
+;;  prev block 5, next block 7, flags: (NEW, REACHABLE, RTL)
+;;  pred:       5 (FALLTHRU)
+;;              6 (DFS_BACK)
+(code_label 66 62 63 6 28 (nil) [1 uses])
+(note 63 66 64 6 [bb 6] NOTE_INSN_BASIC_BLOCK)
+(insn 64 63 65 6 (set (reg/f:SI 148)
+        (symbol_ref:SI ("txdone") [flags 0x2]  <var_decl 0x7f2800e6a630 txdone>)) "sdc.c":231:17 -1
+     (nil))
+(insn 65 64 67 6 (set (reg:SI 127 [ txdone.38_15 ])
+        (mem/c:SI (reg/f:SI 148) [1 txdone+0 S4 A32])) "sdc.c":231:17 -1
+     (nil))
+(insn 67 65 68 6 (set (reg:CC 100 cc)
+        (compare:CC (reg:SI 127 [ txdone.38_15 ])
+            (const_int 0 [0]))) "sdc.c":231:17 -1
+     (nil))
+(jump_insn 68 67 69 6 (set (pc)
+        (if_then_else (eq (reg:CC 100 cc)
+                (const_int 0 [0]))
+            (label_ref 66)
+            (pc))) "sdc.c":231:17 -1
+     (nil)
+ -> 66)
+;;  succ:       6 (DFS_BACK)
+;;              7 (FALLTHRU)
+
+;; basic block 7, loop depth 0, maybe hot
+;;  prev block 6, next block 1, flags: (NEW, REACHABLE, RTL, MODIFIED)
+;;  pred:       4
+;;              6 (FALLTHRU)
+(code_label 69 68 70 7 27 (nil) [1 uses])
+(note 70 69 73 7 [bb 7] NOTE_INSN_BASIC_BLOCK)
+(insn 73 70 74 7 (clobber (reg/i:SI 0 r0)) "sdc.c":233:1 -1
+     (nil))
+(insn 74 73 77 7 (clobber (reg:SI 128 [ <retval> ])) "sdc.c":233:1 -1
+     (nil))
+(insn 77 74 72 7 (const_int 0 [0]) "sdc.c":233:1 -1
+     (nil))
+(insn 72 77 75 7 (set (reg/i:SI 0 r0)
+        (reg:SI 128 [ <retval> ])) "sdc.c":233:1 -1
+     (nil))
+(insn 75 72 0 7 (use (reg/i:SI 0 r0)) "sdc.c":233:1 -1
+     (nil))
+;;  succ:       EXIT [always]  (FALLTHRU)
+
