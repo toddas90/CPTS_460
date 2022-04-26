@@ -56,11 +56,11 @@ int main(int argc, char *argv[ ])
             continue;
         }
 
-        // Checks for pipe in the command line.
-        if (strstr(cmdline, "|")) {
-            do_pipe(cmdline);
-            continue;
-        }
+        // // Checks for pipe in the command line.
+        // if (strstr(cmdline, "|")) {
+        //     do_pipe(cmdline);
+        //     continue;
+        // }
 
         // Trivial case exit.
         if (strcmp(cmd, "exit") == 0) {
