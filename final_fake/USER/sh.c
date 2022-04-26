@@ -3,34 +3,23 @@
 #include "ucode.c"
 
 int do_pipe(char *cmdline) {
-    char *cmd1, *cmd2;
-    int pd[2];
-    int pid;
+    char *cmd1 = strtok(cmdline, "|");
+    char *cmd2 = strtok(NULL, "\n");
 
-    cmd1 = strtok(cmdline, "|");
-    cmd2 = strtok(NULL, "|");
+    int fd[2];
+    pipe(fd);
 
-    if (cmd1 == NULL) {
-        return 0;
-    }
-
-    if (cmd2 == NULL) {
-        exec(cmd1);
-        return 0;
-    }
-
-    pipe(pd);
-    pid = fork();
-
+    int pid = fork();
     if (pid == 0) {
-        close(pd[0]);
-        dup2(pd[1], 1);
-        do_pipe(cmd2);
+        close(fd[0]);
+        dup2(fd[1], 1);
+        exec(cmd1);
     } else {
-        close(pd[1]);
-        dup2(pd[0], 0);
-        do_pipe(cmd1);
+        close(fd[1]);
+        dup2(fd[0], 0);
+        exec(cmd2);
     }
+    return 0;
 }
 
 int main(int argc, char *argv[ ])
@@ -41,26 +30,26 @@ int main(int argc, char *argv[ ])
     // The command to be executed. Checks for trivial cases and handles them if necessary.
     char *cmd;
 
-    // The whole command line entered by the user and a copy.
-    char *cmdline, *execute;
+    // The whole command line entered by the user.
+    char cmdline[128], cpy[128];
 
     // Loop forever.
     while (1) {
         printf("sh> ");
         gets(cmdline);
 
-        strcpy(execute, cmdline);
+        strcpy(cpy, cmdline);
+
+        // Checks for pipe in the command line.
+        if (strstr(cmdline, "|")) {
+            do_pipe(cmdline); // BROKEN PIPE
+            continue;
+        }
 
         cmd = strtok(cmdline, " ");
         if (cmd == NULL) {
             continue;
         }
-
-        // // Checks for pipe in the command line.
-        // if (strstr(cmdline, "|")) {
-        //     do_pipe(cmdline);
-        //     continue;
-        // }
 
         // Trivial case exit.
         if (strcmp(cmd, "exit") == 0) {
@@ -68,9 +57,20 @@ int main(int argc, char *argv[ ])
             exit(0);
         }
 
+        // Trivial case cd.
+        if (strcmp(cmd, "cd") == 0) {
+            char *path = strtok(NULL, " ");
+            if (path == NULL) {
+                chdir("/");
+            } else {
+                chdir(path);
+            }
+            continue;
+        }
+
         pid = fork();
         if (pid == 0) {
-            exec(execute);
+            exec(cpy);
         } else {
             wait(&status);
         }
