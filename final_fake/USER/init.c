@@ -25,7 +25,6 @@ int parent() {
 
 void main() {
     int in, out;
-
     in = open("/dev/tty0", O_RDONLY);
     out = open("/dev/tty0", O_WRONLY);
     printf("Forking login process\n");
