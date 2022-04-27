@@ -3,11 +3,44 @@
 #include "ucode.c"
 
 void do_command(char *cmdline) {
-    // printf("-----Exec-----\n");
-    // printf("cmdline: %s\n", cmdline);
-    // printf("--------------\n");
+    char head[64];
+    strcpy(head, cmdline);
+    int in, out;
+    char *in_file, *out_file;
+    in_file = out_file = NULL;
+    in = out = 0;
 
-    exec(cmdline);
+    // Find I/O redirection symbols
+    char *token = strtok(cmdline, " \t\n");
+
+    while (token != NULL) {
+        if (strcmp(token, "<") == 0) {
+            in_file = strtok(NULL, " \t\n");
+            in = open(in_file, O_RDONLY);
+        } else if (strcmp(token, ">") == 0) {
+            out_file = strtok(NULL, " \t\n");
+            out = open(out_file, O_WRONLY | O_CREAT | O_TRUNC);
+        } else if (strcmp(token, ">>") == 0) {
+            out_file = strtok(NULL, " \t\n");
+            out = open(out_file, O_WRONLY | O_CREAT | O_APPEND);
+        }
+        token = strtok(NULL, " \t\n");
+    }
+
+    if (in) {
+        close(0);
+        dup(in);
+        close(in);
+    }
+
+    if (out) {
+        close(1);
+        dup(out);
+        close(out);
+    }
+
+    exec(head);
+    // exec(cmdline);
 }
 
 int scan(char *cmdline, char *head, char *tail) {
@@ -41,17 +74,9 @@ void do_pipe(char *cmdline, int *pipefd) {
     if (pipefd) {
         close(pipefd[0]);
         dup2(pipefd[1], 1);
-        // close(pipefd[1]);
     }
 
     hasPipe = scan(cmdline, head, tail);
-
-    // printf("----------do_pipe----------\n");
-    // printf("head: %s\n", head);
-    // printf("tail: %s\n", tail);
-    // printf("cmdline: %s\n", cmdline);
-    // printf("hasPipe: %d\n", hasPipe);
-    // printf("---------------------------\n");
 
     if (hasPipe) {
         pipe(lpd);
@@ -60,7 +85,6 @@ void do_pipe(char *cmdline, int *pipefd) {
         if (pid) {
             close(lpd[1]);
             dup2(lpd[0], 0);
-            // close(lpd[0]);
             do_command(tail);
         } else {
             do_pipe(head, lpd);
