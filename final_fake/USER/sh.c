@@ -2,29 +2,76 @@
 
 #include "ucode.c"
 
-int do_pipe(char *cmdline) {
-    char *cmd1 = strtok(cmdline, "|");
-    char *cmd2 = strtok(NULL, "\n");
+void do_command(char *cmdline) {
+    // printf("-----Exec-----\n");
+    // printf("cmdline: %s\n", cmdline);
+    // printf("--------------\n");
 
-    int fd[2];
-    pipe(fd);
+    exec(cmdline);
+}
 
-    int pid = fork();
-    if (pid == 0) {
-        close(fd[0]);
-        dup2(fd[1], 1);
-        exec(cmd1);
-    } else {
-        close(fd[1]);
-        dup2(fd[0], 0);
-        exec(cmd2);
+int scan(char *cmdline, char *head, char *tail) {
+    int split = 0;
+    int i = 0;
+
+    while (cmdline[i] != '\0') {
+        if (cmdline[i] == '|') {
+            split = i;
+        }
+        i++;
     }
-    return 0;
+
+    if (split == 0) {
+        strcpy(head, cmdline);
+        strcpy(tail, "");
+        return 0;
+    } else {
+        strncpy(head, cmdline, split);
+        head[split - 1] = '\0';
+        strcpy(tail, cmdline + split + 2);
+        return 1;
+    }
+}
+
+void do_pipe(char *cmdline, int *pipefd) {
+    int lpd[2];
+    int pid, hasPipe;
+    char head[64], tail[64];
+
+    if (pipefd) {
+        close(pipefd[0]);
+        dup2(pipefd[1], 1);
+        // close(pipefd[1]);
+    }
+
+    hasPipe = scan(cmdline, head, tail);
+
+    // printf("----------do_pipe----------\n");
+    // printf("head: %s\n", head);
+    // printf("tail: %s\n", tail);
+    // printf("cmdline: %s\n", cmdline);
+    // printf("hasPipe: %d\n", hasPipe);
+    // printf("---------------------------\n");
+
+    if (hasPipe) {
+        pipe(lpd);
+        pid = fork();
+
+        if (pid) {
+            close(lpd[1]);
+            dup2(lpd[0], 0);
+            // close(lpd[0]);
+            do_command(tail);
+        } else {
+            do_pipe(head, lpd);
+        }
+    } else {
+        do_command(cmdline);
+    }
 }
 
 int main(int argc, char *argv[ ])
 {
-    // pid and status.
     int pid, status;
 
     // The command to be executed. Checks for trivial cases and handles them if necessary.
@@ -39,12 +86,6 @@ int main(int argc, char *argv[ ])
         gets(cmdline);
 
         strcpy(cpy, cmdline);
-
-        // Checks for pipe in the command line.
-        if (strstr(cmdline, "|")) {
-            do_pipe(cmdline); // BROKEN PIPE
-            continue;
-        }
 
         cmd = strtok(cmdline, " ");
         if (cmd == NULL) {
@@ -69,10 +110,10 @@ int main(int argc, char *argv[ ])
         }
 
         pid = fork();
-        if (pid == 0) {
-            exec(cpy);
+        if (pid) {
+            pid = wait(&status);
         } else {
-            wait(&status);
+            do_pipe(cpy, 0);
         }
     }
 }
