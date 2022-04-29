@@ -84,7 +84,6 @@ int putc(char c)
    return 0;
 }
 
-
 void prints(char *s)
 {
    while (*s){
@@ -92,12 +91,6 @@ void prints(char *s)
       s++;
    }
 }
-
-void mputs(char *s)
-{
-  prints(s);
-}
-
 
 extern int strlen(const char *);
 void print2f(char *s)

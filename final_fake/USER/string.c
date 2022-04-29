@@ -164,6 +164,7 @@ char *strtok(char *s, char *delim)
   return q;
 }
 
+// Like strstr but for char.
 char *strchr(char *s, char c)
 {
   while (*s)

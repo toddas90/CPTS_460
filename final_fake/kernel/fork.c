@@ -228,8 +228,8 @@ int fork()
 
   enqueue(&readyQueue, p);
 
-  kprintf("FORK: proc %d forked a child %d\n", running->pid, p->pid); 
-  printQ(readyQueue);
+  // kprintf("FORK: proc %d forked a child %d\n", running->pid, p->pid); 
+  // printQ(readyQueue);
 
   return p->pid;
 }

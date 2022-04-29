@@ -23,12 +23,29 @@ typedef unsigned int   u32;
 #include "crt0.c"
 #include "string.c"
 
+#define S_IFSOCK   0140000
+#define S_IFLNK    0120000
+#define S_IFREG    0100000
+#define S_IFBLK    0060000
+#define S_IFDIR    0040000
+#define S_IFCHR    0020000
+#define S_IFIFO    0010000
+
+#define S_IFMT     0170000
+
+#define S_ISCHR( m ) (((m) & S_IFMT) == S_IFCHR)
+#define S_ISREG( m ) (((m) & S_IFMT) == S_IFREG)
+#define S_ISDIR( m ) (((m) & S_IFMT) == S_IFDIR)
+#define S_ISFIFO( m ) (((m) & S_IFMT) == S_IFIFO)
+#define S_ISLNK( m ) (((m) & S_IFMT) == S_IFLNK)
+
 int pid;
 char line[64], pathname[32], i2[32], i3[32];
 char *name[16], components[64];
 int nk;
 #define EOF -1
 #define NULL 0
+#define BLKSIZE 4096
 extern char cr;
 
 void putchar(const char c){ }
@@ -50,6 +67,19 @@ int getc()
 
 // getline() does NOT show the input chars AND no cooking: 
 // for reditected inputs from a file which may contain '\b' chars
+
+int readline(int fd, char *buf, int size) {
+    int n = 0;
+    char c;
+    while (read(fd, &c, 1) && c != '\n' && n < size) {
+        buf[n++] = c;
+    }
+    if (c == '\n' || c == '\r') {
+        n++;
+    }
+    buf[n] = '\0';
+    return n;
+}
 
 int getline(char *s)
 {

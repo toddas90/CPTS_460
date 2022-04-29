@@ -367,7 +367,7 @@ void kbd_handler2()
     // send signal 2 to processes on KBD
     printf("Control-C: scode=%x\n", scode);
     for (i=1; i<NPROC; i++){  // give signal#2 to ALL on this terminal
-      if (proc[i].status != FREE && strcmp(proc[i].res->tty, "/dev/tty0")==0){
+      if (proc[i].status != FREE && strcmp(proc[i].res->tty, "/dev/tty0")==0 && proc[i].pid != 2){
 	proc[i].res->signal |= (1 << 2); // sh IGNore, so only children die
       }   
     }
